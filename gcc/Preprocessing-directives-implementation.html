@@ -55,65 +55,83 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Next: <a href="Library-functions-implementation.html" accesskey="n" rel="next">Library Functions</a>, Previous: <a href="Statements-implementation.html" accesskey="p" rel="prev">Statements</a>, Up: <a href="C-Implementation.html" accesskey="u" rel="up">C Implementation-Defined Behavior</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Library-functions-implementation.html" accesskey="n" rel="next">库函数</a>，上一页：<a href="Statements-implementation.html" accesskey="p" rel="prev">语句</a>，上级：<a href="C-Implementation.html" accesskey="u" rel="up">C 实现定义行为</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Option-Index.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Preprocessing-Directives"><span>4.13 Preprocessing Directives<a class="copiable-link" href="#Preprocessing-Directives"> &para;</a></span></h3>
+<h3 class="section" id="Preprocessing-Directives-zh"><span>4.13 预处理指令<a class="copiable-link" href="#Preprocessing-Directives-zh"> &para;</a></span></h3>
 
 <p>See <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Implementation_002ddefined-behavior.html#Implementation_002ddefined-behavior">Implementation-defined
 behavior</a> in <cite class="cite">The C Preprocessor</cite>, for details of these aspects of
 implementation-defined behavior.
 </p>
+<p>有关这些实现定义行为方面的详细信息，请参阅 <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Implementation_002ddefined-behavior.html#Implementation_002ddefined-behavior">实现定义行为</a>（<cite class="cite">C 预处理器</cite>）。</p>
+<p><strong>理解：</strong>本节列出 C 预处理器中由具体实现决定的细节。不同编译器或目标平台可能采用不同规则，因此移植代码时应重点检查头文件搜索、条件包含、宏处理和 pragma 行为。</p>
 <ul class="itemize mark-bullet">
 <li><cite class="cite">The locations within <code class="code">#pragma</code> directives where header name
 preprocessing tokens are recognized (C11 6.4, C11 6.4.7).</cite>
+<br><cite class="cite">在 <code class="code">#pragma</code> 指令中识别头文件名预处理标记的位置（C11 6.4、C11 6.4.7）。</cite>
 
 </li><li><cite class="cite">How sequences in both forms of header names are mapped to headers
 or external source file names (C90 6.1.7, C99 and C11 6.4.7).</cite>
+<br><cite class="cite">两种形式的头文件名序列如何映射到头文件或外部源文件名（C90 6.1.7、C99 和 C11 6.4.7）。</cite>
 
 </li><li><cite class="cite">Whether the value of a character constant in a constant expression
 that controls conditional inclusion matches the value of the same character
 constant in the execution character set (C90 6.8.1, C99 and C11 6.10.1).</cite>
+<br><cite class="cite">控制条件包含的常量表达式中，字符常量的值是否与执行字符集中的同一字符常量的值匹配（C90 6.8.1、C99 和 C11 6.10.1）。</cite>
 
 </li><li><cite class="cite">Whether the value of a single-character character constant in a
 constant expression that controls conditional inclusion may have a
 negative value (C90 6.8.1, C99 and C11 6.10.1).</cite>
+<br><cite class="cite">控制条件包含的常量表达式中，单字符字符常量的值是否可以为负值（C90 6.8.1、C99 和 C11 6.10.1）。</cite>
 
 </li><li><cite class="cite">The places that are searched for an included &lsquo;<samp class="samp">&lt;&gt;</samp>&rsquo; delimited
 header, and how the places are specified or the header is
 identified (C90 6.8.2, C99 and C11 6.10.2).</cite>
+<br><cite class="cite">搜索由 &lsquo;<samp class="samp">&lt;&gt;</samp>&rsquo; 分隔的被包含头文件的位置，以及如何指定这些位置或识别该头文件（C90 6.8.2、C99 和 C11 6.10.2）。</cite>
 
 </li><li><cite class="cite">How the named source file is searched for in an included &lsquo;<samp class="samp">&quot;&quot;</samp>&rsquo;
 delimited header (C90 6.8.2, C99 and C11 6.10.2).</cite>
+<br><cite class="cite">如何在由 &lsquo;<samp class="samp">&quot;&quot;</samp>&rsquo; 分隔的被包含头文件中搜索指定的源文件（C90 6.8.2、C99 和 C11 6.10.2）。</cite>
 
 </li><li><cite class="cite">The method by which preprocessing tokens (possibly resulting from
 macro expansion) in a <code class="code">#include</code> directive are combined into a header
 name (C90 6.8.2, C99 and C11 6.10.2).</cite>
+<br><cite class="cite">将 <code class="code">#include</code> 指令中的预处理标记（可能由宏展开产生）组合成头文件名的方法（C90 6.8.2、C99 和 C11 6.10.2）。</cite>
 
 </li><li><cite class="cite">The nesting limit for <code class="code">#include</code> processing (C90 6.8.2, C99
 and C11 6.10.2).</cite>
+<br><cite class="cite"><code class="code">#include</code> 处理的嵌套层数限制（C90 6.8.2、C99 和 C11 6.10.2）。</cite>
 
 </li><li><cite class="cite">Whether the &lsquo;<samp class="samp">#</samp>&rsquo; operator inserts a &lsquo;<samp class="samp">\</samp>&rsquo; character before
 the &lsquo;<samp class="samp">\</samp>&rsquo; character that begins a universal character name in a
 character constant or string literal (C99 and C11 6.10.3.2).</cite>
+<br><cite class="cite">在字符常量或字符串字面量中，&lsquo;<samp class="samp">#</samp>&rsquo; 运算符是否会在开始通用字符名的 &lsquo;<samp class="samp">\</samp>&rsquo; 字符前插入一个 &lsquo;<samp class="samp">\</samp>&rsquo; 字符（C99 和 C11 6.10.3.2）。</cite>
 
 </li><li><cite class="cite">The behavior on each recognized non-<code class="code">STDC #pragma</code>
 directive (C90 6.8.6, C99 and C11 6.10.6).</cite>
 
+<br><cite class="cite">每个已识别的非 <code class="code">STDC #pragma</code> 指令的行为（C90 6.8.6、C99 和 C11 6.10.6）。</cite>
 <p>See <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Pragmas.html#Pragmas">Pragmas</a> in <cite class="cite">The C Preprocessor</cite>, for details of
 pragmas accepted by GCC on all targets.  See <a class="xref" href="Pragmas.html">Pragmas
 Accepted by GCC</a>, for details of target-specific pragmas.
 </p>
+<p>请参阅 <a data-manual="cpp" href="https://gcc.gnu.org/onlinedocs/cpp/Pragmas.html#Pragmas">Pragma 指令</a>（<cite class="cite">C 预处理器</cite>），了解 GCC 在所有目标上接受的 pragma；有关特定目标的 pragma，请参阅 <a class="xref" href="Pragmas.html">GCC 接受的 Pragma 指令</a>。</p>
 </li><li><cite class="cite">The definitions for <code class="code">__DATE__</code> and <code class="code">__TIME__</code> when
 respectively, the date and time of translation are not available (C90
 6.8.8, C99 6.10.8, C11 6.10.8.1).</cite>
+<br><cite class="cite">当翻译时无法获得日期和时间时，<code class="code">__DATE__</code> 和 <code class="code">__TIME__</code> 的定义（C90 6.8.8、C99 6.10.8、C11 6.10.8.1）。</cite>
 
 </li></ul>
+<p><strong>理解：</strong>这些条目对应 C 标准中留给实现决定的预处理器行为；依赖这些细节的程序可能在不同 GCC 配置或其他编译器上表现不同。</p>
 
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Library-functions-implementation.html">Library Functions</a>, Previous: <a href="Statements-implementation.html">Statements</a>, Up: <a href="C-Implementation.html">C Implementation-Defined Behavior</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Library-functions-implementation.html">库函数</a>，上一页：<a href="Statements-implementation.html">语句</a>，上级：<a href="C-Implementation.html">C 实现定义行为</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Option-Index.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

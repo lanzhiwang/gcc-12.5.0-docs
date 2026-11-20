@@ -55,17 +55,21 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Overall-Options.html" accesskey="n" rel="next">Options Controlling the Kind of Output</a>, Up: <a href="Invoking-GCC.html" accesskey="u" rel="up">GCC Command Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Overall-Options.html" rel="next">控制输出类型的选项</a>，上级：<a href="Invoking-GCC.html" rel="up">GCC 命令选项</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Option-Index.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Option-Summary-1"><span>3.1 Option Summary<a class="copiable-link" href="#Option-Summary-1"> &para;</a></span></h3>
+<h3 class="section" id="Option-Summary-1-zh"><span>3.1 选项摘要<a class="copiable-link" href="#Option-Summary-1-zh"> &para;</a></span></h3>
 
 <p>Here is a summary of all the options, grouped by type.  Explanations are
 in the following sections.
 </p>
+<p>这里汇总了所有选项，并按类型分组；具体说明见后续章节。</p>
+<p><strong>理解：</strong>本页适合作为 GCC 命令行选项的速查表。选项代码应按原样传给 GCC，遇到具体选项时再进入对应章节查看行为、默认值和限制。</p>
 <dl class="table">
-<dt><em class="emph">Overall Options</em></dt>
+<dt><em class="emph">Overall Options</em><br>总体选项</dt>
 <dd><p>See <a class="xref" href="Overall-Options.html">Options Controlling the Kind of Output</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Overall-Options.html">控制输出类型的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-c  -S  -E  -o <var class="var">file</var> 
 -dumpbase <var class="var">dumpbase</var>  -dumpbase-ext <var class="var">auxdropsuf</var> 
 -dumpdir <var class="var">dumppfx</var>  -x <var class="var">language</var>  
@@ -76,10 +80,11 @@ in the following sections.
 -fdump-ada-spec<span class="r">[</span>-slim<span class="r">]</span>  -fada-spec-parent=<var class="var">unit</var>  -fdump-go-spec=<var class="var">file</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“总体选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">C Language Options</em></dt>
+<dt><em class="emph">C Language Options</em><br>C 语言选项</dt>
 <dd><p>See <a class="xref" href="C-Dialect-Options.html">Options Controlling C Dialect</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="C-Dialect-Options.html">控制 C 方言的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-ansi  -std=<var class="var">standard</var>  -aux-info <var class="var">filename</var> 
 -fallow-parameterless-variadic-functions  -fno-asm  
 -fno-builtin  -fno-builtin-<var class="var">function</var>  -fcond-mismatch 
@@ -93,10 +98,11 @@ in the following sections.
 -fsigned-char  -funsigned-char  -fsso-struct=<var class="var">endianness</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“C 语言选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">C++ Language Options</em></dt>
+<dt><em class="emph">C++ Language Options</em><br>C++ 语言选项</dt>
 <dd><p>See <a class="xref" href="C_002b_002b-Dialect-Options.html">Options Controlling C++ Dialect</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="C_002b_002b-Dialect-Options.html">控制 C++ 方言的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-fabi-version=<var class="var">n</var>  -fno-access-control 
 -faligned-new=<var class="var">n</var>  -fargs-in-order=<var class="var">n</var>  -fchar8_t  -fcheck-new 
 -fconstexpr-depth=<var class="var">n</var>  -fconstexpr-cache-depth=<var class="var">n</var> 
@@ -158,11 +164,12 @@ in the following sections.
 -Wno-virtual-move-assign  -Wvolatile  -Wzero-as-null-pointer-constant
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“C++ 语言选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Objective-C and Objective-C++ Language Options</em></dt>
+<dt><em class="emph">Objective-C and Objective-C++ Language Options</em><br>Objective-C 和 Objective-C++ 语言选项</dt>
 <dd><p>See <a class="xref" href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html">Options Controlling
 Objective-C and Objective-C++ Dialects</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html">控制 Objective-C 和 Objective-C++ 方言的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-fconstant-string-class=<var class="var">class-name</var> 
 -fgnu-runtime  -fnext-runtime 
 -fno-nil-receivers 
@@ -184,10 +191,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -Wundeclared-selector
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“Objective-C 和 Objective-C++ 语言选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Diagnostic Message Formatting Options</em></dt>
+<dt><em class="emph">Diagnostic Message Formatting Options</em><br>诊断消息格式选项</dt>
 <dd><p>See <a class="xref" href="Diagnostic-Message-Formatting-Options.html">Options to Control Diagnostic Messages Formatting</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Diagnostic-Message-Formatting-Options.html">控制诊断消息格式的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-fmessage-length=<var class="var">n</var>  
 -fdiagnostics-plain-output 
 -fdiagnostics-show-location=<span class="r">[</span>once<span class="r">|</span>every-line<span class="r">]</span>  
@@ -208,10 +216,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -fdiagnostics-escape-format=<span class="r">[</span>unicode<span class="r">|</span>bytes<span class="r">]</span>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“诊断消息格式选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Warning Options</em></dt>
+<dt><em class="emph">Warning Options</em><br>警告选项</dt>
 <dd><p>See <a class="xref" href="Warning-Options.html">Options to Request or Suppress Warnings</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Warning-Options.html">请求或抑制警告的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-fsyntax-only  -fmax-errors=<var class="var">n</var>  -Wpedantic 
 -pedantic-errors 
 -w  -Wextra  -Wall  -Wabi=<var class="var">n</var> 
@@ -310,8 +319,9 @@ Objective-C and Objective-C++ Dialects</a>.
 -Wzero-length-bounds
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“警告选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Static Analyzer Options</em></dt>
+<dt><em class="emph">Static Analyzer Options</em><br>静态分析器选项</dt>
 <dd><div class="example smallexample">
 <pre class="example-preformatted">-fanalyzer 
 -fanalyzer-call-summaries 
@@ -366,8 +376,9 @@ Objective-C and Objective-C++ Dialects</a>.
 
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“静态分析器选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">C and Objective-C-only Warning Options</em></dt>
+<dt><em class="emph">C and Objective-C-only Warning Options</em><br>C 和 Objective-C 专属警告选项</dt>
 <dd><div class="example smallexample">
 <pre class="example-preformatted">-Wbad-function-cast  -Wmissing-declarations 
 -Wmissing-parameter-type  -Wmissing-prototypes  -Wnested-externs 
@@ -376,10 +387,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -Wdeclaration-after-statement  -Wpointer-sign
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“C 和 Objective-C 专属警告选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Debugging Options</em></dt>
+<dt><em class="emph">Debugging Options</em><br>调试选项</dt>
 <dd><p>See <a class="xref" href="Debugging-Options.html">Options for Debugging Your Program</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Debugging-Options.html">调试程序的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-g  -g<var class="var">level</var>  -gdwarf  -gdwarf-<var class="var">version</var> 
 -gbtf -gctf  -gctf<var class="var">level</var> 
 -ggdb  -grecord-gcc-switches  -gno-record-gcc-switches 
@@ -402,10 +414,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -fvar-tracking  -fvar-tracking-assignments
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“调试选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Optimization Options</em></dt>
+<dt><em class="emph">Optimization Options</em><br>优化选项</dt>
 <dd><p>See <a class="xref" href="Optimize-Options.html">Options that Control Optimization</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Optimize-Options.html">控制优化的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-faggressive-loop-optimizations 
 -falign-functions[=<var class="var">n</var>[:<var class="var">m</var>:[<var class="var">n2</var>[:<var class="var">m2</var>]]]] 
 -falign-jumps[=<var class="var">n</var>[:<var class="var">m</var>:[<var class="var">n2</var>[:<var class="var">m2</var>]]]] 
@@ -499,10 +512,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -O  -O0  -O1  -O2  -O3  -Os  -Ofast  -Og  -Oz
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“优化选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Program Instrumentation Options</em></dt>
+<dt><em class="emph">Program Instrumentation Options</em><br>程序插桩选项</dt>
 <dd><p>See <a class="xref" href="Instrumentation-Options.html">Program Instrumentation Options</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Instrumentation-Options.html">程序插桩选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-p  -pg  -fprofile-arcs  --coverage  -ftest-coverage 
 -fprofile-abs-path 
 -fprofile-dir=<var class="var">path</var>  -fprofile-generate  -fprofile-generate=<var class="var">path</var> 
@@ -528,10 +542,11 @@ Objective-C and Objective-C++ Dialects</a>.
 </pre></div>
 <p>-fprofile-prefix-map=<var class="var">old</var>=<var class="var">new</var>
 </p>
+<p><strong>理解：</strong>本组汇总“程序插桩选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Preprocessor Options</em></dt>
+<dt><em class="emph">Preprocessor Options</em><br>预处理器选项</dt>
 <dd><p>See <a class="xref" href="Preprocessor-Options.html">Options Controlling the Preprocessor</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Preprocessor-Options.html">控制预处理器的选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-A<var class="var">question</var>=<var class="var">answer</var> 
 -A-<var class="var">question</var><span class="r">[</span>=<var class="var">answer</var><span class="r">]</span> 
 -C  -CC  -D<var class="var">macro</var><span class="r">[</span>=<var class="var">defn</var><span class="r">]</span> 
@@ -551,17 +566,19 @@ Objective-C and Objective-C++ Dialects</a>.
 -Wp,<var class="var">option</var>  -Xpreprocessor <var class="var">option</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“预处理器选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Assembler Options</em></dt>
+<dt><em class="emph">Assembler Options</em><br>汇编器选项</dt>
 <dd><p>See <a class="xref" href="Assembler-Options.html">Passing Options to the Assembler</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Assembler-Options.html">向汇编器传递选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-Wa,<var class="var">option</var>  -Xassembler <var class="var">option</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“汇编器选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Linker Options</em></dt>
+<dt><em class="emph">Linker Options</em><br>链接器选项</dt>
 <dd><p>See <a class="xref" href="Link-Options.html">Options for Linking</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Link-Options.html">链接选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted"><var class="var">object-file-name</var>  -fuse-ld=<var class="var">linker</var>  -l<var class="var">library</var> 
 -nostartfiles  -nodefaultlibs  -nolibc  -nostdlib 
 -e <var class="var">entry</var>  --entry=<var class="var">entry</var> 
@@ -573,10 +590,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -u <var class="var">symbol</var>  -z <var class="var">keyword</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“链接器选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Directory Options</em></dt>
+<dt><em class="emph">Directory Options</em><br>目录选项</dt>
 <dd><p>See <a class="xref" href="Directory-Options.html">Options for Directory Search</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Directory-Options.html">目录搜索选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-B<var class="var">prefix</var>  -I<var class="var">dir</var>  -I- 
 -idirafter <var class="var">dir</var> 
 -imacros <var class="var">file</var>  -imultilib <var class="var">dir</var> 
@@ -587,10 +605,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -nostdinc  -nostdinc++  --sysroot=<var class="var">dir</var>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“目录选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Code Generation Options</em></dt>
+<dt><em class="emph">Code Generation Options</em><br>代码生成选项</dt>
 <dd><p>See <a class="xref" href="Code-Gen-Options.html">Options for Code Generation Conventions</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Code-Gen-Options.html">代码生成约定选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-fcall-saved-<var class="var">reg</var>  -fcall-used-<var class="var">reg</var> 
 -ffixed-<var class="var">reg</var>  -fexceptions 
 -fnon-call-exceptions  -fdelete-dead-exceptions  -funwind-tables 
@@ -609,10 +628,11 @@ Objective-C and Objective-C++ Dialects</a>.
 -fstrict-volatile-bitfields  -fsync-libcalls
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“代码生成选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Developer Options</em></dt>
+<dt><em class="emph">Developer Options</em><br>开发者选项</dt>
 <dd><p>See <a class="xref" href="Developer-Options.html">GCC Developer Options</a>.
-</p><div class="example smallexample">
+</p><p>请参阅 <a class="xref" href="Developer-Options.html">GCC 开发者选项</a>。</p><div class="example smallexample">
 <pre class="example-preformatted">-d<var class="var">letters</var>  -dumpspecs  -dumpmachine  -dumpversion 
 -dumpfullversion  -fcallgraph-info<span class="r">[</span>=su,da<span class="r">]</span>
 -fchecking  -fchecking=<var class="var">n</var>
@@ -656,11 +676,13 @@ Objective-C and Objective-C++ Dialects</a>.
 -save-temps  -save-temps=cwd  -save-temps=obj  -time<span class="r">[</span>=<var class="var">file</var><span class="r">]</span>
 </pre></div>
 
+<p><strong>理解：</strong>本组汇总“开发者选项”相关的命令行选项；选项本身保持原样，详细行为请参阅上方链接的章节。</p>
 </dd>
-<dt><em class="emph">Machine-Dependent Options</em></dt>
+<dt><em class="emph">Machine-Dependent Options</em><br>依赖机器的选项</dt>
 <dd><p>See <a class="xref" href="Submodel-Options.html">Machine-Dependent Options</a>.
 </p>
-<p><em class="emph">AArch64 Options</em>
+<p>请参阅 <a class="xref" href="Submodel-Options.html">依赖机器的选项</a>。</p>
+<p><em class="emph">AArch64 Options</em><br>AArch64 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mabi=<var class="var">name</var>  -mbig-endian  -mlittle-endian 
 -mgeneral-regs-only 
@@ -683,7 +705,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -moutline-atomics 
 </pre></div>
 
-<p><em class="emph">Adapteva Epiphany Options</em>
+<p><em class="emph">Adapteva Epiphany Options</em><br>Adapteva Epiphany 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mhalf-reg-file  -mprefer-short-insn-regs 
 -mbranch-cost=<var class="var">num</var>  -mcmove  -mnops=<var class="var">num</var>  -msoft-cmpsf 
@@ -693,12 +715,12 @@ Objective-C and Objective-C++ Dialects</a>.
 -msplit-vecmove-early  -m1reg-<var class="var">reg</var>
 </pre></div>
 
-<p><em class="emph">AMD GCN Options</em>
+<p><em class="emph">AMD GCN Options</em><br>AMD GCN 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-march=<var class="var">gpu</var> -mtune=<var class="var">gpu</var> -mstack-size=<var class="var">bytes</var>
 </pre></div>
 
-<p><em class="emph">ARC Options</em>
+<p><em class="emph">ARC Options</em><br>ARC 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbarrel-shifter  -mjli-always 
 -mcpu=<var class="var">cpu</var>  -mA6  -mARC600  -mA7  -mARC700 
@@ -720,7 +742,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mdiv-rem  -mcode-density  -mll64  -mfpu=<var class="var">fpu</var>  -mrf16  -mbranch-index
 </pre></div>
 
-<p><em class="emph">ARM Options</em>
+<p><em class="emph">ARM Options</em><br>ARM 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mapcs-frame  -mno-apcs-frame 
 -mabi=<var class="var">name</var> 
@@ -763,7 +785,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mfdpic
 </pre></div>
 
-<p><em class="emph">AVR Options</em>
+<p><em class="emph">AVR Options</em><br>AVR 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mmcu=<var class="var">mcu</var>  -mabsdata  -maccumulate-args 
 -mbranch-cost=<var class="var">cost</var> 
@@ -776,7 +798,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -Waddr-space-convert  -Wmisspelled-isr
 </pre></div>
 
-<p><em class="emph">Blackfin Options</em>
+<p><em class="emph">Blackfin Options</em><br>Blackfin 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu</var><span class="r">[</span>-<var class="var">sirevision</var><span class="r">]</span> 
 -msim  -momit-leaf-frame-pointer  -mno-omit-leaf-frame-pointer 
@@ -789,13 +811,13 @@ Objective-C and Objective-C++ Dialects</a>.
 -micplb
 </pre></div>
 
-<p><em class="emph">C6X Options</em>
+<p><em class="emph">C6X Options</em><br>C6X 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbig-endian  -mlittle-endian  -march=<var class="var">cpu</var> 
 -msim  -msdata=<var class="var">sdata-type</var>
 </pre></div>
 
-<p><em class="emph">CRIS Options</em>
+<p><em class="emph">CRIS Options</em><br>CRIS 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu</var>  -march=<var class="var">cpu</var>
 -mtune=<var class="var">cpu</var> -mmax-stack-frame=<var class="var">n</var> 
@@ -806,7 +828,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mmul-bug-workaround  -mno-mul-bug-workaround
 </pre></div>
 
-<p><em class="emph">CR16 Options</em>
+<p><em class="emph">CR16 Options</em><br>CR16 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mmac 
 -mcr16cplus  -mcr16c 
@@ -814,7 +836,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mdata-model=<var class="var">model</var>
 </pre></div>
 
-<p><em class="emph">C-SKY Options</em>
+<p><em class="emph">C-SKY Options</em><br>C-SKY 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-march=<var class="var">arch</var>  -mcpu=<var class="var">cpu</var> 
 -mbig-endian  -EB  -mlittle-endian  -EL 
@@ -827,7 +849,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mbranch-cost=<var class="var">n</var>  -mcse-cc  -msched-prolog -msim
 </pre></div>
 
-<p><em class="emph">Darwin Options</em>
+<p><em class="emph">Darwin Options</em><br>Darwin 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-all_load  -allowable_client  -arch  -arch_errors_fatal 
 -arch_only  -bind_at_load  -bundle  -bundle_loader 
@@ -856,7 +878,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mkernel  -mone-byte-bool
 </pre></div>
 
-<p><em class="emph">DEC Alpha Options</em>
+<p><em class="emph">DEC Alpha Options</em><br>DEC Alpha 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mno-fp-regs  -msoft-float 
 -mieee  -mieee-with-inexact  -mieee-conformant 
@@ -870,24 +892,24 @@ Objective-C and Objective-C++ Dialects</a>.
 -mmemory-latency=<var class="var">time</var>
 </pre></div>
 
-<p><em class="emph">eBPF Options</em>
+<p><em class="emph">eBPF Options</em><br>eBPF 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbig-endian -mlittle-endian -mkernel=<var class="var">version</var>
 -mframe-limit=<var class="var">bytes</var> -mxbpf -mco-re -mno-co-re
 -mjmpext -mjmp32 -malu32 -mcpu=<var class="var">version</var>
 </pre></div>
 
-<p><em class="emph">FR30 Options</em>
+<p><em class="emph">FR30 Options</em><br>FR30 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msmall-model  -mno-lsim
 </pre></div>
 
-<p><em class="emph">FT32 Options</em>
+<p><em class="emph">FT32 Options</em><br>FT32 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msim  -mlra  -mnodiv  -mft32b  -mcompress  -mnopm
 </pre></div>
 
-<p><em class="emph">FRV Options</em>
+<p><em class="emph">FRV Options</em><br>FRV 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mgpr-32  -mgpr-64  -mfpr-32  -mfpr-64 
 -mhard-float  -msoft-float 
@@ -907,18 +929,18 @@ Objective-C and Objective-C++ Dialects</a>.
 -mcpu=<var class="var">cpu</var>
 </pre></div>
 
-<p><em class="emph">GNU/Linux Options</em>
+<p><em class="emph">GNU/Linux Options</em><br>GNU/Linux 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mglibc  -muclibc  -mmusl  -mbionic  -mandroid 
 -tno-android-cc  -tno-android-ld
 </pre></div>
 
-<p><em class="emph">H8/300 Options</em>
+<p><em class="emph">H8/300 Options</em><br>H8/300 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mrelax  -mh  -ms  -mn  -mexr  -mno-exr  -mint32  -malign-300
 </pre></div>
 
-<p><em class="emph">HPPA Options</em>
+<p><em class="emph">HPPA Options</em><br>HPPA 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-march=<var class="var">architecture-type</var> 
 -mcaller-copies  -mdisable-fpregs  -mdisable-indexing 
@@ -935,7 +957,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -munix=<var class="var">unix-std</var>  -nolibdld  -static  -threads
 </pre></div>
 
-<p><em class="emph">IA-64 Options</em>
+<p><em class="emph">IA-64 Options</em><br>IA-64 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbig-endian  -mlittle-endian  -mgnu-as  -mgnu-ld  -mno-pic 
 -mvolatile-asm-stop  -mregister-names  -msdata  -mno-sdata 
@@ -960,13 +982,13 @@ Objective-C and Objective-C++ Dialects</a>.
 -msched-max-memory-insns-hard-limit  -msched-max-memory-insns=<var class="var">max-insns</var>
 </pre></div>
 
-<p><em class="emph">LM32 Options</em>
+<p><em class="emph">LM32 Options</em><br>LM32 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbarrel-shift-enabled  -mdivide-enabled  -mmultiply-enabled 
 -msign-extend-enabled  -muser-enabled
 </pre></div>
 
-<p><em class="emph">LoongArch Options</em>
+<p><em class="emph">LoongArch Options</em><br>LoongArch 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-march=<var class="var">cpu-type</var>  -mtune=<var class="var">cpu-type</var> -mabi=<var class="var">base-abi-type</var> 
 -mfpu=<var class="var">fpu-type</var> -msoft-float -msingle-float -mdouble-float 
@@ -978,7 +1000,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mcmodel=<var class="var">code-model</var> -mrelax -mpass-mrelax-to-as
 </pre></div>
 
-<p><em class="emph">M32R/D Options</em>
+<p><em class="emph">M32R/D Options</em><br>M32R/D 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-m32r2  -m32rx  -m32r 
 -mdebug 
@@ -992,12 +1014,12 @@ Objective-C and Objective-C++ Dialects</a>.
 -G <var class="var">num</var>
 </pre></div>
 
-<p><em class="emph">M32C Options</em>
+<p><em class="emph">M32C Options</em><br>M32C 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu</var>  -msim  -memregs=<var class="var">number</var>
 </pre></div>
 
-<p><em class="emph">M680x0 Options</em>
+<p><em class="emph">M680x0 Options</em><br>M680x0 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-march=<var class="var">arch</var>  -mcpu=<var class="var">cpu</var>  -mtune=<var class="var">tune</var> 
 -m68000  -m68020  -m68020-40  -m68020-60  -m68030  -m68040 
@@ -1010,7 +1032,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mxgot  -mno-xgot  -mlong-jump-table-offsets
 </pre></div>
 
-<p><em class="emph">MCore Options</em>
+<p><em class="emph">MCore Options</em><br>MCore 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mhardlit  -mno-hardlit  -mdiv  -mno-div  -mrelax-immediates 
 -mno-relax-immediates  -mwide-bitfields  -mno-wide-bitfields 
@@ -1019,7 +1041,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mlittle-endian  -mbig-endian  -m210  -m340  -mstack-increment
 </pre></div>
 
-<p><em class="emph">MeP Options</em>
+<p><em class="emph">MeP Options</em><br>MeP 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mabsdiff  -mall-opts  -maverage  -mbased=<var class="var">n</var>  -mbitops 
 -mc=<var class="var">n</var>  -mclip  -mconfig=<var class="var">name</var>  -mcop  -mcop32  -mcop64  -mivc2 
@@ -1028,7 +1050,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mtiny=<var class="var">n</var>
 </pre></div>
 
-<p><em class="emph">MicroBlaze Options</em>
+<p><em class="emph">MicroBlaze Options</em><br>MicroBlaze 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msoft-float  -mhard-float  -msmall-divides  -mcpu=<var class="var">cpu</var> 
 -mmemcpy  -mxl-soft-mul  -mxl-soft-div  -mxl-barrel-shift 
@@ -1038,7 +1060,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mpic-data-is-text-relative
 </pre></div>
 
-<p><em class="emph">MIPS Options</em>
+<p><em class="emph">MIPS Options</em><br>MIPS 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-EL  -EB  -march=<var class="var">arch</var>  -mtune=<var class="var">arch</var> 
 -mips1  -mips2  -mips3  -mips4  -mips32  -mips32r2  -mips32r3  -mips32r5 
@@ -1098,7 +1120,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mframe-header-opt  -mno-frame-header-opt
 </pre></div>
 
-<p><em class="emph">MMIX Options</em>
+<p><em class="emph">MMIX Options</em><br>MMIX 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mlibfuncs  -mno-libfuncs  -mepsilon  -mno-epsilon  -mabi=gnu 
 -mabi=mmixware  -mzero-extend  -mknuthdiv  -mtoplevel-symbols 
@@ -1106,7 +1128,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mno-base-addresses  -msingle-exit  -mno-single-exit
 </pre></div>
 
-<p><em class="emph">MN10300 Options</em>
+<p><em class="emph">MN10300 Options</em><br>MN10300 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mmult-bug  -mno-mult-bug 
 -mno-am33  -mam33  -mam33-2  -mam34 
@@ -1115,12 +1137,12 @@ Objective-C and Objective-C++ Dialects</a>.
 -mno-crt0  -mrelax  -mliw  -msetlb
 </pre></div>
 
-<p><em class="emph">Moxie Options</em>
+<p><em class="emph">Moxie Options</em><br>Moxie 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-meb  -mel  -mmul.x  -mno-crt0
 </pre></div>
 
-<p><em class="emph">MSP430 Options</em>
+<p><em class="emph">MSP430 Options</em><br>MSP430 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msim  -masm-hex  -mmcu=  -mcpu=  -mlarge  -msmall  -mrelax 
 -mwarn-mcu 
@@ -1129,7 +1151,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mhwmult=  -minrt  -mtiny-printf  -mmax-inline-shift=
 </pre></div>
 
-<p><em class="emph">NDS32 Options</em>
+<p><em class="emph">NDS32 Options</em><br>NDS32 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbig-endian  -mlittle-endian 
 -mreduced-regs  -mfull-regs 
@@ -1146,7 +1168,7 @@ Objective-C and Objective-C++ Dialects</a>.
 -mctor-dtor  -mrelax
 </pre></div>
 
-<p><em class="emph">Nios II Options</em>
+<p><em class="emph">Nios II Options</em><br>Nios II 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-G <var class="var">num</var>  -mgpopt=<var class="var">option</var>  -mgpopt  -mno-gpopt 
 -mgprel-sec=<var class="var">regexp</var>  -mr0rel-sec=<var class="var">regexp</var> 
@@ -1161,12 +1183,12 @@ Objective-C and Objective-C++ Dialects</a>.
 -march=<var class="var">arch</var>  -mbmx  -mno-bmx  -mcdx  -mno-cdx
 </pre></div>
 
-<p><em class="emph">Nvidia PTX Options</em>
+<p><em class="emph">Nvidia PTX Options</em><br>Nvidia PTX 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-m64  -mmainkernel  -moptimize
 </pre></div>
 
-<p><em class="emph">OpenRISC Options</em>
+<p><em class="emph">OpenRISC Options</em><br>OpenRISC 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mboard=<var class="var">name</var>  -mnewlib  -mhard-mul  -mhard-div 
 -msoft-mul  -msoft-div 
@@ -1175,29 +1197,30 @@ Objective-C and Objective-C++ Dialects</a>.
 -mcmodel=<var class="var">code-model</var>
 </pre></div>
 
-<p><em class="emph">PDP-11 Options</em>
+<p><em class="emph">PDP-11 Options</em><br>PDP-11 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mfpu  -msoft-float  -mac0  -mno-ac0  -m40  -m45  -m10 
 -mint32  -mno-int16  -mint16  -mno-int32 
 -msplit  -munix-asm  -mdec-asm  -mgnu-asm  -mlra
 </pre></div>
 
-<p><em class="emph">picoChip Options</em>
+<p><em class="emph">picoChip Options</em><br>picoChip 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mae=<var class="var">ae_type</var>  -mvliw-lookahead=<var class="var">N</var> 
 -msymbol-as-address  -mno-inefficient-warnings
 </pre></div>
 
-<p><em class="emph">PowerPC Options</em>
-See RS/6000 and PowerPC Options.
+<p><em class="emph">PowerPC Options</em><br>PowerPC 选项
+See RS/6000 and PowerPC Options.<br>
+请参阅 RS/6000 和 PowerPC 选项。
 </p>
-<p><em class="emph">PRU Options</em>
+<p><em class="emph">PRU Options</em><br>PRU 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mmcu=<var class="var">mcu</var>  -minrt  -mno-relax  -mloop 
 -mabi=<var class="var">variant</var> 
 </pre></div>
 
-<p><em class="emph">RISC-V Options</em>
+<p><em class="emph">RISC-V Options</em><br>RISC-V 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mbranch-cost=<var class="var">N-instruction</var> 
 -mplt  -mno-plt 
@@ -1222,14 +1245,14 @@ See RS/6000 and PowerPC Options.
 -mstack-protector-guard-offset=<var class="var">offset</var>
 </pre></div>
 
-<p><em class="emph">RL78 Options</em>
+<p><em class="emph">RL78 Options</em><br>RL78 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msim  -mmul=none  -mmul=g13  -mmul=g14  -mallregs 
 -mcpu=g10  -mcpu=g13  -mcpu=g14  -mg10  -mg13  -mg14 
 -m64bit-doubles  -m32bit-doubles  -msave-mduc-in-interrupts
 </pre></div>
 
-<p><em class="emph">RS/6000 and PowerPC Options</em>
+<p><em class="emph">RS/6000 and PowerPC Options</em><br>RS/6000 和 PowerPC 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu-type</var> 
 -mtune=<var class="var">cpu-type</var> 
@@ -1292,7 +1315,7 @@ See RS/6000 and PowerPC Options.
 -mprivileged -mno-privileged
 </pre></div>
 
-<p><em class="emph">RX Options</em>
+<p><em class="emph">RX Options</em><br>RX 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-m64bit-doubles  -m32bit-doubles  -fpu  -nofpu
 -mcpu=
@@ -1310,7 +1333,7 @@ See RS/6000 and PowerPC Options.
 -msave-acc-in-interrupts
 </pre></div>
 
-<p><em class="emph">S/390 and zSeries Options</em>
+<p><em class="emph">S/390 and zSeries Options</em><br>S/390 和 zSeries 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mtune=<var class="var">cpu-type</var>  -march=<var class="var">cpu-type</var> 
 -mhard-float  -msoft-float  -mhard-dfp  -mno-hard-dfp 
@@ -1325,7 +1348,7 @@ See RS/6000 and PowerPC Options.
 -mhotpatch=<var class="var">halfwords</var>,<var class="var">halfwords</var>
 </pre></div>
 
-<p><em class="emph">Score Options</em>
+<p><em class="emph">Score Options</em><br>Score 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-meb  -mel 
 -mnhwloop 
@@ -1334,7 +1357,7 @@ See RS/6000 and PowerPC Options.
 -mscore5  -mscore5u  -mscore7  -mscore7d
 </pre></div>
 
-<p><em class="emph">SH Options</em>
+<p><em class="emph">SH Options</em><br>SH 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-m1  -m2  -m2e 
 -m2a-nofpu  -m2a-single-only  -m2a-single  -m2a 
@@ -1354,13 +1377,13 @@ See RS/6000 and PowerPC Options.
 -mpretend-cmove  -mtas
 </pre></div>
 
-<p><em class="emph">Solaris 2 Options</em>
+<p><em class="emph">Solaris 2 Options</em><br>Solaris 2 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mclear-hwcap  -mno-clear-hwcap  -mimpure-text  -mno-impure-text 
 -pthreads
 </pre></div>
 
-<p><em class="emph">SPARC Options</em>
+<p><em class="emph">SPARC Options</em><br>SPARC 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu-type</var> 
 -mtune=<var class="var">cpu-type</var> 
@@ -1383,23 +1406,23 @@ See RS/6000 and PowerPC Options.
 -mlra  -mno-lra
 </pre></div>
 
-<p><em class="emph">System V Options</em>
+<p><em class="emph">System V Options</em><br>System V 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-Qy  -Qn  -YP,<var class="var">paths</var>  -Ym,<var class="var">dir</var>
 </pre></div>
 
-<p><em class="emph">TILE-Gx Options</em>
+<p><em class="emph">TILE-Gx Options</em><br>TILE-Gx 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=CPU  -m32  -m64  -mbig-endian  -mlittle-endian 
 -mcmodel=<var class="var">code-model</var>
 </pre></div>
 
-<p><em class="emph">TILEPro Options</em>
+<p><em class="emph">TILEPro Options</em><br>TILEPro 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mcpu=<var class="var">cpu</var>  -m32
 </pre></div>
 
-<p><em class="emph">V850 Options</em>
+<p><em class="emph">V850 Options</em><br>V850 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mlong-calls  -mno-long-calls  -mep  -mno-ep 
 -mprolog-function  -mno-prolog-function  -mspace 
@@ -1418,30 +1441,30 @@ See RS/6000 and PowerPC Options.
 -mbig-switch
 </pre></div>
 
-<p><em class="emph">VAX Options</em>
+<p><em class="emph">VAX Options</em><br>VAX 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mg  -mgnu  -munix  -mlra
 </pre></div>
 
-<p><em class="emph">Visium Options</em>
+<p><em class="emph">Visium Options</em><br>Visium 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mdebug  -msim  -mfpu  -mno-fpu  -mhard-float  -msoft-float 
 -mcpu=<var class="var">cpu-type</var>  -mtune=<var class="var">cpu-type</var>  -msv-mode  -muser-mode
 </pre></div>
 
-<p><em class="emph">VMS Options</em>
+<p><em class="emph">VMS Options</em><br>VMS 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mvms-return-codes  -mdebug-main=<var class="var">prefix</var>  -mmalloc64 
 -mpointer-size=<var class="var">size</var>
 </pre></div>
 
-<p><em class="emph">VxWorks Options</em>
+<p><em class="emph">VxWorks Options</em><br>VxWorks 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mrtp  -non-static  -Bstatic  -Bdynamic 
 -Xbind-lazy  -Xbind-now
 </pre></div>
 
-<p><em class="emph">x86 Options</em>
+<p><em class="emph">x86 Options</em><br>x86 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mtune=<var class="var">cpu-type</var>  -march=<var class="var">cpu-type</var> 
 -mtune-ctrl=<var class="var">feature-list</var>  -mdump-tune-features  -mno-default 
@@ -1494,19 +1517,19 @@ See RS/6000 and PowerPC Options.
 -mindirect-branch-cs-prefix -mneeded -mno-direct-extern-access
 </pre></div>
 
-<p><em class="emph">x86 Windows Options</em>
+<p><em class="emph">x86 Windows Options</em><br>x86 Windows 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mconsole  -mcygwin  -mno-cygwin  -mdll 
 -mnop-fun-dllimport  -mthread 
 -municode  -mwin32  -mwindows  -fno-set-stack-executable
 </pre></div>
 
-<p><em class="emph">Xstormy16 Options</em>
+<p><em class="emph">Xstormy16 Options</em><br>Xstormy16 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-msim
 </pre></div>
 
-<p><em class="emph">Xtensa Options</em>
+<p><em class="emph">Xtensa Options</em><br>Xtensa 选项
 </p><div class="example smallexample">
 <pre class="example-preformatted">-mconst16  -mno-const16 
 -mfused-madd  -mno-fused-madd 
@@ -1519,10 +1542,12 @@ See RS/6000 and PowerPC Options.
 -mabi=<var class="var">abi-type</var>
 </pre></div>
 
-<p><em class="emph">zSeries Options</em>
-See S/390 and zSeries Options.
+<p><em class="emph">zSeries Options</em><br>zSeries 选项
+See S/390 and zSeries Options.<br>
+请参阅 S/390 和 zSeries 选项。
 </p></dd>
 </dl>
+<p><strong>理解：</strong>整页按照“总体、语言、诊断、警告、调试、优化、工具链、代码生成和目标机器”等类别组织 GCC 选项。查找选项时先确定所属类别，再阅读对应章节的完整说明。</p>
 
 
 </div>
@@ -1530,6 +1555,7 @@ See S/390 and zSeries Options.
 <div class="nav-panel">
 <p>
 Next: <a href="Overall-Options.html">Options Controlling the Kind of Output</a>, Up: <a href="Invoking-GCC.html">GCC Command Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Overall-Options.html" rel="next">控制输出类型的选项</a>，上级：<a href="Invoking-GCC.html" rel="up">GCC 命令选项</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Option-Index.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 
