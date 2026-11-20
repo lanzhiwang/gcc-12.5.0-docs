@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1988-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>MeP Options (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="MeP Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="MeP Options (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Option-Index.html" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html" rel="up" title="Submodel Options">
+<link href="MicroBlaze-Options.html" rel="next" title="MicroBlaze Options">
+<link href="MCore-Options.html" rel="prev" title="MCore Options">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="MeP-Options">
+<div class="nav-panel">
+<p>
+Next: <a href="MicroBlaze-Options.html" accesskey="n" rel="next">MicroBlaze Options</a>, Previous: <a href="MCore-Options.html" accesskey="p" rel="prev">MCore Options</a>, Up: <a href="Submodel-Options.html" accesskey="u" rel="up">Machine-Dependent Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="MeP-Options-1"><span>3.19.28 MeP Options<a class="copiable-link" href="#MeP-Options-1"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-MeP-options"></a>
+
+<dl class="table">
+<dt><code class="code">-mabsdiff</code></dt>
+<dd><a class="index-entry-id" id="index-mabsdiff"></a>
+<p>Enables the <code class="code">abs</code> instruction, which is the absolute difference
+between two registers.
+</p>
+</dd>
+<dt><code class="code">-mall-opts</code></dt>
+<dd><a class="index-entry-id" id="index-mall_002dopts"></a>
+<p>Enables all the optional instructions&mdash;average, multiply, divide, bit
+operations, leading zero, absolute difference, min/max, clip, and
+saturation.
+</p>
+
+</dd>
+<dt><code class="code">-maverage</code></dt>
+<dd><a class="index-entry-id" id="index-maverage"></a>
+<p>Enables the <code class="code">ave</code> instruction, which computes the average of two
+registers.
+</p>
+</dd>
+<dt><code class="code">-mbased=<var class="var">n</var></code></dt>
+<dd><a class="index-entry-id" id="index-mbased_003d"></a>
+<p>Variables of size <var class="var">n</var> bytes or smaller are placed in the
+<code class="code">.based</code> section by default.  Based variables use the <code class="code">$tp</code>
+register as a base register, and there is a 128-byte limit to the
+<code class="code">.based</code> section.
+</p>
+</dd>
+<dt><code class="code">-mbitops</code></dt>
+<dd><a class="index-entry-id" id="index-mbitops"></a>
+<p>Enables the bit operation instructions&mdash;bit test (<code class="code">btstm</code>), set
+(<code class="code">bsetm</code>), clear (<code class="code">bclrm</code>), invert (<code class="code">bnotm</code>), and
+test-and-set (<code class="code">tas</code>).
+</p>
+</dd>
+<dt><code class="code">-mc=<var class="var">name</var></code></dt>
+<dd><a class="index-entry-id" id="index-mc_003d"></a>
+<p>Selects which section constant data is placed in.  <var class="var">name</var> may
+be &lsquo;<samp class="samp">tiny</samp>&rsquo;, &lsquo;<samp class="samp">near</samp>&rsquo;, or &lsquo;<samp class="samp">far</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">-mclip</code></dt>
+<dd><a class="index-entry-id" id="index-mclip"></a>
+<p>Enables the <code class="code">clip</code> instruction.  Note that <samp class="option">-mclip</samp> is not
+useful unless you also provide <samp class="option">-mminmax</samp>.
+</p>
+</dd>
+<dt><code class="code">-mconfig=<var class="var">name</var></code></dt>
+<dd><a class="index-entry-id" id="index-mconfig_003d"></a>
+<p>Selects one of the built-in core configurations.  Each MeP chip has
+one or more modules in it; each module has a core CPU and a variety of
+coprocessors, optional instructions, and peripherals.  The
+<code class="code">MeP-Integrator</code> tool, not part of GCC, provides these
+configurations through this option; using this option is the same as
+using all the corresponding command-line options.  The default
+configuration is &lsquo;<samp class="samp">default</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">-mcop</code></dt>
+<dd><a class="index-entry-id" id="index-mcop"></a>
+<p>Enables the coprocessor instructions.  By default, this is a 32-bit
+coprocessor.  Note that the coprocessor is normally enabled via the
+<samp class="option">-mconfig=</samp> option.
+</p>
+</dd>
+<dt><code class="code">-mcop32</code></dt>
+<dd><a class="index-entry-id" id="index-mcop32"></a>
+<p>Enables the 32-bit coprocessor&rsquo;s instructions.
+</p>
+</dd>
+<dt><code class="code">-mcop64</code></dt>
+<dd><a class="index-entry-id" id="index-mcop64"></a>
+<p>Enables the 64-bit coprocessor&rsquo;s instructions.
+</p>
+</dd>
+<dt><code class="code">-mivc2</code></dt>
+<dd><a class="index-entry-id" id="index-mivc2"></a>
+<p>Enables IVC2 scheduling.  IVC2 is a 64-bit VLIW coprocessor.
+</p>
+</dd>
+<dt><code class="code">-mdc</code></dt>
+<dd><a class="index-entry-id" id="index-mdc"></a>
+<p>Causes constant variables to be placed in the <code class="code">.near</code> section.
+</p>
+</dd>
+<dt><code class="code">-mdiv</code></dt>
+<dd><a class="index-entry-id" id="index-mdiv-3"></a>
+<p>Enables the <code class="code">div</code> and <code class="code">divu</code> instructions.
+</p>
+</dd>
+<dt><code class="code">-meb</code></dt>
+<dd><a class="index-entry-id" id="index-meb"></a>
+<p>Generate big-endian code.
+</p>
+</dd>
+<dt><code class="code">-mel</code></dt>
+<dd><a class="index-entry-id" id="index-mel"></a>
+<p>Generate little-endian code.
+</p>
+</dd>
+<dt><code class="code">-mio-volatile</code></dt>
+<dd><a class="index-entry-id" id="index-mio_002dvolatile"></a>
+<p>Tells the compiler that any variable marked with the <code class="code">io</code>
+attribute is to be considered volatile.
+</p>
+</dd>
+<dt><code class="code">-ml</code></dt>
+<dd><a class="index-entry-id" id="index-ml"></a>
+<p>Causes variables to be assigned to the <code class="code">.far</code> section by default.
+</p>
+</dd>
+<dt><code class="code">-mleadz</code></dt>
+<dd><a class="index-entry-id" id="index-mleadz"></a>
+<p>Enables the <code class="code">leadz</code> (leading zero) instruction.
+</p>
+</dd>
+<dt><code class="code">-mm</code></dt>
+<dd><a class="index-entry-id" id="index-mm"></a>
+<p>Causes variables to be assigned to the <code class="code">.near</code> section by default.
+</p>
+</dd>
+<dt><code class="code">-mminmax</code></dt>
+<dd><a class="index-entry-id" id="index-mminmax"></a>
+<p>Enables the <code class="code">min</code> and <code class="code">max</code> instructions.
+</p>
+</dd>
+<dt><code class="code">-mmult</code></dt>
+<dd><a class="index-entry-id" id="index-mmult"></a>
+<p>Enables the multiplication and multiply-accumulate instructions.
+</p>
+</dd>
+<dt><code class="code">-mno-opts</code></dt>
+<dd><a class="index-entry-id" id="index-mno_002dopts"></a>
+<p>Disables all the optional instructions enabled by <samp class="option">-mall-opts</samp>.
+</p>
+</dd>
+<dt><code class="code">-mrepeat</code></dt>
+<dd><a class="index-entry-id" id="index-mrepeat"></a>
+<p>Enables the <code class="code">repeat</code> and <code class="code">erepeat</code> instructions, used for
+low-overhead looping.
+</p>
+</dd>
+<dt><code class="code">-ms</code></dt>
+<dd><a class="index-entry-id" id="index-ms-1"></a>
+<p>Causes all variables to default to the <code class="code">.tiny</code> section.  Note
+that there is a 65536-byte limit to this section.  Accesses to these
+variables use the <code class="code">%gp</code> base register.
+</p>
+</dd>
+<dt><code class="code">-msatur</code></dt>
+<dd><a class="index-entry-id" id="index-msatur"></a>
+<p>Enables the saturation instructions.  Note that the compiler does not
+currently generate these itself, but this option is included for
+compatibility with other tools, like <code class="code">as</code>.
+</p>
+</dd>
+<dt><code class="code">-msdram</code></dt>
+<dd><a class="index-entry-id" id="index-msdram-1"></a>
+<p>Link the SDRAM-based runtime instead of the default ROM-based runtime.
+</p>
+</dd>
+<dt><code class="code">-msim</code></dt>
+<dd><a class="index-entry-id" id="index-msim-6"></a>
+<p>Link the simulator run-time libraries.
+</p>
+</dd>
+<dt><code class="code">-msimnovec</code></dt>
+<dd><a class="index-entry-id" id="index-msimnovec"></a>
+<p>Link the simulator runtime libraries, excluding built-in support
+for reset and exception vectors and tables.
+</p>
+</dd>
+<dt><code class="code">-mtf</code></dt>
+<dd><a class="index-entry-id" id="index-mtf"></a>
+<p>Causes all functions to default to the <code class="code">.far</code> section.  Without
+this option, functions default to the <code class="code">.near</code> section.
+</p>
+</dd>
+<dt><code class="code">-mtiny=<var class="var">n</var></code></dt>
+<dd><a class="index-entry-id" id="index-mtiny_003d"></a>
+<p>Variables that are <var class="var">n</var> bytes or smaller are allocated to the
+<code class="code">.tiny</code> section.  These variables use the <code class="code">$gp</code> base
+register.  The default for this option is 4, but note that there&rsquo;s a
+65536-byte limit to the <code class="code">.tiny</code> section.
+</p>
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="MicroBlaze-Options.html">MicroBlaze Options</a>, Previous: <a href="MCore-Options.html">MCore Options</a>, Up: <a href="Submodel-Options.html">Machine-Dependent Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

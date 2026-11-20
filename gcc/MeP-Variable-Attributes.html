@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1988-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>MeP Variable Attributes (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="MeP Variable Attributes (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="MeP Variable Attributes (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Option-Index.html" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Variable-Attributes.html" rel="up" title="Variable Attributes">
+<link href="Microsoft-Windows-Variable-Attributes.html" rel="next" title="Microsoft Windows Variable Attributes">
+<link href="M32R_002fD-Variable-Attributes.html" rel="prev" title="M32R/D Variable Attributes">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="MeP-Variable-Attributes">
+<div class="nav-panel">
+<p>
+Next: <a href="Microsoft-Windows-Variable-Attributes.html" accesskey="n" rel="next">Microsoft Windows Variable Attributes</a>, Previous: <a href="M32R_002fD-Variable-Attributes.html" accesskey="p" rel="prev">M32R/D Variable Attributes</a>, Up: <a href="Variable-Attributes.html" accesskey="u" rel="up">Specifying Attributes of Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="MeP-Variable-Attributes-1"><span>6.34.8 MeP Variable Attributes<a class="copiable-link" href="#MeP-Variable-Attributes-1"> &para;</a></span></h4>
+
+<p>The MeP target has a number of addressing modes and busses.  The
+<code class="code">near</code> space spans the standard memory space&rsquo;s first 16 megabytes
+(24 bits).  The <code class="code">far</code> space spans the entire 32-bit memory space.
+The <code class="code">based</code> space is a 128-byte region in the memory space that
+is addressed relative to the <code class="code">$tp</code> register.  The <code class="code">tiny</code>
+space is a 65536-byte region relative to the <code class="code">$gp</code> register.  In
+addition to these memory regions, the MeP target has a separate 16-bit
+control bus which is specified with <code class="code">cb</code> attributes.
+</p>
+<dl class="table">
+<dt><code class="code">based</code></dt>
+<dd><a class="index-entry-id" id="index-based-variable-attribute_002c-MeP"></a>
+<p>Any variable with the <code class="code">based</code> attribute is assigned to the
+<code class="code">.based</code> section, and is accessed with relative to the
+<code class="code">$tp</code> register.
+</p>
+</dd>
+<dt><code class="code">tiny</code></dt>
+<dd><a class="index-entry-id" id="index-tiny-variable-attribute_002c-MeP"></a>
+<p>Likewise, the <code class="code">tiny</code> attribute assigned variables to the
+<code class="code">.tiny</code> section, relative to the <code class="code">$gp</code> register.
+</p>
+</dd>
+<dt><code class="code">near</code></dt>
+<dd><a class="index-entry-id" id="index-near-variable-attribute_002c-MeP"></a>
+<p>Variables with the <code class="code">near</code> attribute are assumed to have addresses
+that fit in a 24-bit addressing mode.  This is the default for large
+variables (<code class="code">-mtiny=4</code> is the default) but this attribute can
+override <code class="code">-mtiny=</code> for small variables, or override <code class="code">-ml</code>.
+</p>
+</dd>
+<dt><code class="code">far</code></dt>
+<dd><a class="index-entry-id" id="index-far-variable-attribute_002c-MeP"></a>
+<p>Variables with the <code class="code">far</code> attribute are addressed using a full
+32-bit address.  Since this covers the entire memory space, this
+allows modules to make no assumptions about where variables might be
+stored.
+</p>
+</dd>
+<dt><code class="code">io</code></dt>
+<dd><a class="index-entry-id" id="index-io-variable-attribute_002c-MeP"></a>
+</dd>
+<dt><code class="code">io (<var class="var">addr</var>)</code></dt>
+<dd><p>Variables with the <code class="code">io</code> attribute are used to address
+memory-mapped peripherals.  If an address is specified, the variable
+is assigned that address, else it is not assigned an address (it is
+assumed some other module assigns an address).  Example:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">int timer_count __attribute__((io(0x123)));
+</pre></div>
+
+</dd>
+<dt><code class="code">cb</code></dt>
+<dt><code class="code">cb (<var class="var">addr</var>)</code></dt>
+<dd><a class="index-entry-id" id="index-cb-variable-attribute_002c-MeP"></a>
+<p>Variables with the <code class="code">cb</code> attribute are used to access the control
+bus, using special instructions.  <code class="code">addr</code> indicates the control bus
+address.  Example:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">int cpu_clock __attribute__((cb(0x123)));
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Microsoft-Windows-Variable-Attributes.html">Microsoft Windows Variable Attributes</a>, Previous: <a href="M32R_002fD-Variable-Attributes.html">M32R/D Variable Attributes</a>, Up: <a href="Variable-Attributes.html">Specifying Attributes of Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

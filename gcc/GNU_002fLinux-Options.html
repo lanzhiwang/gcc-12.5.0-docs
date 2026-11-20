@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1988-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>GNU/Linux Options (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="GNU/Linux Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="GNU/Linux Options (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Option-Index.html" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html" rel="up" title="Submodel Options">
+<link href="H8_002f300-Options.html" rel="next" title="H8/300 Options">
+<link href="FRV-Options.html" rel="prev" title="FRV Options">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="GNU_002fLinux-Options">
+<div class="nav-panel">
+<p>
+Next: <a href="H8_002f300-Options.html" accesskey="n" rel="next">H8/300 Options</a>, Previous: <a href="FRV-Options.html" accesskey="p" rel="prev">FRV Options</a>, Up: <a href="Submodel-Options.html" accesskey="u" rel="up">Machine-Dependent Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="GNU_002fLinux-Options-1"><span>3.19.18 GNU/Linux Options<a class="copiable-link" href="#GNU_002fLinux-Options-1"> &para;</a></span></h4>
+
+<p>These &lsquo;<samp class="samp">-m</samp>&rsquo; options are defined for GNU/Linux targets:
+</p>
+<dl class="table">
+<dt><code class="code">-mglibc</code></dt>
+<dd><a class="index-entry-id" id="index-mglibc"></a>
+<p>Use the GNU C library.  This is the default except
+on &lsquo;<samp class="samp">*-*-linux-*uclibc*</samp>&rsquo;, &lsquo;<samp class="samp">*-*-linux-*musl*</samp>&rsquo; and
+&lsquo;<samp class="samp">*-*-linux-*android*</samp>&rsquo; targets.
+</p>
+</dd>
+<dt><code class="code">-muclibc</code></dt>
+<dd><a class="index-entry-id" id="index-muclibc"></a>
+<p>Use uClibc C library.  This is the default on
+&lsquo;<samp class="samp">*-*-linux-*uclibc*</samp>&rsquo; targets.
+</p>
+</dd>
+<dt><code class="code">-mmusl</code></dt>
+<dd><a class="index-entry-id" id="index-mmusl"></a>
+<p>Use the musl C library.  This is the default on
+&lsquo;<samp class="samp">*-*-linux-*musl*</samp>&rsquo; targets.
+</p>
+</dd>
+<dt><code class="code">-mbionic</code></dt>
+<dd><a class="index-entry-id" id="index-mbionic"></a>
+<p>Use Bionic C library.  This is the default on
+&lsquo;<samp class="samp">*-*-linux-*android*</samp>&rsquo; targets.
+</p>
+</dd>
+<dt><code class="code">-mandroid</code></dt>
+<dd><a class="index-entry-id" id="index-mandroid"></a>
+<p>Compile code compatible with Android platform.  This is the default on
+&lsquo;<samp class="samp">*-*-linux-*android*</samp>&rsquo; targets.
+</p>
+<p>When compiling, this option enables <samp class="option">-mbionic</samp>, <samp class="option">-fPIC</samp>,
+<samp class="option">-fno-exceptions</samp> and <samp class="option">-fno-rtti</samp> by default.  When linking,
+this option makes the GCC driver pass Android-specific options to the linker.
+Finally, this option causes the preprocessor macro <code class="code">__ANDROID__</code>
+to be defined.
+</p>
+</dd>
+<dt><code class="code">-tno-android-cc</code></dt>
+<dd><a class="index-entry-id" id="index-tno_002dandroid_002dcc"></a>
+<p>Disable compilation effects of <samp class="option">-mandroid</samp>, i.e., do not enable
+<samp class="option">-mbionic</samp>, <samp class="option">-fPIC</samp>, <samp class="option">-fno-exceptions</samp> and
+<samp class="option">-fno-rtti</samp> by default.
+</p>
+</dd>
+<dt><code class="code">-tno-android-ld</code></dt>
+<dd><a class="index-entry-id" id="index-tno_002dandroid_002dld"></a>
+<p>Disable linking effects of <samp class="option">-mandroid</samp>, i.e., pass standard Linux
+linking options to the linker.
+</p>
+</dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

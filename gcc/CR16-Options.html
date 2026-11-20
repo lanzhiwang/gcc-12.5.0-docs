@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1988-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>CR16 Options (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="CR16 Options (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="CR16 Options (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Option-Index.html" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submodel-Options.html" rel="up" title="Submodel Options">
+<link href="C_002dSKY-Options.html" rel="next" title="C-SKY Options">
+<link href="CRIS-Options.html" rel="prev" title="CRIS Options">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="CR16-Options">
+<div class="nav-panel">
+<p>
+Next: <a href="C_002dSKY-Options.html" accesskey="n" rel="next">C-SKY Options</a>, Previous: <a href="CRIS-Options.html" accesskey="p" rel="prev">CRIS Options</a>, Up: <a href="Submodel-Options.html" accesskey="u" rel="up">Machine-Dependent Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="CR16-Options-1"><span>3.19.10 CR16 Options<a class="copiable-link" href="#CR16-Options-1"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-CR16-Options"></a>
+
+<p>These options are defined specifically for the CR16 ports.
+</p>
+<dl class="table">
+<dt><code class="code">-mmac</code></dt>
+<dd><a class="index-entry-id" id="index-mmac"></a>
+<p>Enable the use of multiply-accumulate instructions. Disabled by default.
+</p>
+</dd>
+<dt><code class="code">-mcr16cplus</code></dt>
+<dt><code class="code">-mcr16c</code></dt>
+<dd><a class="index-entry-id" id="index-mcr16cplus"></a>
+<a class="index-entry-id" id="index-mcr16c"></a>
+<p>Generate code for CR16C or CR16C+ architecture. CR16C+ architecture 
+is default.
+</p>
+</dd>
+<dt><code class="code">-msim</code></dt>
+<dd><a class="index-entry-id" id="index-msim-2"></a>
+<p>Links the library libsim.a which is in compatible with simulator. Applicable
+to ELF compiler only.
+</p>
+</dd>
+<dt><code class="code">-mint32</code></dt>
+<dd><a class="index-entry-id" id="index-mint32"></a>
+<p>Choose integer type as 32-bit wide.
+</p>
+</dd>
+<dt><code class="code">-mbit-ops</code></dt>
+<dd><a class="index-entry-id" id="index-mbit_002dops"></a>
+<p>Generates <code class="code">sbit</code>/<code class="code">cbit</code> instructions for bit manipulations.
+</p>
+</dd>
+<dt><code class="code">-mdata-model=<var class="var">model</var></code></dt>
+<dd><a class="index-entry-id" id="index-mdata_002dmodel"></a>
+<p>Choose a data model. The choices for <var class="var">model</var> are &lsquo;<samp class="samp">near</samp>&rsquo;,
+&lsquo;<samp class="samp">far</samp>&rsquo; or &lsquo;<samp class="samp">medium</samp>&rsquo;. &lsquo;<samp class="samp">medium</samp>&rsquo; is default.
+However, &lsquo;<samp class="samp">far</samp>&rsquo; is not valid with <samp class="option">-mcr16c</samp>, as the
+CR16C architecture does not support the far data model.
+</p></dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

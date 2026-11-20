@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Copyright © 1988-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being "Funding Free Software", the Front-Cover
+Texts being (a) (see below), and with the Back-Cover Texts being (b)
+(see below).  A copy of the license is included in the section entitled
+"GNU Free Documentation License".
+
+(a) The FSF's Front-Cover Text is:
+
+A GNU Manual
+
+(b) The FSF's Back-Cover Text is:
+
+You have freedom to copy and modify this GNU Manual, like GNU
+     software.  Copies published by the Free Software Foundation raise
+     funds for GNU development. -->
+<title>TILEPro Built-in Functions (Using the GNU Compiler Collection (GCC))</title>
+
+<meta name="description" content="TILEPro Built-in Functions (Using the GNU Compiler Collection (GCC))">
+<meta name="keywords" content="TILEPro Built-in Functions (Using the GNU Compiler Collection (GCC))">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Option-Index.html" rel="index" title="Option Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Target-Builtins.html" rel="up" title="Target Builtins">
+<link href="x86-Built_002din-Functions.html" rel="next" title="x86 Built-in Functions">
+<link href="TILE_002dGx-Built_002din-Functions.html" rel="prev" title="TILE-Gx Built-in Functions">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+kbd.key {font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="/texinfo-manuals.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="TILEPro-Built_002din-Functions">
+<div class="nav-panel">
+<p>
+Next: <a href="x86-Built_002din-Functions.html" accesskey="n" rel="next">x86 Built-in Functions</a>, Previous: <a href="TILE_002dGx-Built_002din-Functions.html" accesskey="p" rel="prev">TILE-Gx Built-in Functions</a>, Up: <a href="Target-Builtins.html" accesskey="u" rel="up">Built-in Functions Specific to Particular Target Machines</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Option-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="TILEPro-Built_002din-Functions-1"><span>6.60.36 TILEPro Built-in Functions<a class="copiable-link" href="#TILEPro-Built_002din-Functions-1"> &para;</a></span></h4>
+
+<p>GCC provides intrinsics to access every instruction of the TILEPro
+processor.  The intrinsics are of the form:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">
+
+unsigned __insn_<var class="var">op</var> (...)
+
+</pre></div>
+
+<p>where <var class="var">op</var> is the name of the instruction.  Refer to the ISA manual
+for the complete list of instructions.
+</p>
+<p>GCC also provides intrinsics to directly access the network registers.
+The intrinsics are:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">unsigned __tile_idn0_receive (void);
+unsigned __tile_idn1_receive (void);
+unsigned __tile_sn_receive (void);
+unsigned __tile_udn0_receive (void);
+unsigned __tile_udn1_receive (void);
+unsigned __tile_udn2_receive (void);
+unsigned __tile_udn3_receive (void);
+void __tile_idn_send (unsigned);
+void __tile_sn_send (unsigned);
+void __tile_udn_send (unsigned);
+</pre></div>
+
+<p>The intrinsic <code class="code">void __tile_network_barrier (void)</code> is used to
+guarantee that no network operations before it are reordered with
+those after it.
+</p>
+</div>
+
+
+
+</body>
+</html>
