@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Undefining and Redefining Macros (The C Preprocessor)</title>
+<title>Undefining and Redefining Macros (The C Preprocessor)
+取消宏定义与重新定义宏（C 预处理器）</title>
 
 <meta name="description" content="Undefining and Redefining Macros (The C Preprocessor)">
 <meta name="keywords" content="Undefining and Redefining Macros (The C Preprocessor)">
@@ -57,9 +58,11 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Next: <a href="Directives-Within-Macro-Arguments.html" accesskey="n" rel="next">Directives Within Macro Arguments</a>, Previous: <a href="Predefined-Macros.html" accesskey="p" rel="prev">Predefined Macros</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Directives-Within-Macro-Arguments.html" rel="next">宏实参中的指令</a>, 上一页： <a href="Predefined-Macros.html" rel="prev">预定义宏</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Undefining-and-Redefining-Macros-1"><span>3.8 Undefining and Redefining Macros<a class="copiable-link" href="#Undefining-and-Redefining-Macros-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.8 取消宏定义与重新定义宏</h3>
 <a class="index-entry-id" id="index-undefining-macros"></a>
 <a class="index-entry-id" id="index-redefining-macros"></a>
 <a class="index-entry-id" id="index-_0023undef"></a>
@@ -71,6 +74,7 @@ macro is function-like.  It is an error if anything appears on the line
 after the macro name.  &lsquo;<samp class="samp">#undef</samp>&rsquo; has no effect if the name is not a
 macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏不再有用，则可能会使用“<samp class="samp">#undef</samp>”指令取消定义它。 ‘<samp class="samp">#undef</samp>’采用单个参数，即要取消定义的宏的名称。即使宏是类似函数的，您也可以使用裸宏名称。如果宏名称后面的行中出现任何内容，则表示错误。如果名称不是宏，则“<samp class="samp">#undef</samp>”无效。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define FOO 4
 x = FOO;        &rarr; x = 4;
@@ -82,26 +86,43 @@ x = FOO;        &rarr; x = FOO;
 as a macro by a subsequent &lsquo;<samp class="samp">#define</samp>&rsquo; directive.  The new definition
 need not have any resemblance to the old definition.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一旦宏被取消定义，该标识符可以通过后续的“<samp class="samp">#define</samp>”指令重新定义为宏。新定义不必与旧定义有任何相似之处。</p>
 <p>However, if an identifier which is currently a macro is redefined, then
 the new definition must be <em class="dfn">effectively the same</em> as the old one.
 Two macro definitions are effectively the same if:
-</p><ul class="itemize mark-bullet">
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">然而，如果重新定义当前为宏的标识符，则新定义必须与旧定义实际上相同。如果满足以下条件，则两个宏定义实际上是相同的：</p>
+<ul class="itemize mark-bullet">
 <li>Both are the same type of macro (object- or function-like).
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">两者都是相同类型的宏（类似对象或类似函数）。</p>
 </li><li>All the tokens of the replacement list are the same.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">替换列表中的所有标记相同。</p>
 </li><li>If there are any parameters, they are the same.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果有任何参数，它们都是相同的。</p>
 </li><li>Whitespace appears in the same places in both.  It need not be
 exactly the same amount of whitespace, though.  Remember that comments
 count as whitespace.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">两者中的空白出现在相同的位置。不过，它不必是完全相同数量的空白。请记住，注释算作空白。</p>
 </li></ul>
 
 <p>These definitions are effectively the same:
-</p><div class="example smallexample">
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些定义实际上是相同的：</p>
+<div class="example smallexample">
 <pre class="example-preformatted">#define FOUR (2 + 2)
 #define FOUR         (2    +    2)
 #define FOUR (2 /* <span class="r">two</span> */ + 2)
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>两个</p>
+</div>
 <p>but these are not:
-</p><div class="example smallexample">
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">但这些不是：</p>
+<div class="example smallexample">
 <pre class="example-preformatted">#define FOUR (2 + 2)
 #define FOUR ( 2+2 )
 #define FOUR (2 * 2)
@@ -115,11 +136,13 @@ the same, the redefinition is silently ignored.  This allows, for
 instance, two different headers to define a common macro.  The
 preprocessor will only complain if the definitions do not match.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果使用与旧定义实际上不同的定义重新定义宏，则预处理器会发出警告并更改宏以使用新定义。如果新定义实际上相同，则重新定义将被默默忽略。例如，这允许两个不同的头文件定义一个公共宏。仅当定义不匹配时，预处理器才会抱怨。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Directives-Within-Macro-Arguments.html">Directives Within Macro Arguments</a>, Previous: <a href="Predefined-Macros.html">Predefined Macros</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Directives-Within-Macro-Arguments.html">宏实参中的指令</a>, 上一页： <a href="Predefined-Macros.html">预定义宏</a>, 上一级： <a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

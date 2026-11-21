@@ -55,6 +55,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="_005f_005fhas_005fcpp_005fattribute.html" accesskey="n" rel="next"><code class="code">__has_cpp_attribute</code></a>, Previous: <a href="Elif.html" accesskey="p" rel="prev">Elif</a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="_005f_005fhas_005fcpp_005fattribute.html" rel="next">__has_cpp_attribute</a>, 上一页： <a href="Elif.html" rel="prev">#elif 指令</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="g_t_005f_005fhas_005fattribute-1"><span>4.2.6 <code class="code">__has_attribute</code><a class="copiable-link" href="#g_t_005f_005fhas_005fattribute-1"> &para;</a></span></h4>
@@ -74,6 +75,7 @@ itself, without any <var class="var">operand</var> or parentheses, acts as a pre
 macro so that support for it can be tested in portable code.  Thus,
 the recommended use of the operator is as follows:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code class="code">__has_attribute (<var class="var">operand</var>)</code> 可以用在“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中，以测试其 <var class="var">operand</var> 引用的属性是否被 GCC 识别。在其他上下文中使用该运算符是无效的。在C代码中，如果严格遵循C2x之前的标准进行编译，<var class="var">operand</var>必须是有效的标识符。否则，可以选择通过 <code class="code"><var class="var">attribute-scope</var>::</code> 前缀引入 <var class="var">operand</var>。 <var class="var">attribute-scope</var> 前缀标识在其中识别属性的“命名空间”。 GCC 属性的范围是“<samp class="samp">gnu</samp>”或“<samp class="samp">__gnu__</samp>”。 <code class="code">__has_attribute</code> 运算符本身（没有任何 <var class="var">operand</var> 或括号）充当预定义宏，以便可以在可移植代码中测试对其的支持。因此，建议使用该运算符如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_attribute
 #  if __has_attribute (nonnull)
@@ -89,11 +91,13 @@ operator.  As a result, combining the two tests into a single expression as
 shown below would only be valid with a compiler that supports the operator
 but not with others that don&rsquo;t.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">仅当所使用的 GCC（或其他编译器）版本支持该运算符时，第一个“<samp class="samp">#if</samp>”测试才会成功。仅当测试成功时，使用 <code class="code">__has_attribute</code> 作为预处理器运算符才有效。因此，将两个测试组合成一个表达式（如下所示）仅对支持该运算符的编译器有效，但对其他不支持该运算符的编译器无效。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_attribute &amp;&amp; __has_attribute (nonnull)   /* not portable */
 &hellip;
 #endif
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>不具备可移植性</p></div>
 
 </div>
 

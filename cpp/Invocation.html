@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Invocation (The C Preprocessor)</title>
+<title>Invocation (The C Preprocessor)
+调用（C 预处理器）</title>
 
 <meta name="description" content="Invocation (The C Preprocessor)">
 <meta name="keywords" content="Invocation (The C Preprocessor)">
@@ -56,9 +57,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Environment-Variables.html" accesskey="n" rel="next">Environment Variables</a>, Previous: <a href="Implementation-Details.html" accesskey="p" rel="prev">Implementation Details</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Environment-Variables.html" rel="next">环境变量</a>, 上一页： <a href="Implementation-Details.html" rel="prev">实现细节</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Invocation-1"><span>12 Invocation<a class="copiable-link" href="#Invocation-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">12 调用</h2>
 <a class="index-entry-id" id="index-invocation"></a>
 <a class="index-entry-id" id="index-command-line"></a>
 
@@ -70,20 +73,24 @@ In GCC, the preprocessor is actually integrated with the compiler
 rather than a separate program, and both of these commands invoke
 GCC and tell it to stop after the preprocessing phase.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">大多数情况下，当您使用 C 预处理器时，您不必显式调用它：C 编译器会自动执行此操作。然而，预处理器有时本身很有用。您可以使用 <code class="command">cpp</code> 命令或通过 <code class="command">gcc -E</code> 调用预处理器。在 GCC 中，预处理器实际上与编译器集成在一起，而不是一个单独的程序，这两个命令都会调用 GCC 并告诉它在预处理阶段后停止。</p>
 <p>The <code class="command">cpp</code> options listed here are also accepted by
 <code class="command">gcc</code> and have the same meaning.  Likewise the <code class="command">cpp</code>
 command accepts all the usual <code class="command">gcc</code> driver options, although those
 pertaining to compilation phases after preprocessing are ignored.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这里列出的 <code class="command">cpp</code> 选项也被 <code class="command">gcc</code> 接受，并且具有相同的含义。同样，<code class="command">cpp</code> 命令接受所有常用的 <code class="command">gcc</code> 驱动程序选项，尽管与预处理后的编译阶段相关的选项将被忽略。</p>
 <p>Only options specific to preprocessing behavior are documented here.
 Refer to the GCC manual for full documentation of other driver options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此处仅记录特定于预处理行为的选项。有关其他驱动程序选项的完整文档，请参阅 GCC 手册。</p>
 
 <p>The <code class="command">cpp</code> command expects two file names as arguments, <var class="var">infile</var> and
 <var class="var">outfile</var>.  The preprocessor reads <var class="var">infile</var> together with any
 other files it specifies with &lsquo;<samp class="samp">#include</samp>&rsquo;.  All the output generated
 by the combined input files is written in <var class="var">outfile</var>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="command">cpp</code> 命令需要两个文件名作为参数：<var class="var">infile</var> 和 <var class="var">outfile</var>。预处理器读取 <var class="var">infile</var> 以及它用“<samp class="samp">#include</samp>”指定的任何其他文件。组合输入文件生成的所有输出都写入 <var class="var">outfile</var> 中。</p>
 <p>Either <var class="var">infile</var> or <var class="var">outfile</var> may be <samp class="option">-</samp>, which as
 <var class="var">infile</var> means to read from standard input and as <var class="var">outfile</var>
 means to write to standard output.  If either file is omitted, it
@@ -91,17 +98,20 @@ means the same as if <samp class="option">-</samp> had been specified for that f
 You can also use the <samp class="option">-o <var class="var">outfile</var></samp> option to specify the 
 output file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">infile</var> 或 <var class="var">outfile</var> 都可以是 <samp class="option">-</samp>，其中 <var class="var">infile</var> 表示从标准输入读取，<var class="var">outfile</var> 表示写入标准输出。如果省略任一文件，则与为该文件指定 <samp class="option">-</samp> 的含义相同。您还可以使用 <samp class="option">-o <var class="var">outfile</var></samp> 选项来指定输出文件。</p>
 <p>Unless otherwise noted, or the option ends in &lsquo;<samp class="samp">=</samp>&rsquo;, all options
 which take an argument may have that argument appear either immediately
 after the option, or with a space between option and argument:
 <samp class="option">-Ifoo</samp> and <samp class="option">-I foo</samp> have the same effect.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除非另有说明，或者选项以“<samp class="samp">=</samp>”结尾，否则所有带有参数的选项都可以使该参数紧接在选项之后出现，或者在选项和参数之间有一个空格：<samp class="option">-Ifoo</samp> 和 <samp class="option">-I foo</samp> 具有相同的效果。</p>
 <a class="index-entry-id" id="index-grouping-options"></a>
 <a class="index-entry-id" id="index-options_002c-grouping"></a>
 <p>Many options have multi-letter names; therefore multiple single-letter
 options may <em class="emph">not</em> be grouped: <samp class="option">-dM</samp> is very different from
 &lsquo;<samp class="samp">-d&nbsp;-M</samp>&rsquo;<!-- /@w -->.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">许多选项的名称包含多个字母，因此不能把多个单字母选项合并书写：<code>-dM</code> 与 <code>-d -M</code> 的含义截然不同。</p>
 <a class="index-entry-id" id="index-options"></a>
 
 <dl class="table">
@@ -109,6 +119,7 @@ options may <em class="emph">not</em> be grouped: <samp class="option">-dM</samp
 <dd><a class="index-entry-id" id="index-D"></a>
 <p>Predefine <var class="var">name</var> as a macro, with definition <code class="code">1</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将 <var class="var">name</var> 预定义为宏，定义为 <code class="code">1</code>。</p>
 </dd>
 <dt><code class="code">-D <var class="var">name</var>=<var class="var">definition</var></code></dt>
 <dd><p>The contents of <var class="var">definition</var> are tokenized and processed as if
@@ -116,27 +127,32 @@ they appeared during translation phase three in a &lsquo;<samp class="samp">#def
 directive.  In particular, the definition is truncated by
 embedded newline characters.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var>definition</var> 的内容会被标记化并处理，如同它出现在翻译阶段 3 所处理的 <code>#define</code> 指令中。尤其要注意，其中嵌入的换行符会截断宏定义。</p>
 <p>If you are invoking the preprocessor from a shell or shell-like
 program you may need to use the shell&rsquo;s quoting syntax to protect
 characters such as spaces that have a meaning in the shell syntax.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您从 shell 或类似 shell 的程序调用预处理器，您可能需要使用 shell 的引用语法来保护在 shell 语法中有意义的字符，例如空格。</p>
 <p>If you wish to define a function-like macro on the command line, write
 its argument list with surrounding parentheses before the equals sign
 (if any).  Parentheses are meaningful to most shells, so you should
 quote the option.  With <code class="command">sh</code> and <code class="command">csh</code>,
 <samp class="option">-D'<var class="var">name</var>(<var class="var">args&hellip;</var>)=<var class="var">definition</var>'</samp> works.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您希望在命令行上定义函数类宏，请在等号（如果有）之前用圆括号编写其参数列表。括号对大多数 shell 都有意义，因此您应该引用该选项。对于 <code class="command">sh</code> 和 <code class="command">csh</code>，<samp class="option">-D'<var class="var">name</var>(<var class="var">args&hellip;</var>)=<var class="var">definition</var>'</samp> 有效。</p>
 <p><samp class="option">-D</samp> and <samp class="option">-U</samp> options are processed in the order they
 are given on the command line.  All <samp class="option">-imacros <var class="var">file</var></samp> and
 <samp class="option">-include <var class="var">file</var></samp> options are processed after all
 <samp class="option">-D</samp> and <samp class="option">-U</samp> options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-D</samp> 和 <samp class="option">-U</samp> 选项按照命令行上给出的顺序进行处理。所有 <samp class="option">-imacros <var class="var">file</var></samp> 和 <samp class="option">-include <var class="var">file</var></samp> 选项均在所有 <samp class="option">-D</samp> 和 <samp class="option">-U</samp> 选项之后处理。</p>
 </dd>
 <dt><code class="code">-U <var class="var">name</var></code></dt>
 <dd><a class="index-entry-id" id="index-U"></a>
 <p>Cancel any previous definition of <var class="var">name</var>, either built in or
 provided with a <samp class="option">-D</samp> option.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">取消 <var class="var">name</var> 的任何先前定义，无论是内置的还是随 <samp class="option">-D</samp> 选项提供的。</p>
 </dd>
 <dt><code class="code">-include <var class="var">file</var></code></dt>
 <dd><a class="index-entry-id" id="index-include"></a>
@@ -147,9 +163,11 @@ the directory containing the main source file.  If not found there, it
 is searched for in the remainder of the <code class="code">#include &quot;&hellip;&quot;</code> search
 chain as normal.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">处理 <var class="var">file</var>，就好像 <code class="code">#include &quot;file&quot;</code> 作为主源文件的第一行出现一样。但是，搜索 <var class="var">file</var> 的第一个目录是预处理器的工作目录，而不是包含主源文件的目录。如果在那里没有找到，则照常在 <code class="code">#include &quot;&hellip;&quot;</code> 搜索链的其余部分中搜索它。</p>
 <p>If multiple <samp class="option">-include</samp> options are given, the files are included
 in the order they appear on the command line.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果给出多个 <samp class="option">-include</samp> 选项，则文件将按照它们在命令行中出现的顺序包含在内。</p>
 </dd>
 <dt><code class="code">-imacros <var class="var">file</var></code></dt>
 <dd><a class="index-entry-id" id="index-imacros"></a>
@@ -158,9 +176,11 @@ scanning <var class="var">file</var> is thrown away.  Macros it defines remain d
 This allows you to acquire all the macros from a header without also
 processing its declarations.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <samp class="option">-include</samp> 完全相同，只是扫描 <var class="var">file</var> 产生的任何输出都会被丢弃。它定义的宏保持定义状态。这允许您从头文件获取所有宏，而无需处理其声明。</p>
 <p>All files specified by <samp class="option">-imacros</samp> are processed before all files
 specified by <samp class="option">-include</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-imacros</samp> 指定的所有文件将在 <samp class="option">-include</samp> 指定的所有文件之前处理。</p>
 </dd>
 <dt><code class="code">-undef</code></dt>
 <dd><a class="index-entry-id" id="index-undef"></a>
@@ -168,6 +188,7 @@ specified by <samp class="option">-include</samp>.
 standard predefined macros remain defined.
 See <a class="xref" href="Standard-Predefined-Macros.html">Standard Predefined Macros</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不要预定义任何系统特定或 GCC 特定的宏。标准预定义宏保持定义。请参阅 <a class="xref" href="Standard-Predefined-Macros.html">标准预定义宏</a>。</p>
 </dd>
 <dt><code class="code">-pthread</code></dt>
 <dd><a class="index-entry-id" id="index-pthread"></a>
@@ -176,6 +197,7 @@ You should use this option consistently for both compilation and linking.
 This option is supported on GNU/Linux targets, most other Unix derivatives,
 and also on x86 Cygwin and MinGW targets.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">定义使用 POSIX 线程库所需的附加宏。您应该一致地使用此选项进行编译和链接。 GNU/Linux 目标、大多数其他 Unix 衍生版本以及 x86 Cygwin 和 MinGW 目标都支持此选项。</p>
 </dd>
 <dt><code class="code">-M</code></dt>
 <dd><a class="index-entry-id" id="index-M"></a>
@@ -188,6 +210,7 @@ the object file name for that source file, a colon, and the names of all
 the included files, including those coming from <samp class="option">-include</samp> or
 <samp class="option">-imacros</samp> command-line options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不输出预处理结果，而是输出一条适合 <code class="command">make</code> 的规则，描述主源文件的依赖关系。预处理器输出一条 <code class="command">make</code> 规则，其中包含该源文件的目标文件名、冒号以及所有包含的文件的名称，包括来自 <samp class="option">-include</samp> 或 <samp class="option">-imacros</samp> 命令行选项的文件。</p>
 <p>Unless specified explicitly (with <samp class="option">-MT</samp> or <samp class="option">-MQ</samp>), the
 object file name consists of the name of the source file with any
 suffix replaced with object file suffix and with any leading directory
@@ -195,6 +218,7 @@ parts removed.  If there are many included files then the rule is
 split into several lines using &lsquo;<samp class="samp">\</samp>&rsquo;-newline.  The rule has no
 commands.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除非明确指定（使用 <samp class="option">-MT</samp> 或 <samp class="option">-MQ</samp>），否则目标文件名由源文件的名称组成，其中任何后缀均替换为目标文件后缀，并删除任何前导目录部分。如果有许多包含的文件，则使用“<samp class="samp">\</samp>”换行符将规则分成几行。该规则没有命令。</p>
 <p>This option does not suppress the preprocessor&rsquo;s debug output, such as
 <samp class="option">-dM</samp>.  To avoid mixing such debug output with the dependency
 rules you should explicitly specify the dependency output file with
@@ -202,9 +226,11 @@ rules you should explicitly specify the dependency output file with
 <code class="env">DEPENDENCIES_OUTPUT</code> (see <a class="pxref" href="Environment-Variables.html">Environment Variables</a>).  Debug output
 is still sent to the regular output stream as normal.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此选项不会抑制预处理器的调试输出，例如 <samp class="option">-dM</samp>。为了避免将此类调试输出与依赖项规则混合，您应该使用 <samp class="option">-MF</samp> 显式指定依赖项输出文件，或使用 <code class="env">DEPENDENCIES_OUTPUT</code> 等环境变量（请参阅 <a class="pxref" href="Environment-Variables.html">环境变量</a>）。调试输出仍照常发送到常规输出流。</p>
 <p>Passing <samp class="option">-M</samp> to the driver implies <samp class="option">-E</samp>, and suppresses
 warnings with an implicit <samp class="option">-w</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将 <samp class="option">-M</samp> 传递给驱动程序意味着 <samp class="option">-E</samp>，并通过隐式 <samp class="option">-w</samp> 抑制警告。</p>
 </dd>
 <dt><code class="code">-MM</code></dt>
 <dd><a class="index-entry-id" id="index-MM"></a>
@@ -212,10 +238,12 @@ warnings with an implicit <samp class="option">-w</samp>.
 system header directories, nor header files that are included,
 directly or indirectly, from such a header.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <samp class="option">-M</samp> 类似，但不提及在系统头目录中找到的头文件，也不提及直接或间接从此类头包含的头文件。</p>
 <p>This implies that the choice of angle brackets or double quotes in an
 &lsquo;<samp class="samp">#include</samp>&rsquo; directive does not in itself determine whether that
 header appears in <samp class="option">-MM</samp> dependency output.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这意味着“<samp class="samp">#include</samp>”指令中尖括号或双引号的选择本身并不决定该头文件是否出现在 <samp class="option">-MM</samp> 依赖项输出中。</p>
 <a class="anchor" id="dashMF"></a></dd>
 <dt><code class="code">-MF <var class="var">file</var></code></dt>
 <dd><a class="index-entry-id" id="index-MF"></a>
@@ -224,11 +252,14 @@ file to write the dependencies to.  If no <samp class="option">-MF</samp> switch
 the preprocessor sends the rules to the same place it would send
 preprocessed output.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <samp class="option">-M</samp> 或 <samp class="option">-MM</samp> 一起使用时，指定要写入依赖项的文件。如果没有给出 <samp class="option">-MF</samp> 开关，预处理器会将规则发送到发送预处理输出的同一位置。</p>
 <p>When used with the driver options <samp class="option">-MD</samp> or <samp class="option">-MMD</samp>,
 <samp class="option">-MF</samp> overrides the default dependency output file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当与驱动程序选项 <samp class="option">-MD</samp> 或 <samp class="option">-MMD</samp> 一起使用时，<samp class="option">-MF</samp> 会覆盖默认的依赖项输出文件。</p>
 <p>If <var class="var">file</var> is <samp class="file">-</samp>, then the dependencies are written to <samp class="file">stdout</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果 <var class="var">file</var> 是 <samp class="file">-</samp>，则依赖项将写入 <samp class="file">stdout</samp>。</p>
 </dd>
 <dt><code class="code">-MG</code></dt>
 <dd><a class="index-entry-id" id="index-MG"></a>
@@ -240,13 +271,16 @@ an error.  The dependency filename is taken directly from the
 also suppresses preprocessed output, as a missing header file renders
 this useless.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与请求依赖项生成的 <samp class="option">-M</samp> 等选项结合使用，<samp class="option">-MG</samp> 假定丢失的头文件是生成的文件，并将它们添加到依赖项列表中，而不会引发错误。依赖文件名直接取自 <code class="code">#include</code> 指令，无需添加任何路径。 <samp class="option">-MG</samp> 还会抑制预处理输出，因为缺少头文件会使其无用。</p>
 <p>This feature is used in automatic updating of makefiles.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此功能用于自动更新 makefile。</p>
 </dd>
 <dt><code class="code">-Mno-modules</code></dt>
 <dd><a class="index-entry-id" id="index-Mno_002dmodules"></a>
 <p>Disable dependency generation for compiled module interfaces.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">禁用已编译模块接口的依赖项生成。</p>
 </dd>
 <dt><code class="code">-MP</code></dt>
 <dd><a class="index-entry-id" id="index-MP"></a>
@@ -255,8 +289,10 @@ other than the main file, causing each to depend on nothing.  These
 dummy rules work around errors <code class="command">make</code> gives if you remove header
 files without updating the <samp class="file">Makefile</samp> to match.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此选项让 CPP 为主文件之外的每个依赖文件增加一个伪目标，使它不依赖任何其他文件。这些空规则用于避免删除头文件后、尚未同步更新 Makefile 时 make 报错。</p>
 <p>This is typical output:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这是典型的输出：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">test.o: test.c test.h
 
@@ -272,12 +308,15 @@ default CPP takes the name of the main input file, deletes any
 directory components and any file suffix such as &lsquo;<samp class="samp">.c</samp>&rsquo;, and
 appends the platform&rsquo;s usual object suffix.  The result is the target.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">改变依赖生成所输出规则的目标。默认情况下，CPP 取主输入文件的名称，删除目录部分以及 <code>.c</code> 等后缀，然后加上该平台通常的目标文件后缀，结果就是规则的目标。</p>
 <p>An <samp class="option">-MT</samp> option sets the target to be exactly the string you
 specify.  If you want multiple targets, you can specify them as a single
 argument to <samp class="option">-MT</samp>, or use multiple <samp class="option">-MT</samp> options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-MT</samp> 选项将目标设置为您指定的字符串。如果需要多个目标，可以将它们指定为 <samp class="option">-MT</samp> 的单个参数，或使用多个 <samp class="option">-MT</samp> 选项。</p>
 <p>For example, <samp class="option">-MT&nbsp;'$(objpfx)foo.o'<!-- /@w --></samp> might give
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">例如，<samp class="option">-MT&nbsp;'$(objpfx)foo.o'<!-- /@w --></samp> 可能给出</p>
 <div class="example smallexample">
 <pre class="example-preformatted">$(objpfx)foo.o: foo.c
 </pre></div>
@@ -289,6 +328,7 @@ argument to <samp class="option">-MT</samp>, or use multiple <samp class="option
 <p>Same as <samp class="option">-MT</samp>, but it quotes any characters which are special to
 Make.  <samp class="option">-MQ&nbsp;'$(objpfx)foo.o'<!-- /@w --></samp> gives
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <code>-MT</code> 相同，但会对 Make 中具有特殊含义的字符进行转义。<code>-MQ '$(objpfx)foo.o'</code> 会产生</p>
 <div class="example smallexample">
 <pre class="example-preformatted">$$(objpfx)foo.o: foo.c
 </pre></div>
@@ -296,6 +336,7 @@ Make.  <samp class="option">-MQ&nbsp;'$(objpfx)foo.o'<!-- /@w --></samp> gives
 <p>The default target is automatically quoted, as if it were given with
 <samp class="option">-MQ</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">默认目标会自动进行转义，如同通过 <code>-MQ</code> 指定的一样。</p>
 </dd>
 <dt><code class="code">-MD</code></dt>
 <dd><a class="index-entry-id" id="index-MD"></a>
@@ -306,20 +347,24 @@ argument but with a suffix of <samp class="file">.d</samp>, otherwise it takes t
 of the input file, removes any directory components and suffix, and
 applies a <samp class="file">.d</samp> suffix.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-MD</samp> 等同于 <samp class="option">-M -MF <var class="var">file</var></samp>，只不过未暗示 <samp class="option">-E</samp>。驱动程序根据是否给出 <samp class="option">-o</samp> 选项来确定 <var class="var">file</var>。如果是，驱动程序将使用其参数，但带有 <samp class="file">.d</samp> 后缀，否则它将采用输入文件的名称，删除所有目录组件和后缀，并应用 <samp class="file">.d</samp> 后缀。</p>
 <p>If <samp class="option">-MD</samp> is used in conjunction with <samp class="option">-E</samp>, any
 <samp class="option">-o</samp> switch is understood to specify the dependency output file
 (see <a class="pxref" href="#dashMF">-MF</a>), but if used without <samp class="option">-E</samp>, each <samp class="option">-o</samp>
 is understood to specify a target object file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果 <samp class="option">-MD</samp> 与 <samp class="option">-E</samp> 结合使用，则任何 <samp class="option">-o</samp> 开关都被理解为指定依赖项输出文件（请参阅 <a class="pxref" href="#dashMF">-MF</a>），但如果不与 <samp class="option">-E</samp> 一起使用，则每个 <samp class="option">-o</samp> 都被理解为指定目标对象文件。</p>
 <p>Since <samp class="option">-E</samp> is not implied, <samp class="option">-MD</samp> can be used to generate
 a dependency output file as a side effect of the compilation process.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">由于未隐含 <samp class="option">-E</samp>，因此 <samp class="option">-MD</samp> 可用于生成依赖项输出文件，作为编译过程的副作用。</p>
 </dd>
 <dt><code class="code">-MMD</code></dt>
 <dd><a class="index-entry-id" id="index-MMD"></a>
 <p>Like <samp class="option">-MD</samp> except mention only user header files, not system
 header files.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <samp class="option">-MD</samp> 类似，只是仅提及用户头文件，而不提及系统头文件。</p>
 </dd>
 <dt><code class="code">-fpreprocessed</code></dt>
 <dd><a class="index-entry-id" id="index-fpreprocessed"></a>
@@ -331,40 +376,48 @@ pass a file preprocessed with <samp class="option">-C</samp> to the compiler wit
 problems.  In this mode the integrated preprocessor is little more than
 a tokenizer for the front ends.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">告诉预处理器输入文件已经预处理过。这会停用宏展开、三字符组转换、反斜杠换行拼接以及大部分指令处理等操作。预处理器仍会识别和删除注释，因此使用 <code>-C</code> 预处理的文件仍可交给编译器。在此模式下，集成预处理器主要充当前端的标记化器。</p>
 <p><samp class="option">-fpreprocessed</samp> is implicit if the input file has one of the
 extensions &lsquo;<samp class="samp">.i</samp>&rsquo;, &lsquo;<samp class="samp">.ii</samp>&rsquo; or &lsquo;<samp class="samp">.mi</samp>&rsquo;.  These are the
 extensions that GCC uses for preprocessed files created by
 <samp class="option">-save-temps</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果输入文件具有扩展名“<samp class="samp">.i</samp>”、“<samp class="samp">.ii</samp>”或“<samp class="samp">.mi</samp>”之一，则 <samp class="option">-fpreprocessed</samp> 是隐式的。这些是 GCC 用于 <samp class="option">-save-temps</samp> 创建的预处理文件的扩展名。</p>
 </dd>
 <dt><code class="code">-fdirectives-only</code></dt>
 <dd><a class="index-entry-id" id="index-fdirectives_002donly"></a>
 <p>When preprocessing, handle directives, but do not expand macros.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理时，处理指令，但不展开宏。</p>
 <p>The option&rsquo;s behavior depends on the <samp class="option">-E</samp> and <samp class="option">-fpreprocessed</samp>
 options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该选项的行为取决于 <samp class="option">-E</samp> 和 <samp class="option">-fpreprocessed</samp> 选项。</p>
 <p>With <samp class="option">-E</samp>, preprocessing is limited to the handling of directives
 such as <code class="code">#define</code>, <code class="code">#ifdef</code>, and <code class="code">#error</code>.  Other
 preprocessor operations, such as macro expansion and trigraph
 conversion are not performed.  In addition, the <samp class="option">-dD</samp> option is
 implicitly enabled.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <code>-E</code> 一起使用时，预处理仅处理 <code>#define</code>、<code>#ifdef</code> 和 <code>#error</code> 等指令，不执行宏展开、三字符组转换等其他预处理操作。另外，隐式启用 <code>-dD</code> 选项。</p>
 <p>With <samp class="option">-fpreprocessed</samp>, predefinition of command line and most
 builtin macros is disabled.  Macros such as <code class="code">__LINE__</code>, which are
 contextually dependent, are handled normally.  This enables compilation of
 files previously preprocessed with <code class="code">-E -fdirectives-only</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于 <samp class="option">-fpreprocessed</samp>，命令行和大多数内置宏的预定义被禁用。与上下文相关的宏（例如 <code class="code">__LINE__</code>）会正常处理。这使得可以编译之前使用 <code class="code">-E -fdirectives-only</code> 预处理的文件。</p>
 <p>With both <samp class="option">-E</samp> and <samp class="option">-fpreprocessed</samp>, the rules for
 <samp class="option">-fpreprocessed</samp> take precedence.  This enables full preprocessing of
 files previously preprocessed with <code class="code">-E -fdirectives-only</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于 <samp class="option">-E</samp> 和 <samp class="option">-fpreprocessed</samp>，<samp class="option">-fpreprocessed</samp> 的规则优先。这样可以对之前使用 <code class="code">-E -fdirectives-only</code> 预处理的文件进行全面预处理。</p>
 </dd>
 <dt><code class="code">-fdollars-in-identifiers</code></dt>
 <dd><a class="index-entry-id" id="index-fdollars_002din_002didentifiers"></a>
 <a class="anchor" id="fdollars_002din_002didentifiers"></a><p>Accept &lsquo;<samp class="samp">$</samp>&rsquo; in identifiers.
 See <a class="xref" href="Implementation_002ddefined-behavior.html#Identifier-characters">Identifier characters</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">接受标识符中的“<samp class="samp">$</samp>”。请参见 <a class="xref" href="Implementation_002ddefined-behavior.html#Identifier-characters"> 标识符字符 </a>。</p>
 </dd>
 <dt><code class="code">-fextended-identifiers</code></dt>
 <dd><a class="index-entry-id" id="index-fextended_002didentifiers"></a>
@@ -372,16 +425,19 @@ See <a class="xref" href="Implementation_002ddefined-behavior.html#Identifier-ch
 identifiers.  This option is enabled by default for C99 (and later C
 standard versions) and C++.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">接受标识符中的通用字符名称和扩展字符。对于 C99（以及更高的 C 标准版本）和 C++，此选项默认启用。</p>
 </dd>
 <dt><code class="code">-fno-canonical-system-headers</code></dt>
 <dd><a class="index-entry-id" id="index-fno_002dcanonical_002dsystem_002dheaders"></a>
 <p>When preprocessing, do not shorten system header paths with canonicalization.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理时，不要通过规范化来缩短系统头路径。</p>
 </dd>
 <dt><code class="code">-fmax-include-depth=<var class="var">depth</var></code></dt>
 <dd><a class="index-entry-id" id="index-fmax_002dinclude_002ddepth"></a>
 <p>Set the maximum depth of the nested #include. The default is 200. 
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">设置嵌套#include 的最大深度。默认值为 200。</p>
 </dd>
 <dt><code class="code">-ftabstop=<var class="var">width</var></code></dt>
 <dd><a class="index-entry-id" id="index-ftabstop"></a>
@@ -390,6 +446,7 @@ correct column numbers in warnings or errors, even if tabs appear on the
 line.  If the value is less than 1 or greater than 100, the option is
 ignored.  The default is 8.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">设置制表位之间的距离。这有助于预处理器报告警告或错误中的正确列号，即使制表符出现在行上。如果该值小于 1 或大于 100，则忽略该选项。默认值为 8。</p>
 </dd>
 <dt><code class="code">-ftrack-macro-expansion<span class="r">[</span>=<var class="var">level</var><span class="r">]</span></code></dt>
 <dd><a class="index-entry-id" id="index-ftrack_002dmacro_002dexpansion"></a>
@@ -408,8 +465,10 @@ tokens locations completely. This value is the most memory hungry.
 When this option is given no argument, the default parameter value is
 &lsquo;<samp class="samp">2</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">跟踪宏展开中标记的位置。当宏展开中发生编译错误时，这允许编译器发出有关当前宏展开堆栈的诊断信息。使用此选项会使预处理器和编译器消耗更多内存。 <var class="var">level</var> 参数可用于选择标记位置跟踪的精度级别，从而在必要时减少内存消耗。 <var class="var">level</var> 的值“<samp class="samp">0</samp>”将停用此选项。为了最小化内存开销，值“<samp class="samp">1</samp>”以降级模式跟踪标记位置。在此模式下，由函数类宏的参数展开产生的所有标记都具有相同的位置。值“<samp class="samp">2</samp>”完全跟踪标记位置。这个值是最消耗内存的。当此选项未指定任何参数时，默认参数值为“<samp class="samp">2</samp>”。</p>
 <p>Note that <code class="code">-ftrack-macro-expansion=2</code> is activated by default.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，<code class="code">-ftrack-macro-expansion=2</code> 默认情况下处于激活状态。</p>
 </dd>
 <dt><code class="code">-fmacro-prefix-map=<var class="var">old</var>=<var class="var">new</var></code></dt>
 <dd><a class="index-entry-id" id="index-fmacro_002dprefix_002dmap"></a>
@@ -422,6 +481,7 @@ location independent.  This option also affects
 <code class="code">__builtin_FILE()</code> during compilation.  See also
 <samp class="option">-ffile-prefix-map</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当预处理驻留在目录 <samp class="file"><var class="var">old</var></samp> 中的文件时，展开 <code class="code">__FILE__</code> 和 <code class="code">__BASE_FILE__</code> 宏，就好像文件驻留在目录 <samp class="file"><var class="var">new</var></samp> 中一样。这可用于通过将 <samp class="file">.</samp> 用于 <var class="var">new</var> 来将绝对路径更改为相对路径，这可以导致与位置无关的更可重现的构建。该选项在编译期间也会影响 <code class="code">__builtin_FILE()</code>。另请参见 <samp class="option">-ffile-prefix-map</samp>。</p>
 </dd>
 <dt><code class="code">-fexec-charset=<var class="var">charset</var></code></dt>
 <dd><a class="index-entry-id" id="index-fexec_002dcharset"></a>
@@ -430,6 +490,7 @@ location independent.  This option also affects
 constants.  The default is UTF-8.  <var class="var">charset</var> can be any encoding
 supported by the system&rsquo;s <code class="code">iconv</code> library routine.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">设置执行字符集，用于字符串和字符常量。默认为 UTF-8。 <var class="var">charset</var> 可以是系统 <code class="code">iconv</code> 库例程支持的任何编码。</p>
 </dd>
 <dt><code class="code">-fwide-exec-charset=<var class="var">charset</var></code></dt>
 <dd><a class="index-entry-id" id="index-fwide_002dexec_002dcharset"></a>
@@ -442,6 +503,7 @@ with <samp class="option">-fexec-charset</samp>, <var class="var">charset</var> 
 by the system&rsquo;s <code class="code">iconv</code> library routine; however, you will have
 problems with encodings that do not fit exactly in <code class="code">wchar_t</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">设置宽执行字符集，用于宽字符串和字符常量。默认值是 UTF-32BE、UTF-32LE、UTF-16BE 或 UTF-16LE 之一，以对应于 <code class="code">wchar_t</code> 的宽度以及用于代码生成的大端或小端字节顺序。与 <samp class="option">-fexec-charset</samp> 一样，<var class="var">charset</var> 可以是系统 <code class="code">iconv</code> 库例程支持的任何编码；但是，您可能会遇到与 <code class="code">wchar_t</code> 不完全匹配的编码问题。</p>
 </dd>
 <dt><code class="code">-finput-charset=<var class="var">charset</var></code></dt>
 <dd><a class="index-entry-id" id="index-finput_002dcharset"></a>
@@ -454,6 +516,7 @@ or this command-line option.  Currently the command-line option takes
 precedence if there&rsquo;s a conflict.  <var class="var">charset</var> can be any encoding
 supported by the system&rsquo;s <code class="code">iconv</code> library routine.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">设置输入字符集，用于从输入文件的字符集转换为GCC使用的源字符集。如果语言环境未指定，或者 GCC 无法从语言环境获取此信息，则默认为 UTF-8。这可以被区域设置或此命令行选项覆盖。目前，如果存在冲突，则命令行选项优先。 <var class="var">charset</var> 可以是系统 <code class="code">iconv</code> 库例程支持的任何编码。</p>
 
 </dd>
 <dt><code class="code">-fworking-directory</code></dt>
@@ -472,6 +535,7 @@ form <samp class="option">-fno-working-directory</samp>.  If the <samp class="op
 present in the command line, this option has no effect, since no
 <code class="code">#line</code> directives are emitted whatsoever.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">启用在预处理器输出中生成行标记，让编译器在预处理时知道当前工作目录。启用此选项后，预处理器会在初始行标记之后发出第二个行标记，其中当前工作目录后跟两个斜杠。当预处理输入中存在此目录时，GCC 会使用该目录作为某些调试信息格式中作为当前工作目录发出的目录。如果启用了调试信息，则隐式启用此选项，但可以使用否定形式 <samp class="option">-fno-working-directory</samp> 来禁止此选项。如果命令行中存在 <samp class="option">-P</samp> 标志，则此选项无效，因为不会发出任何 <code class="code">#line</code> 指令。</p>
 </dd>
 <dt><code class="code">-A <var class="var">predicate</var>=<var class="var">answer</var></code></dt>
 <dd><a class="index-entry-id" id="index-A"></a>
@@ -481,11 +545,13 @@ present in the command line, this option has no effect, since no
 it does not use shell special characters.
 See <a class="xref" href="Obsolete-Features.html">Obsolete Features</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">建立谓词为 <var>predicate</var>、答案为 <var>answer</var> 的断言。与仍受支持的旧形式 <code>-A predicate(answer)</code> 相比，推荐使用这种形式，因为它不使用 shell 特殊字符。参见 <a href="Obsolete-Features.html">过时的特性</a>。</p>
 </dd>
 <dt><code class="code">-A -<var class="var">predicate</var>=<var class="var">answer</var></code></dt>
 <dd><p>Cancel an assertion with the predicate <var class="var">predicate</var> and answer
 <var class="var">answer</var>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">取消谓词为 <var>predicate</var>、答案为 <var>answer</var> 的断言。</p>
 </dd>
 <dt><code class="code">-C</code></dt>
 <dd><a class="index-entry-id" id="index-C"></a>
@@ -493,12 +559,14 @@ See <a class="xref" href="Obsolete-Features.html">Obsolete Features</a>.
 file, except for comments in processed directives, which are deleted
 along with the directive.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不丢弃注释。所有注释都会传递到输出文件，但已处理指令中的注释除外；它们会随指令一起删除。</p>
 <p>You should be prepared for side effects when using <samp class="option">-C</samp>; it
 causes the preprocessor to treat comments as tokens in their own right.
 For example, comments appearing at the start of what would be a
 directive line have the effect of turning that line into an ordinary
 source line, since the first token on the line is no longer a &lsquo;<samp class="samp">#</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用<samp class="option">-C</samp>时应做好副作用的准备；它导致预处理器将注释视为其本身的标记。例如，出现在指令行开头的注释具有将该行转换为普通源代码行的效果，因为该行上的第一个标记不再是“<samp class="samp">#</samp>”。</p>
 </dd>
 <dt><code class="code">-CC</code></dt>
 <dd><a class="index-entry-id" id="index-CC"></a>
@@ -506,14 +574,17 @@ source line, since the first token on the line is no longer a &lsquo;<samp class
 like <samp class="option">-C</samp>, except that comments contained within macros are
 also passed through to the output file where the macro is expanded.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不丢弃注释，宏展开期间也不例外。它与 <code>-C</code> 类似，但宏中包含的注释也会在宏展开的位置传入输出文件。</p>
 <p>In addition to the side effects of the <samp class="option">-C</samp> option, the
 <samp class="option">-CC</samp> option causes all C++-style comments inside a macro
 to be converted to C-style comments.  This is to prevent later use
 of that macro from inadvertently commenting out the remainder of
 the source line.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除了 <samp class="option">-C</samp> 选项的副作用之外，<samp class="option">-CC</samp> 选项还会导致宏内的所有 C++ 样式注释转换为 C 样式注释。这是为了防止以后使用该宏时无意中注释掉源代码行的其余部分。</p>
 <p>The <samp class="option">-CC</samp> option is generally used to support lint comments.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-CC</samp> 选项通常用于支持 lint 注释。</p>
 </dd>
 <dt><code class="code">-P</code></dt>
 <dd><a class="index-entry-id" id="index-P"></a>
@@ -523,6 +594,7 @@ not C code, and will be sent to a program which might be confused by the
 linemarkers.
 See <a class="xref" href="Preprocessor-Output.html">Preprocessor Output</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">禁止在预处理器的输出中生成行标记。当在非 C 代码上运行预处理器时，这可能很有用，并且将被发送到可能被行标记混淆的程序。请参见 <a class="xref" href="Preprocessor-Output.html">预处理器输出</a>。</p>
 </dd>
 <dt><a class="index-entry-id" id="index-C-language_002c-traditional"></a>
 <a id="index-traditional-C-language"></a><span><code class="code">-traditional</code><a class="copiable-link" href="#index-traditional-C-language"> &para;</a></span></dt>
@@ -534,10 +606,12 @@ See <a class="xref" href="Preprocessor-Output.html">Preprocessor Output</a>.
 opposed to ISO C preprocessors.
 See <a class="xref" href="Traditional-Mode.html">Traditional Mode</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">尝试模仿预标准 C 预处理器的行为，而不是 ISO C 预处理器。请参见<a class="xref" href="Traditional-Mode.html">传统模式</a>。</p>
 <p>Note that GCC does not otherwise attempt to emulate a pre-standard 
 C compiler, and these options are only supported with the <samp class="option">-E</samp> 
 switch, or when invoking CPP explicitly.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，GCC 不会尝试模拟预标准 C 编译器，并且这些选项仅在 <samp class="option">-E</samp> 开关或显式调用 CPP 时受支持。</p>
 </dd>
 <dt><code class="code">-trigraphs</code></dt>
 <dd><a class="index-entry-id" id="index-trigraphs-1"></a>
@@ -548,17 +622,20 @@ are defined by ISO C to stand for single characters.  For example,
 constant for a newline.
 See <a class="xref" href="Initial-processing.html">Initial processing</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">支持 ISO C 的三字符组。这些序列都由三个字符构成，并以 <code>??</code> 开头，由 ISO C 规定用来表示单个字符。例如，<code>??/</code> 表示 <code>\</code>，所以 <code>'??/n'</code> 是表示换行符的字符常量。参见 <a href="Initial-processing.html">初始处理</a>。</p>
 
 <p>By default, GCC ignores trigraphs, but in
 standard-conforming modes it converts them.  See the <samp class="option">-std</samp> and
 <samp class="option">-ansi</samp> options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">默认情况下，GCC 忽略三字符组；在遵循标准的模式下，则进行转换。参见 <code>-std</code> 和 <code>-ansi</code> 选项。</p>
 </dd>
 <dt><code class="code">-remap</code></dt>
 <dd><a class="index-entry-id" id="index-remap"></a>
 <p>Enable special code to work around file systems which only permit very
 short file names, such as MS-DOS.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">启用特殊代码来处理只允许非常短的文件名的文件系统，例如 MS-DOS。</p>
 </dd>
 <dt><code class="code">-H</code></dt>
 <dd><a class="index-entry-id" id="index-H"></a>
@@ -568,6 +645,7 @@ activities.  Each name is indented to show how deep in the
 printed, even if they are found to be invalid; an invalid precompiled
 header file is printed with &lsquo;<samp class="samp">...x</samp>&rsquo; and a valid one with &lsquo;<samp class="samp">...!</samp>&rsquo; .
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除了其他正常活动之外，还打印所使用的每个头文件的名称。每个名称都缩进以显示它在“<samp class="samp">#include</samp>”堆栈中的深度。预编译头文件也会被打印出来，即使发现它们是无效的；无效的预编译头文件打印为“<samp class="samp">...x</samp>”，有效的预编译头文件打印为“<samp class="samp">...!</samp>”。</p>
 </dd>
 <dt><code class="code">-d<var class="var">letters</var></code></dt>
 <dd><a class="index-entry-id" id="index-d"></a>
@@ -578,6 +656,7 @@ by the compiler proper, or reserved for future versions of GCC, and so
 are silently ignored.  If you specify <var class="var">letters</var> whose behavior
 conflicts, the result is undefined.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">按 <var>letters</var> 指定的内容，在编译期间产生调试转储。这里记载的字母开关是与预处理器有关的部分。其他字母由编译器本体解释，或者为 GCC 未来版本保留而被静默忽略。若指定了行为冲突的字母组合，结果未定义。</p>
 <dl class="table">
 <dt><code class="code">-dM</code></dt>
 <dd><a class="index-entry-id" id="index-dM"></a>
@@ -587,12 +666,14 @@ preprocessor, including predefined macros.  This gives you a way of
 finding out what is predefined in your version of the preprocessor.
 Assuming you have no file <samp class="file">foo.h</samp>, the command
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">为预处理器执行期间定义的所有宏（包括预定义的宏）生成“<samp class="samp">#define</samp>”指令列表，而不是正常输出。这为您提供了一种查找您的预处理器版本中预定义内容的方法。假设您没有文件 <samp class="file">foo.h</samp>，则命令</p>
 <div class="example smallexample">
 <pre class="example-preformatted">touch foo.h; cpp -dM foo.h
 </pre></div>
 
 <p>shows all the predefined macros.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">显示所有预定义的宏。</p>
 
 </dd>
 <dt><code class="code">-dD</code></dt>
@@ -602,17 +683,20 @@ predefined macros, and it outputs <em class="emph">both</em> the &lsquo;<samp cl
 directives and the result of preprocessing.  Both kinds of output go to
 the standard output file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <samp class="option">-dM</samp> 类似，但有两个方面不同：它不包含预定义的宏，并且它输出“<samp class="samp">#define</samp>”指令和预处理结果。两种输出都转到标准输出文件。</p>
 </dd>
 <dt><code class="code">-dN</code></dt>
 <dd><a class="index-entry-id" id="index-dN"></a>
 <p>Like <samp class="option">-dD</samp>, but emit only the macro names, not their expansions.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <code>-dD</code> 类似，但只输出宏名，不输出宏的展开内容。</p>
 </dd>
 <dt><code class="code">-dI</code></dt>
 <dd><a class="index-entry-id" id="index-dI"></a>
 <p>Output &lsquo;<samp class="samp">#include</samp>&rsquo; directives in addition to the result of
 preprocessing.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除了预处理结果之外，还输出“<samp class="samp">#include</samp>”指令。</p>
 </dd>
 <dt><code class="code">-dU</code></dt>
 <dd><a class="index-entry-id" id="index-dU"></a>
@@ -621,7 +705,9 @@ definedness is tested in preprocessor directives, are output; the
 output is delayed until the use or test of the macro; and
 &lsquo;<samp class="samp">#undef</samp>&rsquo; directives are also output for macros tested but
 undefined at the time.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <code>-dD</code> 类似，但只输出实际被展开过、或在预处理指令中测试过是否定义的宏；输出推迟到使用或测试该宏之时。如果被测试的宏当时没有定义，还会输出相应的 <code>#undef</code> 指令。</p>
+</dd>
 </dl>
 
 </dd>
@@ -632,8 +718,10 @@ undefined at the time.
 token in the output is preceded by the dump of the map its location
 belongs to.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">本选项仅用于调试 GCC。直接调用 CPP 或结合 <code>-E</code> 使用时，它转储位置映射的调试信息。输出的每个标记之前，都有该标记位置所属映射的转储。</p>
 <p>When used from GCC without <samp class="option">-E</samp>, this option has no effect.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当从没有 <samp class="option">-E</samp> 的 GCC 中使用时，此选项无效。</p>
 
 
 </dd>
@@ -652,6 +740,7 @@ If <var class="var">dir</var> begins with &lsquo;<samp class="samp">=</samp>&rsq
 or <code class="code">$SYSROOT</code> is replaced by the sysroot prefix; see
 <samp class="option">--sysroot</samp> and <samp class="option">-isysroot</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将目录<var class="var">dir</var>添加到预处理时搜索头文件的目录列表中。请参见 <a class="xref" href="Search-Path.html">搜索路径</a>。如果 <var class="var">dir</var> 以“<samp class="samp">=</samp>”或 <code class="code">$SYSROOT</code> 开头，则“<samp class="samp">=</samp>”或 <code class="code">$SYSROOT</code> 将替换为 sysroot 前缀；参见 <samp class="option">--sysroot</samp> 和 <samp class="option">-isysroot</samp>。</p>
 <p>Directories specified with <samp class="option">-iquote</samp> apply only to the quote 
 form of the directive, <code class="code">#include&nbsp;&quot;<var class="var">file</var>&quot;<!-- /@w --></code>.
 Directories specified with <samp class="option">-I</samp>, <samp class="option">-isystem</samp>, 
@@ -659,28 +748,42 @@ or <samp class="option">-idirafter</samp> apply to lookup for both the
 <code class="code">#include&nbsp;&quot;<var class="var">file</var>&quot;<!-- /@w --></code> and
 <code class="code">#include&nbsp;&lt;<var class="var">file</var>&gt;<!-- /@w --></code> directives.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">通过 <code>-iquote</code> 指定的目录只适用于双引号形式的 <code>#include "file"</code>。通过 <code>-I</code>、<code>-isystem</code> 或 <code>-idirafter</code> 指定的目录，同时适用于 <code>#include "file"</code> 和 <code>#include &lt;file&gt;</code> 的查找。</p>
 <p>You can specify any number or combination of these options on the 
 command line to search for header files in several directories.  
 The lookup order is as follows:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以在命令行上指定任意数量的这些选项或这些选项的组合，以在多个目录中搜索头文件。查找顺序如下：</p>
 <ol class="enumerate">
 <li> For the quote form of the include directive, the directory of the current
 file is searched first.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于双引号形式的包含指令，首先搜索当前文件所在目录。</p>
 </li><li> For the quote form of the include directive, the directories specified
 by <samp class="option">-iquote</samp> options are searched in left-to-right order,
 as they appear on the command line.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于双引号形式的包含指令，按命令行上从左到右的顺序搜索 <code>-iquote</code> 指定的目录。</p>
 </li><li> Directories specified with <samp class="option">-I</samp> options are scanned in
 left-to-right order.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">按从左到右的顺序扫描使用 <samp class="option">-I</samp> 选项指定的目录。</p>
 </li><li> Directories specified with <samp class="option">-isystem</samp> options are scanned in
 left-to-right order.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">按从左到右的顺序扫描使用 <samp class="option">-isystem</samp> 选项指定的目录。</p>
 </li><li> Standard system directories are scanned.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">扫描标准系统目录。</p>
 </li><li> Directories specified with <samp class="option">-idirafter</samp> options are scanned in
 left-to-right order.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">按从左到右的顺序扫描使用 <samp class="option">-idirafter</samp> 选项指定的目录。</p>
 </li></ol>
 
 <p>You can use <samp class="option">-I</samp> to override a system header
@@ -690,11 +793,13 @@ However, you should
 not use this option to add directories that contain vendor-supplied
 system header files; use <samp class="option">-isystem</samp> for that.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以使用 <samp class="option">-I</samp> 覆盖系统头文件，替换您自己的版本，因为这些目录是在标准系统头文件目录之前搜索的。但是，您不应使用此选项来添加包含供应商提供的系统头文件的目录；使用 <samp class="option">-isystem</samp> 即可。</p>
 <p>The <samp class="option">-isystem</samp> and <samp class="option">-idirafter</samp> options also mark the directory
 as a system directory, so that it gets the same special treatment that
 is applied to the standard system directories.
 See <a class="xref" href="System-Headers.html">System Headers</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><samp class="option">-isystem</samp> 和 <samp class="option">-idirafter</samp> 选项还将目录标记为系统目录，以便它获得与标准系统目录相同的特殊处理。请参阅 <a class="xref" href="System-Headers.html">系统头文件</a>。</p>
 <p>If a standard system include directory, or a directory specified with
 <samp class="option">-isystem</samp>, is also specified with <samp class="option">-I</samp>, the <samp class="option">-I</samp>
 option is ignored.  The directory is still searched but as a
@@ -706,6 +811,7 @@ If you really need to change the search order for system directories,
 use the <samp class="option">-nostdinc</samp> and/or <samp class="option">-isystem</samp> options.
 See <a class="xref" href="System-Headers.html">System Headers</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果标准系统包含目录，或者用 <samp class="option">-isystem</samp> 指定的目录也用 <samp class="option">-I</samp> 指定，则 <samp class="option">-I</samp> 选项将被忽略。该目录仍会被搜索，但作为系统目录位于系统包含链中的正常位置。这是为了确保 GCC 修复有问题的系统头文件的过程和 <code class="code">#include_next</code> 指令的顺序不会无意中更改。如果您确实需要更改系统目录的搜索顺序，请使用 <samp class="option">-nostdinc</samp> 和/或 <samp class="option">-isystem</samp> 选项。请参阅 <a class="xref" href="System-Headers.html">系统头文件</a>。</p>
 </dd>
 <dt><code class="code">-I-</code></dt>
 <dd><a class="index-entry-id" id="index-I_002d"></a>
@@ -714,6 +820,7 @@ This option has been deprecated.  Please use <samp class="option">-iquote</samp>
 <samp class="option">-I</samp> directories before the <samp class="option">-I-</samp> and remove the <samp class="option">-I-</samp>
 option.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">拆分包含路径。此选项已被弃用。请使用 <samp class="option">-iquote</samp> 代替 <samp class="option">-I-</samp> 之前的 <samp class="option">-I</samp> 目录，并删除 <samp class="option">-I-</samp> 选项。</p>
 <p>Any directories specified with <samp class="option">-I</samp>
 options before <samp class="option">-I-</samp> are searched only for headers requested with
 <code class="code">#include&nbsp;&quot;<var class="var">file</var>&quot;<!-- /@w --></code>; they are not searched for
@@ -721,10 +828,12 @@ options before <samp class="option">-I-</samp> are searched only for headers req
 specified with <samp class="option">-I</samp> options after the <samp class="option">-I-</samp>, those
 directories are searched for all &lsquo;<samp class="samp">#include</samp>&rsquo; directives.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code>-I-</code> 之前用 <code>-I</code> 指定的目录，只用于 <code>#include "file"</code>，不用于 <code>#include &lt;file&gt;</code>。<code>-I-</code> 之后额外用 <code>-I</code> 指定的目录，则用于所有 <code>#include</code> 指令。</p>
 <p>In addition, <samp class="option">-I-</samp> inhibits the use of the directory of the current
 file directory as the first search directory for <code class="code">#include&nbsp;&quot;<var class="var">file</var>&quot;<!-- /@w --></code>.  There is no way to override this effect of <samp class="option">-I-</samp>.
 See <a class="xref" href="Search-Path.html">Search Path</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此外，<code>-I-</code> 会禁止将当前文件所在目录用作 <code>#include "file"</code> 的第一个搜索目录。无法覆盖 <code>-I-</code> 的这一效果。参见 <a href="Search-Path.html">搜索路径</a>。</p>
 </dd>
 <dt><code class="code">-iprefix <var class="var">prefix</var></code></dt>
 <dd><a class="index-entry-id" id="index-iprefix"></a>
@@ -732,6 +841,7 @@ See <a class="xref" href="Search-Path.html">Search Path</a>.
 options.  If the prefix represents a directory, you should include the
 final &lsquo;<samp class="samp">/</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">指定 <var class="var">prefix</var> 作为后续 <samp class="option">-iwithprefix</samp> 选项的前缀。如果前缀代表目录，则应包含最后的“<samp class="samp">/</samp>”。</p>
 </dd>
 <dt><code class="code">-iwithprefix <var class="var">dir</var></code></dt>
 <dt><code class="code">-iwithprefixbefore <var class="var">dir</var></code></dt>
@@ -742,6 +852,7 @@ final &lsquo;<samp class="samp">/</samp>&rsquo;.
 path.  <samp class="option">-iwithprefixbefore</samp> puts it in the same place <samp class="option">-I</samp>
 would; <samp class="option">-iwithprefix</samp> puts it where <samp class="option">-idirafter</samp> would.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将 <var class="var">dir</var> 附加到先前使用 <samp class="option">-iprefix</samp> 指定的前缀，并将生成的目录添加到包含搜索路径。 <samp class="option">-iwithprefixbefore</samp> 将其放在与 <samp class="option">-I</samp> 相同的位置； <samp class="option">-iwithprefix</samp> 将其置于 <samp class="option">-idirafter</samp> 的位置。</p>
 </dd>
 <dt><code class="code">-isysroot <var class="var">dir</var></code></dt>
 <dd><a class="index-entry-id" id="index-isysroot"></a>
@@ -750,12 +861,14 @@ header files (except for Darwin targets, where it applies to both header
 files and libraries).  See the <samp class="option">--sysroot</samp> option for more
 information.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此选项类似于 <samp class="option">--sysroot</samp> 选项，但仅适用于头文件（Darwin 目标除外，它同时适用于头文件和库）。有关详细信息，请参阅 <samp class="option">--sysroot</samp> 选项。</p>
 </dd>
 <dt><code class="code">-imultilib <var class="var">dir</var></code></dt>
 <dd><a class="index-entry-id" id="index-imultilib"></a>
 <p>Use <var class="var">dir</var> as a subdirectory of the directory containing
 target-specific C++ headers.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <var class="var">dir</var> 作为包含特定于目标的 C++ 头文件的目录的子目录。</p>
 </dd>
 <dt><code class="code">-nostdinc</code></dt>
 <dd><a class="index-entry-id" id="index-nostdinc"></a>
@@ -765,6 +878,7 @@ Only the directories explicitly specified with <samp class="option">-I</samp>,
 options (and the directory of the current file, if appropriate) 
 are searched.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不要在标准系统目录中搜索头文件。仅搜索使用 <samp class="option">-I</samp>、<samp class="option">-iquote</samp>、<samp class="option">-isystem</samp> 和/或 <samp class="option">-idirafter</samp> 选项显式指定的目录（以及当前文件的目录，如果适用）。</p>
 </dd>
 <dt><code class="code">-nostdinc++</code></dt>
 <dd><a class="index-entry-id" id="index-nostdinc_002b_002b"></a>
@@ -772,6 +886,7 @@ are searched.
 but do still search the other standard directories.  (This option is
 used when building the C++ library.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不要在特定于 C++ 的标准目录中搜索头文件，但仍搜索其他标准目录。 （构建 C++ 库时使用此选项。）</p>
 
 
 
@@ -784,6 +899,7 @@ used when building the C++ library.)
 comment, or whenever a backslash-newline appears in a &lsquo;<samp class="samp">//</samp>&rsquo; comment.
 This warning is enabled by <samp class="option">-Wall</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">每当注释开始序列“<samp class="samp">/*</samp>”出现在“<samp class="samp">/*</samp>”注释中，或者每当反斜杠换行符出现在“<samp class="samp">//</samp>”注释中时发出警告。该警告由 <samp class="option">-Wall</samp> 启用。</p>
 </dd>
 <dt><code class="code">-Wtrigraphs</code></dt>
 <dd><a class="index-entry-id" id="index-Wtrigraphs"></a>
@@ -791,11 +907,13 @@ This warning is enabled by <samp class="option">-Wall</samp>.
 the program.  Trigraphs within comments are not warned about,
 except those that would form escaped newlines.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">遇到可能改变程序含义的三字符组时发出警告。对注释内的三字符组不发出警告，但会形成反斜杠换行的情况除外。</p>
 <p>This option is implied by <samp class="option">-Wall</samp>.  If <samp class="option">-Wall</samp> is not
 given, this option is still enabled unless trigraphs are enabled.  To
 get trigraph conversion without warnings, but get the other
 <samp class="option">-Wall</samp> warnings, use &lsquo;<samp class="samp">-trigraphs -Wall -Wno-trigraphs</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code>-Wall</code> 隐含启用此选项。未给出 <code>-Wall</code> 时，只要没有启用三字符组转换，此选项仍默认启用。若希望转换三字符组时不产生此类警告，同时保留其他 <code>-Wall</code> 警告，可使用 <code>-trigraphs -Wall -Wno-trigraphs</code>。</p>
 </dd>
 <dt><code class="code">-Wundef</code></dt>
 <dd><a class="index-entry-id" id="index-Wundef"></a>
@@ -803,6 +921,7 @@ get trigraph conversion without warnings, but get the other
 <p>Warn if an undefined identifier is evaluated in an <code class="code">#if</code> directive.
 Such identifiers are replaced with zero.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果在 <code class="code">#if</code> 指令中评估未定义的标识符，则发出警告。此类标识符被替换为零。</p>
 </dd>
 <dt><code class="code">-Wexpansion-to-defined</code></dt>
 <dd><a class="index-entry-id" id="index-Wexpansion_002dto_002ddefined"></a>
@@ -811,6 +930,7 @@ Such identifiers are replaced with zero.
 Such usage is not portable.
 This warning is also enabled by <samp class="option">-Wpedantic</samp> and <samp class="option">-Wextra</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">每当在宏展开中遇到“<samp class="samp">defined</samp>”时发出警告（包括通过“<samp class="samp">#if</samp>”指令展开宏的情况）。这种用法是不可移植的。 <samp class="option">-Wpedantic</samp> 和 <samp class="option">-Wextra</samp> 也会启用此警告。</p>
 </dd>
 <dt><code class="code">-Wunused-macros</code></dt>
 <dd><a class="index-entry-id" id="index-Wunused_002dmacros"></a>
@@ -819,15 +939,18 @@ is <em class="dfn">used</em> if it is expanded or tested for existence at least 
 The preprocessor also warns if the macro has not been used at the
 time it is redefined or undefined.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对主文件中定义但未使用的宏发出警告。宏只要至少展开过一次，或至少测试过一次是否存在，就视为已使用。若宏在被重新定义或取消定义时仍未使用，预处理器也会发出警告。</p>
 <p>Built-in macros, macros defined on the command line, and macros
 defined in include files are not warned about.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不会对内置宏、命令行中定义的宏以及包含文件中定义的宏发出警告。</p>
 <p><em class="emph">Note:</em> If a macro is actually used, but only used in skipped
 conditional blocks, then the preprocessor reports it as unused.  To avoid the
 warning in such a case, you might improve the scope of the macro&rsquo;s
 definition by, for example, moving it into the first skipped block.
 Alternatively, you could provide a dummy use with something like:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">注意：如果实际使用了宏，但仅在跳过的条件块中使用，则预处理器会将其报告为未使用。为了避免在这种情况下出现警告，您可以通过例如将宏定义移动到第一个跳过的块中来改进宏定义的范围。或者，您可以提供类似以下内容的虚拟用途：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined the_macro_causing_the_warning
 #endif
@@ -840,6 +963,7 @@ Alternatively, you could provide a dummy use with something like:
 <p>Do not warn whenever an <code class="code">#else</code> or an <code class="code">#endif</code> are followed by text.
 This sometimes happens in older programs with code of the form
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当 <code class="code">#else</code> 或 <code class="code">#endif</code> 后跟文本时，不要发出警告。这种情况有时会发生在具有以下形式代码的旧程序中</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if FOO
 &hellip;
@@ -850,7 +974,9 @@ This sometimes happens in older programs with code of the form
 
 <p>The second and third <code class="code">FOO</code> should be in comments.
 This warning is on by default.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">第二个和第三个 <code class="code">FOO</code> 应该在注释中。默认情况下此警告处于打开状态。</p>
+</dd>
 </dl>
 
 </div>
@@ -858,6 +984,7 @@ This warning is on by default.
 <div class="nav-panel">
 <p>
 Next: <a href="Environment-Variables.html">Environment Variables</a>, Previous: <a href="Implementation-Details.html">Implementation Details</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Environment-Variables.html">环境变量</a>, 上一页： <a href="Implementation-Details.html">实现细节</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

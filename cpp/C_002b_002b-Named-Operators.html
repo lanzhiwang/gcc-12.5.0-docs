@@ -53,9 +53,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="System_002dspecific-Predefined-Macros.html" accesskey="p" rel="prev">System-specific Predefined Macros</a>, Up: <a href="Predefined-Macros.html" accesskey="u" rel="up">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>上一页：<a href="System_002dspecific-Predefined-Macros.html" accesskey="p" rel="prev">系统特定的预定义宏</a>，上级：<a href="Predefined-Macros.html" accesskey="u" rel="up">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="C_002b_002b-Named-Operators-1"><span>3.7.4 C++ Named Operators<a class="copiable-link" href="#C_002b_002b-Named-Operators-1"> &para;</a></span></h4>
+<h4 class="subsection" id="C_002b_002b-Named-Operators-zh"><span>3.7.4 C++ 命名运算符<a class="copiable-link" href="#C_002b_002b-Named-Operators-zh"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-named-operators"></a>
 <a class="index-entry-id" id="index-C_002b_002b-named-operators"></a>
 <a class="index-entry-id" id="index-iso646_002eh"></a>
@@ -68,10 +70,13 @@ can request that those keywords take their C++ meaning by including
 <samp class="file">iso646.h</samp>.  That header defines each one as a normal object-like
 macro expanding to the appropriate punctuator.
 </p>
+<p>在 C++ 中，有 11 个关键字只是通常用标点书写的运算符的另一种拼写形式。即使在预处理器中，这些关键字也会按运算符处理。它们可以在 &lsquo;<samp class="samp">#if</samp>&rsquo; 中作为运算符使用，不能被定义为宏，也不能被标记为不可用。在 C 中，可以通过包含 <samp class="file">iso646.h</samp> 来请求这些关键字采用 C++ 的含义；该头文件会将每个关键字定义为普通的对象类宏，并展开为相应的标点符号。</p>
 <p>These are the named operators and their corresponding punctuators:
 </p>
+<p>以下是命名运算符及其对应的标点符号：</p>
 <table class="multitable">
 <tbody><tr><td>Named Operator</td><td>Punctuator</td></tr>
+<tr><td>命名运算符</td><td>标点符号</td></tr>
 <tr><td><code class="code">and</code></td><td><code class="code">&amp;&amp;</code></td></tr>
 <tr><td><code class="code">and_eq</code></td><td><code class="code">&amp;=</code></td></tr>
 <tr><td><code class="code">bitand</code></td><td><code class="code">&amp;</code></td></tr>

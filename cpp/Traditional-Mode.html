@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Traditional Mode (The C Preprocessor)</title>
+<title>Traditional Mode (The C Preprocessor)
+传统模式（C 预处理器）</title>
 
 <meta name="description" content="Traditional Mode (The C Preprocessor)">
 <meta name="keywords" content="Traditional Mode (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Implementation-Details.html" accesskey="n" rel="next">Implementation Details</a>, Previous: <a href="Preprocessor-Output.html" accesskey="p" rel="prev">Preprocessor Output</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Implementation-Details.html" rel="next">实现细节</a>, 上一页： <a href="Preprocessor-Output.html" rel="prev">预处理器输出</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Traditional-Mode-1"><span>10 Traditional Mode<a class="copiable-link" href="#Traditional-Mode-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">10 传统模式</h2>
 
 <p>Traditional (pre-standard) C preprocessing is rather different from
 the preprocessing specified by the standard.  When the preprocessor 
@@ -64,11 +67,13 @@ is invoked with the
 <samp class="option">-traditional-cpp</samp> option, it attempts to emulate a traditional
 preprocessor.  
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统（标准前）C 预处理与标准指定的预处理有很大不同。当使用 <samp class="option">-traditional-cpp</samp> 选项调用预处理器时，它会尝试模拟传统预处理器。</p>
 <p>This mode is not useful for compiling C code with GCC, 
 but is intended for use with non-C preprocessing applications.  Thus
 traditional mode semantics are supported only when invoking
 the preprocessor explicitly, and not in the compiler front ends.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此模式不适用于使用 GCC 编译 C 代码，但适用于非 C 预处理应用程序。因此，仅在显式调用预处理器时才支持传统模式语义，而不是在编译器前端中。</p>
 <p>The implementation does not correspond precisely to the behavior of
 early pre-standard versions of GCC, nor to any true traditional preprocessor.
 After all, inconsistencies among traditional implementations were a
@@ -76,12 +81,17 @@ major motivation for C standardization.  However, we intend that it
 should be compatible with true traditional preprocessors in all ways
 that actually matter.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该实现并不完全符合 GCC 早期预标准版本的行为，也不符合任何真正的传统预处理器。毕竟，传统实现之间的不一致是 C 标准化的主要动机。然而，我们希望它应该在所有真正重要的方面与真正的传统预处理器兼容。</p>
 
 <ul class="mini-toc">
-<li><a href="Traditional-lexical-analysis.html" accesskey="1">Traditional lexical analysis</a></li>
-<li><a href="Traditional-macros.html" accesskey="2">Traditional macros</a></li>
-<li><a href="Traditional-miscellany.html" accesskey="3">Traditional miscellany</a></li>
-<li><a href="Traditional-warnings.html" accesskey="4">Traditional warnings</a></li>
+<li><a href="Traditional-lexical-analysis.html" accesskey="1">Traditional lexical analysis</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统词法分析</p></li>
+<li><a href="Traditional-macros.html" accesskey="2">Traditional macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统宏</p></li>
+<li><a href="Traditional-miscellany.html" accesskey="3">Traditional miscellany</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统模式的其他事项</p></li>
+<li><a href="Traditional-warnings.html" accesskey="4">Traditional warnings</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统模式警告</p></li>
 </ul>
 </div>
 

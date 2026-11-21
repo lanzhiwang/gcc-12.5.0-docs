@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Stringizing (The C Preprocessor)</title>
+<title>Stringizing (The C Preprocessor)
+字符串化（C 预处理器）</title>
 
 <meta name="description" content="Stringizing (The C Preprocessor)">
 <meta name="keywords" content="Stringizing (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Concatenation.html" accesskey="n" rel="next">Concatenation</a>, Previous: <a href="Macro-Arguments.html" accesskey="p" rel="prev">Macro Arguments</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Concatenation.html" rel="next">拼接</a>, 上一页： <a href="Macro-Arguments.html" rel="prev">宏参数</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Stringizing-1"><span>3.4 Stringizing<a class="copiable-link" href="#Stringizing-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.4 字符串化</h3>
 <a class="index-entry-id" id="index-stringizing"></a>
 <a class="index-entry-id" id="index-_0023-operator"></a>
 
@@ -69,6 +72,7 @@ with the literal text of the actual argument, converted to a string
 constant.  Unlike normal parameter replacement, the argument is not
 macro-expanded first.  This is called <em class="dfn">stringizing</em>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有时您可能想将宏参数转换为字符串常量。字符串常量内的参数不会被替换，但您可以使用“<samp class="samp">#</samp>”预处理运算符。当宏参数与前导“<samp class="samp">#</samp>”一起使用时，预处理器会将其替换为实际参数的文字文本，并转换为字符串常量。与普通参数替换不同，参数不会首先进行宏展开。这称为字符串化。</p>
 <p>There is no way to combine an argument with surrounding text and
 stringize it all together.  Instead, you can write a series of adjacent
 string constants and stringized arguments.  The preprocessor
@@ -76,8 +80,10 @@ replaces the stringized arguments with string constants.  The C
 compiler then combines all the adjacent string constants into one
 long string.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">无法将参数与周围的文本组合起来并将其全部字符串化。相反，您可以编写一系列相邻的字符串常量和字符串化参数。预处理器用字符串常量替换字符串化参数。然后，C 编译器将所有相邻的字符串常量组合成一个长字符串。</p>
 <p>Here is an example of a macro definition that uses stringizing:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">以下是使用字符串化的宏定义的示例：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#define WARN_IF(EXP) \
 do { if (EXP) \
@@ -93,11 +99,13 @@ WARN_IF (x == 0);
 <code class="code">fprintf</code>.  If <code class="code">x</code> were a macro, it would be expanded in the
 <code class="code">if</code> statement, but not in the string.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">EXP</code> 的参数按原样替换一次到 <code class="code">if</code> 语句中，并一次字符串化替换到 <code class="code">fprintf</code> 的参数中。如果 <code class="code">x</code> 是宏，则它将在 <code class="code">if</code> 语句中展开，但不会在字符串中展开。</p>
 <p>The <code class="code">do</code> and <code class="code">while (0)</code> are a kludge to make it possible to
 write <code class="code">WARN_IF (<var class="var">arg</var>);</code>, which the resemblance of
 <code class="code">WARN_IF</code> to a function would make C programmers want to do; see
 <a class="ref" href="Swallowing-the-Semicolon.html">Swallowing the Semicolon</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">do</code> 和 <code class="code">while (0)</code> 是一个拼凑，使得可以编写 <code class="code">WARN_IF (<var class="var">arg</var>);</code>，<code class="code">WARN_IF</code> 与函数的相似性会让 C 程序员想要这样做；请参阅 <a class="ref" href="Swallowing-the-Semicolon.html">吞掉分号</a>。</p>
 <p>Stringizing in C involves more than putting double-quote characters
 around the fragment.  The preprocessor backslash-escapes the quotes
 surrounding embedded string constants, and all backslashes within string and
@@ -107,17 +115,21 @@ proper contents.  Thus, stringizing <code class="code">p&nbsp;=&nbsp;&quot;foo\n
 or character constants are not duplicated: &lsquo;<samp class="samp">\n</samp>&rsquo; by itself
 stringizes to <code class="t">&quot;\n&quot;</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 中的字符串化不仅仅涉及在片段周围放置双引号字符。预处理器反斜杠转义嵌入字符串常量周围的引号以及字符串和字符常量内的所有反斜杠，以便获得具有正确内容的有效 C 字符串常量。因此，字符串化 <code class="code">p&nbsp;=&nbsp;&quot;foo\n&quot;;<!-- /@w --></code> 会产生 <code class="t">&quot;p&nbsp;=&nbsp;\&quot;foo\\n\&quot;;&quot;<!-- /@w --></code>。但是，不在字符串或字符常量内的反斜杠不会重复：“<samp class="samp">\n</samp>”本身字符串化为 <code class="t">&quot;\n&quot;</code>。</p>
 <p>All leading and trailing whitespace in text being stringized is
 ignored.  Any sequence of whitespace in the middle of the text is
 converted to a single space in the stringized result.  Comments are
 replaced by whitespace long before stringizing happens, so they
 never appear in stringized text.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">被字符串化的文本中的所有前导和尾随空格都将被忽略。文本中间的任何空格序列都会转换为字符串化结果中的单个空格。注释早在字符串化发生之前就被空格替换，因此它们永远不会出现在字符串化文本中。</p>
 <p>There is no way to convert a macro argument into a character constant.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">无法将宏参数转换为字符常量。</p>
 <p>If you want to stringize the result of expansion of a macro argument,
 you have to use two levels of macros.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果要将宏参数展开的结果字符串化，则必须使用两级宏。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define xstr(s) str(s)
 #define str(s) #s
@@ -136,11 +148,13 @@ macro-expanded first.  But <code class="code">s</code> is an ordinary argument t
 itself is expanded (see <a class="pxref" href="Argument-Prescan.html">Argument Prescan</a>).  Therefore, by the time
 <code class="code">str</code> gets to its argument, it has already been macro-expanded.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在 <code class="code">str</code> 中，形参 <code class="code">s</code> 参与字符串化，所以不会先展开。在 <code class="code">xstr</code> 中，<code class="code">s</code> 是普通形参，会在代入外层宏体前完全展开；参见<a href="Argument-Prescan.html">参数预扫描</a>。因此，当它传给 <code class="code">str</code> 时，宏展开已经完成。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Concatenation.html">Concatenation</a>, Previous: <a href="Macro-Arguments.html">Macro Arguments</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Concatenation.html">拼接</a>, 上一页： <a href="Macro-Arguments.html">宏参数</a>, 上一级： <a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

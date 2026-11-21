@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Traditional warnings (The C Preprocessor)</title>
+<title>Traditional warnings (The C Preprocessor)
+传统模式警告（C 预处理器）</title>
 
 <meta name="description" content="Traditional warnings (The C Preprocessor)">
 <meta name="keywords" content="Traditional warnings (The C Preprocessor)">
@@ -54,22 +55,28 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Previous: <a href="Traditional-miscellany.html" accesskey="p" rel="prev">Traditional miscellany</a>, Up: <a href="Traditional-Mode.html" accesskey="u" rel="up">Traditional Mode</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Traditional-miscellany.html" rel="prev">传统模式的其他事项</a>, 上一级： <a href="Traditional-Mode.html" rel="up">传统模式</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Traditional-warnings-1"><span>10.4 Traditional warnings<a class="copiable-link" href="#Traditional-warnings-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">10.4 传统模式警告</h3>
 <p>You can request warnings about features that did not exist, or worked
 differently, in traditional C with the <samp class="option">-Wtraditional</samp> option.
 GCC does not warn about features of ISO C which you must use when you
 are using a conforming compiler, such as the &lsquo;<samp class="samp">#</samp>&rsquo; and &lsquo;<samp class="samp">##</samp>&rsquo;
 operators.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以使用 <samp class="option">-Wtraditional</samp> 选项请求有关传统 C 中不存在或工作方式不同的功能的警告。 GCC 不会警告您在使用符合标准的编译器时必须使用的 ISO C 功能，例如“<samp class="samp">#</samp>”和“<samp class="samp">##</samp>”运算符。</p>
 <p>Presently <samp class="option">-Wtraditional</samp> warns about:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">目前 <samp class="option">-Wtraditional</samp> 警告：</p>
 <ul class="itemize mark-bullet">
 <li>Macro parameters that appear within string literals in the macro body.
 In traditional C macro replacement takes place within string literals,
 but does not in ISO C.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">出现在宏体的字符串字面量内的宏参数。在传统 C 中，宏替换发生在字符串字面量中，但在 ISO C 中则不然。</p>
 </li><li>In traditional C, some preprocessor directives did not exist.
 Traditional preprocessors would only consider a line to be a directive
 if the &lsquo;<samp class="samp">#</samp>&rsquo; appeared in column 1 on the line.  Therefore
@@ -80,12 +87,18 @@ first character on the line.  It also suggests you hide directives like
 traditional implementations would not recognize &lsquo;<samp class="samp">#elif</samp>&rsquo;, so it
 suggests avoiding it altogether.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在传统 C 中，一些预处理器指令不存在。如果“<samp class="samp">#</samp>”出现在该行的第 1 列中，传统预处理器只会将该行视为指令。因此，<samp class="option">-Wtraditional</samp> 会警告传统 C 可以理解但会忽略的指令，因为“<samp class="samp">#</samp>”不会作为该行的第一个字符出现。它还建议您通过缩进来隐藏传统 C 无法理解的“<samp class="samp">#pragma</samp>”等指令。一些传统的实现无法识别“<samp class="samp">#elif</samp>”，因此建议完全避免它。</p>
 </li><li>A function-like macro that appears without an argument list.  In some
 traditional preprocessors this was an error.  In ISO C it merely means
 that the macro is not expanded.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一个函数类宏，不带参数列表。在一些传统的预处理器中这是一个错误。在 ISO C 中，它仅仅意味着宏不被展开。</p>
 </li><li>The unary plus operator.  This did not exist in traditional C.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一元加运算符。这在传统的 C 语言中是不存在的。</p>
 </li><li>The &lsquo;<samp class="samp">U</samp>&rsquo; and &lsquo;<samp class="samp">LL</samp>&rsquo; integer constant suffixes, which were not
 available in traditional C.  (Traditional C does support the &lsquo;<samp class="samp">L</samp>&rsquo;
 suffix for simple long integer constants.)  You are not warned about
@@ -93,17 +106,22 @@ uses of these suffixes in macros defined in system headers.  For
 instance, <code class="code">UINT_MAX</code> may well be defined as <code class="code">4294967295U</code>, but
 you will not be warned if you use <code class="code">UINT_MAX</code>.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">U</samp>”和“<samp class="samp">LL</samp>”整数常量后缀，在传统 C 中不可用。（传统 C 确实支持简单长整型常量的“<samp class="samp">L</samp>”后缀。）不会警告您在系统头中定义的宏中使用这些后缀。例如，<code class="code">UINT_MAX</code> 很可能被定义为 <code class="code">4294967295U</code>，但如果您使用 <code class="code">UINT_MAX</code>，则不会收到警告。</p>
 <p>You can usually avoid the warning, and the related warning about
 constants which are so large that they are unsigned, by writing the
 integer constant in question in hexadecimal, with no U suffix.  Take
 care, though, because this gives the wrong result in exotic cases.
-</p></li></ul>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">通常，您可以通过以十六进制写入有问题的整数常量（不带 U 后缀）来避免警告以及有关无符号常量的相关警告。但要小心，因为在特殊情况下这会给出错误的结果。</p>
+</li></ul>
 
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Previous: <a href="Traditional-miscellany.html">Traditional miscellany</a>, Up: <a href="Traditional-Mode.html">Traditional Mode</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Traditional-miscellany.html">传统模式的其他事项</a>, 上一级： <a href="Traditional-Mode.html">传统模式</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

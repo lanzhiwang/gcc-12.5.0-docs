@@ -55,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Line-Control.html" accesskey="n" rel="next">Line Control</a>, Previous: <a href="Conditionals.html" accesskey="p" rel="prev">Conditionals</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Line-Control.html" accesskey="n" rel="next">行控制</a>，上一页：<a href="Conditionals.html" accesskey="p" rel="prev">条件编译</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Diagnostics-1"><span>5 Diagnostics<a class="copiable-link" href="#Diagnostics-1"> &para;</a></span></h2>
+<h2 class="chapter" id="Diagnostics-zh"><span>5 诊断<a class="copiable-link" href="#Diagnostics-zh"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-diagnostic"></a>
 <a class="index-entry-id" id="index-reporting-errors"></a>
 <a class="index-entry-id" id="index-reporting-warnings"></a>
@@ -67,11 +69,13 @@ Next: <a href="Line-Control.html" accesskey="n" rel="next">Line Control</a>, Pre
 error.  The tokens forming the rest of the line following &lsquo;<samp class="samp">#error</samp>&rsquo;
 are used as the error message.
 </p>
+<p>&lsquo;<samp class="samp">#error</samp>&rsquo; 指令会使预处理器报告致命错误。&lsquo;<samp class="samp">#error</samp>&rsquo; 后面该行剩余部分的标记会用作错误消息。</p>
 <p>You would use &lsquo;<samp class="samp">#error</samp>&rsquo; inside of a conditional that detects a
 combination of parameters which you know the program does not properly
 support.  For example, if you know that the program will not run
 properly on a VAX, you might write
 </p>
+<p>可以在条件指令中使用 &lsquo;<samp class="samp">#error</samp>&rsquo;，检测程序明确不支持的参数组合。例如，如果知道程序无法在 VAX 上正确运行，可以写成：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#ifdef __vax__
 #error &quot;Won't work on VAXen.  See comments at get_last_object.&quot;
@@ -82,6 +86,7 @@ properly on a VAX, you might write
 the installation in a consistent way, you can use conditionals to detect
 an inconsistency and report it with &lsquo;<samp class="samp">#error</samp>&rsquo;.  For example,
 </p>
+<p>如果安装过程必须以一致的方式设置多个配置参数，可以使用条件指令检测不一致，并通过 &lsquo;<samp class="samp">#error</samp>&rsquo; 报告。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if !defined(FOO) &amp;&amp; defined(BAR)
 #error &quot;BAR requires FOO.&quot;
@@ -93,15 +98,18 @@ an inconsistency and report it with &lsquo;<samp class="samp">#error</samp>&rsqu
 preprocessor to issue a warning and continue preprocessing.  The tokens
 following &lsquo;<samp class="samp">#warning</samp>&rsquo; are used as the warning message.
 </p>
+<p>&lsquo;<samp class="samp">#warning</samp>&rsquo; 指令类似于 &lsquo;<samp class="samp">#error</samp>&rsquo;，但它会使预处理器发出警告并继续预处理。&lsquo;<samp class="samp">#warning</samp>&rsquo; 后面的标记会用作警告消息。</p>
 <p>You might use &lsquo;<samp class="samp">#warning</samp>&rsquo; in obsolete header files, with a message
 directing the user to the header file which should be used instead.
 </p>
+<p>可以在已废弃的头文件中使用 &lsquo;<samp class="samp">#warning</samp>&rsquo;，通过消息指引用户改用应当使用的头文件。</p>
 <p>Neither &lsquo;<samp class="samp">#error</samp>&rsquo; nor &lsquo;<samp class="samp">#warning</samp>&rsquo; macro-expands its argument.
 Internal whitespace sequences are each replaced with a single space.
 The line must consist of complete tokens.  It is wisest to make the
 argument of these directives be a single string constant; this avoids
 problems with apostrophes and the like.
 </p>
+<p>&lsquo;<samp class="samp">#error</samp>&rsquo; 和 &lsquo;<samp class="samp">#warning</samp>&rsquo; 都不会对参数进行宏展开。内部的空白序列会分别替换为一个空格。该行必须由完整标记组成。最稳妥的做法是让这些指令的参数成为单个字符串常量，这样可以避免撇号等字符带来的问题。</p>
 </div>
 
 

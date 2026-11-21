@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Other Directives (The C Preprocessor)</title>
+<title>Other Directives (The C Preprocessor)
+其他指令（C 预处理器）</title>
 
 <meta name="description" content="Other Directives (The C Preprocessor)">
 <meta name="keywords" content="Other Directives (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Preprocessor-Output.html" accesskey="n" rel="next">Preprocessor Output</a>, Previous: <a href="Pragmas.html" accesskey="p" rel="prev">Pragmas</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Preprocessor-Output.html" rel="next">预处理器输出</a>, 上一页： <a href="Pragmas.html" rel="prev">pragma 指令</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Other-Directives-1"><span>8 Other Directives<a class="copiable-link" href="#Other-Directives-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">8 其他指令</h2>
 
 <a class="index-entry-id" id="index-_0023ident"></a>
 <a class="index-entry-id" id="index-_0023sccs"></a>
@@ -65,10 +68,12 @@ some systems, that string constant is copied into a special segment of
 the object file.  On other systems, the directive is ignored.  The
 &lsquo;<samp class="samp">#sccs</samp>&rsquo; directive is a synonym for &lsquo;<samp class="samp">#ident</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#ident</samp>”指令采用一个参数，即一个字符串常量。在某些系统上，该字符串常量被复制到目标文件的特殊段中。在其他系统上，该指令被忽略。 “<samp class="samp">#sccs</samp>”指令是“<samp class="samp">#ident</samp>”的同义词。</p>
 <p>These directives are not part of the C standard, but they are not
 official GNU extensions either.  What historical information we have
 been able to find, suggests they originated with System V.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些指令不是 C 标准的一部分，但也不是官方的 GNU 扩展。我们能够找到的历史信息表明它们起源于 System V。</p>
 <a class="index-entry-id" id="index-null-directive"></a>
 <p>The <em class="dfn">null directive</em> consists of a &lsquo;<samp class="samp">#</samp>&rsquo; followed by a newline,
 with only whitespace (including comments) in between.  A null directive
@@ -78,6 +83,7 @@ null directive is that an input line consisting of just a &lsquo;<samp class="sa
 produce no output, rather than a line of output containing just a
 &lsquo;<samp class="samp">#</samp>&rsquo;.  Supposedly some old C programs contain such lines.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">空指令由“<samp class="samp">#</samp>”和后面的换行构成，两者之间只能有空白（包括注释）。它会被识别为预处理指令，但不影响预处理输出。其主要作用是使只有“<samp class="samp">#</samp>”的输入行不产生相同的输出行。据说一些旧 C 程序包含这种行。</p>
 </div>
 
 

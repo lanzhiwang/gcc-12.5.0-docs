@@ -54,6 +54,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="_005f_005fhas_005fc_005fattribute.html" accesskey="n" rel="next"><code class="code">__has_c_attribute</code></a>, Previous: <a href="_005f_005fhas_005fattribute.html" accesskey="p" rel="prev"><code class="code">__has_attribute</code></a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="_005f_005fhas_005fc_005fattribute.html" rel="next">__has_c_attribute</a>, 上一页： <a href="_005f_005fhas_005fattribute.html" rel="prev">__has_attribute</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="g_t_005f_005fhas_005fcpp_005fattribute-1"><span>4.2.7 <code class="code">__has_cpp_attribute</code><a class="copiable-link" href="#g_t_005f_005fhas_005fcpp_005fattribute-1"> &para;</a></span></h4>
@@ -70,6 +71,7 @@ the attribute was first introduced into the C++ standard.  For additional
 information including the dates of the introduction of current standard
 attributes, see <a class="uref" href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations/">SD-6:&nbsp;SG10&nbsp;Feature&nbsp;Test&nbsp;Recommendations</a><!-- /@w -->.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符<code class="code">__has_cpp_attribute (<var class="var">operand</var>)</code>可以用在C++代码中的‘<samp class="samp">#if</samp>’和‘<samp class="samp">#elif</samp>’表达式中，以测试其<var class="var">operand</var>引用的属性是否被GCC识别。 <code class="code">__has_cpp_attribute (<var class="var">operand</var>)</code> 等效于 <code class="code">__has_attribute (<var class="var">operand</var>)</code>，不同之处在于，当 <var class="var">operand</var> 指定受支持的标准属性时，它计算为 <code class="code">YYYYMM</code> 形式的整数常量，指示该属性首次引入 C++ 标准时的年份和月份。有关引入当前标准属性的日期等其他信息，请参阅 <a class="uref" href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations/">SD-6：SG10 功能测试建议</a><!-- /@w -->。</p>
 </div>
 
 

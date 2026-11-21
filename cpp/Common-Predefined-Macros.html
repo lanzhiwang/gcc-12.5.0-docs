@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Common Predefined Macros (The C Preprocessor)</title>
+<title>Common Predefined Macros (The C Preprocessor)
+通用预定义宏（C 预处理器）</title>
 
 <meta name="description" content="Common Predefined Macros (The C Preprocessor)">
 <meta name="keywords" content="Common Predefined Macros (The C Preprocessor)">
@@ -56,9 +57,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="System_002dspecific-Predefined-Macros.html" accesskey="n" rel="next">System-specific Predefined Macros</a>, Previous: <a href="Standard-Predefined-Macros.html" accesskey="p" rel="prev">Standard Predefined Macros</a>, Up: <a href="Predefined-Macros.html" accesskey="u" rel="up">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="System_002dspecific-Predefined-Macros.html">系统专用预定义宏</a>，上一页：<a href="Standard-Predefined-Macros.html">标准预定义宏</a>，上一级：<a href="Predefined-Macros.html">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Common-Predefined-Macros-1"><span>3.7.2 Common Predefined Macros<a class="copiable-link" href="#Common-Predefined-Macros-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="subsection translation"><span>3.7.2 通用预定义宏</span></h4>
 <a class="index-entry-id" id="index-common-predefined-macros"></a>
 
 <p>The common predefined macros are GNU C extensions.  They are available
@@ -66,6 +69,7 @@ with the same meanings regardless of the machine or operating system on
 which you are using GNU C or GNU Fortran.  Their names all start with
 double underscores.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">通用预定义宏是 GNU C 扩展。无论在哪种机器或操作系统上使用 GNU C 或 GNU Fortran，都可以使用这些宏，而且它们的含义相同。它们的名称都以两个下划线开头。</p>
 <dl class="table">
 <dt><code class="code">__COUNTER__</code></dt>
 <dd><p>This macro expands to sequential integral values starting from 0.  In
@@ -74,10 +78,12 @@ generate unique identifiers.  Care must be taken to ensure that
 <code class="code">__COUNTER__</code> is not expanded prior to inclusion of precompiled headers
 which use it.  Otherwise, the precompiled headers will not be used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏会展开为从 0 开始依次递增的整数值。将它与 <code class="code">##</code> 运算符结合使用，可以方便地生成唯一标识符。需要注意：如果某个预编译头文件使用了 <code class="code">__COUNTER__</code>，就必须确保在包含该预编译头文件之前没有展开过这个宏，否则该预编译头文件将无法被使用。</p>
 </dd>
 <dt><code class="code">__GFORTRAN__</code></dt>
 <dd><p>The GNU Fortran compiler defines this.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">GNU Fortran 编译器会定义这个宏。</p>
 </dd>
 <dt><code class="code">__GNUC__</code></dt>
 <dt><code class="code">__GNUC_MINOR__</code></dt>
@@ -90,6 +96,7 @@ defines <code class="code">__GNUC__</code> to <var class="var">x</var>, <code cl
 and <code class="code">__GNUC_PATCHLEVEL__</code> to <var class="var">z</var>.  These
 macros are also defined if you invoke the preprocessor directly.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">所有使用 C 预处理器的 GNU 编译器都会定义这些宏，包括 C、C++、Objective-C 和 Fortran 编译器。它们的值分别是编译器主版本号、次版本号和补丁级别，均为整数常量。例如，GCC <var class="var">x</var>.<var class="var">y</var>.<var class="var">z</var> 会把 <code class="code">__GNUC__</code> 定义为 <var class="var">x</var>，把 <code class="code">__GNUC_MINOR__</code> 定义为 <var class="var">y</var>，把 <code class="code">__GNUC_PATCHLEVEL__</code> 定义为 <var class="var">z</var>。直接调用预处理器时，也会定义这些宏。</p>
 <p>If all you need to know is whether or not your program is being compiled
 by GCC, or a non-GCC compiler that claims to accept the GNU C dialects,
 you can simply test <code class="code">__GNUC__</code>.  If you need to write code
@@ -100,17 +107,20 @@ minor version and patch level are reset.  If you wish to use the
 predefined macros directly in the conditional, you will need to write it
 like this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果只想知道程序是否正在由 GCC 编译，或者是否由声称支持 GNU C 方言的其他编译器编译，只需检查 <code class="code">__GNUC__</code>。如果代码依赖某个特定版本，则必须更加谨慎：每次次版本号增加时，补丁级别都会重置为零；每次主版本号增加时，次版本号和补丁级别都会重置。如果要在条件表达式中直接使用这些预定义宏，就需要按下面的方式编写：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">/* <span class="r">Test for GCC &gt; 3.2.0</span> */
 #if __GNUC__ &gt; 3 || \
     (__GNUC__ == 3 &amp;&amp; (__GNUC_MINOR__ &gt; 2 || \
                        (__GNUC_MINOR__ == 2 &amp;&amp; \
                         __GNUC_PATCHLEVEL__ &gt; 0)))
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>检查 GCC 版本是否大于 3.2.0。</p></div>
 
 <p>Another approach is to use the predefined macros to
 calculate a single number, then compare that against a threshold:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">另一种方法是用这些预定义宏计算出一个数值，再将这个数值与阈值比较：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define GCC_VERSION (__GNUC__ * 10000 \
                      + __GNUC_MINOR__ * 100 \
@@ -118,15 +128,18 @@ calculate a single number, then compare that against a threshold:
 &hellip;
 /* <span class="r">Test for GCC &gt; 3.2.0</span> */
 #if GCC_VERSION &gt; 30200
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>检查 GCC 版本是否大于 3.2.0。</p></div>
 
 <p>Many people find this form easier to understand.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">许多人觉得这种形式更容易理解。</p>
 </dd>
 <dt><code class="code">__GNUG__</code></dt>
 <dd><p>The GNU C++ compiler defines this.  Testing it is equivalent to
 testing <code class="code">(__GNUC__&nbsp;&amp;&amp;&nbsp;__cplusplus)<!-- /@w --></code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">GNU C++ 编译器会定义这个宏。检查它等价于检查 <code class="code">(__GNUC__ &amp;&amp; __cplusplus)</code>。</p>
 </dd>
 <dt><code class="code">__STRICT_ANSI__</code></dt>
 <dd><p>GCC defines this macro if and only if the <samp class="option">-ansi</samp> switch, or a
@@ -135,12 +148,14 @@ or ISO C++, was specified when GCC was invoked.  It is defined to &lsquo;<samp c
 This macro exists primarily to direct GNU libc&rsquo;s header files to use only
 definitions found in standard C.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当且仅当调用 GCC 时指定了 <samp class="option">-ansi</samp>，或者指定了要求严格遵循某个 ISO C 或 ISO C++ 版本的 <samp class="option">-std</samp> 选项，GCC 才会定义这个宏，其值为“1”。这个宏主要用于指示 GNU libc 的头文件只提供标准 C 中规定的定义。</p>
 </dd>
 <dt><code class="code">__BASE_FILE__</code></dt>
 <dd><p>This macro expands to the name of the main input file, in the form
 of a C string constant.  This is the source file that was specified
 on the command line of the preprocessor or C compiler.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为主输入文件的名称，形式是 C 字符串常量。主输入文件就是预处理器或 C 编译器命令行中指定的源文件。</p>
 </dd>
 <dt><code class="code">__FILE_NAME__</code></dt>
 <dd><p>This macro expands to the basename of the current input file, in the
@@ -149,6 +164,7 @@ the preprocessor opened the file.  For example, processing
 <code class="code">&quot;/usr/local/include/myheader.h&quot;</code> would set this
 macro to <code class="code">&quot;myheader.h&quot;</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为当前输入文件的基本名称，形式是 C 字符串常量。这是预处理器打开该文件时所用路径的最后一个组成部分。例如，处理 <code class="code">"/usr/local/include/myheader.h"</code> 时，这个宏的值为 <code class="code">"myheader.h"</code>。</p>
 </dd>
 <dt><code class="code">__INCLUDE_LEVEL__</code></dt>
 <dd><p>This macro expands to a decimal integer constant that represents the
@@ -157,10 +173,12 @@ incremented on every &lsquo;<samp class="samp">#include</samp>&rsquo; directive 
 end of every included file.  It starts out at 0, its value within the
 base file specified on the command line.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为一个十进制整数常量，表示文件包含的嵌套深度。每遇到一条“<code class="code">#include</code>”指令，其值就增加；每到达一个被包含文件的末尾，其值就减少。在命令行指定的主文件中，初始值为 0。</p>
 </dd>
 <dt><code class="code">__ELF__</code></dt>
 <dd><p>This macro is defined if the target uses the ELF object format.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果目标使用 ELF 目标文件格式，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__VERSION__</code></dt>
 <dd><p>This macro expands to a string constant which describes the version of
@@ -168,6 +186,7 @@ the compiler in use.  You should not rely on its contents having any
 particular form, but it can be counted on to contain at least the
 release number.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为一个字符串常量，用来描述正在使用的编译器版本。不要假设字符串具有某种固定格式，但可以确定它至少包含发行版本号。</p>
 </dd>
 <dt><code class="code">__OPTIMIZE__</code></dt>
 <dt><code class="code">__OPTIMIZE_SIZE__</code></dt>
@@ -179,12 +198,14 @@ defined if the compiler is optimizing for size, not speed.
 their callers (when not optimizing, or when inlining has been
 specifically disabled by <samp class="option">-fno-inline</samp>).
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏描述编译模式。所有启用优化的编译都会定义 <code class="code">__OPTIMIZE__</code>；如果编译器以减小代码体积而非提高速度为优化目标，就会定义 <code class="code">__OPTIMIZE_SIZE__</code>；如果不会把函数内联到调用者中，就会定义 <code class="code">__NO_INLINE__</code>，例如未启用优化，或者通过 <samp class="option">-fno-inline</samp> 明确禁用内联时。</p>
 <p>These macros cause certain GNU header files to provide optimized
 definitions, using macros or inline functions, of system library
 functions.  You should not use these macros in any way unless you make
 sure that programs will execute with the same effect whether or not they
 are defined.  If they are defined, their value is 1.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏会让某些 GNU 头文件使用宏或内联函数，为系统库函数提供经过优化的定义。除非能够确保无论这些宏是否定义，程序执行效果都相同，否则不应以任何方式使用它们。它们一旦定义，其值均为 1。</p>
 </dd>
 <dt><code class="code">__GNUC_GNU_INLINE__</code></dt>
 <dd><p>GCC defines this macro if functions declared <code class="code">inline</code> will be
@@ -193,6 +214,7 @@ externally visible definitions of all functions declared <code class="code">inli
 without <code class="code">extern</code> or <code class="code">static</code>.  They will not contain any
 definitions of any functions declared <code class="code">extern inline</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果声明为 <code class="code">inline</code> 的函数将按 GCC 传统的 gnu90 模式处理，GCC 就会定义这个宏。对于声明为 <code class="code">inline</code>、且没有使用 <code class="code">extern</code> 或 <code class="code">static</code> 的函数，目标文件中会包含其对外可见的定义；对于声明为 <code class="code">extern inline</code> 的函数，目标文件中则不会包含其定义。</p>
 </dd>
 <dt><code class="code">__GNUC_STDC_INLINE__</code></dt>
 <dd><p>GCC defines this macro if functions declared <code class="code">inline</code> will be
@@ -201,9 +223,11 @@ externally visible definitions of all functions declared <code class="code">exte
 inline</code>.  They will not contain definitions of any functions declared
 <code class="code">inline</code> without <code class="code">extern</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果声明为 <code class="code">inline</code> 的函数将按 ISO C99 或后续标准处理，GCC 就会定义这个宏。对于声明为 <code class="code">extern inline</code> 的函数，目标文件中会包含其对外可见的定义；对于声明为 <code class="code">inline</code> 但没有使用 <code class="code">extern</code> 的函数，目标文件中则不会包含其定义。</p>
 <p>If this macro is defined, GCC supports the <code class="code">gnu_inline</code> function
 attribute as a way to always get the gnu90 behavior.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果定义了这个宏，GCC 就支持用 <code class="code">gnu_inline</code> 函数属性来始终获得 gnu90 的行为。</p>
 </dd>
 <dt><code class="code">__CHAR_UNSIGNED__</code></dt>
 <dd><p>GCC defines this macro if and only if the data type <code class="code">char</code> is
@@ -211,11 +235,13 @@ unsigned on the target machine.  It exists to cause the standard header
 file <samp class="file">limits.h</samp> to work correctly.  You should not use this macro
 yourself; instead, refer to the standard macros defined in <samp class="file">limits.h</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当且仅当目标机器上的 <code class="code">char</code> 类型为无符号类型时，GCC 才会定义这个宏。它用于确保标准头文件 <samp class="file">limits.h</samp> 正常工作。不要自行使用这个宏，而应使用 <samp class="file">limits.h</samp> 中定义的标准宏。</p>
 </dd>
 <dt><code class="code">__WCHAR_UNSIGNED__</code></dt>
 <dd><p>Like <code class="code">__CHAR_UNSIGNED__</code>, this macro is defined if and only if the
 data type <code class="code">wchar_t</code> is unsigned and the front-end is in C++ mode.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与 <code class="code">__CHAR_UNSIGNED__</code> 类似，当且仅当 <code class="code">wchar_t</code> 类型为无符号类型、且编译器前端处于 C++ 模式时，才会定义这个宏。</p>
 </dd>
 <dt><code class="code">__REGISTER_PREFIX__</code></dt>
 <dd><p>This macro expands to a single token (not a string constant) which is
@@ -225,6 +251,7 @@ environments.  For example, in the <code class="code">m68k-aout</code> environme
 expands to nothing, but in the <code class="code">m68k-coff</code> environment it expands
 to a single &lsquo;<samp class="samp">%</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为一个标记，而不是字符串常量；该标记是在此目标的汇编语言中加在 CPU 寄存器名称前的前缀。它可用于编写适应多种环境的汇编代码。例如，在 <code class="code">m68k-aout</code> 环境中它展开为空，而在 <code class="code">m68k-coff</code> 环境中则展开为一个“%”。</p>
 </dd>
 <dt><code class="code">__USER_LABEL_PREFIX__</code></dt>
 <dd><p>This macro expands to a single token which is the prefix applied to
@@ -232,11 +259,13 @@ user labels (symbols visible to C code) in assembly.  For example, in
 the <code class="code">m68k-aout</code> environment it expands to an &lsquo;<samp class="samp">_</samp>&rsquo;, but in the
 <code class="code">m68k-coff</code> environment it expands to nothing.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为一个标记，表示汇编中用户标号（C 代码可见的符号）的前缀。例如，在 <code class="code">m68k-aout</code> 环境中它展开为“_”，而在 <code class="code">m68k-coff</code> 环境中则展开为空。</p>
 <p>This macro will have the correct definition even if
 <samp class="option">-f(no-)underscores</samp> is in use, but it will not be correct if
 target-specific options that adjust this prefix are used (e.g. the
 OSF/rose <samp class="option">-mno-underscores</samp> option).
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">即使使用了 <samp class="option">-f(no-)underscores</samp>，这个宏仍会具有正确的定义；但如果使用了会调整该前缀的目标专用选项，例如 OSF/rose 的 <samp class="option">-mno-underscores</samp>，它的定义就可能不正确。</p>
 </dd>
 <dt><code class="code">__SIZE_TYPE__</code></dt>
 <dt><code class="code">__PTRDIFF_TYPE__</code></dt>
@@ -289,6 +318,7 @@ appropriate headers and use the typedefs.  Some of these macros may
 not be defined on particular systems if GCC does not provide a
 <samp class="file">stdint.h</samp> header on those systems.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏分别定义为以下 typedef 类型所对应的正确底层类型：<code class="code">size_t</code>、<code class="code">ptrdiff_t</code>、<code class="code">wchar_t</code>、<code class="code">wint_t</code>、<code class="code">intmax_t</code>、<code class="code">uintmax_t</code>、<code class="code">sig_atomic_t</code>、<code class="code">int8_t</code>、<code class="code">int16_t</code>、<code class="code">int32_t</code>、<code class="code">int64_t</code>、<code class="code">uint8_t</code>、<code class="code">uint16_t</code>、<code class="code">uint32_t</code>、<code class="code">uint64_t</code>、<code class="code">int_least8_t</code>、<code class="code">int_least16_t</code>、<code class="code">int_least32_t</code>、<code class="code">int_least64_t</code>、<code class="code">uint_least8_t</code>、<code class="code">uint_least16_t</code>、<code class="code">uint_least32_t</code>、<code class="code">uint_least64_t</code>、<code class="code">int_fast8_t</code>、<code class="code">int_fast16_t</code>、<code class="code">int_fast32_t</code>、<code class="code">int_fast64_t</code>、<code class="code">uint_fast8_t</code>、<code class="code">uint_fast16_t</code>、<code class="code">uint_fast32_t</code>、<code class="code">uint_fast64_t</code>、<code class="code">intptr_t</code>、<code class="code">uintptr_t</code>。它们用于确保标准头文件 <samp class="file">stddef.h</samp>、<samp class="file">stdint.h</samp> 和 <samp class="file">wchar.h</samp> 正常工作。不要直接使用这些宏，而应包含适当的头文件并使用其中的 typedef 类型。如果 GCC 在某些系统上不提供 <samp class="file">stdint.h</samp> 头文件，那么其中一些宏可能不会定义。</p>
 </dd>
 <dt><code class="code">__CHAR_BIT__</code></dt>
 <dd><p>Defined to the number of bits used in the representation of the
@@ -296,6 +326,7 @@ not be defined on particular systems if GCC does not provide a
 numerical limits work correctly.  You should not use
 this macro directly; instead, include the appropriate headers.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏定义为 <code class="code">char</code> 数据类型的表示所使用的位数。它用于确保标准头文件提供的数值界限正常工作。不要直接使用这个宏，而应包含适当的头文件。</p>
 </dd>
 <dt><code class="code">__SCHAR_MAX__</code></dt>
 <dt><code class="code">__WCHAR_MAX__</code></dt>
@@ -358,6 +389,7 @@ use these macros directly; instead, include the appropriate headers.
 Some of these macros may not be defined on particular systems if GCC
 does not provide a <samp class="file">stdint.h</samp> header on those systems.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上述各个 <code class="code">*_MAX__</code> 宏分别定义为以下类型的最大值：<code class="code">signed char</code>、<code class="code">wchar_t</code>、<code class="code">signed short</code>、<code class="code">signed int</code>、<code class="code">signed long</code>、<code class="code">signed long long</code>、<code class="code">wint_t</code>、<code class="code">size_t</code>、<code class="code">ptrdiff_t</code>、<code class="code">intmax_t</code>、<code class="code">uintmax_t</code>、<code class="code">sig_atomic_t</code>、<code class="code">int8_t</code>、<code class="code">int16_t</code>、<code class="code">int32_t</code>、<code class="code">int64_t</code>、<code class="code">uint8_t</code>、<code class="code">uint16_t</code>、<code class="code">uint32_t</code>、<code class="code">uint64_t</code>、<code class="code">int_least8_t</code>、<code class="code">int_least16_t</code>、<code class="code">int_least32_t</code>、<code class="code">int_least64_t</code>、<code class="code">uint_least8_t</code>、<code class="code">uint_least16_t</code>、<code class="code">uint_least32_t</code>、<code class="code">uint_least64_t</code>、<code class="code">int_fast8_t</code>、<code class="code">int_fast16_t</code>、<code class="code">int_fast32_t</code>、<code class="code">int_fast64_t</code>、<code class="code">uint_fast8_t</code>、<code class="code">uint_fast16_t</code>、<code class="code">uint_fast32_t</code>、<code class="code">uint_fast64_t</code>、<code class="code">intptr_t</code>、<code class="code">uintptr_t</code>；最后三个 <code class="code">*_MIN__</code> 宏则分别定义为 <code class="code">wchar_t</code>、<code class="code">wint_t</code>、<code class="code">sig_atomic_t</code> 类型的最小值。它们用于确保标准头文件提供的数值界限正常工作。不要直接使用这些宏，而应包含适当的头文件。如果 GCC 在某些系统上不提供 <samp class="file">stdint.h</samp> 头文件，那么其中一些宏可能不会定义。</p>
 </dd>
 <dt><code class="code">__INT8_C</code></dt>
 <dt><code class="code">__INT16_C</code></dt>
@@ -376,6 +408,7 @@ these macros directly; instead, include the appropriate headers.  Some
 of these macros may not be defined on particular systems if GCC does
 not provide a <samp class="file">stdint.h</samp> header on those systems.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏定义为标准头文件 <samp class="file">stdint.h</samp> 中相应宏的实现；对应的标准宏名称与它们相同，只是去掉了开头的 <code class="code">__</code>。它们用于确保该头文件的实现正常工作。不要直接使用这些宏，而应包含适当的头文件。如果 GCC 在某些系统上不提供 <samp class="file">stdint.h</samp> 头文件，那么其中一些宏可能不会定义。</p>
 </dd>
 <dt><code class="code">__SCHAR_WIDTH__</code></dt>
 <dt><code class="code">__SHRT_WIDTH__</code></dt>
@@ -404,6 +437,7 @@ the appropriate headers.  Some of these macros may not be defined on
 particular systems if GCC does not provide a <samp class="file">stdint.h</samp> header on
 those systems.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏定义为相应类型的位宽。它们用于确保 <samp class="file">limits.h</samp> 和 <samp class="file">stdint.h</samp> 的实现正常工作。不要直接使用这些宏，而应包含适当的头文件。如果 GCC 在某些系统上不提供 <samp class="file">stdint.h</samp> 头文件，那么其中一些宏可能不会定义。</p>
 </dd>
 <dt><code class="code">__SIZEOF_INT__</code></dt>
 <dt><code class="code">__SIZEOF_LONG__</code></dt>
@@ -422,6 +456,7 @@ those systems.
 <code class="code">double</code>, <code class="code">long double</code>, <code class="code">size_t</code>, <code class="code">wchar_t</code>, <code class="code">wint_t</code>
 and <code class="code">ptrdiff_t</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些宏分别定义为下列 C 标准数据类型所占的字节数：<code class="code">int</code>、<code class="code">long</code>、<code class="code">long long</code>、<code class="code">short</code>、<code class="code">void *</code>、<code class="code">float</code>、<code class="code">double</code>、<code class="code">long double</code>、<code class="code">size_t</code>、<code class="code">wchar_t</code>、<code class="code">wint_t</code>、<code class="code">ptrdiff_t</code>。</p>
 </dd>
 <dt><code class="code">__BYTE_ORDER__</code></dt>
 <dt><code class="code">__ORDER_LITTLE_ENDIAN__</code></dt>
@@ -440,12 +475,15 @@ bytes in 16-bit words are laid out in a little-endian fashion, whereas
 the 16-bit subwords of a 32-bit quantity are laid out in big-endian
 fashion.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">__BYTE_ORDER__</code> 被定义为 <code class="code">__ORDER_LITTLE_ENDIAN__</code>、<code class="code">__ORDER_BIG_ENDIAN__</code> 或 <code class="code">__ORDER_PDP_ENDIAN__</code> 三者之一，用来反映多字节值和多字值在内存中的布局。如果 <code class="code">__BYTE_ORDER__</code> 等于 <code class="code">__ORDER_LITTLE_ENDIAN__</code> 或 <code class="code">__ORDER_BIG_ENDIAN__</code>，那么在字节和字这两个层次上都采用一致的布局规则：小端布局中最低地址处存放最低有效字节（字），大端布局中最低地址处存放最高有效字节（字）。如果 <code class="code">__BYTE_ORDER__</code> 等于 <code class="code">__ORDER_PDP_ENDIAN__</code>，则每个 16 位字内部的字节按小端顺序排列，而一个 32 位值中的两个 16 位子字按大端顺序排列。</p>
 <p>You should use these macros for testing like this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">应按下面的方式使用这些宏进行判断：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">/* <span class="r">Test for a little-endian machine</span> */
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>检查目标是否为小端机器。</p></div>
 
 </dd>
 <dt><code class="code">__FLOAT_WORD_ORDER__</code></dt>
@@ -453,30 +491,35 @@ fashion.
 <code class="code">__ORDER_LITTLE_ENDIAN__</code> or <code class="code">__ORDER_BIG_ENDIAN__</code> to reflect
 the layout of the words of multi-word floating-point quantities.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">__FLOAT_WORD_ORDER__</code> 被定义为 <code class="code">__ORDER_LITTLE_ENDIAN__</code> 或 <code class="code">__ORDER_BIG_ENDIAN__</code> 之一，用来反映由多个字组成的浮点值中各个字的排列顺序。</p>
 </dd>
 <dt><code class="code">__DEPRECATED</code></dt>
 <dd><p>This macro is defined, with value 1, when compiling a C++ source file
 with warnings about deprecated constructs enabled.  These warnings are
 enabled by default, but can be disabled with <samp class="option">-Wno-deprecated</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译 C++ 源文件时，如果启用了对已弃用构造的警告，就会定义这个宏，其值为 1。这类警告默认启用，但可以通过 <samp class="option">-Wno-deprecated</samp> 关闭。</p>
 </dd>
 <dt><code class="code">__EXCEPTIONS</code></dt>
 <dd><p>This macro is defined, with value 1, when compiling a C++ source file
 with exceptions enabled.  If <samp class="option">-fno-exceptions</samp> is used when
 compiling the file, then this macro is not defined.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译 C++ 源文件时，如果启用了异常支持，就会定义这个宏，其值为 1。如果编译该文件时使用了 <samp class="option">-fno-exceptions</samp>，则不会定义这个宏。</p>
 </dd>
 <dt><code class="code">__GXX_RTTI</code></dt>
 <dd><p>This macro is defined, with value 1, when compiling a C++ source file
 with runtime type identification enabled.  If <samp class="option">-fno-rtti</samp> is
 used when compiling the file, then this macro is not defined.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译 C++ 源文件时，如果启用了运行时类型识别，就会定义这个宏，其值为 1。如果编译该文件时使用了 <samp class="option">-fno-rtti</samp>，则不会定义这个宏。</p>
 </dd>
 <dt><code class="code">__USING_SJLJ_EXCEPTIONS__</code></dt>
 <dd><p>This macro is defined, with value 1, if the compiler uses the old
 mechanism based on <code class="code">setjmp</code> and <code class="code">longjmp</code> for exception
 handling.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果编译器使用基于 <code class="code">setjmp</code> 和 <code class="code">longjmp</code> 的旧式异常处理机制，就会定义这个宏，其值为 1。</p>
 </dd>
 <dt><code class="code">__GXX_EXPERIMENTAL_CXX0X__</code></dt>
 <dd><p>This macro is defined when compiling a C++ source file with C++11 features
@@ -487,6 +530,7 @@ GCC 4.7.0 the <code class="code">__cplusplus</code> macro is defined correctly, 
 code should test <code class="code">__cplusplus &gt;= 201103L</code> instead of using this
 macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译 C++ 源文件时，如果启用了 C++11 特性，就会定义这个宏；也就是说，除 <samp class="option">-std=c++98</samp> 和 <samp class="option">-std=gnu++98</samp> 之外的所有 C++ 语言方言都会定义它。这个宏已经过时，但可用于检测非常旧的 GCC 版本中的实验性 C++0x 特性。从 GCC 4.7.0 开始，<code class="code">__cplusplus</code> 已能被正确定义，因此大多数代码都应检查 <code class="code">__cplusplus &gt;= 201103L</code>，而不是使用这个宏。</p>
 </dd>
 <dt><code class="code">__GXX_WEAK__</code></dt>
 <dd><p>This macro is defined when compiling a C++ source file.  It has the
@@ -498,6 +542,7 @@ general, user code should not need to make use of this macro; the
 purpose of this macro is to ease implementation of the C++ runtime
 library provided with G++.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译 C++ 源文件时会定义这个宏。如果编译器将使用弱符号、COMDAT 节或其他类似技术，来合并在多个翻译单元中定义、具有“模糊链接”的符号，其值为 1。如果编译器不会合并这类符号，其值为 0。一般来说，用户代码不需要使用这个宏；它的用途是方便实现随 G++ 提供的 C++ 运行库。</p>
 </dd>
 <dt><code class="code">__NEXT_RUNTIME__</code></dt>
 <dd><p>This macro is defined, with value 1, if (and only if) the NeXT runtime
@@ -505,6 +550,7 @@ library provided with G++.
 runtime is used, this macro is not defined, so that you can use this
 macro to determine which runtime (NeXT or GNU) is being used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当且仅当 Objective-C 使用 NeXT 运行时（例如指定了 <samp class="option">-fnext-runtime</samp>）时，才会定义这个宏，其值为 1。如果使用 GNU 运行时，则不会定义它，因此可以通过这个宏判断正在使用的是 NeXT 运行时还是 GNU 运行时。</p>
 </dd>
 <dt><code class="code">__LP64__</code></dt>
 <dt><code class="code">_LP64</code></dt>
@@ -512,35 +558,42 @@ macro to determine which runtime (NeXT or GNU) is being used.
 is for a target where <code class="code">long int</code> and pointer both use 64-bits and
 <code class="code">int</code> uses 32-bit.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当且仅当编译目标的 <code class="code">long int</code> 和指针均为 64 位、而 <code class="code">int</code> 为 32 位时，才会定义这些宏，其值为 1。</p>
 </dd>
 <dt><code class="code">__SSP__</code></dt>
 <dd><p>This macro is defined, with value 1, when <samp class="option">-fstack-protector</samp> is in
 use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fstack-protector</samp> 时，会定义这个宏，其值为 1。</p>
 </dd>
 <dt><code class="code">__SSP_ALL__</code></dt>
 <dd><p>This macro is defined, with value 2, when <samp class="option">-fstack-protector-all</samp> is
 in use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fstack-protector-all</samp> 时，会定义这个宏，其值为 2。</p>
 </dd>
 <dt><code class="code">__SSP_STRONG__</code></dt>
 <dd><p>This macro is defined, with value 3, when <samp class="option">-fstack-protector-strong</samp> is
 in use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fstack-protector-strong</samp> 时，会定义这个宏，其值为 3。</p>
 </dd>
 <dt><code class="code">__SSP_EXPLICIT__</code></dt>
 <dd><p>This macro is defined, with value 4, when <samp class="option">-fstack-protector-explicit</samp> is
 in use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fstack-protector-explicit</samp> 时，会定义这个宏，其值为 4。</p>
 </dd>
 <dt><code class="code">__SANITIZE_ADDRESS__</code></dt>
 <dd><p>This macro is defined, with value 1, when <samp class="option">-fsanitize=address</samp>
 or <samp class="option">-fsanitize=kernel-address</samp> are in use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fsanitize=address</samp> 或 <samp class="option">-fsanitize=kernel-address</samp> 时，会定义这个宏，其值为 1。</p>
 </dd>
 <dt><code class="code">__SANITIZE_THREAD__</code></dt>
 <dd><p>This macro is defined, with value 1, when <samp class="option">-fsanitize=thread</samp> is in use.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fsanitize=thread</samp> 时，会定义这个宏，其值为 1。</p>
 </dd>
 <dt><code class="code">__TIMESTAMP__</code></dt>
 <dd><p>This macro expands to a string constant that describes the date and time
@@ -549,10 +602,12 @@ contains abbreviated day of the week, month, day of the month, time in
 hh:mm:ss form, year and looks like <code class="code">&quot;Sun&nbsp;Sep&nbsp;16&nbsp;01:03:52&nbsp;1973&quot;<!-- /@w --></code>.
 If the day of the month is less than 10, it is padded with a space on the left.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏展开为一个字符串常量，描述当前源文件最后一次修改的日期和时间。字符串依次包含星期缩写、月份、月内日期、以 hh:mm:ss 表示的时间以及年份，形如 <code class="code">"Sun Sep 16 01:03:52 1973"</code>。如果月内日期小于 10，就在左侧补一个空格。</p>
 <p>If GCC cannot determine the current date, it will emit a warning message
 (once per compilation) and <code class="code">__TIMESTAMP__</code> will expand to
 <code class="code">&quot;???&nbsp;???&nbsp;??&nbsp;??:??:??&nbsp;????&quot;<!-- /@w --></code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果 GCC 无法确定当前日期，就会给出警告（每次编译只警告一次），并将 <code class="code">__TIMESTAMP__</code> 展开为 <code class="code">"??? ??? ?? ??:??:?? ????"</code>。</p>
 </dd>
 <dt><code class="code">__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1</code></dt>
 <dt><code class="code">__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2</code></dt>
@@ -562,17 +617,20 @@ If the day of the month is less than 10, it is padded with a space on the left.
 <dd><p>These macros are defined when the target processor supports atomic compare
 and swap operations on operands 1, 2, 4, 8 or 16 bytes in length, respectively.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当目标处理器支持对长度分别为 1、2、4、8 或 16 字节的操作数执行原子比较并交换操作时，就会定义相应的宏。</p>
 </dd>
 <dt><code class="code">__HAVE_SPECULATION_SAFE_VALUE</code></dt>
 <dd><p>This macro is defined with the value 1 to show that this version of GCC
 supports <code class="code">__builtin_speculation_safe_value</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏被定义为 1，表示当前版本的 GCC 支持 <code class="code">__builtin_speculation_safe_value</code>。</p>
 </dd>
 <dt><code class="code">__GCC_HAVE_DWARF2_CFI_ASM</code></dt>
 <dd><p>This macro is defined when the compiler is emitting DWARF CFI directives
 to the assembler.  When this is defined, it is possible to emit those same
 directives in inline assembly.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当编译器向汇编器输出 DWARF 调用帧信息（CFI）指令时，就会定义这个宏。定义了它之后，就可以在内联汇编中输出相同的指令。</p>
 </dd>
 <dt><code class="code">__FP_FAST_FMA</code></dt>
 <dt><code class="code">__FP_FAST_FMAF</code></dt>
@@ -583,6 +641,7 @@ the include file <samp class="file">math.h</samp> can define the macros
 <code class="code">FP_FAST_FMA</code>, <code class="code">FP_FAST_FMAF</code>, and <code class="code">FP_FAST_FMAL</code>
 for compatibility with the 1999 C standard.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果后端支持 <code class="code">fma</code>、<code class="code">fmaf</code>、<code class="code">fmal</code> 内建函数，就会把相应的宏定义为 1，使头文件 <samp class="file">math.h</samp> 能够定义 <code class="code">FP_FAST_FMA</code>、<code class="code">FP_FAST_FMAF</code>、<code class="code">FP_FAST_FMAL</code> 宏，以兼容 1999 年的 C 标准。</p>
 </dd>
 <dt><code class="code">__FP_FAST_FMAF16</code></dt>
 <dt><code class="code">__FP_FAST_FMAF32</code></dt>
@@ -599,6 +658,7 @@ for compatibility with the 1999 C standard.
 the user defined <code class="code">__STDC_WANT_IEC_60559_TYPES_EXT__</code> before
 including <samp class="file">math.h</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果后端支持对 ISO/IEC TS 18661-3:2015 中新增的 <code class="code">_Float<var class="var">n</var></code> 和 <code class="code">_Float<var class="var">n</var>x</code> 类型使用 <code class="code">fma</code> 函数，就会把相应的宏定义为 1。如果用户在包含 <samp class="file">math.h</samp> 之前定义了 <code class="code">__STDC_WANT_IEC_60559_TYPES_EXT__</code>，该头文件就可以定义 <code class="code">FP_FAST_FMAF<var class="var">n</var></code> 和 <code class="code">FP_FAST_FMAF<var class="var">n</var>x</code> 宏。</p>
 </dd>
 <dt><code class="code">__GCC_IEC_559</code></dt>
 <dd><p>This macro is defined to indicate the intended level of support for
@@ -615,6 +675,7 @@ by GCC.  If 2 or more, it additionally indicates support for IEEE
 754-2008 (in particular, that the binary encodings for quiet and
 signaling NaNs are as specified in IEEE 754-2008).
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏用于表示对 IEEE 754（IEC 60559）浮点运算的预期支持级别，展开为一个非负整数。值为 0 时，表示编译器配置与命令行选项的组合不以支持 C99 和 C11 附录 F 所定义的 <code class="code">float</code>、<code class="code">double</code> 的 IEEE 754 运算为目标，例如不支持标准舍入模式和异常，或者启用了与 IEEE 754 语义冲突的优化。值为 1 时，表示预期支持 IEEE 754 运算，但这不意味着 GCC 支持全部相关语言特性。值为 2 或更大时，还表示支持 IEEE 754-2008，尤其是静默 NaN 和信号 NaN 的二进制编码符合 IEEE 754-2008 的规定。</p>
 <p>This macro does not indicate the default state of command-line options
 that control optimizations that C99 and C11 permit to be controlled by
 standard pragmas, where those standards do not require a particular
@@ -623,6 +684,7 @@ signaling NaN semantics (the macro for that is
 <code class="code">__SUPPORT_SNAN__</code>).  It does not indicate support for decimal
 floating point or the IEEE 754 binary16 and binary128 types.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于 C99 和 C11 允许通过标准 pragma 控制的优化，如果标准没有要求特定的默认状态，这个宏不会说明相应命令行选项的默认状态。它也不说明优化是否遵守信号 NaN 的语义；用于说明这一点的是 <code class="code">__SUPPORT_SNAN__</code>。此外，它不说明是否支持十进制浮点数，也不说明是否支持 IEEE 754 的 binary16 和 binary128 类型。</p>
 </dd>
 <dt><code class="code">__GCC_IEC_559_COMPLEX</code></dt>
 <dd><p>This macro is defined to indicate the intended level of support for
@@ -635,34 +697,41 @@ was used).  If 1 or more, it indicates that it is intended to support
 those requirements; this does not mean that all relevant language
 features are supported by GCC.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这个宏用于表示对 C99 和 C11 附录 G 所定义的复数 IEEE 754（IEC 60559）浮点运算的预期支持级别，展开为一个非负整数。值为 0 时，表示编译器配置与命令行选项的组合不以满足附录 G 的要求为目标，例如使用了 <samp class="option">-fcx-limited-range</samp>。值为 1 或更大时，表示预期满足这些要求，但这不意味着 GCC 支持全部相关语言特性。</p>
 </dd>
 <dt><code class="code">__NO_MATH_ERRNO__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-fno-math-errno</samp> is used, or enabled
 by another option such as <samp class="option">-ffast-math</samp> or by default.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fno-math-errno</samp>，或者通过 <samp class="option">-ffast-math</samp> 等其他选项或默认设置启用该选项时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__RECIPROCAL_MATH__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-freciprocal-math</samp> is used, or enabled
 by another option such as <samp class="option">-ffast-math</samp> or by default.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-freciprocal-math</samp>，或者通过 <samp class="option">-ffast-math</samp> 等其他选项或默认设置启用该选项时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__NO_SIGNED_ZEROS__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-fno-signed-zeros</samp> is used, or enabled
 by another option such as <samp class="option">-ffast-math</samp> or by default.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fno-signed-zeros</samp>，或者通过 <samp class="option">-ffast-math</samp> 等其他选项或默认设置启用该选项时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__NO_TRAPPING_MATH__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-fno-trapping-math</samp> is used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fno-trapping-math</samp> 时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__ASSOCIATIVE_MATH__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-fassociative-math</samp> is used, or enabled
 by another option such as <samp class="option">-ffast-math</samp> or by default.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-fassociative-math</samp>，或者通过 <samp class="option">-ffast-math</samp> 等其他选项或默认设置启用该选项时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__ROUNDING_MATH__</code></dt>
 <dd><p>This macro is defined if <samp class="option">-frounding-math</samp> is used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-frounding-math</samp> 时，就会定义这个宏。</p>
 </dd>
 <dt><code class="code">__GNUC_EXECUTION_CHARSET_NAME</code></dt>
 <dt><code class="code">__GNUC_WIDE_EXECUTION_CHARSET_NAME</code></dt>
@@ -672,7 +741,9 @@ set used.  It directly reflects the name passed to the options
 <samp class="option">-fexec-charset</samp> and <samp class="option">-fwide-exec-charset</samp>, or the defaults
 documented for those options (that is, it can expand to something like
 <code class="code">&quot;UTF-8&quot;</code>).  See <a class="xref" href="Invocation.html">Invocation</a>.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这两个宏分别展开为窄字符串字面量，内容是编译时所用的窄执行字符集和宽执行字符集的名称。名称直接反映传给 <samp class="option">-fexec-charset</samp> 和 <samp class="option">-fwide-exec-charset</samp> 的值，或者这些选项在文档中规定的默认值；例如，它可以展开为 <code class="code">"UTF-8"</code>。参见<a class="xref" href="Invocation.html">调用</a>。</p>
+</dd>
 </dl>
 
 </div>
@@ -680,6 +751,7 @@ documented for those options (that is, it can expand to something like
 <div class="nav-panel">
 <p>
 Next: <a href="System_002dspecific-Predefined-Macros.html">System-specific Predefined Macros</a>, Previous: <a href="Standard-Predefined-Macros.html">Standard Predefined Macros</a>, Up: <a href="Predefined-Macros.html">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="System_002dspecific-Predefined-Macros.html">系统专用预定义宏</a>，上一页：<a href="Standard-Predefined-Macros.html">标准预定义宏</a>，上一级：<a href="Predefined-Macros.html">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 
 

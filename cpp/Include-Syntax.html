@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Include Syntax (The C Preprocessor)</title>
+<title>Include Syntax (The C Preprocessor)
+包含语法（C 预处理器）</title>
 
 <meta name="description" content="Include Syntax (The C Preprocessor)">
 <meta name="keywords" content="Include Syntax (The C Preprocessor)">
@@ -53,20 +54,24 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Include-Operation.html" accesskey="n" rel="next">Include Operation</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Include-Operation.html" rel="next">包含操作</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Include-Syntax-1"><span>2.1 Include Syntax<a class="copiable-link" href="#Include-Syntax-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.1 包含语法</h3>
 
 <a class="index-entry-id" id="index-_0023include"></a>
 <p>Both user and system header files are included using the preprocessing
 directive &lsquo;<samp class="samp">#include</samp>&rsquo;.  It has two variants:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用预处理指令“<samp class="samp">#include</samp>”包含用户和系统头文件。它有两种变体：</p>
 <dl class="table">
 <dt><code class="code">#include &lt;<var class="var">file</var>&gt;</code></dt>
 <dd><p>This variant is used for system header files.  It searches for a file
 named <var class="var">file</var> in a standard list of system directories.  You can prepend
 directories to this list with the <samp class="option">-I</samp> option (see <a class="pxref" href="Invocation.html">Invocation</a>).
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此变体用于系统头文件。它在标准系统目录列表中搜索名为 <var class="var">file</var> 的文件。您可以使用 <samp class="option">-I</samp> 选项将目录添加到此列表中（请参阅 <a class="pxref" href="Invocation.html">调用</a>）。</p>
 </dd>
 <dt><code class="code">#include &quot;<var class="var">file</var>&quot;</code></dt>
 <dd><p>This variant is used for header files of your own program.  It
@@ -74,13 +79,16 @@ searches for a file named <var class="var">file</var> first in the directory con
 the current file, then in the quote directories and then the same
 directories used for <code class="code">&lt;<var class="var">file</var>&gt;</code>.  You can prepend directories
 to the list of quote directories with the <samp class="option">-iquote</samp> option.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这种形式用于程序自身的头文件。先在当前文件所在目录查找 <var class="var">file</var>，然后查找双引号包含专用目录，最后查找与 <code class="code">&lt;file&gt;</code> 形式相同的目录。使用 <samp class="option">-iquote</samp> 可以把目录添加到双引号包含专用目录列表前面。</p>
+</dd>
 </dl>
 
 <p>The argument of &lsquo;<samp class="samp">#include</samp>&rsquo;, whether delimited with quote marks or
 angle brackets, behaves like a string constant in that comments are not
 recognized, and macro names are not expanded.  Thus, <code class="code">#include&nbsp;&lt;x/*y&gt;<!-- /@w --></code> specifies inclusion of a system header file named <samp class="file">x/*y</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include</samp>”的参数，无论是用引号还是尖括号分隔，其行为都类似于字符串常量，因为无法识别注释，并且不会扩展宏名称。因此，<code class="code">#include&nbsp;&lt;x/*y&gt;<!-- /@w --></code> 指定包含名为 <samp class="file">x/*y</samp> 的系统头文件。</p>
 <p>However, if backslashes occur within <var class="var">file</var>, they are considered
 ordinary text characters, not escape characters.  None of the character
 escape sequences appropriate to string constants in C are processed.
@@ -89,14 +97,17 @@ backslashes.  (Some systems interpret &lsquo;<samp class="samp">\</samp>&rsquo; 
 All of these also interpret &lsquo;<samp class="samp">/</samp>&rsquo; the same way.  It is most portable
 to use only &lsquo;<samp class="samp">/</samp>&rsquo;.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">但是，如果反斜杠出现在 <var class="var">file</var> 内，则它们被视为普通文本字符，而不是转义字符。不处理任何适合 C 中字符串常量的字符转义序列。因此，<code class="code">#include&nbsp;&quot;x\n\\y&quot;<!-- /@w --></code> 指定包含三个反斜杠的文件名。 （某些系统将“<samp class="samp">\</samp>”解释为路径名分隔符。所有这些系统也以相同的方式解释“<samp class="samp">/</samp>”。仅使用“<samp class="samp">/</samp>”是最可移植的。）</p>
 <p>It is an error if there is anything (other than comments) on the line
 after the file name.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">文件名后面同一行若还有注释以外的任何内容，就会构成错误。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Include-Operation.html">Include Operation</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Include-Operation.html">包含操作</a>, 上一级： <a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

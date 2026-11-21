@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Line Control (The C Preprocessor)</title>
+<title>Line Control (The C Preprocessor)
+行号控制（C 预处理器）</title>
 
 <meta name="description" content="Line Control (The C Preprocessor)">
 <meta name="keywords" content="Line Control (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Pragmas.html" accesskey="n" rel="next">Pragmas</a>, Previous: <a href="Diagnostics.html" accesskey="p" rel="prev">Diagnostics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Pragmas.html" rel="next">pragma 指令</a>, 上一页： <a href="Diagnostics.html" rel="prev">诊断</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Line-Control-1"><span>6 Line Control<a class="copiable-link" href="#Line-Control-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">6 行号控制</h2>
 <a class="index-entry-id" id="index-line-control"></a>
 
 <p>The C preprocessor informs the C compiler of the location in your source
@@ -65,6 +68,7 @@ and line number.  All the tokens resulting from macro expansion are
 reported as having appeared on the line of the source file where the
 outermost macro was used.  We intend to be more accurate in the future.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 预处理器通知 C 编译器每个标记在源代码中的来源位置。目前，这只是文件名和行号。宏展开产生的所有标记都报告为出现在使用最外层宏的源文件行上。我们打算将来更加准确。</p>
 <p>If you write a program which generates source code, such as the
 <code class="command">bison</code> parser generator, you may want to adjust the preprocessor&rsquo;s
 notion of the current file name and line number by hand.  Parts of the
@@ -73,6 +77,7 @@ from a standard parser file.  The rest are copied verbatim from
 <code class="command">bison</code>&rsquo;s input.  You would like compiler error messages and
 symbolic debuggers to be able to refer to <code class="code">bison</code>&rsquo;s input file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您编写生成源代码的程序，例如 <code class="command">bison</code> 解析器生成器，您可能需要手动调整预处理器对当前文件名和行号的概念。 <code class="command">bison</code> 的部分输出是从头开始生成的，其他部分来自标准解析器文件。其余部分是从 <code class="command">bison</code> 的输入中逐字复制的。您希望编译器错误消息和符号调试器能够引用 <code class="code">bison</code> 的输入文件。</p>
 <a class="index-entry-id" id="index-_0023line"></a>
 <p><code class="command">bison</code> or any such program can arrange this by writing
 &lsquo;<samp class="samp">#line</samp>&rsquo; directives into the output file.  &lsquo;<samp class="samp">#line</samp>&rsquo; is a
@@ -80,12 +85,14 @@ directive that specifies the original line number and source file name
 for subsequent input in the current preprocessor input file.
 &lsquo;<samp class="samp">#line</samp>&rsquo; has three variants:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="command">bison</code> 或任何此类程序可以通过将“<samp class="samp">#line</samp>”指令写入输出文件来安排此操作。 ‘<samp class="samp">#line</samp>’是一个指令，指定当前预处理器输入文件中后续输入的原始行号和源文件名。 ‘<samp class="samp">#line</samp>’有三种变体：</p>
 <dl class="table">
 <dt><code class="code">#line <var class="var">linenum</var></code></dt>
 <dd><p><var class="var">linenum</var> is a non-negative decimal integer constant.  It specifies
 the line number which should be reported for the following line of
 input.  Subsequent lines are counted from <var class="var">linenum</var>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">linenum</var> 是非负十进制整数常量。它指定应为下一行输入报告的行号。后续行从 <var class="var">linenum</var> 开始计数。</p>
 </dd>
 <dt><code class="code">#line <var class="var">linenum</var> <var class="var">filename</var></code></dt>
 <dd><p><var class="var">linenum</var> is the same as for the first form, and has the same
@@ -96,22 +103,27 @@ file it specifies, until something else happens to change that.
 constant: backslash escapes are interpreted.  This is different from
 &lsquo;<samp class="samp">#include</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">linenum</var> 与第一种形式相同，效果相同。另外，<var class="var">filename</var> 是字符串常量。以下行和所有后续行都报告来自它指定的文件，直到发生其他事情改变它。 <var class="var">filename</var> 根据字符串常量的正常规则进行解释：解释反斜杠转义。这与“<samp class="samp">#include</samp>”不同。</p>
 </dd>
 <dt><code class="code">#line <var class="var">anything else</var></code></dt>
 <dd><p><var class="var">anything else</var> is checked for macro calls, which are expanded.
 The result should match one of the above two forms.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">先对 <var class="var">anything else</var> 中的宏调用进行展开。展开结果应符合前面两种形式之一。</p>
+</dd>
 </dl>
 
 <p>&lsquo;<samp class="samp">#line</samp>&rsquo; directives alter the results of the <code class="code">__FILE__</code> and
 <code class="code">__LINE__</code> predefined macros from that point on.  See <a class="xref" href="Standard-Predefined-Macros.html">Standard Predefined Macros</a>.  They do not have any effect on &lsquo;<samp class="samp">#include</samp>&rsquo;&rsquo;s
 idea of the directory containing the current file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">从该位置起，“<samp class="samp">#line</samp>”会改变 <code class="code">__FILE__</code> 和 <code class="code">__LINE__</code> 的结果，参见<a href="Standard-Predefined-Macros.html">标准预定义宏</a>。它不会影响“<samp class="samp">#include</samp>”判断当前文件实际所在的目录。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Pragmas.html">Pragmas</a>, Previous: <a href="Diagnostics.html">Diagnostics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Pragmas.html">pragma 指令</a>, 上一页： <a href="Diagnostics.html">诊断</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

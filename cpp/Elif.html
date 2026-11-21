@@ -55,14 +55,17 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="_005f_005fhas_005fattribute.html" accesskey="n" rel="next"><code class="code">__has_attribute</code></a>, Previous: <a href="Else.html" accesskey="p" rel="prev">Else</a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="_005f_005fhas_005fattribute.html" accesskey="n" rel="next"><code class="code">__has_attribute</code></a>，上一页：<a href="Else.html" accesskey="p" rel="prev">Else 指令</a>，上级：<a href="Conditional-Syntax.html" accesskey="u" rel="up">条件语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Elif-1"><span>4.2.5 Elif<a class="copiable-link" href="#Elif-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Elif-zh"><span>4.2.5 Elif 指令<a class="copiable-link" href="#Elif-zh"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_0023elif"></a>
 <p>One common case of nested conditionals is used to check for more than two
 possible alternatives.  For example, you might have
 </p>
+<p>嵌套条件指令的一个常见用途是检查两个以上的可能选项。例如，可以写成：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if X == 1
 &hellip;
@@ -78,6 +81,7 @@ possible alternatives.  For example, you might have
 <p>Another conditional directive, &lsquo;<samp class="samp">#elif</samp>&rsquo;, allows this to be
 abbreviated as follows:
 </p>
+<p>另一个条件指令 &lsquo;<samp class="samp">#elif</samp>&rsquo; 可以将上述写法缩短为：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if X == 1
 &hellip;
@@ -95,14 +99,17 @@ directive includes an expression to be tested.  The text following the
 &lsquo;<samp class="samp">#elif</samp>&rsquo; is processed only if the original &lsquo;<samp class="samp">#if</samp>&rsquo;-condition
 failed and the &lsquo;<samp class="samp">#elif</samp>&rsquo; condition succeeds.
 </p>
+<p>&lsquo;<samp class="samp">#elif</samp>&rsquo; 代表“else if”。与 &lsquo;<samp class="samp">#else</samp>&rsquo; 一样，它位于条件组中间，用于细分条件组；它不需要自己的匹配 &lsquo;<samp class="samp">#endif</samp>&rsquo;。与 &lsquo;<samp class="samp">#if</samp>&rsquo; 一样，&lsquo;<samp class="samp">#elif</samp>&rsquo; 指令包含要测试的表达式。只有原始 &lsquo;<samp class="samp">#if</samp>&rsquo; 条件失败且 &lsquo;<samp class="samp">#elif</samp>&rsquo; 条件成立时，才会处理 &lsquo;<samp class="samp">#elif</samp>&rsquo; 后面的文本。</p>
 <p>More than one &lsquo;<samp class="samp">#elif</samp>&rsquo; can go in the same conditional group.  Then
 the text after each &lsquo;<samp class="samp">#elif</samp>&rsquo; is processed only if the &lsquo;<samp class="samp">#elif</samp>&rsquo;
 condition succeeds after the original &lsquo;<samp class="samp">#if</samp>&rsquo; and all previous
 &lsquo;<samp class="samp">#elif</samp>&rsquo; directives within it have failed.
 </p>
+<p>同一个条件组中可以有多个 &lsquo;<samp class="samp">#elif</samp>&rsquo;。在原始 &lsquo;<samp class="samp">#if</samp>&rsquo; 和其中所有之前的 &lsquo;<samp class="samp">#elif</samp>&rsquo; 指令都失败后，只有条件成立的 &lsquo;<samp class="samp">#elif</samp>&rsquo; 后面的文本才会被处理。</p>
 <p>&lsquo;<samp class="samp">#else</samp>&rsquo; is allowed after any number of &lsquo;<samp class="samp">#elif</samp>&rsquo; directives, but
 &lsquo;<samp class="samp">#elif</samp>&rsquo; may not follow &lsquo;<samp class="samp">#else</samp>&rsquo;.
 </p>
+<p>任意数量的 &lsquo;<samp class="samp">#elif</samp>&rsquo; 指令之后都可以使用 &lsquo;<samp class="samp">#else</samp>&rsquo;，但 &lsquo;<samp class="samp">#else</samp>&rsquo; 之后不能再出现 &lsquo;<samp class="samp">#elif</samp>&rsquo;。</p>
 </div>
 
 

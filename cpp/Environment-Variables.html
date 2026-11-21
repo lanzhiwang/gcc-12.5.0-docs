@@ -54,21 +54,25 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="GNU-Free-Documentation-License.html" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="Invocation.html" accesskey="p" rel="prev">Invocation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="GNU-Free-Documentation-License.html" accesskey="n" rel="next">GNU 自由文档许可证</a>，上一页：<a href="Invocation.html" accesskey="p" rel="prev">调用</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Environment-Variables-1"><span>13 Environment Variables<a class="copiable-link" href="#Environment-Variables-1"> &para;</a></span></h2>
+<h2 class="chapter" id="Environment-Variables-zh"><span>13 环境变量<a class="copiable-link" href="#Environment-Variables-zh"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-environment-variables"></a>
 
 <p>This section describes the environment variables that affect how CPP
 operates.  You can use them to specify directories or prefixes to use
 when searching for include files, or to control dependency output.
 </p>
+<p>本节介绍影响 CPP 工作方式的环境变量。可以使用它们指定搜索包含文件时使用的目录或前缀，也可以控制依赖关系输出。</p>
 <p>Note that you can also specify places to search using options such as
 <samp class="option">-I</samp>, and control dependency output with options like
 <samp class="option">-M</samp> (see <a class="pxref" href="Invocation.html">Invocation</a>).  These take precedence over
 environment variables, which in turn take precedence over the
 configuration of GCC.
 </p>
+<p>还可以使用 <samp class="option">-I</samp> 等选项指定搜索位置，使用 <samp class="option">-M</samp> 等选项控制依赖输出（参见<a class="pxref" href="Invocation.html">调用</a>）。这些选项优先于环境变量，而环境变量又优先于 GCC 的配置。</p>
 
 
 
@@ -83,24 +87,29 @@ The special character, <code class="code">PATH_SEPARATOR</code>, is target-depen
 determined at GCC build time.  For Microsoft Windows-based targets it is a
 semicolon, and for almost all other targets it is a colon.
 </p>
+<p>每个变量的值都是由特殊字符分隔的目录列表，类似于 <code class="env">PATH</code>，用于搜索头文件。特殊字符 <code class="code">PATH_SEPARATOR</code> 取决于目标平台，并在构建 GCC 时确定。对于基于 Microsoft Windows 的目标，它是分号；对于几乎所有其他目标，它是冒号。</p>
 <p><code class="env">CPATH</code> specifies a list of directories to be searched as if
 specified with <samp class="option">-I</samp>, but after any paths given with <samp class="option">-I</samp>
 options on the command line.  This environment variable is used
 regardless of which language is being preprocessed.
 </p>
+<p><code class="env">CPATH</code> 指定要搜索的目录列表，其效果类似于使用 <samp class="option">-I</samp> 指定，但排在命令行 <samp class="option">-I</samp> 选项给出的路径之后。无论预处理哪种语言，都会使用此环境变量。</p>
 <p>The remaining environment variables apply only when preprocessing the
 particular language indicated.  Each specifies a list of directories
 to be searched as if specified with <samp class="option">-isystem</samp>, but after any
 paths given with <samp class="option">-isystem</samp> options on the command line.
 </p>
+<p>其余环境变量只在预处理所指示的特定语言时生效。每个变量指定要搜索的目录列表，其效果类似于使用 <samp class="option">-isystem</samp> 指定，但排在命令行 <samp class="option">-isystem</samp> 选项给出的路径之后。</p>
 <p>In all these variables, an empty element instructs the compiler to
 search its current working directory.  Empty elements can appear at the
 beginning or end of a path.  For instance, if the value of
 <code class="env">CPATH</code> is <code class="code">:/special/include</code>, that has the same
 effect as &lsquo;<samp class="samp">-I.&nbsp;-I/special/include<!-- /@w --></samp>&rsquo;.
 </p>
+<p>在所有这些变量中，空元素会指示编译器搜索当前工作目录。空元素可以出现在路径开头或结尾。例如，如果 <code class="env">CPATH</code> 的值为 <code class="code">:/special/include</code>，其效果等同于 &lsquo;<samp class="samp">-I.&nbsp;-I/special/include<!-- /@w --></samp>&rsquo;。</p>
 <p>See also <a class="ref" href="Search-Path.html">Search Path</a>.
 </p>
+<p>另请参阅<a class="ref" href="Search-Path.html">搜索路径</a>。</p>
 </dd>
 <dt><a id="index-DEPENDENCIES_005fOUTPUT"></a><span><code class="env">DEPENDENCIES_OUTPUT</code><a class="copiable-link" href="#index-DEPENDENCIES_005fOUTPUT"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-dependencies-for-make-as-output"></a>
@@ -109,17 +118,20 @@ dependencies for Make based on the non-system header files processed
 by the compiler.  System header files are ignored in the dependency
 output.
 </p>
+<p>如果设置了此变量，其值会指定如何根据编译器处理的非系统头文件输出 Make 依赖关系。系统头文件会在依赖输出中被忽略。</p>
 <p>The value of <code class="env">DEPENDENCIES_OUTPUT</code> can be just a file name, in
 which case the Make rules are written to that file, guessing the target
 name from the source file name.  Or the value can have the form
 &lsquo;<samp class="samp"><var class="var">file</var> <var class="var">target</var></samp>&rsquo;, in which case the rules are written to
 file <var class="var">file</var> using <var class="var">target</var> as the target name.
 </p>
+<p><code class="env">DEPENDENCIES_OUTPUT</code> 的值可以只是文件名，此时 Make 规则会写入该文件，并根据源文件名推测目标名；也可以采用 &lsquo;<samp class="samp"><var class="var">file</var> <var class="var">target</var></samp>&rsquo; 形式，此时规则写入 <var class="var">file</var>，并使用 <var class="var">target</var> 作为目标名。</p>
 <p>In other words, this environment variable is equivalent to combining
 the options <samp class="option">-MM</samp> and <samp class="option">-MF</samp>
 (see <a class="pxref" href="Invocation.html">Invocation</a>),
 with an optional <samp class="option">-MT</samp> switch too.
 </p>
+<p>换句话说，该环境变量等价于组合使用 <samp class="option">-MM</samp> 和 <samp class="option">-MF</samp> 选项（参见<a class="pxref" href="Invocation.html">调用</a>），还可以选择添加 <samp class="option">-MT</samp> 开关。</p>
 </dd>
 <dt><a id="index-SUNPRO_005fDEPENDENCIES"></a><span><code class="env">SUNPRO_DEPENDENCIES</code><a class="copiable-link" href="#index-SUNPRO_005fDEPENDENCIES"> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-dependencies-for-make-as-output-1"></a>
@@ -129,6 +141,7 @@ except that system header files are not ignored, so it implies
 main input file is omitted.
 See <a class="xref" href="Invocation.html">Invocation</a>.
 </p>
+<p>此变量与上面的 <code class="env">DEPENDENCIES_OUTPUT</code> 相同，但不会忽略系统头文件，因此它表示使用 <samp class="option">-M</samp> 而不是 <samp class="option">-MM</samp>。不过会省略对主输入文件的依赖。参见<a class="xref" href="Invocation.html">调用</a>。</p>
 </dd>
 <dt><a id="index-SOURCE_005fDATE_005fEPOCH"></a><span><code class="env">SOURCE_DATE_EPOCH</code><a class="copiable-link" href="#index-SOURCE_005fDATE_005fEPOCH"> &para;</a></span></dt>
 <dd><p>If this variable is set, its value specifies a UNIX timestamp to be
@@ -136,16 +149,19 @@ used in replacement of the current date and time in the <code class="code">__DAT
 and <code class="code">__TIME__</code> macros, so that the embedded timestamps become
 reproducible.
 </p>
+<p>如果设置了此变量，其值会指定一个 UNIX 时间戳，用于替换 <code class="code">__DATE__</code> 和 <code class="code">__TIME__</code> 宏中的当前日期和时间，从而使嵌入的时间戳具有可复现性。</p>
 <p>The value of <code class="env">SOURCE_DATE_EPOCH</code> must be a UNIX timestamp,
 defined as the number of seconds (excluding leap seconds) since
 01 Jan 1970 00:00:00 represented in ASCII; identical to the output of
 <code class="code">date +%s</code> on GNU/Linux and other systems that support the
 <code class="code">%s</code> extension in the <code class="code">date</code> command.
 </p>
+<p><code class="env">SOURCE_DATE_EPOCH</code> 的值必须是 UNIX 时间戳，即从 1970 年 1 月 1 日 00:00:00 起经过的秒数（不包括闰秒），以 ASCII 表示；它应与 GNU/Linux 及其他支持 <code class="code">date</code> 命令 <code class="code">%s</code> 扩展的系统中 <code class="code">date +%s</code> 的输出相同。</p>
 <p>The value should be a known timestamp such as the last modification
 time of the source or package and it should be set by the build
 process.
 </p>
+<p>该值应是已知的时间戳，例如源文件或软件包的最后修改时间，并应由构建过程设置。</p>
 </dd>
 </dl>
 
@@ -154,6 +170,7 @@ process.
 <div class="nav-panel">
 <p>
 Next: <a href="GNU-Free-Documentation-License.html">GNU Free Documentation License</a>, Previous: <a href="Invocation.html">Invocation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="GNU-Free-Documentation-License.html">GNU 自由文档许可证</a>，上一页：<a href="Invocation.html">调用</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

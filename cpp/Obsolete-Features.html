@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Obsolete Features (The C Preprocessor)</title>
+<title>Obsolete Features (The C Preprocessor)
+过时的特性（C 预处理器）</title>
 
 <meta name="description" content="Obsolete Features (The C Preprocessor)">
 <meta name="keywords" content="Obsolete Features (The C Preprocessor)">
@@ -54,19 +55,24 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="Implementation-limits.html" accesskey="p" rel="prev">Implementation limits</a>, Up: <a href="Implementation-Details.html" accesskey="u" rel="up">Implementation Details</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Implementation-limits.html" rel="prev">实现限制</a>, 上一级： <a href="Implementation-Details.html" rel="up">实现细节</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Obsolete-Features-1"><span>11.3 Obsolete Features<a class="copiable-link" href="#Obsolete-Features-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">11.3 过时的特性</h3>
 
 <p>CPP has some features which are present mainly for compatibility with
 older programs.  We discourage their use in new code.  In some cases,
 we plan to remove the feature in a future version of GCC.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">CPP 有一些功能主要是为了与旧程序兼容。我们不鼓励在新代码中使用它们。在某些情况下，我们计划在 GCC 的未来版本中删除该功能。</p>
 <ul class="mini-toc">
-<li><a href="#Assertions" accesskey="1">Assertions</a></li>
+<li><a href="#Assertions" accesskey="1">Assertions</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><a href="#Assertions">断言</a></p></li>
 </ul>
 <div class="subsection-level-extent" id="Assertions">
 <h4 class="subsection"><span>11.3.1 Assertions<a class="copiable-link" href="#Assertions"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation"><span>11.3.1 断言<a class="copiable-link" href="#Assertions"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-assertions"></a>
 
 <p><em class="dfn">Assertions</em> are a deprecated alternative to macros in writing
@@ -74,6 +80,7 @@ conditionals to test what sort of computer or system the compiled
 program will run on.  Assertions are usually predefined, but you can
 define them with preprocessing directives or command-line options.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在编写条件来测试编译的程序将在哪种类型的计算机或系统上运行时，断言是宏的一种已弃用的替代方案。断言通常是预定义的，但您可以使用预处理指令或命令行选项来定义它们。</p>
 <p>Assertions were intended to provide a more systematic way to describe
 the compiler&rsquo;s target system and we added them for compatibility with
 existing compilers.  In practice they are just as unpredictable as the
@@ -83,9 +90,11 @@ Therefore, the use of assertions is <strong class="strong">less</strong> portabl
 of system-specific predefined macros.  We recommend you do not use them at
 all.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">断言旨在提供一种更系统的方式来描述编译器的目标系统，我们添加它们是为了与现有编译器兼容。实际上，它们与系统特定的预定义宏一样不可预测。此外，它们不属于任何标准，并且只有少数编译器支持它们。因此，使用断言的可移植性不如使用系统特定的预定义宏。我们建议您根本不要使用它们。</p>
 <a class="index-entry-id" id="index-predicates"></a>
 <p>An assertion looks like this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">断言如下所示：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#<var class="var">predicate</var> (<var class="var">answer</var>)
 </pre></div>
@@ -98,11 +107,13 @@ redefinition.)  Thus, <code class="code">(x + y)</code> is different from <code 
 equivalent to <code class="code">(&nbsp;x&nbsp;+&nbsp;y&nbsp;)<!-- /@w --></code>.  Parentheses do not nest inside an
 answer.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">predicate</var> 必须是单个标识符。 <var class="var">answer</var>可以是任何标记序列；除了前导和尾随空白之外，所有字符都很重要，并且内部空白序列的差异将被忽略。 （这与管理宏重定义的规则类似。）因此，<code class="code">(x + y)</code> 与 <code class="code">(x+y)</code> 不同，但等同于 <code class="code">(&nbsp;x&nbsp;+&nbsp;y&nbsp;)<!-- /@w --></code>。括号不嵌套在答案内。</p>
 <a class="index-entry-id" id="index-testing-predicates"></a>
 <p>To test an assertion, you write it in an &lsquo;<samp class="samp">#if</samp>&rsquo;.  For example, this
 conditional succeeds if either <code class="code">vax</code> or <code class="code">ns16000</code> has been
 asserted as an answer for <code class="code">machine</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">要测试断言，请将其写入“<samp class="samp">#if</samp>”。例如，如果 <code class="code">vax</code> 或 <code class="code">ns16000</code> 已被断言为 <code class="code">machine</code> 的答案，则此条件成功。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if #machine (vax) || #machine (ns16000)
 </pre></div>
@@ -110,6 +121,7 @@ asserted as an answer for <code class="code">machine</code>.
 <p>You can test whether <em class="emph">any</em> answer is asserted for a predicate by
 omitting the answer in the conditional:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以通过省略条件中的答案来测试谓词是否断言任何答案：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if #machine
 </pre></div>
@@ -119,6 +131,7 @@ omitting the answer in the conditional:
 argument is the assertion to make, without the leading &lsquo;<samp class="samp">#</samp>&rsquo; that
 identifies assertions in conditionals.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用“<samp class="samp">#assert</samp>”指令进行断言。它唯一的参数是要做出的断言，没有领先的“<samp class="samp">#</samp>”来标识条件中的断言。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#assert <var class="var">predicate</var> (<var class="var">answer</var>)
 </pre></div>
@@ -128,6 +141,7 @@ answers.  Subsequent assertions do not override previous ones for the
 same predicate.  All the answers for any given predicate are
 simultaneously true.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以使用相同的谓词和不同的答案做出多个断言。对于同一谓词，后续断言不会覆盖先前的断言。任何给定谓词的所有答案同时为真。</p>
 <a class="index-entry-id" id="index-assertions_002c-canceling"></a>
 <a class="index-entry-id" id="index-_0023unassert"></a>
 <p>Assertions can be canceled with the &lsquo;<samp class="samp">#unassert</samp>&rsquo; directive.  It
@@ -136,6 +150,7 @@ answer which was specified on the &lsquo;<samp class="samp">#unassert</samp>&rsq
 for that predicate remain true.  You can cancel an entire predicate by
 leaving out the answer:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以使用“<samp class="samp">#unassert</samp>”指令取消断言。它的语法与“<samp class="samp">#assert</samp>”相同。在该形式中，它仅取消“<samp class="samp">#unassert</samp>”行中指定的答案；该谓词的其他答案仍然正确。您可以通过省略答案来取消整个谓词：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#unassert <var class="var">predicate</var>
 </pre></div>
@@ -143,15 +158,18 @@ leaving out the answer:
 <p>In either form, if no such assertion has been made, &lsquo;<samp class="samp">#unassert</samp>&rsquo; has
 no effect.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">无论哪种形式，如果没有做出这样的断言，“<samp class="samp">#unassert</samp>”都无效。</p>
 <p>You can also make or cancel assertions using command-line options.
 See <a class="xref" href="Invocation.html">Invocation</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您还可以使用命令行选项进行或取消断言。请参见 <a class="xref" href="Invocation.html">调用</a>。</p>
 </div>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Previous: <a href="Implementation-limits.html">Implementation limits</a>, Up: <a href="Implementation-Details.html">Implementation Details</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Implementation-limits.html">实现限制</a>, 上一级： <a href="Implementation-Details.html">实现细节</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

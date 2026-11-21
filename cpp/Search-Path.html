@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Search Path (The C Preprocessor)</title>
+<title>Search Path (The C Preprocessor)
+搜索路径（C 预处理器）</title>
 
 <meta name="description" content="Search Path (The C Preprocessor)">
 <meta name="keywords" content="Search Path (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Once_002dOnly-Headers.html" accesskey="n" rel="next">Once-Only Headers</a>, Previous: <a href="Include-Operation.html" accesskey="p" rel="prev">Include Operation</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Once_002dOnly-Headers.html" rel="next">只包含一次的头文件</a>, 上一页： <a href="Include-Operation.html" rel="prev">包含操作</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Search-Path-1"><span>2.3 Search Path<a class="copiable-link" href="#Search-Path-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.3 搜索路径</h3>
 
 <p>By default, the preprocessor looks for header files included by the quote
 form of the directive <code class="code">#include&nbsp;&quot;<var class="var">file</var>&quot;<!-- /@w --></code> first relative to
@@ -67,6 +70,7 @@ For example, if <samp class="file">/usr/include/sys/stat.h</samp> contains
 <code class="code">#include&nbsp;&quot;types.h&quot;<!-- /@w --></code>, GCC looks for <samp class="file">types.h</samp> first in
 <samp class="file">/usr/include/sys</samp>, then in its usual search path.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">默认情况下，双引号形式 <code class="code">#include "file"</code> 先相对于当前文件所在目录查找，再查预先配置的标准系统目录。例如，若 <samp class="file">/usr/include/sys/stat.h</samp> 包含 <code class="code">#include "types.h"</code>，GCC 先在 <samp class="file">/usr/include/sys</samp> 中查找 <samp class="file">types.h</samp>，然后再查通常的搜索路径。</p>
 <p>For the angle-bracket form <code class="code">#include&nbsp;&lt;<var class="var">file</var>&gt;<!-- /@w --></code>, the
 preprocessor&rsquo;s default behavior is to look only in the standard system
 directories.  The exact search directory list depends on the target
@@ -74,6 +78,7 @@ system, how GCC is configured, and where it is installed.  You can
 find the default search directory list for your version of CPP by
 invoking it with the <samp class="option">-v</samp> option.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于尖括号形式 <code class="code">#include&nbsp;&lt;<var class="var">file</var>&gt;<!-- /@w --></code>，预处理器的默认行为是仅在标准系统目录中查找。确切的搜索目录列表取决于目标系统、GCC 的配置方式以及安装位置。您可以通过使用 <samp class="option">-v</samp> 选项调用来找到您的 CPP 版本的默认搜索目录列表。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">cpp -v /dev/null -o /dev/null
 </pre></div>
@@ -86,28 +91,33 @@ form of the directive) and ahead of the standard system directories.
 You can specify multiple <samp class="option">-I</samp> options on the command line, 
 in which case the directories are searched in left-to-right order.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以使用许多命令行选项将其他目录添加到搜索路径。最常用的选项是 <samp class="option">-I<var class="var">dir</var></samp>，它会导致在当前目录之后（对于指令的引用形式）和标准系统目录之前搜索 <var class="var">dir</var>。您可以在命令行上指定多个 <samp class="option">-I</samp> 选项，在这种情况下，按从左到右的顺序搜索目录。</p>
 <p>If you need separate control over the search paths for the quote and 
 angle-bracket forms of the &lsquo;<samp class="samp">#include</samp>&rsquo; directive, you can use the
 <samp class="option">-iquote</samp> and/or <samp class="option">-isystem</samp> options instead of <samp class="option">-I</samp>.
 See <a class="xref" href="Invocation.html">Invocation</a>, for a detailed description of these options, as 
 well as others that are less generally useful.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您需要单独控制“<samp class="samp">#include</samp>”指令的引号和尖括号形式的搜索路径，则可以使用 <samp class="option">-iquote</samp> 和/或 <samp class="option">-isystem</samp> 选项而不是 <samp class="option">-I</samp>。有关这些选项以及其他不太常用的选项的详细说明，请参阅 <a class="xref" href="Invocation.html">调用</a>。</p>
 <p>If you specify other options on the command line, such as <samp class="option">-I</samp>,
 that affect where the preprocessor searches for header files, the
 directory list printed by the <samp class="option">-v</samp> option reflects the actual
 search path used by the preprocessor.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果在命令行上指定影响预处理器搜索头文件位置的其他选项（例如 <samp class="option">-I</samp>），则 <samp class="option">-v</samp> 选项打印的目录列表将反映预处理器使用的实际搜索路径。</p>
 <p>Note that you can also prevent the preprocessor from searching any of
 the default system header directories with the <samp class="option">-nostdinc</samp>
 option.  This is useful when you are compiling an operating system
 kernel or some other program that does not use the standard C library
 facilities, or the standard C library itself.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，您还可以使用 <samp class="option">-nostdinc</samp> 选项阻止预处理器搜索任何默认系统头目录。当您编译操作系统内核或其他不使用标准 C 库工具或标准 C 库本身的程序时，这非常有用。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Once_002dOnly-Headers.html">Once-Only Headers</a>, Previous: <a href="Include-Operation.html">Include Operation</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Once_002dOnly-Headers.html">只包含一次的头文件</a>, 上一页： <a href="Include-Operation.html">包含操作</a>, 上一级： <a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

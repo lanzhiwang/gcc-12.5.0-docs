@@ -54,6 +54,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="_005f_005fhas_005fbuiltin.html" accesskey="p" rel="prev"><code class="code">__has_builtin</code></a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="_005f_005fhas_005fbuiltin.html" rel="prev">__has_builtin</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="g_t_005f_005fhas_005finclude-1"><span>4.2.10 <code class="code">__has_include</code><a class="copiable-link" href="#g_t_005f_005fhas_005finclude-1"> &para;</a></span></h4>
@@ -68,10 +69,12 @@ to zero otherwise.  Note that that the ability to include a header doesn&rsquo;t
 imply that the header doesn&rsquo;t contain invalid constructs or &lsquo;<samp class="samp">#error</samp>&rsquo;
 directives that would cause the preprocessor to fail.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code class="code">__has_include (<var class="var">operand</var>)</code> 可以在“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中使用，以测试是否可以使用“<samp class="samp">#include</samp>”指令包含其 <var class="var">operand</var> 引用的头文件。在其他上下文中使用该运算符是无效的。 <var class="var">operand</var> 采用与“<samp class="samp">#include</samp>”指令中的文件相同的形式（请参阅 <a class="pxref" href="Include-Syntax.html">包含语法</a>），如果可以包含头文件，则计算结果为非零值，否则计算为零。请注意，包含头文件的能力并不意味着头文件不包含无效构造或会导致预处理器失败的“<samp class="samp">#error</samp>”指令。</p>
 <p>The <code class="code">__has_include</code> operator by itself, without any <var class="var">operand</var> or
 parentheses, acts as a predefined macro so that support for it can be tested
 in portable code.  Thus, the recommended use of the operator is as follows:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">__has_include</code> 运算符本身（没有任何 <var class="var">operand</var> 或括号）充当预定义宏，以便可以在可移植代码中测试对其的支持。因此，建议使用该运算符如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_include
 #  if __has_include (&lt;stdatomic.h&gt;)
@@ -87,11 +90,13 @@ operator.  As a result, combining the two tests into a single expression
 as shown below would only be valid with a compiler that supports the operator
 but not with others that don&rsquo;t.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">仅当所使用的 GCC（或其他编译器）版本支持该运算符时，第一个“<samp class="samp">#if</samp>”测试才会成功。仅当测试成功时，使用 <code class="code">__has_include</code> 作为预处理器运算符才有效。因此，将两个测试组合成一个表达式（如下所示）仅对支持该运算符的编译器有效，但对其他不支持该运算符的编译器无效。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_include &amp;&amp; __has_include (&quot;header.h&quot;)   /* not portable */
 &hellip;
 #endif
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>不具备可移植性</p></div>
 
 </div>
 

@@ -53,14 +53,17 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Initial-processing.html" accesskey="n" rel="next">Initial processing</a>, Up: <a href="Overview.html" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Initial-processing.html" accesskey="n" rel="next">初始处理</a>，上级：<a href="Overview.html" accesskey="u" rel="up">概览</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Character-sets-1"><span>1.1 Character sets<a class="copiable-link" href="#Character-sets-1"> &para;</a></span></h3>
+<h3 class="section" id="Character-sets-zh"><span>1.1 字符集<a class="copiable-link" href="#Character-sets-zh"> &para;</a></span></h3>
 
 <p>Source code character set processing in C and related languages is
 rather complicated.  The C standard discusses two character sets, but
 there are really at least four.
 </p>
+<p>C 和相关语言的源代码字符集处理相当复杂。C 标准讨论了两种字符集，但实际上至少存在四种字符集。</p>
 <p>The files input to CPP might be in any character set at all.  CPP&rsquo;s
 very first action, before it even looks for line boundaries, is to
 convert the file into the character set it uses for internal
@@ -68,14 +71,17 @@ processing.  That set is what the C standard calls the <em class="dfn">source</e
 character set.  It must be isomorphic with ISO 10646, also known as
 Unicode.  CPP uses the UTF-8 encoding of Unicode.
 </p>
+<p>输入 CPP 的文件可以使用任意字符集。CPP 的第一个动作甚至不是查找行边界，而是先将文件转换为它用于内部处理的字符集。C 标准将该字符集称为<em class="dfn">源</em>字符集。它必须与 ISO 10646（也称为 Unicode）同构。CPP 使用 Unicode 的 UTF-8 编码。</p>
 <p>The character sets of the input files are specified using the
 <samp class="option">-finput-charset=</samp> option.
 </p>
+<p>输入文件的字符集通过 <samp class="option">-finput-charset=</samp> 选项指定。</p>
 <p>All preprocessing work (the subject of the rest of this manual) is
 carried out in the source character set.  If you request textual
 output from the preprocessor with the <samp class="option">-E</samp> option, it will be
 in UTF-8.
 </p>
+<p>所有预处理工作（本手册其余部分的主题）都在源字符集中进行。如果使用 <samp class="option">-E</samp> 选项要求预处理器输出文本，输出将采用 UTF-8。</p>
 <p>After preprocessing is complete, string and character constants are
 converted again, into the <em class="dfn">execution</em> character set.  This
 character set is under control of the user; the default is UTF-8,
@@ -91,27 +97,32 @@ the character in the source character set that they represent, then
 converted to the execution character set, just like unescaped
 characters.
 </p>
+<p>预处理完成后，字符串常量和字符常量会再次转换为<em class="dfn">执行</em>字符集。该字符集由用户控制，默认值为与源字符集一致的 UTF-8。宽字符串常量和宽字符常量有自己的字符集，标准没有专门说明这一字符集；它同样由用户控制。默认值是 UTF-16 或 UTF-32，具体取决于哪一种适合目标机器字节序中的目标 <code class="code">wchar_t</code> 类型。八进制和十六进制转义序列不会转换；无论当前选择的执行字符集是什么，<code class="t">'\x12'</code> 的值都是 0x12。其他转义序列会先替换为它们在源字符集中表示的字符，然后像未转义字符一样转换到执行字符集。</p>
 <p>In identifiers, characters outside the ASCII range can be specified
 with the &lsquo;<samp class="samp">\u</samp>&rsquo; and &lsquo;<samp class="samp">\U</samp>&rsquo; escapes or used directly in the input
 encoding.  If strict ISO C90 conformance is specified with an option
 such as <samp class="option">-std=c90</samp>, or <samp class="option">-fno-extended-identifiers</samp> is
 used, then those constructs are not permitted in identifiers.
 </p>
+<p>在标识符中，可以使用 &lsquo;<samp class="samp">\u</samp>&rsquo; 和 &lsquo;<samp class="samp">\U</samp>&rsquo; 转义序列指定 ASCII 范围之外的字符，也可以直接在输入编码中使用这些字符。如果通过 <samp class="option">-std=c90</samp> 等选项指定严格的 ISO C90 兼容性，或者使用了 <samp class="option">-fno-extended-identifiers</samp>，则标识符中不允许使用这些构造。</p>
 </div>
 <div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
+<h4 class="footnotes-heading">脚注</h4>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>UTF-16 does not meet the requirements of the C
 standard for a wide character set, but the choice of 16-bit
 <code class="code">wchar_t</code> is enshrined in some system ABIs so we cannot fix
 this.</p>
+<p>UTF-16 不符合 C 标准对宽字符集的要求，但某些系统 ABI 已经固定采用 16 位的 <code class="code">wchar_t</code>，因此无法修正这一问题。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Initial-processing.html">Initial processing</a>, Up: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Initial-processing.html">初始处理</a>，上级：<a href="Overview.html">概览</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

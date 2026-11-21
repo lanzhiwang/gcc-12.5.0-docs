@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Macro Arguments (The C Preprocessor)</title>
+<title>Macro Arguments (The C Preprocessor)
+宏参数（C 预处理器）</title>
 
 <meta name="description" content="Macro Arguments (The C Preprocessor)">
 <meta name="keywords" content="Macro Arguments (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Stringizing.html" accesskey="n" rel="next">Stringizing</a>, Previous: <a href="Function_002dlike-Macros.html" accesskey="p" rel="prev">Function-like Macros</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Stringizing.html" rel="next">字符串化</a>, 上一页： <a href="Function_002dlike-Macros.html" rel="prev">函数类宏</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Macro-Arguments-1"><span>3.3 Macro Arguments<a class="copiable-link" href="#Macro-Arguments-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.3 宏参数</h3>
 <a class="index-entry-id" id="index-arguments"></a>
 <a class="index-entry-id" id="index-macros-with-arguments"></a>
 <a class="index-entry-id" id="index-arguments-in-macro-definitions"></a>
@@ -68,6 +71,7 @@ between the pair of parentheses in the macro definition that make the
 macro function-like.  The parameters must be valid C identifiers,
 separated by commas and optionally whitespace.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏可以接受参数，就像真正的函数一样。要定义使用参数的宏，请在宏定义中的一对括号之间插入参数，使宏类似于函数。参数必须是有效的 C 标识符，以逗号和可选的空格分隔。</p>
 <p>To invoke a macro that takes arguments, you write the name of the macro
 followed by a list of <em class="dfn">actual arguments</em> in parentheses, separated
 by commas.  The invocation of the macro need not be restricted to a
@@ -78,9 +82,11 @@ use of a parameter in its body is replaced by the tokens of the
 corresponding argument.  (You need not use all of the parameters in the
 macro body.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">要调用带有参数的宏，请编写宏的名称，后跟括号中的实际参数列表，并用逗号分隔。宏的调用不必限于单个逻辑行——它可以根据需要跨源文件中的任意多行。您给出的参数数量必须与宏定义中的参数数量相匹配。当宏展开时，其主体中参数的每次使用都会被相应参数的标记所替换。 （您不需要使用宏体中的所有参数。）</p>
 <p>As an example, here is a macro that computes the minimum of two numeric
 values, as it is defined in many C programs, and some uses.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">例如，下面是许多 C 程序中常见的求两个数最小值的宏，以及一些使用示例：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define min(X, Y)  ((X) &lt; (Y) ? (X) : (Y))
   x = min(a, b);          &rarr;  x = ((a) &lt; (b) ? (a) : (b));
@@ -91,6 +97,7 @@ values, as it is defined in many C programs, and some uses.
 <p>(In this small example you can already see several of the dangers of
 macro arguments.  See <a class="xref" href="Macro-Pitfalls.html">Macro Pitfalls</a>, for detailed explanations.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">（在这个小例子中，您已经可以看到宏参数的一些危险。有关详细说明，请参阅 <a class="xref" href="Macro-Pitfalls.html">宏的常见陷阱</a>。）</p>
 <p>Leading and trailing whitespace in each argument is dropped, and all
 whitespace between the tokens of an argument is reduced to a single
 space.  Parentheses within each argument must balance; a comma within
@@ -98,6 +105,7 @@ such parentheses does not end the argument.  However, there is no
 requirement for square brackets or braces to balance, and they do not
 prevent a comma from separating arguments.  Thus,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">每个实参首尾的空白会被去掉，标记之间的空白序列会缩为一个空格。实参中的圆括号必须配对，圆括号内的逗号不会结束该实参；方括号和花括号则不要求在实参内配对，也不能阻止逗号分隔实参。因此：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">macro (array[x = y, x + 1])
 </pre></div>
@@ -107,6 +115,8 @@ prevent a comma from separating arguments.  Thus,
 you can write it as <code class="code">array[(x = y, x + 1)]</code>, which is equivalent C
 code.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将两个参数传递给 <code class="code">macro</code>：<code class="code">array[x = y</code> 和 <code class="code">x +
+1]</code>。如果要提供 <code class="code">array[x = y, x + 1]</code> 作为参数，可以将其写为 <code class="code">array[(x = y, x + 1)]</code>，这相当于 C 代码。</p>
 <p>All arguments to a macro are completely macro-expanded before they are
 substituted into the macro body.  After substitution, the complete text
 is scanned again for macros to expand, including the arguments.  This rule
@@ -114,14 +124,17 @@ may seem strange, but it is carefully designed so you need not worry
 about whether any function call is actually a macro invocation.  You can
 run into trouble if you try to be too clever, though.  See <a class="xref" href="Argument-Prescan.html">Argument Prescan</a>, for detailed discussion.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏的所有参数在代入宏体之前都经过完全宏展开。替换后，再次扫描完整文本以查找要展开的宏，包括参数。这个规则可能看起来很奇怪，但它是经过精心设计的，因此您不必担心任何函数调用实际上是否是宏调用。不过，如果你太聪明，你可能会遇到麻烦。有关详细讨论，请参阅 <a class="xref" href="Argument-Prescan.html">参数预扫描</a>。</p>
 <p>For example, <code class="code">min (min (a, b), c)</code> is first expanded to
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">例如，<code class="code">min (min (a, b), c)</code> 首先展开为</p>
 <div class="example smallexample">
 <pre class="example-preformatted">  min (((a) &lt; (b) ? (a) : (b)), (c))
 </pre></div>
 
 <p>and then to
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">然后到</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">((((a) &lt; (b) ? (a) : (b))) &lt; (c)
  ? (((a) &lt; (b) ? (a) : (b)))
@@ -130,6 +143,7 @@ run into trouble if you try to be too clever, though.  See <a class="xref" href=
 
 <p>(Line breaks shown here for clarity would not actually be generated.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">（为清楚起见，此处显示的换行符实际上不会生成。）</p>
 <a class="index-entry-id" id="index-empty-macro-arguments"></a>
 <p>You can leave macro arguments empty; this is not an error to the
 preprocessor (but many macros will then expand to invalid code).
@@ -137,6 +151,7 @@ You cannot leave out arguments entirely; if a macro takes two arguments,
 there must be exactly one comma at the top level of its argument list.
 Here are some silly examples using <code class="code">min</code>:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以把宏实参留空；预处理器不会因此报错，不过许多宏随后会展开为无效代码。不能直接省略参数位置：若宏接收两个实参，参数列表最外层就必须恰好有一个逗号。下面给出一些不合理的 <code class="code">min</code> 用法：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">min(, b)        &rarr; ((   ) &lt; (b) ? (   ) : (b))
 min(a, )        &rarr; ((a  ) &lt; ( ) ? (a  ) : ( ))
@@ -154,9 +169,11 @@ documentation were incorrect on this point, insisting that a
 function-like macro that takes a single argument be passed a space if an
 empty argument was required.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">空格不是一种预处理标记，因此如果宏 <code class="code">foo</code> 采用一个参数，则 <code class="code">foo&nbsp;()<!-- /@w --></code> 和 <code class="code">foo&nbsp;(&nbsp;)<!-- /@w --></code> 都为其提供一个空参数。以前的 GNU 预处理器实现和文档在这一点上是不正确的，坚持认为如果需要空参数，则需要向带有单个参数的函数类宏传递一个空格。</p>
 <p>Macro parameters appearing inside string literals are not replaced by
 their corresponding actual arguments.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">出现在字符串字面量内的宏参数不会被其相应的实际参数替换。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define foo(x) x, &quot;x&quot;
 foo(bar)        &rarr; bar, &quot;x&quot;
@@ -167,6 +184,7 @@ foo(bar)        &rarr; bar, &quot;x&quot;
 <div class="nav-panel">
 <p>
 Next: <a href="Stringizing.html">Stringizing</a>, Previous: <a href="Function_002dlike-Macros.html">Function-like Macros</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Stringizing.html">字符串化</a>, 上一页： <a href="Function_002dlike-Macros.html">函数类宏</a>, 上一级： <a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

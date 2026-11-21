@@ -53,9 +53,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="Conditional-Syntax.html" accesskey="p" rel="prev">Conditional Syntax</a>, Up: <a href="Conditionals.html" accesskey="u" rel="up">Conditionals</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>上一页：<a href="Conditional-Syntax.html" accesskey="p" rel="prev">条件语法</a>，上级：<a href="Conditionals.html" accesskey="u" rel="up">条件编译</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Deleted-Code-1"><span>4.3 Deleted Code<a class="copiable-link" href="#Deleted-Code-1"> &para;</a></span></h3>
+<h3 class="section" id="Deleted-Code-zh"><span>4.3 已删除代码<a class="copiable-link" href="#Deleted-Code-zh"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-commenting-out-code"></a>
 
 <p>If you replace or delete a part of the program but want to keep the old
@@ -64,16 +66,19 @@ out.  Block comments do not nest, so the first comment inside the old
 code will end the commenting-out.  The probable result is a flood of
 syntax errors.
 </p>
+<p>如果替换或删除程序的一部分，但希望保留旧代码以供将来参考，通常不能简单地将其注释掉。块注释不能嵌套，因此旧代码中的第一个注释会结束外层注释，结果很可能会产生大量语法错误。</p>
 <p>One way to avoid this problem is to use an always-false conditional
 instead.  For instance, put <code class="code">#if 0</code> before the deleted code and
 <code class="code">#endif</code> after it.  This works even if the code being turned
 off contains conditionals, but they must be entire conditionals
 (balanced &lsquo;<samp class="samp">#if</samp>&rsquo; and &lsquo;<samp class="samp">#endif</samp>&rsquo;).
 </p>
+<p>避免此问题的一种方法是使用始终为假的条件指令。例如，在要删除的代码之前放置 <code class="code">#if 0</code>，在其后放置 <code class="code">#endif</code>。即使被关闭的代码包含条件指令，这种方法也有效，但这些条件指令必须是完整的（&lsquo;<samp class="samp">#if</samp>&rsquo; 和 &lsquo;<samp class="samp">#endif</samp>&rsquo; 成对出现）。</p>
 <p>Some people use <code class="code">#ifdef notdef</code> instead.  This is risky, because
 <code class="code">notdef</code> might be accidentally defined as a macro, and then the
 conditional would succeed.  <code class="code">#if 0</code> can be counted on to fail.
 </p>
+<p>有些人会改用 <code class="code">#ifdef notdef</code>。这存在风险，因为 <code class="code">notdef</code> 可能意外地被定义为宏，从而使条件成立；而 <code class="code">#if 0</code> 可以确定不会成立。</p>
 <p>Do not use <code class="code">#if 0</code> for comments which are not C code.  Use a real
 comment, instead.  The interior of <code class="code">#if 0</code> must consist of complete
 tokens; in particular, single-quote characters must balance.  Comments
@@ -81,6 +86,7 @@ often contain unbalanced single-quote characters (known in English as
 apostrophes).  These confuse <code class="code">#if 0</code>.  They don&rsquo;t confuse
 &lsquo;<samp class="samp">/*</samp>&rsquo;.
 </p>
+<p>不要将 <code class="code">#if 0</code> 用于注释非 C 代码的内容，应改用真正的注释。<code class="code">#if 0</code> 的内部必须由完整标记组成；尤其是单引号字符必须成对。注释中经常包含不成对的单引号字符（英语中称为撇号），这些会干扰 <code class="code">#if 0</code>，但不会干扰 &lsquo;<samp class="samp">/*</samp>&rsquo;。</p>
 </div>
 
 

@@ -55,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Variadic-Macros.html" accesskey="n" rel="next">Variadic Macros</a>, Previous: <a href="Stringizing.html" accesskey="p" rel="prev">Stringizing</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Variadic-Macros.html" accesskey="n" rel="next">可变参数宏</a>，上一页：<a href="Stringizing.html" accesskey="p" rel="prev">字符串化</a>，上级：<a href="Macros.html" accesskey="u" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Concatenation-1"><span>3.5 Concatenation<a class="copiable-link" href="#Concatenation-1"> &para;</a></span></h3>
+<h3 class="section" id="Concatenation-zh"><span>3.5 拼接<a class="copiable-link" href="#Concatenation-zh"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-concatenation"></a>
 <a class="index-entry-id" id="index-token-pasting"></a>
 <a class="index-entry-id" id="index-token-concatenation"></a>
@@ -76,6 +78,7 @@ number and a name, such as <code class="code">1.5</code> and <code class="code">
 Also, multi-character operators such as <code class="code">+=</code> can be formed by
 token pasting.
 </p>
+<p>在展开宏时，将两个标记合并为一个标记通常很有用，这称为<em class="dfn">标记粘接</em>或<em class="dfn">标记拼接</em>。&lsquo;<samp class="samp">##</samp>&rsquo; 预处理运算符执行标记粘接。展开宏时，每个 &lsquo;<samp class="samp">##</samp>&rsquo; 运算符两侧的标记会合并成一个标记，并用它替换宏展开中的 &lsquo;<samp class="samp">##</samp>&rsquo; 及两个原始标记。通常两个标记都是标识符，或者一个是标识符、另一个是预处理数字，粘接后会形成更长的标识符。这并不是唯一的有效情况：也可以将两个数字，或一个数字和一个名称（例如 <code class="code">1.5</code> 与 <code class="code">e3</code>）拼接成数字；还可以通过标记粘接形成 <code class="code">+=</code> 等多字符运算符。</p>
 <p>However, two tokens that don&rsquo;t together form a valid token cannot be
 pasted together.  For example, you cannot concatenate <code class="code">x</code> with
 <code class="code">+</code> in either order.  If you try, the preprocessor issues a warning
@@ -84,6 +87,7 @@ tokens is undefined.  It is common to find unnecessary uses of &lsquo;<samp clas
 in complex macros.  If you get this warning, it is likely that you can
 simply remove the &lsquo;<samp class="samp">##</samp>&rsquo;.
 </p>
+<p>但是，两个标记如果不能共同形成有效标记，就不能粘接在一起。例如，不能将 <code class="code">x</code> 与 <code class="code">+</code> 按任一顺序拼接。如果尝试这样做，预处理器会发出警告并输出这两个标记。标记之间是否插入空白是未定义的。在复杂宏中经常会出现不必要的 &lsquo;<samp class="samp">##</samp>&rsquo;。如果收到此警告，通常可以直接删除 &lsquo;<samp class="samp">##</samp>&rsquo;。</p>
 <p>Both the tokens combined by &lsquo;<samp class="samp">##</samp>&rsquo; could come from the macro body,
 but you could just as well write them as one token in the first place.
 Token pasting is most useful when one or both of the tokens comes from a
@@ -93,6 +97,7 @@ executes.  As with stringizing, the actual argument is not
 macro-expanded first.  If the argument is empty, that &lsquo;<samp class="samp">##</samp>&rsquo; has no
 effect.
 </p>
+<p>由 &lsquo;<samp class="samp">##</samp>&rsquo; 合并的两个标记都可以来自宏体，但也可以一开始就把它们写成一个标记。标记粘接在一个或两个标记来自宏参数时最有用。如果 &lsquo;<samp class="samp">##</samp>&rsquo; 旁边的任一标记是参数名，那么在执行 &lsquo;<samp class="samp">##</samp>&rsquo; 之前，它会被实际参数替换。与字符串化一样，实际参数不会先进行宏展开。如果参数为空，该 &lsquo;<samp class="samp">##</samp>&rsquo; 不产生任何效果。</p>
 <p>Keep in mind that the C preprocessor converts comments to whitespace
 before macros are even considered.  Therefore, you cannot create a
 comment by concatenating &lsquo;<samp class="samp">/</samp>&rsquo; and &lsquo;<samp class="samp">*</samp>&rsquo;.  You can put as much
@@ -101,10 +106,12 @@ comments, and you can put comments in arguments that will be
 concatenated.  However, it is an error if &lsquo;<samp class="samp">##</samp>&rsquo; appears at either
 end of a macro body.
 </p>
+<p>请记住，C 预处理器甚至在考虑宏之前就会将注释转换为空白。因此，不能通过拼接 &lsquo;<samp class="samp">/</samp>&rsquo; 和 &lsquo;<samp class="samp">*</samp>&rsquo; 来创建注释。&lsquo;<samp class="samp">##</samp>&rsquo; 与操作数之间可以放置任意数量的空白，包括注释，也可以在将要拼接的参数中放置注释。但是，如果 &lsquo;<samp class="samp">##</samp>&rsquo; 出现在宏体的任一端，就会发生错误。</p>
 <p>Consider a C program that interprets named commands.  There probably
 needs to be a table of commands, perhaps an array of structures declared
 as follows:
 </p>
+<p>考虑一个解释命名命令的 C 程序。它可能需要一个命令表，例如声明如下的结构体数组：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">struct command
 {
@@ -127,6 +134,7 @@ name of a command as an argument can make this unnecessary.  The string
 constant can be created with stringizing, and the function name by
 concatenating the argument with &lsquo;<samp class="samp">_command</samp>&rsquo;.  Here is how it is done:
 </p>
+<p>如果不必为每个命令名称写两次（一次写在字符串常量中，一次写在函数名中），代码会更清晰。可以定义一个以命令名为参数的宏来避免重复：用字符串化生成字符串常量，用参数与 &lsquo;<samp class="samp">_command</samp>&rsquo; 拼接生成函数名。实现方式如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define COMMAND(NAME)  { #NAME, NAME ## _command }
 
@@ -138,11 +146,13 @@ struct command commands[] =
 };
 </pre></div>
 
+
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Variadic-Macros.html">Variadic Macros</a>, Previous: <a href="Stringizing.html">Stringizing</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Variadic-Macros.html">可变参数宏</a>，上一页：<a href="Stringizing.html">字符串化</a>，上级：<a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

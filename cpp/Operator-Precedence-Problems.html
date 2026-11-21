@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Operator Precedence Problems (The C Preprocessor)</title>
+<title>Operator Precedence Problems (The C Preprocessor)
+运算符优先级问题（C 预处理器）</title>
 
 <meta name="description" content="Operator Precedence Problems (The C Preprocessor)">
 <meta name="keywords" content="Operator Precedence Problems (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Swallowing-the-Semicolon.html" accesskey="n" rel="next">Swallowing the Semicolon</a>, Previous: <a href="Misnesting.html" accesskey="p" rel="prev">Misnesting</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Swallowing-the-Semicolon.html" rel="next">吞掉分号</a>, 上一页： <a href="Misnesting.html" rel="prev">嵌套错配</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Operator-Precedence-Problems-1"><span>3.10.2 Operator Precedence Problems<a class="copiable-link" href="#Operator-Precedence-Problems-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">3.10.2 运算符优先级问题</h4>
 <a class="index-entry-id" id="index-parentheses-in-macro-bodies"></a>
 
 <p>You may have noticed that in most of the macro definition examples shown
@@ -66,8 +69,10 @@ it.  In addition, another pair of parentheses usually surround the
 entire macro definition.  Here is why it is best to write macros that
 way.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可能已经注意到，在上面显示的大多数宏定义示例中，每次出现的宏参数名称都带有括号。此外，另一对括号通常包围整个宏定义。这就是为什么最好以这种方式编写宏。</p>
 <p>Suppose you define a macro as follows,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">假设您定义了一个宏，如下所示：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define ceil_div(x, y) (x + y - 1) / y
 </pre></div>
@@ -76,6 +81,7 @@ way.
 to compute how many <code class="code">int</code> objects are needed to hold a certain
 number of <code class="code">char</code> objects.)  Then suppose it is used as follows:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">它的目的是进行除法并向上取整。（例如可用于计算容纳一定数量 <code class="code">char</code> 对象需要多少个 <code class="code">int</code> 对象。）再假设按下面方式使用它：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">a = ceil_div (b &amp; c, sizeof (int));
      &rarr; a = (b &amp; c + sizeof (int) - 1) / sizeof (int);
@@ -84,29 +90,35 @@ number of <code class="code">char</code> objects.)  Then suppose it is used as f
 <p>This does not do what is intended.  The operator-precedence rules of
 C make it equivalent to this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这并没有达到预期目的。 C 的运算符优先级规则使其等价于：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">a = (b &amp; (c + sizeof (int) - 1)) / sizeof (int);
 </pre></div>
 
 <p>What we want is this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">我们想要的是这样的：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">a = ((b &amp; c) + sizeof (int) - 1)) / sizeof (int);
 </pre></div>
 
 <p>Defining the macro as
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将宏定义为</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define ceil_div(x, y) ((x) + (y) - 1) / (y)
 </pre></div>
 
 <p>provides the desired result.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">提供所需的结果。</p>
 <p>Unintended grouping can result in another way.  Consider <code class="code">sizeof
 ceil_div(1, 2)</code>.  That has the appearance of a C expression that would
 compute the size of the type of <code class="code">ceil_div (1, 2)</code>, but in fact it
 means something very different.  Here is what it expands to:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">意外的分组可能会导致另一种结果。考虑 <code class="code">sizeof
+ceil_div(1, 2)</code>。它看起来像一个 C 表达式，可以计算 <code class="code">ceil_div (1, 2)</code> 类型的大小，但实际上它的含义非常不同。以下是它的展开内容：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">sizeof ((1) + (2) - 1) / (2)
 </pre></div>
@@ -115,9 +127,11 @@ means something very different.  Here is what it expands to:
 precedence rules have put the division outside the <code class="code">sizeof</code> when it
 was intended to be inside.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这将采用整数的大小并将其除以二。优先级规则已将该除法放在 <code class="code">sizeof</code> 之外，而该除法本应位于 <code class="code">sizeof</code> 内部。</p>
 <p>Parentheses around the entire macro definition prevent such problems.
 Here, then, is the recommended way to define <code class="code">ceil_div</code>:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">整个宏定义周围的括号可以防止此类问题。那么，这里是定义 <code class="code">ceil_div</code> 的推荐方法：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define ceil_div(x, y) (((x) + (y) - 1) / (y))
 </pre></div>
@@ -127,6 +141,7 @@ Here, then, is the recommended way to define <code class="code">ceil_div</code>:
 <div class="nav-panel">
 <p>
 Next: <a href="Swallowing-the-Semicolon.html">Swallowing the Semicolon</a>, Previous: <a href="Misnesting.html">Misnesting</a>, Up: <a href="Macro-Pitfalls.html">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Swallowing-the-Semicolon.html">吞掉分号</a>, 上一页： <a href="Misnesting.html">嵌套错配</a>, 上一级： <a href="Macro-Pitfalls.html">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

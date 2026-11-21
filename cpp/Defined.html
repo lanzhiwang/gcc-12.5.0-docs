@@ -55,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Else.html" accesskey="n" rel="next">Else</a>, Previous: <a href="If.html" accesskey="p" rel="prev">If</a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Else.html" accesskey="n" rel="next">Else 指令</a>，上一页：<a href="If.html" accesskey="p" rel="prev">If 指令</a>，上级：<a href="Conditional-Syntax.html" accesskey="u" rel="up">条件语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Defined-1"><span>4.2.3 Defined<a class="copiable-link" href="#Defined-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Defined-zh"><span>4.2.3 defined 运算符<a class="copiable-link" href="#Defined-zh"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-defined"></a>
 <p>The special operator <code class="code">defined</code> is used in &lsquo;<samp class="samp">#if</samp>&rsquo; and
@@ -66,9 +68,11 @@ macro.  <code class="code">defined <var class="var">name</var></code> and <code 
 both expressions whose value is 1 if <var class="var">name</var> is defined as a macro at
 the current point in the program, and 0 otherwise.  Thus,  <code class="code">#if&nbsp;defined&nbsp;MACRO<!-- /@w --></code> is precisely equivalent to <code class="code">#ifdef&nbsp;MACRO<!-- /@w --></code>.
 </p>
+<p>特殊运算符 <code class="code">defined</code> 用于 &lsquo;<samp class="samp">#if</samp>&rsquo; 和 &lsquo;<samp class="samp">#elif</samp>&rsquo; 表达式，以测试某个名称是否被定义为宏。<code class="code">defined <var class="var">name</var></code> 和 <code class="code">defined (<var class="var">name</var>)</code> 都是表达式：如果当前程序位置将 <var class="var">name</var> 定义为宏，则值为 1，否则为 0。因此，<code class="code">#if&nbsp;defined&nbsp;MACRO<!-- /@w --></code> 与 <code class="code">#ifdef&nbsp;MACRO<!-- /@w --></code> 完全等价。</p>
 <p><code class="code">defined</code> is useful when you wish to test more than one macro for
 existence at once.  For example,
 </p>
+<p>当需要同时测试多个宏是否存在时，<code class="code">defined</code> 很有用。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined (__vax__) || defined (__ns16000__)
 </pre></div>
@@ -76,8 +80,10 @@ existence at once.  For example,
 <p>would succeed if either of the names <code class="code">__vax__</code> or
 <code class="code">__ns16000__</code> is defined as a macro.
 </p>
+<p>如果名称 <code class="code">__vax__</code> 或 <code class="code">__ns16000__</code> 中至少有一个被定义为宏，该条件就会成立。</p>
 <p>Conditionals written like this:
 </p>
+<p>像下面这样写的条件指令：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined BUFSIZE &amp;&amp; BUFSIZE &gt;= 1024
 </pre></div>
@@ -86,6 +92,7 @@ existence at once.  For example,
 since if <code class="code">BUFSIZE</code> is not defined, it will be interpreted as having
 the value zero.
 </p>
+<p>通常可以简化为 <code class="code">#if&nbsp;BUFSIZE&nbsp;&gt;=&nbsp;1024<!-- /@w --></code>，因为如果没有定义 <code class="code">BUFSIZE</code>，它会被解释为值 0。</p>
 <p>If the <code class="code">defined</code> operator appears as a result of a macro expansion,
 the C standard says the behavior is undefined.  GNU cpp treats it as a
 genuine <code class="code">defined</code> operator and evaluates it normally.  It will warn
@@ -94,6 +101,7 @@ wherever your code uses this feature if you use the command-line option
 warning is also enabled by <samp class="option">-Wextra</samp>, and can also be enabled
 individually with <samp class="option">-Wexpansion-to-defined</samp>.
 </p>
+<p>如果 <code class="code">defined</code> 运算符是宏展开的结果，C 标准规定其行为未定义。GNU cpp 会将它当作真正的 <code class="code">defined</code> 运算符并正常求值。如果使用命令行选项 <samp class="option">-Wpedantic</samp>，代码在使用此特性的位置都会发出警告，因为其他编译器的处理方式可能不同。<samp class="option">-Wextra</samp> 也会启用该警告，还可以使用 <samp class="option">-Wexpansion-to-defined</samp> 单独启用它。</p>
 </div>
 
 

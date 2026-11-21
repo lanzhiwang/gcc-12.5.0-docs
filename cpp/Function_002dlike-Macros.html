@@ -56,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Macro-Arguments.html" accesskey="n" rel="next">Macro Arguments</a>, Previous: <a href="Object_002dlike-Macros.html" accesskey="p" rel="prev">Object-like Macros</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Macro-Arguments.html" accesskey="n" rel="next">宏参数</a>，上一页：<a href="Object_002dlike-Macros.html" accesskey="p" rel="prev">对象类宏</a>，上级：<a href="Macros.html" accesskey="u" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Function_002dlike-Macros-1"><span>3.2 Function-like Macros<a class="copiable-link" href="#Function_002dlike-Macros-1"> &para;</a></span></h3>
+<h3 class="section" id="Function_002dlike-Macros-zh"><span>3.2 函数类宏<a class="copiable-link" href="#Function_002dlike-Macros-zh"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-function_002dlike-macros"></a>
 
 <p>You can also define macros whose use looks like a function call.  These
@@ -66,6 +68,7 @@ are called <em class="dfn">function-like macros</em>.  To define a function-like
 you use the same &lsquo;<samp class="samp">#define</samp>&rsquo; directive, but you put a pair of
 parentheses immediately after the macro name.  For example,
 </p>
+<p>也可以定义使用方式类似函数调用的宏，这些宏称为<em class="dfn">函数类宏</em>。定义函数类宏时使用相同的 &lsquo;<samp class="samp">#define</samp>&rsquo; 指令，但要在宏名后立即放置一对括号。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define lang_init()  c_init()
 lang_init()
@@ -77,6 +80,7 @@ of parentheses after it.  If you write just the name, it is left alone.
 This can be useful when you have a function and a macro of the same
 name, and you wish to use the function sometimes.
 </p>
+<p>只有当函数类宏的名称后面出现一对括号时，它才会展开。如果只写名称，则保持不变。当函数和宏同名而又希望有时调用函数时，这一特性很有用。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">extern void foo(void);
 #define foo() /* <span class="r">optimized inline version</span> */
@@ -89,11 +93,13 @@ name, and you wish to use the function sometimes.
 pointer will get the address of the real function.  If the macro were to
 be expanded, it would cause a syntax error.
 </p>
+<p>这里对 <code class="code">foo()</code> 的调用会使用宏，但函数指针会获得真实函数的地址。如果宏被展开，就会导致语法错误。</p>
 <p>If you put spaces between the macro name and the parentheses in the
 macro definition, that does not define a function-like macro, it defines
 an object-like macro whose expansion happens to begin with a pair of
 parentheses.
 </p>
+<p>如果在宏定义中宏名与括号之间放置空格，这不会定义函数类宏，而是定义一个对象类宏，只是它的展开结果恰好以一对括号开头。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define lang_init ()    c_init()
 lang_init()
@@ -105,6 +111,7 @@ macro.  The third is the pair that was originally after the macro
 invocation.  Since <code class="code">lang_init</code> is an object-like macro, it does not
 consume those parentheses.
 </p>
+<p>这个展开结果中的前两对括号来自宏，第三对是原来位于宏调用之后的括号。由于 <code class="code">lang_init</code> 是对象类宏，它不会消耗那对括号。</p>
 </div>
 
 

@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Macro Pitfalls (The C Preprocessor)</title>
+<title>Macro Pitfalls (The C Preprocessor)
+宏的常见陷阱（C 预处理器）</title>
 
 <meta name="description" content="Macro Pitfalls (The C Preprocessor)">
 <meta name="keywords" content="Macro Pitfalls (The C Preprocessor)">
@@ -53,9 +54,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="Directives-Within-Macro-Arguments.html" accesskey="p" rel="prev">Directives Within Macro Arguments</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Directives-Within-Macro-Arguments.html" rel="prev">宏实参中的指令</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Macro-Pitfalls-1"><span>3.10 Macro Pitfalls<a class="copiable-link" href="#Macro-Pitfalls-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.10 宏的常见陷阱</h3>
 <a class="index-entry-id" id="index-problems-with-macros"></a>
 <a class="index-entry-id" id="index-pitfalls-of-macros"></a>
 
@@ -63,15 +66,23 @@ Previous: <a href="Directives-Within-Macro-Arguments.html" accesskey="p" rel="pr
 macro expansion, and point out certain cases in which the rules have
 counter-intuitive consequences that you must watch out for.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在本节中，我们将描述一些适用于宏和宏展开的特殊规则，并指出这些规则会产生您必须注意的反直觉后果的某些情况。</p>
 
 <ul class="mini-toc">
-<li><a href="Misnesting.html" accesskey="1">Misnesting</a></li>
-<li><a href="Operator-Precedence-Problems.html" accesskey="2">Operator Precedence Problems</a></li>
-<li><a href="Swallowing-the-Semicolon.html" accesskey="3">Swallowing the Semicolon</a></li>
-<li><a href="Duplication-of-Side-Effects.html" accesskey="4">Duplication of Side Effects</a></li>
-<li><a href="Self_002dReferential-Macros.html" accesskey="5">Self-Referential Macros</a></li>
-<li><a href="Argument-Prescan.html" accesskey="6">Argument Prescan</a></li>
-<li><a href="Newlines-in-Arguments.html" accesskey="7">Newlines in Arguments</a></li>
+<li><a href="Misnesting.html" accesskey="1">Misnesting</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">嵌套错配</p></li>
+<li><a href="Operator-Precedence-Problems.html" accesskey="2">Operator Precedence Problems</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">运算符优先级问题</p></li>
+<li><a href="Swallowing-the-Semicolon.html" accesskey="3">Swallowing the Semicolon</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">吞掉分号</p></li>
+<li><a href="Duplication-of-Side-Effects.html" accesskey="4">Duplication of Side Effects</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">副作用的重复</p></li>
+<li><a href="Self_002dReferential-Macros.html" accesskey="5">Self-Referential Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">自引用宏</p></li>
+<li><a href="Argument-Prescan.html" accesskey="6">Argument Prescan</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">参数预扫描</p></li>
+<li><a href="Newlines-in-Arguments.html" accesskey="7">Newlines in Arguments</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">实参中的换行</p></li>
 </ul>
 </div>
 

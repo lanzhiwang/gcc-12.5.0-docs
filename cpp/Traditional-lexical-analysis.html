@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Traditional lexical analysis (The C Preprocessor)</title>
+<title>Traditional lexical analysis (The C Preprocessor)
+传统词法分析（C 预处理器）</title>
 
 <meta name="description" content="Traditional lexical analysis (The C Preprocessor)">
 <meta name="keywords" content="Traditional lexical analysis (The C Preprocessor)">
@@ -55,30 +56,36 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Traditional-macros.html" accesskey="n" rel="next">Traditional macros</a>, Up: <a href="Traditional-Mode.html" accesskey="u" rel="up">Traditional Mode</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Traditional-macros.html" rel="next">传统宏</a>, 上一级： <a href="Traditional-Mode.html" rel="up">传统模式</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Traditional-lexical-analysis-1"><span>10.1 Traditional lexical analysis<a class="copiable-link" href="#Traditional-lexical-analysis-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">10.1 传统词法分析</h3>
 
 <p>The traditional preprocessor does not decompose its input into tokens
 the same way a standards-conforming preprocessor does.  The input is
 simply treated as a stream of text with minimal internal form.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统的预处理器不会像符合标准的预处理器那样将其输入分解为标记。输入被简单地视为具有最小内部形式的文本流。</p>
 <p>This implementation does not treat trigraphs (see <a class="pxref" href="Initial-processing.html#trigraphs">trigraphs</a>)
 specially since they were an invention of the standards committee.  It
 handles arbitrarily-positioned escaped newlines properly and splices
 the lines as you would expect; many traditional preprocessors did not
 do this.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此实现不会特别对待三字符组（参见 <a class="pxref" href="Initial-processing.html#trigraphs">trigraphs</a>），因为它们是标准委员会的发明。它正确处理任意位置的转义换行符，并按照您的预期拼接行；许多传统的预处理器没有这样做。</p>
 <p>The form of horizontal whitespace in the input file is preserved in
 the output.  In particular, hard tabs remain hard tabs.  This can be
 useful if, for example, you are preprocessing a Makefile.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">输入中的水平空白形式会保留到输出中，尤其是实际制表符仍保留为制表符。这对预处理 Makefile 等文件可能有用。</p>
 <p>Traditional CPP only recognizes C-style block comments, and treats the
 &lsquo;<samp class="samp">/*</samp>&rsquo; sequence as introducing a comment only if it lies outside
 quoted text.  Quoted text is introduced by the usual single and double
 quotes, and also by an initial &lsquo;<samp class="samp">&lt;</samp>&rsquo; in a <code class="code">#include</code>
 directive.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统 CPP 只识别 C 风格的块注释，并且仅当“<samp class="samp">/*</samp>”序列位于引用文本之外时才将其视为引入注释。引用的文本由通常的单引号和双引号引入，也由 <code class="code">#include</code> 指令中的初始“<samp class="samp">&lt;</samp>”引入。</p>
 <p>Traditionally, comments are completely removed and are not replaced
 with a space.  Since a traditional compiler does its own tokenization
 of the output of the preprocessor, this means that comments can
@@ -86,6 +93,7 @@ effectively be used as token paste operators.  However, comments
 behave like separators for text handled by the preprocessor itself,
 since it doesn&rsquo;t re-lex its input.  For example, in
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统上，注释被完全删除并且不被空格替换。由于传统编译器对预处理器的输出进行自己的标记化，这意味着注释可以有效地用作标记粘贴运算符。然而，注释的行为就像预处理器本身处理的文本分隔符，因为它不会重新解释其输入。例如，在</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if foo/**/bar
 </pre></div>
@@ -94,12 +102,14 @@ since it doesn&rsquo;t re-lex its input.  For example, in
 separately if they happen to be macros.  In other words, this
 directive is equivalent to
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">‘<samp class="samp">foo</samp>’和‘<samp class="samp">bar</samp>’是不同的标识符，如果它们碰巧是宏，则分别展开。换句话说，该指令相当于</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if foo bar
 </pre></div>
 
 <p>rather than
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">而不是</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if foobar
 </pre></div>
@@ -110,25 +120,31 @@ replacement text that contains an unmatched quote.  Of course, if you
 attempt to compile preprocessed output containing an unmatched quote
 you will get a syntax error.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一般来说，传统模式的起始引号不要求一定有匹配的结束引号，因此可定义替换文本带有未配对引号的宏。不过，若把包含未配对引号的预处理输出拿去编译，仍会产生语法错误。</p>
 <p>However, all preprocessing directives other than <code class="code">#define</code>
 require matching quotes.  For example:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">但是，除 <code class="code">#define</code> 之外的所有预处理指令都需要匹配的引号。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define m This macro's fine and has an unmatched quote
 &quot;/* This is not a comment.  */
 /* <span class="r">This is a comment.  The following #include directive
    is ill-formed.</span>  */
 #include &lt;stdio.h
-</pre></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>这不是评论。 / 这是一条评论。以下 #include 指令格式不正确。</p>
+</div>
 
 <p>Just as for the ISO preprocessor, what would be a closing quote can be
 escaped with a backslash to prevent the quoted text from closing.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">正如 ISO 预处理器一样，可以使用反斜杠转义结束引号，以防止引用的文本结束。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Traditional-macros.html">Traditional macros</a>, Up: <a href="Traditional-Mode.html">Traditional Mode</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Traditional-macros.html">传统宏</a>, 上一级： <a href="Traditional-Mode.html">传统模式</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

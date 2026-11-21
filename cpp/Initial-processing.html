@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Initial processing (The C Preprocessor)</title>
+<title>Initial processing (The C Preprocessor)
+初始处理（C 预处理器）</title>
 
 <meta name="description" content="Initial processing (The C Preprocessor)">
 <meta name="keywords" content="Initial processing (The C Preprocessor)">
@@ -57,9 +58,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Tokenization.html" accesskey="n" rel="next">Tokenization</a>, Previous: <a href="Character-sets.html" accesskey="p" rel="prev">Character sets</a>, Up: <a href="Overview.html" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="Tokenization.html" rel="next">标记化</a>，上一页：<a href="Character-sets.html" rel="prev">字符集</a>，上一级：<a href="Overview.html" rel="up">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Initial-processing-1"><span>1.2 Initial processing<a class="copiable-link" href="#Initial-processing-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="section translation"><span>1.2 初始处理</span></h3>
 
 <p>The preprocessor performs a series of textual transformations on its
 input.  These happen before all other processing.  Conceptually, they
@@ -69,9 +72,11 @@ all at once, for performance reasons.  These transformations correspond
 roughly to the first three &ldquo;phases of translation&rdquo; described in the C
 standard.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理器会对输入进行一系列文本转换。这些转换发生在所有其他处理之前。从概念上说，它们严格按顺序进行：整个文件完成一种转换后，才开始下一种。出于性能考虑，CPP 实际上会把这些操作合在一起完成。这些转换大致对应 C 标准所描述的前三个“翻译阶段”。</p>
 <ol class="enumerate">
 <li> <a class="index-entry-id" id="index-line-endings"></a>
 The input file is read into memory and broken into lines.
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将输入文件读入内存，并划分为行。</p>
 
 <p>Different systems use different conventions to indicate the end of a
 line.  GCC accepts the ASCII control sequences <kbd class="kbd">LF</kbd>, <kbd class="kbd">CR&nbsp;LF<!-- /@w --></kbd> and <kbd class="kbd">CR</kbd> as end-of-line markers.  These are the canonical
@@ -83,17 +88,20 @@ doesn&rsquo;t consistently use one convention, as sometimes happens when it
 is edited on computers with different conventions that share a network
 file system.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不同系统使用不同的约定表示行结束。GCC 接受 ASCII 控制序列 <kbd class="kbd">LF</kbd>、<kbd class="kbd">CR&nbsp;LF</kbd> 和 <kbd class="kbd">CR</kbd> 作为行结束标记。它们分别是 Unix、DOS 和 VMS，以及经典 Mac OS（OSX 之前的版本）使用的标准序列。因此，将这些系统上编写的源代码复制到另一种系统后，可以不经转换直接使用。（如果一个文件没有始终采用同一种行结束约定，GCC 可能无法正确跟踪当前行号；在采用不同约定的计算机上通过共享网络文件系统编辑同一文件时，有时会出现这种情况。）</p>
 <p>If the last line of any input file lacks an end-of-line marker, the end
 of the file is considered to implicitly supply one.  The C standard says
 that this condition provokes undefined behavior, so GCC will emit a
 warning message.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果某个输入文件的最后一行缺少行结束标记，就把文件末尾视为隐式提供了一个行结束标记。C 标准规定这种情况会导致未定义行为，因此 GCC 会发出警告。</p>
 </li><li> <a class="index-entry-id" id="index-trigraphs"></a>
 <a class="anchor" id="trigraphs"></a>If trigraphs are enabled, they are replaced by their
 corresponding single characters.  By default GCC ignores trigraphs,
 but if you request a strictly conforming mode with the <samp class="option">-std</samp>
 option, or you specify the <samp class="option">-trigraphs</samp> option, then it
 converts them.
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果启用了三字符组，就将其替换为对应的单个字符。默认情况下，GCC 忽略三字符组；但如果通过 <samp class="option">-std</samp> 选项请求严格符合标准的模式，或者指定了 <samp class="option">-trigraphs</samp> 选项，就会进行转换。</p>
 
 <p>These are nine three-character sequences, all starting with &lsquo;<samp class="samp">??</samp>&rsquo;,
 that are defined by ISO C to stand for single characters.  They permit
@@ -101,12 +109,14 @@ obsolete systems that lack some of C&rsquo;s punctuation to use C.  For
 example, &lsquo;<samp class="samp">??/</samp>&rsquo; stands for &lsquo;<samp class="samp">\</samp>&rsquo;, so <code class="t">'??/n'</code> is a character
 constant for a newline.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">三字符组共有九种，每种都是以“<samp class="samp">??</samp>”开头的三个字符序列，由 ISO C 定义，用于表示单个字符。它们使缺少某些 C 标点字符的旧式系统也能使用 C。例如，“<samp class="samp">??/</samp>”表示“<samp class="samp">\</samp>”，因此 <code class="t">'??/n'</code> 是表示换行符的字符常量。</p>
 <p>Trigraphs are not popular and many compilers implement them
 incorrectly.  Portable code should not rely on trigraphs being either
 converted or ignored.  With <samp class="option">-Wtrigraphs</samp> GCC will warn you
 when a trigraph may change the meaning of your program if it were
 converted.  See <a class="xref" href="Invocation.html#Wtrigraphs">Wtrigraphs</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">三字符组并不常用，而且许多编译器对它们的实现并不正确。可移植代码既不应依赖三字符组一定被转换，也不应依赖它们一定被忽略。如果某个三字符组一旦被转换就可能改变程序含义，GCC 可以通过 <samp class="option">-Wtrigraphs</samp> 对此发出警告。参见 <a class="xref" href="Invocation.html#Wtrigraphs">Wtrigraphs（三字符组警告）</a>。</p>
 <p>In a string constant, you can prevent a sequence of question marks
 from being confused with a trigraph by inserting a backslash between
 the question marks, or by separating the string literal at the
@@ -114,16 +124,22 @@ trigraph and making use of string literal concatenation.  <code class="t">&quot;
 is the string &lsquo;<samp class="samp">(???)</samp>&rsquo;, not &lsquo;<samp class="samp">(?]</samp>&rsquo;.  Traditional C compilers
 do not recognize these idioms.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在字符串常量中，可以在问号之间插入反斜杠，防止一串问号被误认为三字符组；也可以在三字符组所在位置拆开字符串字面量，并利用相邻字符串字面量的拼接。例如，<code class="t">"(??\?)"</code> 表示字符串“<samp class="samp">(???)</samp>”，而不是“<samp class="samp">(?]</samp>”。传统 C 编译器不能识别这些写法。</p>
 <p>The nine trigraphs and their replacements are
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">九种三字符组及其对应的替换字符如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">Trigraph:       ??(  ??)  ??&lt;  ??&gt;  ??=  ??/  ??'  ??!  ??-
 Replacement:      [    ]    {    }    #    \    ^    |    ~
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">三字符组：      ??(  ??)  ??&lt;  ??&gt;  ??=  ??/  ??'  ??!  ??-
+替换字符：        [    ]    {    }    #    \    ^    |    ~
 </pre></div>
 
 </li><li> <a class="index-entry-id" id="index-continued-lines"></a>
 <a class="index-entry-id" id="index-backslash_002dnewline"></a>
 Continued lines are merged into one long line.
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将续接的各行合并成一个长行。</p>
 
 <p>A continued line is a line which ends with a backslash, &lsquo;<samp class="samp">\</samp>&rsquo;.  The
 backslash is removed and the following line is joined with the current
@@ -131,39 +147,51 @@ one.  No space is inserted, so you may split a line anywhere, even in
 the middle of a word.  (It is generally more readable to split lines
 only at white space.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">续行是以反斜杠“<samp class="samp">\</samp>”结尾的行。反斜杠会被删除，下一行则与当前行连接起来。连接时不会插入空格，因此可以在任意位置拆行，甚至在一个单词中间拆开。（通常只在空白处拆行会更容易阅读。）</p>
 <p>The trailing backslash on a continued line is commonly referred to as a
 <em class="dfn">backslash-newline</em>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">续行行尾的反斜杠通常称为<em class="dfn">反斜杠换行</em>。</p>
 <p>If there is white space between a backslash and the end of a line, that
 is still a continued line.  However, as this is usually the result of an
 editing mistake, and many compilers will not accept it as a continued
 line, GCC will warn you about it.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果反斜杠与行结束之间还有空白，GCC 仍会把这一行作为续行处理。不过，这通常是编辑失误造成的，而且许多编译器不接受这种续行写法，因此 GCC 会对此发出警告。</p>
 </li><li> <a class="index-entry-id" id="index-comments"></a>
 <a class="index-entry-id" id="index-line-comments"></a>
 <a class="index-entry-id" id="index-block-comments"></a>
 All comments are replaced with single spaces.
+<p lang="zh-CN" data-cpp-translation="1" class="translation">将每条注释替换为一个空格。</p>
 
 <p>There are two kinds of comments.  <em class="dfn">Block comments</em> begin with
 &lsquo;<samp class="samp">/*</samp>&rsquo; and continue until the next &lsquo;<samp class="samp">*/</samp>&rsquo;.  Block comments do not
 nest:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">注释有两种。<em class="dfn">块注释</em>以“<samp class="samp">/*</samp>”开始，一直延续到下一个“<samp class="samp">*/</samp>”。块注释不能嵌套：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">/* <span class="r">this is</span> /* <span class="r">one comment</span> */ <span class="r">text outside comment</span>
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">/* <span class="r">这是</span> /* <span class="r">一条注释</span> */ <span class="r">注释外的文本</span>
 </pre></div>
 
 <p><em class="dfn">Line comments</em> begin with &lsquo;<samp class="samp">//</samp>&rsquo; and continue to the end of the
 current line.  Line comments do not nest either, but it does not matter,
 because they would end in the same place anyway.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><em class="dfn">行注释</em>以“<samp class="samp">//</samp>”开始，一直延续到当前行的末尾。行注释也不能嵌套，但这并不重要，因为即使能够嵌套，它们也会在同一个位置结束。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">// <span class="r">this is</span> // <span class="r">one comment</span>
 <span class="r">text outside comment</span>
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">// <span class="r">这是</span> // <span class="r">一条注释</span>
+<span class="r">注释外的文本</span>
 </pre></div>
 </li></ol>
 
 <p>It is safe to put line comments inside block comments, or vice versa.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以安全地在块注释中放入行注释，也可以在行注释中放入块注释。</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">/* <span class="r">block comment</span>
    // <span class="r">contains line comment</span>
@@ -171,24 +199,37 @@ because they would end in the same place anyway.
  */ <span class="r">outside comment</span>
 
 // <span class="r">line comment</span> /* <span class="r">contains block comment</span> */
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">/* <span class="r">块注释</span>
+   // <span class="r">其中含有行注释</span>
+   <span class="r">更多注释内容</span>
+ */ <span class="r">注释外的文本</span>
+
+// <span class="r">行注释</span> /* <span class="r">其中含有块注释</span> */
 </pre></div></div>
 
 <p>But beware of commenting out one end of a block comment with a line
 comment.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">但是，要小心用行注释屏蔽了块注释的一端。</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted"> // <span class="r">l.c.</span>  /* <span class="r">block comment begins</span>
     <span class="r">oops! this isn&rsquo;t a comment anymore</span> */
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation"> // <span class="r">行注释</span>  /* <span class="r">块注释开始</span>
+    <span class="r">糟糕！这里已经不是注释了</span> */
 </pre></div></div>
 
 <p>Comments are not recognized within string literals.
 <code class="t">&quot;/*&nbsp;blah&nbsp;*/&quot;<!-- /@w --></code> is the string constant &lsquo;<samp class="samp">/*&nbsp;blah&nbsp;*/<!-- /@w --></samp>&rsquo;, not
 an empty string.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">字符串字面量内部不会识别注释。<code class="t">"/*&nbsp;blah&nbsp;*/"</code> 是内容为“<samp class="samp">/*&nbsp;blah&nbsp;*/</samp>”的字符串常量，而不是空字符串。</p>
 <p>Line comments are not in the 1989 edition of the C standard, but they
 are recognized by GCC as an extension.  In C++ and in the 1999 edition
 of the C standard, they are an official part of the language.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">1989 年版的 C 标准不包含行注释，但 GCC 将其作为扩展予以支持。在 C++ 和 1999 年版的 C 标准中，行注释已成为语言的正式组成部分。</p>
 <p>Since these transformations happen before all other processing, you can
 split a line mechanically with backslash-newline anywhere.  You can
 comment out the end of a line.  You can continue a line comment onto the
@@ -196,6 +237,7 @@ next line with backslash-newline.  You can even split &lsquo;<samp class="samp">
 &lsquo;<samp class="samp">*/</samp>&rsquo;, and &lsquo;<samp class="samp">//</samp>&rsquo; onto multiple lines with backslash-newline.
 For example:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">由于这些转换发生在所有其他处理之前，可以在任意位置用反斜杠换行直接拆分一行，也可以用注释屏蔽行尾。行注释可以通过反斜杠换行延续到下一行。甚至连“<samp class="samp">/*</samp>”、“<samp class="samp">*/</samp>”和“<samp class="samp">//</samp>”都可以用反斜杠换行拆到多行上。例如：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">/\
 *
@@ -210,15 +252,18 @@ O 10\
 extremely confusing and should not be used in code intended to be
 readable.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上面的写法等价于 <code class="code">#define&nbsp;FOO&nbsp;1020</code>。这些技巧都极易令人困惑，不应在要求可读性的代码中使用。</p>
 <p>There is no way to prevent a backslash at the end of a line from being
 interpreted as a backslash-newline.  This cannot affect any correct
 program, however.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">无法阻止行尾的反斜杠被解释为反斜杠换行。不过，这不会影响任何正确的程序。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Tokenization.html">Tokenization</a>, Previous: <a href="Character-sets.html">Character sets</a>, Up: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="Tokenization.html" rel="next">标记化</a>，上一页：<a href="Character-sets.html" rel="prev">字符集</a>，上一级：<a href="Overview.html" rel="up">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 
 

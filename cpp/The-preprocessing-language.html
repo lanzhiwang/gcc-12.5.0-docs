@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>The preprocessing language (The C Preprocessor)</title>
+<title>The preprocessing language (The C Preprocessor)
+预处理语言（C 预处理器）</title>
 
 <meta name="description" content="The preprocessing language (The C Preprocessor)">
 <meta name="keywords" content="The preprocessing language (The C Preprocessor)">
@@ -54,9 +55,11 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Previous: <a href="Tokenization.html" accesskey="p" rel="prev">Tokenization</a>, Up: <a href="Overview.html" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Tokenization.html" rel="prev">标记化</a>, 上一级： <a href="Overview.html" rel="up">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="The-preprocessing-language-1"><span>1.4 The preprocessing language<a class="copiable-link" href="#The-preprocessing-language-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">1.4 预处理语言</h3>
 <a class="index-entry-id" id="index-directives"></a>
 <a class="index-entry-id" id="index-preprocessing-directives"></a>
 <a class="index-entry-id" id="index-directive-line"></a>
@@ -68,32 +71,45 @@ to the compiler&rsquo;s parser.  However, if it contains any operations in the
 corresponds roughly to the standard&rsquo;s &ldquo;translation phase 4&rdquo; and is
 what most people think of as the preprocessor&rsquo;s job.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">标记化后，标记流可以直接传递到编译器的解析器。但是，如果它包含预处理语言中的任何操作，它将首先被转换。此阶段大致对应于标准的“翻译阶段 4”，并且是大多数人认为的预处理器的工作。</p>
 <p>The preprocessing language consists of <em class="dfn">directives</em> to be executed
 and <em class="dfn">macros</em> to be expanded.  Its primary capabilities are:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理语言由要执行的指令和要展开的宏组成。其主要功能是：</p>
 <ul class="itemize mark-bullet">
 <li>Inclusion of header files.  These are files of declarations that can be
 substituted into your program.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">包含头文件。这些是可以替换到您的程序中的声明文件。</p>
 </li><li>Macro expansion.  You can define <em class="dfn">macros</em>, which are abbreviations
 for arbitrary fragments of C code.  The preprocessor will replace the
 macros with their definitions throughout the program.  Some macros are
 automatically defined for you.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏展开。可以定义宏，用简短名称表示任意 C 代码片段。预处理器在源代码的使用位置用宏定义的内容替换宏名；有些宏会预先自动定义。</p>
 </li><li>Conditional compilation.  You can include or exclude parts of the
 program according to various conditions.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">条件编译。您可以根据各种条件包含或排除程序的某些部分。</p>
 </li><li>Line control.  If you use a program to combine or rearrange source files
 into an intermediate file which is then compiled, you can use line
 control to inform the compiler where each source line originally came
 from.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">行号控制。如果某个工具把源文件合并或重排成中间文件再编译，可以通过行号控制告诉编译器每一行最初来自哪里。</p>
 </li><li>Diagnostics.  You can detect problems at compile time and issue errors
 or warnings.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">诊断。您可以在编译时检测问题并发出错误或警告。</p>
 </li></ul>
 
 <p>There are a few more, less useful, features.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">还有一些更多但不太有用的功能。</p>
 <p>Except for expansion of predefined macros, all these operations are
 triggered with <em class="dfn">preprocessing directives</em>.  Preprocessing directives
 are lines in your program that start with &lsquo;<samp class="samp">#</samp>&rsquo;.  Whitespace is
@@ -103,30 +119,36 @@ perform.  Directives are commonly referred to as &lsquo;<samp class="samp">#<var
 where <var class="var">name</var> is the directive name.  For example, &lsquo;<samp class="samp">#define</samp>&rsquo; is
 the directive that defines a macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">除了预定义宏的展开之外，所有这些操作都是由预处理指令触发的。预处理指令是程序中以“<samp class="samp">#</samp>”开头的行。 “<samp class="samp">#</samp>”前后允许有空格。 “<samp class="samp">#</samp>”后面跟着一个标识符，即指令名称。它指定要执行的操作。指令通常称为“<samp class="samp">#<var class="var">name</var></samp>”，其中 <var class="var">name</var> 是指令名称。例如，“<samp class="samp">#define</samp>”是定义宏的指令。</p>
 <p>The &lsquo;<samp class="samp">#</samp>&rsquo; which begins a directive cannot come from a macro
 expansion.  Also, the directive name is not macro expanded.  Thus, if
 <code class="code">foo</code> is defined as a macro expanding to <code class="code">define</code>, that does
 not make &lsquo;<samp class="samp">#foo</samp>&rsquo; a valid preprocessing directive.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">指令开头的“<samp class="samp">#</samp>”不能来自宏展开。此外，指令名称不是宏展开的。因此，如果 <code class="code">foo</code> 被定义为展开为 <code class="code">define</code> 的宏，则不会使“<samp class="samp">#foo</samp>”成为有效的预处理指令。</p>
 <p>The set of valid directive names is fixed.  Programs cannot define new
 preprocessing directives.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有效指令名称集是固定的。程序无法定义新的预处理指令。</p>
 <p>Some directives require arguments; these make up the rest of the
 directive line and must be separated from the directive name by
 whitespace.  For example, &lsquo;<samp class="samp">#define</samp>&rsquo; must be followed by a macro
 name and the intended expansion of the macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有些指令需要参数；它们构成指令行的其余部分，并且必须用空格与指令名称分隔。例如，“<samp class="samp">#define</samp>”后面必须跟有宏名称和宏的预期展开。</p>
 <p>A preprocessing directive cannot cover more than one line.  The line
 may, however, be continued with backslash-newline, or by a block comment
 which extends past the end of the line.  In either case, when the
 directive is processed, the continuations have already been merged with
 the first line to make one long line.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一条预处理指令不能覆盖多于一行。然而，该行可以用反斜杠换行符或延伸到该行末尾的块注释来继续。在任何一种情况下，当处理指令时，延续已经与第一行合并以形成一个长行。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Previous: <a href="Tokenization.html">Tokenization</a>, Up: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Tokenization.html">标记化</a>, 上一级： <a href="Overview.html">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

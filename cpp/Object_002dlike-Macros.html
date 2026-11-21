@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Object-like Macros (The C Preprocessor)</title>
+<title>Object-like Macros (The C Preprocessor)
+对象类宏（C 预处理器）</title>
 
 <meta name="description" content="Object-like Macros (The C Preprocessor)">
 <meta name="keywords" content="Object-like Macros (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Function_002dlike-Macros.html" accesskey="n" rel="next">Function-like Macros</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Function_002dlike-Macros.html" rel="next">函数类宏</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Object_002dlike-Macros-1"><span>3.1 Object-like Macros<a class="copiable-link" href="#Object_002dlike-Macros-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.1 对象类宏</h3>
 <a class="index-entry-id" id="index-object_002dlike-macro"></a>
 <a class="index-entry-id" id="index-symbolic-constants"></a>
 <a class="index-entry-id" id="index-manifest-constants"></a>
@@ -66,12 +69,14 @@ by a code fragment.  It is called object-like because it looks like a
 data object in code that uses it.  They are most commonly used to give
 symbolic names to numeric constants.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对象类宏是一个简单标识符，会被替换成一段代码。它看起来像调用代码中的数据对象，因此称为对象类宏，最常用于给数值常量提供符号名称。</p>
 <a class="index-entry-id" id="index-_0023define"></a>
 <p>You create macros with the &lsquo;<samp class="samp">#define</samp>&rsquo; directive.  &lsquo;<samp class="samp">#define</samp>&rsquo; is
 followed by the name of the macro and then the token sequence it should
 be an abbreviation for, which is variously referred to as the macro&rsquo;s
 <em class="dfn">body</em>, <em class="dfn">expansion</em> or <em class="dfn">replacement list</em>.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">用“<samp class="samp">#define</samp>”创建宏，指令后依次是宏名和用于替换它的标记序列。这一序列也称为宏体、展开内容或替换列表。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define BUFFER_SIZE 1024
 </pre></div>
@@ -80,6 +85,7 @@ be an abbreviation for, which is variously referred to as the macro&rsquo;s
 token <code class="code">1024</code>.  If somewhere after this &lsquo;<samp class="samp">#define</samp>&rsquo; directive
 there comes a C statement of the form
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">定义了一个名为 <code class="code">BUFFER_SIZE</code> 的宏作为标记 <code class="code">1024</code> 的缩写。如果在“<samp class="samp">#define</samp>”指令之后的某处出现以下形式的 C 语句</p>
 <div class="example smallexample">
 <pre class="example-preformatted">foo = (char *) malloc (BUFFER_SIZE);
 </pre></div>
@@ -88,6 +94,7 @@ there comes a C statement of the form
 <code class="code">BUFFER_SIZE</code>.  The C compiler will see the same tokens as it would
 if you had written
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">那么C预处理器将识别并展开宏<code class="code">BUFFER_SIZE</code>。 C 编译器将看到与您编写的相同的标记</p>
 <div class="example smallexample">
 <pre class="example-preformatted">foo = (char *) malloc (1024);
 </pre></div>
@@ -96,11 +103,13 @@ if you had written
 easier to read when it is possible to tell at a glance which names are
 macros.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">按照约定，宏名称以大写形式书写。当一眼就能看出哪些名称是宏时，程序就更容易阅读。</p>
 <p>The macro&rsquo;s body ends at the end of the &lsquo;<samp class="samp">#define</samp>&rsquo; line.  You may
 continue the definition onto multiple lines, if necessary, using
 backslash-newline.  When the macro is expanded, however, it will all
 come out on one line.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏的主体在“<samp class="samp">#define</samp>”行的末尾结束。如有必要，您可以使用反斜杠换行符将定义延续到多行。然而，当宏展开时，它将全部显示在一行上。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define NUMBERS 1, \
                 2, \
@@ -112,15 +121,18 @@ int x[] = { NUMBERS };
 <p>The most common visible consequence of this is surprising line numbers
 in error messages.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">最常见的明显后果是错误消息中令人惊讶的行号。</p>
 <p>There is no restriction on what can go in a macro body provided it
 decomposes into valid preprocessing tokens.  Parentheses need not
 balance, and the body need not resemble valid C code.  (If it does not,
 you may get error messages from the C compiler when you use the macro.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">只要宏体分解为有效的预处理标记，宏体中的内容就没有限制。括号不需要平衡，并且主体不需要类似于有效的 C 代码。 （如果没有，当您使用该宏时，您可能会从 C 编译器收到错误消息。）</p>
 <p>The C preprocessor scans your program sequentially.  Macro definitions
 take effect at the place you write them.  Therefore, the following input
 to the C preprocessor
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 预处理器按顺序扫描您的程序。宏定义在您编写它们的地方生效。因此，C 预处理器的以下输入</p>
 <div class="example smallexample">
 <pre class="example-preformatted">foo = X;
 #define X 4
@@ -129,6 +141,7 @@ bar = X;
 
 <p>produces
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">产生</p>
 <div class="example smallexample">
 <pre class="example-preformatted">foo = X;
 bar = 4;
@@ -138,6 +151,7 @@ bar = 4;
 replaces the macro invocation, then the expansion is examined for more
 macros to expand.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当预处理器展开宏名称时，宏的展开将替换宏调用，然后检查展开以查找更多要展开的宏。例如，</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#define TABLESIZE BUFSIZE
 #define BUFSIZE 1024
@@ -149,6 +163,7 @@ TABLESIZE
 <p><code class="code">TABLESIZE</code> is expanded first to produce <code class="code">BUFSIZE</code>, then that
 macro is expanded to produce the final result, <code class="code">1024</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">首先展开 <code class="code">TABLESIZE</code> 以生成 <code class="code">BUFSIZE</code>，然后展开该宏以生成最终结果 <code class="code">1024</code>。</p>
 <p>Notice that <code class="code">BUFSIZE</code> was not defined when <code class="code">TABLESIZE</code> was
 defined.  The &lsquo;<samp class="samp">#define</samp>&rsquo; for <code class="code">TABLESIZE</code> uses exactly the
 expansion you specify&mdash;in this case, <code class="code">BUFSIZE</code>&mdash;and does not
@@ -156,11 +171,13 @@ check to see whether it too contains macro names.  Only when you
 <em class="emph">use</em> <code class="code">TABLESIZE</code> is the result of its expansion scanned for
 more macro names.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，定义 <code class="code">TABLESIZE</code> 时，未定义 <code class="code">BUFSIZE</code>。 <code class="code">TABLESIZE</code> 的“<samp class="samp">#define</samp>”完全使用您指定的展开（在本例中为 <code class="code">BUFSIZE</code>），并且不检查它是否也包含宏名称。仅当您使用 <code class="code">TABLESIZE</code> 时，其展开结果才会扫描更多宏名称。</p>
 <p>This makes a difference if you change the definition of <code class="code">BUFSIZE</code>
 at some point in the source file.  <code class="code">TABLESIZE</code>, defined as shown,
 will always expand using the definition of <code class="code">BUFSIZE</code> that is
 currently in effect:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您在源文件中的某个位置更改 <code class="code">BUFSIZE</code> 的定义，这会产生影响。 <code class="code">TABLESIZE</code> 的定义如图所示，将始终使用当前有效的 <code class="code">BUFSIZE</code> 的定义进行展开：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define BUFSIZE 1020
 #define TABLESIZE BUFSIZE
@@ -170,16 +187,19 @@ currently in effect:
 
 <p>Now <code class="code">TABLESIZE</code> expands (in two stages) to <code class="code">37</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">现在<code class="code">TABLESIZE</code>（分两个阶段）展开到<code class="code">37</code>。</p>
 <p>If the expansion of a macro contains its own name, either directly or
 via intermediate macros, it is not expanded again when the expansion is
 examined for more macros.  This prevents infinite recursion.
 See <a class="xref" href="Self_002dReferential-Macros.html">Self-Referential Macros</a>, for the precise details.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏的展开直接或通过中间宏包含其自己的名称，则在检查展开中是否有更多宏时，它不会再次展开。这可以防止无限递归。有关精确的详细信息，请参阅 <a class="xref" href="Self_002dReferential-Macros.html">自引用宏</a>。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Function_002dlike-Macros.html">Function-like Macros</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Function_002dlike-Macros.html">函数类宏</a>, 上一级： <a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

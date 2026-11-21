@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Tokenization (The C Preprocessor)</title>
+<title>Tokenization (The C Preprocessor)
+标记化（C 预处理器）</title>
 
 <meta name="description" content="Tokenization (The C Preprocessor)">
 <meta name="keywords" content="Tokenization (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="The-preprocessing-language.html" accesskey="n" rel="next">The preprocessing language</a>, Previous: <a href="Initial-processing.html" accesskey="p" rel="prev">Initial processing</a>, Up: <a href="Overview.html" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="The-preprocessing-language.html" rel="next">预处理语言</a>，上一页：<a href="Initial-processing.html" rel="prev">初始处理</a>，上一级：<a href="Overview.html" rel="up">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Tokenization-1"><span>1.3 Tokenization<a class="copiable-link" href="#Tokenization-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="section translation"><span>1.3 标记化</span></h3>
 
 <a class="index-entry-id" id="index-tokens"></a>
 <a class="index-entry-id" id="index-preprocessing-tokens"></a>
@@ -68,6 +71,7 @@ a few differences.  White space separates tokens; it is not itself a
 token of any kind.  Tokens do not have to be separated by white space,
 but it is often necessary to avoid ambiguities.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">文本转换完成后，输入文件会被转换为一串<em class="dfn">预处理标记</em>。这些标记大多对应 C 编译器使用的语法标记，但也有少量差异。空白用于分隔标记，本身不属于任何一种标记。标记之间不一定要有空白，但为了避免歧义，常常需要用空白将它们分开。</p>
 <p>When faced with a sequence of characters that has more than one possible
 tokenization, the preprocessor is greedy.  It always makes each token,
 starting from the left, as big as possible before moving on to the next
@@ -76,21 +80,30 @@ token.  For instance, <code class="code">a+++++b</code> is interpreted as
 latter tokenization could be part of a valid C program and the former
 could not.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果一串字符存在多种可能的标记划分方式，预处理器会采用贪心策略：从左向右，每次都尽可能取出最长的标记，然后再处理下一个。例如，<code class="code">a+++++b</code> 会被解释为 <code class="code">a&nbsp;++&nbsp;++&nbsp;+&nbsp;b</code>，而不是 <code class="code">a&nbsp;++&nbsp;+&nbsp;++&nbsp;b</code>，即使后一种划分可以构成有效 C 程序的一部分，而前一种不行。</p>
 <p>Once the input file is broken into tokens, the token boundaries never
 change, except when the &lsquo;<samp class="samp">##</samp>&rsquo; preprocessing operator is used to paste
 tokens together.  See <a class="xref" href="Concatenation.html">Concatenation</a>.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">输入文件一旦被划分为标记，标记边界就不会再改变，除非使用“<samp class="samp">##</samp>”预处理运算符把标记拼接起来。参见<a class="xref" href="Concatenation.html">拼接</a>。例如：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#define foo() bar
 foo()baz
      &rarr; bar baz
 <em class="emph">not</em>
      &rarr; barbaz
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">#define foo() bar
+foo()baz
+     &rarr; bar baz
+<em class="emph">而不是</em>
+     &rarr; barbaz
 </pre></div></div>
 
 <p>The compiler does not re-tokenize the preprocessor&rsquo;s output.  Each
 preprocessing token becomes one compiler token.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译器不会重新对预处理器的输出进行标记划分。每个预处理标记都会成为一个编译器标记。</p>
 <a class="index-entry-id" id="index-identifiers"></a>
 <p>Preprocessing tokens fall into five broad classes: identifiers,
 preprocessing numbers, string literals, punctuators, and other.  An
@@ -101,22 +114,26 @@ they are ordinary identifiers.  You can define a macro whose name is a
 keyword, for instance.  The only identifier which can be considered a
 preprocessing keyword is <code class="code">defined</code>.  See <a class="xref" href="Defined.html">Defined</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理标记大体分为五类：标识符、预处理数字、字符串字面量、标点符号以及其他标记。<em class="dfn">标识符</em>与 C 中的标识符相同：由字母、数字或下划线组成，并以字母或下划线开头。C 的关键字对预处理器没有特殊含义，会被当作普通标识符。例如，可以定义一个名称恰好是关键字的宏。唯一可以视为预处理关键字的标识符是 <code class="code">defined</code>。参见<a class="xref" href="Defined.html">宏定义状态检测</a>。</p>
 <p>This is mostly true of other languages which use the C preprocessor.
 However, a few of the keywords of C++ are significant even in the
 preprocessor.  See <a class="xref" href="C_002b_002b-Named-Operators.html">C++ Named Operators</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对于使用 C 预处理器的其他语言，上述说法大体也成立。不过，C++ 的少数关键字即使在预处理器中也有特殊含义。参见<a class="xref" href="C_002b_002b-Named-Operators.html">C++ 命名运算符</a>。</p>
 <p>In the 1999 C standard, identifiers may contain letters which are not
 part of the &ldquo;basic source character set&rdquo;, at the implementation&rsquo;s
 discretion (such as accented Latin letters, Greek letters, or Chinese
 ideograms).  This may be done with an extended character set, or the
 &lsquo;<samp class="samp">\u</samp>&rsquo; and &lsquo;<samp class="samp">\U</samp>&rsquo; escape sequences.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">1999 年版的 C 标准允许实现自行决定是否在标识符中接受不属于“基本源字符集”的字母，例如带重音的拉丁字母、希腊字母或汉字。可以通过扩展字符集，或者“<samp class="samp">\u</samp>”和“<samp class="samp">\U</samp>”转义序列来表示这些字符。</p>
 <p>As an extension, GCC treats &lsquo;<samp class="samp">$</samp>&rsquo; as a letter.  This is for
 compatibility with some systems, such as VMS, where &lsquo;<samp class="samp">$</samp>&rsquo; is commonly
 used in system-defined function and object names.  &lsquo;<samp class="samp">$</samp>&rsquo; is not a
 letter in strictly conforming mode, or if you specify the <samp class="option">-$</samp>
 option.  See <a class="xref" href="Invocation.html">Invocation</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">作为扩展，GCC 把“<samp class="samp">$</samp>”当作字母。这是为了兼容某些系统，例如 VMS；这些系统经常在系统定义的函数和对象名称中使用“<samp class="samp">$</samp>”。在严格符合标准的模式下，或者指定了 <samp class="option">-$</samp> 选项时，“<samp class="samp">$</samp>”不被当作字母。参见<a class="xref" href="Invocation.html">调用</a>。</p>
 <a class="index-entry-id" id="index-numbers"></a>
 <a class="index-entry-id" id="index-preprocessing-numbers"></a>
 <p>A <em class="dfn">preprocessing number</em> has a rather bizarre definition.  The
@@ -130,6 +147,7 @@ exponents.  Exponents are the two-character sequences &lsquo;<samp class="samp">
 &lsquo;<samp class="samp">P-</samp>&rsquo;.  (The exponents that begin with &lsquo;<samp class="samp">p</samp>&rsquo; or &lsquo;<samp class="samp">P</samp>&rsquo; are 
 used for hexadecimal floating-point constants.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><em class="dfn">预处理数字</em>的定义相当特殊。这一类别既包含 C 中常见的所有整数和浮点常量，也包含一些乍看之下不像数字的内容。形式上，预处理数字以一个可选的句点和一个必需的十进制数字开头，后面可以跟任意序列的字母、数字、下划线、句点和指数序列。这里的指数序列是“<samp class="samp">e+</samp>”、“<samp class="samp">e-</samp>”、“<samp class="samp">E+</samp>”、“<samp class="samp">E-</samp>”、“<samp class="samp">p+</samp>”、“<samp class="samp">p-</samp>”、“<samp class="samp">P+</samp>”和“<samp class="samp">P-</samp>”这八种双字符序列。（以“<samp class="samp">p</samp>”或“<samp class="samp">P</samp>”开头的指数用于十六进制浮点常量。）</p>
 <p>The purpose of this unusual definition is to isolate the preprocessor
 from the full complexity of numeric constants.  It does not have to
 distinguish between lexically valid and invalid floating-point numbers,
@@ -137,12 +155,14 @@ which is complicated.  The definition also permits you to split an
 identifier at any position and get exactly two tokens, which can then be
 pasted back together with the &lsquo;<samp class="samp">##</samp>&rsquo; operator.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这种特殊定义的目的是使预处理器不必处理数值常量的全部复杂细节。它无需区分词法上有效和无效的浮点数，因为这种判断很复杂。这一定义也允许在任意位置拆开一个标识符，恰好得到两个标记，再通过“<samp class="samp">##</samp>”运算符将它们拼回去。</p>
 <p>It&rsquo;s possible for preprocessing numbers to cause programs to be
 misinterpreted.  For example, <code class="code">0xE+12</code> is a preprocessing number
 which does not translate to any valid numeric constant, therefore a
 syntax error.  It does not mean <code class="code">0xE&nbsp;+&nbsp;12<!-- /@w --></code>, which is what you
 might have intended.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理数字可能使程序按非预期方式被解释。例如，<code class="code">0xE+12</code> 是一个预处理数字，却不能转换为任何有效的数值常量，因此会导致语法错误。它并不表示你可能原本想写的 <code class="code">0xE&nbsp;+&nbsp;12</code>。</p>
 <a class="index-entry-id" id="index-string-literals"></a>
 <a class="index-entry-id" id="index-string-constants"></a>
 <a class="index-entry-id" id="index-character-constants"></a>
@@ -156,15 +176,18 @@ the length of a character constant, but the value of a character
 constant that contains more than one character is
 implementation-defined.  See <a class="xref" href="Implementation-Details.html">Implementation Details</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这里的<em class="dfn">字符串字面量</em>一类包括字符串常量、字符常量和头文件名（“<samp class="samp">#include</samp>”的参数）。<a class="footnote" href="#FOOT2" title="参见脚注 2"><sup>2</sup></a>字符串常量和字符常量的形式很直观，分别为 <code class="t">"&hellip;"</code> 和 <code class="t">'&hellip;'</code>。无论哪一种，内部嵌入的引号都应使用反斜杠转义：<code class="t">'\''</code> 就是表示“<samp class="samp">'</samp>”的字符常量。字符常量的长度没有限制，但包含多个字符的字符常量，其值由实现定义。参见<a class="xref" href="Implementation-Details.html">实现细节</a>。</p>
 <p>Header file names either look like string constants, <code class="t">&quot;&hellip;&quot;</code>, or are
 written with angle brackets instead, <code class="t">&lt;&hellip;&gt;</code>.  In either case,
 backslash is an ordinary character.  There is no way to escape the
 closing quote or angle bracket.  The preprocessor looks for the header
 file in different places depending on which form you use.  See <a class="xref" href="Include-Operation.html">Include Operation</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">头文件名可以写成类似字符串常量的 <code class="t">"&hellip;"</code> 形式，也可以改用尖括号写成 <code class="t">&lt;&hellip;&gt;</code>。无论哪一种形式，反斜杠都只是普通字符，无法通过转义来表示结束引号或结束尖括号。预处理器会根据所用形式，在不同位置搜索头文件。参见<a class="xref" href="Include-Operation.html">包含操作</a>。</p>
 <p>No string literal may extend past the end of a line.  You may use continued
 lines instead, or string constant concatenation.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">字符串字面量不能越过行末。可以改用续行，或者使用字符串常量拼接。</p>
 <a class="index-entry-id" id="index-punctuators"></a>
 <a class="index-entry-id" id="index-digraphs"></a>
 <a class="index-entry-id" id="index-alternative-tokens"></a>
@@ -179,9 +202,13 @@ punctuation in obsolete systems.  It has no negative side effects,
 unlike trigraphs, but does not cover as much ground.  The digraphs and
 their corresponding normal punctuators are:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><em class="dfn">标点符号</em>是对 C 和 C++ 有语法意义的常见标点。ASCII 标点字符中，除“<samp class="samp">@</samp>”、“<samp class="samp">$</samp>”和“<samp class="samp">&#96;</samp>”这三个例外以外，其余都是 C 的标点符号。此外，所有双字符和三字符运算符也属于标点符号。还有六种<em class="dfn">双字符组</em>，C++ 标准称之为<em class="dfn">替代标记</em>，它们只是其他标点符号的另一种拼写。这是为解决旧式系统缺少某些标点而作出的第二种尝试。与三字符组不同，它没有不利的副作用，但覆盖的字符种类较少。双字符组及其对应的普通标点符号如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">Digraph:        &lt;%  %&gt;  &lt;:  :&gt;  %:  %:%:
 Punctuator:      {   }   [   ]   #    ##
+</pre>
+<pre lang="zh-CN" data-cpp-translation="1" class="example-preformatted translation">双字符组：      &lt;%  %&gt;  &lt;:  :&gt;  %:  %:%:
+标点符号：       {   }   [   ]   #    ##
 </pre></div>
 
 <a class="index-entry-id" id="index-other-tokens"></a>
@@ -195,6 +222,7 @@ normally considered a letter.)  All bytes with the high bit set
 part of an extended character in the input encoding are also &ldquo;other&rdquo;
 in the present implementation.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">任何其他单字节都归入“其他”一类，并原样传递到预处理器的输出中。C 编译器几乎肯定会拒绝包含“其他”标记的源代码。在 ASCII 中，归入“其他”的字符只有“<samp class="samp">@</samp>”、“<samp class="samp">$</samp>”、“<samp class="samp">&#96;</samp>”，以及除 NUL（所有位均为零）以外的控制字符。（注意，“<samp class="samp">$</samp>”通常被视为字母。）在当前实现中，所有最高位置 1、且未能按输入编码成功解释为某个扩展字符组成部分的字节（原文给出的数值范围为 0x7F–0xFF），也归入“其他”一类。</p>
 <p>NUL is a special case because of the high probability that its
 appearance is accidental, and because it may be invisible to the user
 (many terminals do not display NUL at all).  Within comments, NULs are
@@ -202,6 +230,7 @@ silently ignored, just as any other character would be.  In running
 text, NUL is considered white space.  For example, these two directives
 have the same meaning.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">NUL 是一种特殊情况，因为它极有可能是意外出现的，而且用户可能看不到它（许多终端完全不显示 NUL）。在注释中，NUL 与其他注释字符一样会被静默忽略。在普通源文本中，NUL 被视为空白。例如，下面两条指令含义相同。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define X^@1
 #define X 1
@@ -211,20 +240,24 @@ have the same meaning.
 NULs are preserved.  In the latter two cases the preprocessor emits a
 warning message.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">（其中“<samp class="samp">^@</samp>”表示 ASCII NUL。）在字符串常量或字符常量中，NUL 会被保留。在后两种情况下，预处理器会发出警告。</p>
 </div>
 <div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="footnotes-heading translation">脚注</h4>
 
 <h5 class="footnote-body-heading"><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>The C
 standard uses the term <em class="dfn">string literal</em> to refer only to what we are
 calling <em class="dfn">string constants</em>.</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准使用<em class="dfn">字符串字面量</em>这个术语时，仅指这里所称的<em class="dfn">字符串常量</em>。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="The-preprocessing-language.html">The preprocessing language</a>, Previous: <a href="Initial-processing.html">Initial processing</a>, Up: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="The-preprocessing-language.html" rel="next">预处理语言</a>，上一页：<a href="Initial-processing.html" rel="prev">初始处理</a>，上一级：<a href="Overview.html" rel="up">概述</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 
 

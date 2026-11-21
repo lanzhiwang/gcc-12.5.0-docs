@@ -54,6 +54,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="_005f_005fhas_005fbuiltin.html" accesskey="n" rel="next"><code class="code">__has_builtin</code></a>, Previous: <a href="_005f_005fhas_005fcpp_005fattribute.html" accesskey="p" rel="prev"><code class="code">__has_cpp_attribute</code></a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="_005f_005fhas_005fbuiltin.html" rel="next">__has_builtin</a>, 上一页： <a href="_005f_005fhas_005fcpp_005fattribute.html" rel="prev">__has_cpp_attribute</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="g_t_005f_005fhas_005fc_005fattribute-1"><span>4.2.8 <code class="code">__has_c_attribute</code><a class="copiable-link" href="#g_t_005f_005fhas_005fc_005fattribute-1"> &para;</a></span></h4>
@@ -70,6 +71,7 @@ standard attribute it evaluates to an integer constant of the form
 first introduced into the C standard, or when the syntax of operands
 to the attribute was extended in the C standard.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code>__has_c_attribute (operand)</code> 可用于 C 代码中的 <code>#if</code> 和 <code>#elif</code> 表达式，检查 GCC 是否识别以 <code>[[...]]</code> 语法书写的指定属性。用 <code>__has_c_attribute</code> 检测 GNU 属性时，必须指定 <code>gnu</code> 或 <code>__gnu__</code> 作用域。当操作数指定的是受支持的标准属性时，结果为 <code>YYYYMM</code> 形式的整数常量，表示该属性首次引入 C 标准，或其操作数语法在 C 标准中得到扩展的年份和月份。</p>
 </div>
 
 

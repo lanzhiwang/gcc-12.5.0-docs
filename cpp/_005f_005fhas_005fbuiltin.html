@@ -55,6 +55,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="_005f_005fhas_005finclude.html" accesskey="n" rel="next"><code class="code">__has_include</code></a>, Previous: <a href="_005f_005fhas_005fc_005fattribute.html" accesskey="p" rel="prev"><code class="code">__has_c_attribute</code></a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="_005f_005fhas_005finclude.html" rel="next">__has_include</a>, 上一页： <a href="_005f_005fhas_005fc_005fattribute.html" rel="prev">__has_c_attribute</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="g_t_005f_005fhas_005fbuiltin-1"><span>4.2.9 <code class="code">__has_builtin</code><a class="copiable-link" href="#g_t_005f_005fhas_005fbuiltin-1"> &para;</a></span></h4>
@@ -72,6 +73,7 @@ expressions.  The <code class="code">__has_builtin</code> operator by itself, wi
 for it can be tested in portable code.  Thus, the recommended use of
 the operator is as follows:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code class="code">__has_builtin (<var class="var">operand</var>)</code> 可以用在常量整数上下文以及预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中，以测试由其 <var class="var">operand</var> 命名的符号是否被 GCC 在当前语言和一致性模式下识别为内置函数。如果参数引用这样的函数，则其计算结果为具有非零值的常量整数，否则为零。该运算符也可以用在预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中。 <code class="code">__has_builtin</code> 运算符本身（没有任何 <var class="var">operand</var> 或括号）充当预定义宏，以便可以在可移植代码中测试对其的支持。因此，建议使用该运算符如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_builtin
 #  if __has_builtin (__builtin_object_size)

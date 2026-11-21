@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Swallowing the Semicolon (The C Preprocessor)</title>
+<title>Swallowing the Semicolon (The C Preprocessor)
+吞掉分号（C 预处理器）</title>
 
 <meta name="description" content="Swallowing the Semicolon (The C Preprocessor)">
 <meta name="keywords" content="Swallowing the Semicolon (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Duplication-of-Side-Effects.html" accesskey="n" rel="next">Duplication of Side Effects</a>, Previous: <a href="Operator-Precedence-Problems.html" accesskey="p" rel="prev">Operator Precedence Problems</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Duplication-of-Side-Effects.html" rel="next">副作用的重复</a>, 上一页： <a href="Operator-Precedence-Problems.html" rel="prev">运算符优先级问题</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Swallowing-the-Semicolon-1"><span>3.10.3 Swallowing the Semicolon<a class="copiable-link" href="#Swallowing-the-Semicolon-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">3.10.3 吞掉分号</h4>
 <a class="index-entry-id" id="index-semicolons-_0028after-macro-calls_0029"></a>
 
 <p>Often it is desirable to define a macro that expands into a compound
@@ -65,6 +68,7 @@ statement.  Consider, for example, the following macro, that advances a
 pointer (the argument <code class="code">p</code> says where to find it) across whitespace
 characters:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">通常需要定义一个展开为复合语句的宏。例如，考虑以下宏，该宏将指针（参数 <code class="code">p</code> 表示在哪里找到它）跨空白字符前进：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define SKIP_SPACES(p, limit)  \
 { char *lim = (limit);         \
@@ -77,6 +81,7 @@ characters:
 be a single logical line, so that it resembles the way such code would
 be laid out if not part of a macro definition.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这里反斜杠换行符用于分割宏定义，宏定义必须是单个逻辑行，以便它类似于此类代码（如果不是宏定义的一部分）的布局方式。</p>
 <p>A call to this macro might be <code class="code">SKIP_SPACES (p, lim)</code>.  Strictly
 speaking, the call expands to a compound statement, which is a complete
 statement with no need for a semicolon to end it.  However, since it
@@ -84,9 +89,11 @@ looks like a function call, it minimizes confusion if you can use it
 like a function call, writing a semicolon afterward, as in
 <code class="code">SKIP_SPACES (p, lim);</code>
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对此宏的调用可能是 <code class="code">SKIP_SPACES (p, lim)</code>。严格来说，调用展开为复合语句，这是一个完整的语句，不需要分号来结束它。但是，由于它看起来像函数调用，因此如果您可以像函数调用一样使用它，然后在后面写一个分号，则可以最大程度地减少混乱，如 <code class="code">SKIP_SPACES (p, lim);</code> 中所示</p>
 <p>This can cause trouble before <code class="code">else</code> statements, because the
 semicolon is actually a null statement.  Suppose you write
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这可能会在 <code class="code">else</code> 语句之前造成麻烦，因为分号实际上是一个 null 语句。假设你写</p>
 <div class="example smallexample">
 <pre class="example-preformatted">if (*p != 0)
   SKIP_SPACES (p, lim);
@@ -97,9 +104,11 @@ else &hellip;
 statement&mdash;in between the <code class="code">if</code> condition and the <code class="code">else</code>
 makes invalid C code.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">if</code> 条件和 <code class="code">else</code> 之间存在两个语句（复合语句和空语句）会导致 C 代码无效。</p>
 <p>The definition of the macro <code class="code">SKIP_SPACES</code> can be altered to solve
 this problem, using a <code class="code">do &hellip; while</code> statement.  Here is how:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以使用 <code class="code">do &hellip; while</code> 语句更改宏 <code class="code">SKIP_SPACES</code> 的定义来解决此问题。具体方法如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define SKIP_SPACES(p, limit)     \
 do { char *lim = (limit);         \
@@ -111,6 +120,7 @@ while (0)
 
 <p>Now <code class="code">SKIP_SPACES (p, lim);</code> expands into
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">现在<code class="code">SKIP_SPACES (p, lim);</code>展开到</p>
 <div class="example smallexample">
 <pre class="example-preformatted">do {&hellip;} while (0);
 </pre></div>
@@ -118,11 +128,13 @@ while (0)
 <p>which is one statement.  The loop executes exactly once; most compilers
 generate no extra code for it.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这是一条完整语句。循环只执行一次，大多数编译器不会为它生成额外代码。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Duplication-of-Side-Effects.html">Duplication of Side Effects</a>, Previous: <a href="Operator-Precedence-Problems.html">Operator Precedence Problems</a>, Up: <a href="Macro-Pitfalls.html">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Duplication-of-Side-Effects.html">副作用的重复</a>, 上一页： <a href="Operator-Precedence-Problems.html">运算符优先级问题</a>, 上一级： <a href="Macro-Pitfalls.html">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Preprocessor Output (The C Preprocessor)</title>
+<title>Preprocessor Output (The C Preprocessor)
+预处理器输出（C 预处理器）</title>
 
 <meta name="description" content="Preprocessor Output (The C Preprocessor)">
 <meta name="keywords" content="Preprocessor Output (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Traditional-Mode.html" accesskey="n" rel="next">Traditional Mode</a>, Previous: <a href="Other-Directives.html" accesskey="p" rel="prev">Other Directives</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Traditional-Mode.html" rel="next">传统模式</a>, 上一页： <a href="Other-Directives.html" rel="prev">其他指令</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Preprocessor-Output-1"><span>9 Preprocessor Output<a class="copiable-link" href="#Preprocessor-Output-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">9 预处理器输出</h2>
 
 <p>When the C preprocessor is used with the C, C++, or Objective-C
 compilers, it is integrated into the compiler and communicates a stream
@@ -65,12 +68,14 @@ of binary tokens directly to the compiler&rsquo;s parser.  However, it can
 also be used in the more conventional standalone mode, where it produces
 textual output.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当 C 预处理器与 C、C++ 或 Objective-C 编译器一起使用时，它会集成到编译器中，并将二进制标记流直接传递到编译器的解析器。但是，它也可以用于更传统的独立模式，在该模式下生成文本输出。</p>
 <a class="index-entry-id" id="index-output-format"></a>
 <p>The output from the C preprocessor looks much like the input, except
 that all preprocessing directive lines have been replaced with blank
 lines and all comments with spaces.  Long runs of blank lines are
 discarded.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 预处理器的输出与输入很相似，但预处理指令行已被空行替代，注释已被空格替代，较长的连续空行区段则会被丢弃。</p>
 <p>The ISO standard specifies that it is implementation defined whether a
 preprocessor preserves whitespace between tokens, or replaces it with
 e.g. a single space.  In GNU CPP, whitespace between tokens is collapsed
@@ -82,10 +87,12 @@ CPP does not insert any
 whitespace where there was none in the original source, except where
 necessary to prevent an accidental token paste.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">ISO 标准把标记间空白是否原样保留、或缩为一个空格等问题留给实现决定。GNU CPP 会把标记间的空白序列缩为一个空格，但会在非指令行的第一个标记前保留足够空格，使其与原文件中的列位置一致。除防止标记意外粘连所必需的情况外，CPP 不会在原本没有空白的位置插入空白。</p>
 <a class="index-entry-id" id="index-linemarkers"></a>
 <p>Source file name and line number information is conveyed by lines
 of the form
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">源文件名和行号信息通过以下形式的行传达</p>
 <div class="example smallexample">
 <pre class="example-preformatted"># <var class="var">linenum</var> <var class="var">filename</var> <var class="var">flags</var>
 </pre></div>
@@ -96,25 +103,35 @@ that the following line originated in file <var class="var">filename</var> at li
 <var class="var">linenum</var>.  <var class="var">filename</var> will never contain any non-printing
 characters; they are replaced with octal escape sequences.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这些称为行标记。它们根据需要插入到输出中（但绝不插入字符串或字符常量中）。它们意味着以下行源自文件 <var class="var">filename</var> 的 <var class="var">linenum</var> 行。 <var class="var">filename</var> 绝不会包含任何非打印字符；它们被八进制转义序列取代。</p>
 <p>After the file name comes zero or more flags, which are &lsquo;<samp class="samp">1</samp>&rsquo;,
 &lsquo;<samp class="samp">2</samp>&rsquo;, &lsquo;<samp class="samp">3</samp>&rsquo;, or &lsquo;<samp class="samp">4</samp>&rsquo;.  If there are multiple flags, spaces
 separate them.  Here is what the flags mean:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">文件名后面有零个或多个标志，即“<samp class="samp">1</samp>”、“<samp class="samp">2</samp>”、“<samp class="samp">3</samp>”或“<samp class="samp">4</samp>”。如果有多个标志，则用空格分隔它们。这些标志的含义如下：</p>
 <dl class="table">
 <dt>&lsquo;<samp class="samp">1</samp>&rsquo;</dt>
 <dd><p>This indicates the start of a new file.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这表示新文件的开始。</p>
+</dd>
 <dt>&lsquo;<samp class="samp">2</samp>&rsquo;</dt>
 <dd><p>This indicates returning to a file (after having included another file).
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这表示返回到一个文件（在包含另一个文件之后）。</p>
+</dd>
 <dt>&lsquo;<samp class="samp">3</samp>&rsquo;</dt>
 <dd><p>This indicates that the following text comes from a system header file,
 so certain warnings should be suppressed.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这表明以下文本来自系统头文件，因此应抑制某些警告。</p>
+</dd>
 <dt>&lsquo;<samp class="samp">4</samp>&rsquo;</dt>
 <dd><p>This indicates that the following text should be treated as being
 wrapped in an implicit <code class="code">extern &quot;C&quot;</code> block.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这表明以下文本应被视为包含在隐式 <code class="code">extern &quot;C&quot;</code> 块中。</p>
+</dd>
 </dl>
 
 <p>As an extension, the preprocessor accepts linemarkers in non-assembler
@@ -123,6 +140,7 @@ directive, (see <a class="pxref" href="Line-Control.html">Line Control</a>), exc
 permitted, and are interpreted with the meanings described above.  If
 multiple flags are given, they must be in ascending order.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">作为扩展，预处理器接受非汇编器输入文件中的行标记。它们被像相应的‘<samp class="samp">#line</samp>’指令一样对待，（参见<a class="pxref" href="Line-Control.html">行号控制</a>），除了允许使用尾随标志，并按上述含义进行解释。如果给出多个标志，它们必须按升序排列。</p>
 <p>Some directives may be duplicated in the output of the preprocessor.
 These are &lsquo;<samp class="samp">#ident</samp>&rsquo; (always), &lsquo;<samp class="samp">#pragma</samp>&rsquo; (only if the
 preprocessor does not handle the pragma itself), and &lsquo;<samp class="samp">#define</samp>&rsquo; and
@@ -133,11 +151,13 @@ expansion happens to generate tokens which might be mistaken for a
 duplicated directive, a space will be inserted between the &lsquo;<samp class="samp">#</samp>&rsquo; and
 the directive name.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">某些指令可能会在预处理器的输出中重复。它们是“<samp class="samp">#ident</samp>”（始终）、“<samp class="samp">#pragma</samp>”（仅当预处理器本身不处理编译指示时）以及“<samp class="samp">#define</samp>”和“<samp class="samp">#undef</samp>”（具有某些调试选项）。如果发生这种情况，指令的“<samp class="samp">#</samp>”将始终位于第一列，并且“<samp class="samp">#</samp>”和指令名称之间不会有空格。如果宏展开恰好生成可能被误认为重复指令的标记，则将在“<samp class="samp">#</samp>”和指令名称之间插入一个空格。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Traditional-Mode.html">Traditional Mode</a>, Previous: <a href="Other-Directives.html">Other Directives</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Traditional-Mode.html">传统模式</a>, 上一页： <a href="Other-Directives.html">其他指令</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

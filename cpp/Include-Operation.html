@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Include Operation (The C Preprocessor)</title>
+<title>Include Operation (The C Preprocessor)
+包含操作（C 预处理器）</title>
 
 <meta name="description" content="Include Operation (The C Preprocessor)">
 <meta name="keywords" content="Include Operation (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Search-Path.html" accesskey="n" rel="next">Search Path</a>, Previous: <a href="Include-Syntax.html" accesskey="p" rel="prev">Include Syntax</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Search-Path.html" rel="next">搜索路径</a>, 上一页： <a href="Include-Syntax.html" rel="prev">包含语法</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Include-Operation-1"><span>2.2 Include Operation<a class="copiable-link" href="#Include-Operation-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.2 包含操作</h3>
 
 <p>The &lsquo;<samp class="samp">#include</samp>&rsquo; directive works by directing the C preprocessor to
 scan the specified file as input before continuing with the rest of the
@@ -67,6 +70,7 @@ file, followed by the output that comes from the text after the
 &lsquo;<samp class="samp">#include</samp>&rsquo; directive.  For example, if you have a header file
 <samp class="file">header.h</samp> as follows,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include</samp>”指令的工作原理是指示 C 预处理器扫描指定文件作为输入，然后继续处理当前文件的其余部分。预处理器的输出包含已生成的输出，后跟包含文件产生的输出，然后是来自“<samp class="samp">#include</samp>”指令后文本的输出。例如，如果您有一个头文件 <samp class="file">header.h</samp>，如下所示：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">char *test (void);
 </pre></div>
@@ -74,6 +78,7 @@ file, followed by the output that comes from the text after the
 <p>and a main program called <samp class="file">program.c</samp> that uses the header file,
 like this,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">和一个名为 <samp class="file">program.c</samp> 的主程序，它使用头文件，如下所示，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">int x;
 #include &quot;header.h&quot;
@@ -88,6 +93,7 @@ main (void)
 <p>the compiler will see the same token stream as it would if
 <samp class="file">program.c</samp> read
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译器看到的标记流，与把 <samp class="file">program.c</samp> 写成下面的内容时相同：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">int x;
 char *test (void);
@@ -109,19 +115,23 @@ literals which have not been closed by the end of an included file are
 invalid.  For error recovery, they are considered to end at the end of
 the file.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">被包含文件不限于声明和宏定义，这些只是典型用途。C 程序的任何片段都可以从另一个文件包含进来：语句可以在头文件中开始、在包含它的文件中结束，也可以反过来。但是，被包含文件必须由完整标记组成。到该文件末尾仍未结束的注释和字符串字面量是无效的；为恢复错误，预处理器将其视为在文件末尾结束。</p>
 <p>To avoid confusion, it is best if header files contain only complete
 syntactic units&mdash;function declarations or definitions, type
 declarations, etc.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">为了避免混淆，头文件最好只包含完整的语法单元——函数声明或定义、类型声明等。</p>
 <p>The line following the &lsquo;<samp class="samp">#include</samp>&rsquo; directive is always treated as a
 separate line by the C preprocessor, even if the included file lacks a
 final newline.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include</samp>”指令后面的行始终被 C 预处理器视为单独的行，即使包含的文件缺少最终换行符也是如此。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Search-Path.html">Search Path</a>, Previous: <a href="Include-Syntax.html">Include Syntax</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Search-Path.html">搜索路径</a>, 上一页： <a href="Include-Syntax.html">包含语法</a>, 上一级： <a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>If (The C Preprocessor)</title>
+<title>If (The C Preprocessor)
+#if 指令（C 预处理器）</title>
 
 <meta name="description" content="If (The C Preprocessor)">
 <meta name="keywords" content="If (The C Preprocessor)">
@@ -56,13 +57,16 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Next: <a href="Defined.html" accesskey="n" rel="next">Defined</a>, Previous: <a href="Ifdef.html" accesskey="p" rel="prev">Ifdef</a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Defined.html" rel="next">defined 运算符</a>, 上一页： <a href="Ifdef.html" rel="prev">#ifdef 指令</a>, 上一级： <a href="Conditional-Syntax.html" rel="up">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="If-1"><span>4.2.2 If<a class="copiable-link" href="#If-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">4.2.2 #if 指令</h4>
 
 <p>The &lsquo;<samp class="samp">#if</samp>&rsquo; directive allows you to test the value of an arithmetic
 expression, rather than the mere existence of one macro.  Its syntax is
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#if</samp>”指令允许您测试算术表达式的值，而不仅仅是一个宏的存在。它的语法是</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#if <var class="var">expression</var>
 
@@ -74,33 +78,48 @@ expression, rather than the mere existence of one macro.  Its syntax is
 <p><var class="var">expression</var> is a C expression of integer type, subject to stringent
 restrictions.  It may contain
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">expression</var>是整数类型的C表达式，受到严格的限制。它可能包含</p>
 <ul class="itemize mark-bullet">
 <li>Integer constants.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">整数常量。</p>
 </li><li>Character constants, which are interpreted as they would be in normal
 code.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">字符常量，按正常代码中的方式进行解释。</p>
 </li><li>Arithmetic operators for addition, subtraction, multiplication,
 division, bitwise operations, shifts, comparisons, and logical
 operations (<code class="code">&amp;&amp;</code> and <code class="code">||</code>).  The latter two obey the usual
 short-circuiting rules of standard C.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">用于加法、减法、乘法、除法、按位运算、移位、比较和逻辑运算的算术运算符（<code class="code">&amp;&amp;</code> 和 <code class="code">||</code>）。后两者遵循标准 C 的通常短路规则。</p>
 </li><li>Macros.  All macros in the expression are expanded before actual
 computation of the expression&rsquo;s value begins.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏。在表达式值的实际计算开始之前，表达式中的所有宏都会展开。</p>
 </li><li>Uses of the <code class="code">defined</code> operator, which lets you check whether macros
 are defined in the middle of an &lsquo;<samp class="samp">#if</samp>&rsquo;.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以使用 <code class="code">defined</code> 运算符，在“<samp class="samp">#if</samp>”条件表达式中检查宏是否已定义。</p>
 </li><li>Identifiers that are not macros, which are all considered to be the
 number zero.  This allows you to write <code class="code">#if&nbsp;MACRO<!-- /@w --></code> instead of
 <code class="code">#ifdef&nbsp;MACRO<!-- /@w --></code>, if you know that MACRO, when defined, will
 always have a nonzero value.  Function-like macros used without their
 function call parentheses are also treated as zero.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">非宏的标识符，都被认为是数字零。如果您知道 MACRO 在定义时将始终具有非零值，则这允许您编写 <code class="code">#if&nbsp;MACRO<!-- /@w --></code> 而不是 <code class="code">#ifdef&nbsp;MACRO<!-- /@w --></code>。在没有函数调用括号的情况下使用的函数类宏也被视为零。</p>
 <p>In some contexts this shortcut is undesirable.  The <samp class="option">-Wundef</samp>
 option causes GCC to warn whenever it encounters an identifier which is
 not a macro in an &lsquo;<samp class="samp">#if</samp>&rsquo;.
-</p></li></ul>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在某些情况下，这种简写并不理想。使用 <samp class="option">-Wundef</samp> 后，GCC 会对“<samp class="samp">#if</samp>”中遇到的未定义为宏的标识符发出警告。</p>
+</li></ul>
 
 <p>The preprocessor does not know anything about types in the language.
 Therefore, <code class="code">sizeof</code> operators are not recognized in &lsquo;<samp class="samp">#if</samp>&rsquo;, and
@@ -108,6 +127,7 @@ neither are <code class="code">enum</code> constants.  They will be taken as ide
 which are not macros, and replaced by zero.  In the case of
 <code class="code">sizeof</code>, this is likely to cause the expression to be invalid.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理器对语言中的类型一无所知。因此，“<samp class="samp">#if</samp>”中不识别 <code class="code">sizeof</code> 运算符，<code class="code">enum</code> 常量也不识别。它们将被视为非宏的标识符，并被零替换。对于 <code class="code">sizeof</code>，这可能会导致表达式无效。</p>
 <p>The preprocessor calculates the value of <var class="var">expression</var>.  It carries
 out all calculations in the widest integer type known to the compiler;
 on most machines supported by GCC this is 64 bits.  This is not the same
@@ -116,11 +136,14 @@ expression, and may give different results in some cases.  If the value
 comes out to be nonzero, the &lsquo;<samp class="samp">#if</samp>&rsquo; succeeds and the <var class="var">controlled
 text</var> is included; otherwise it is skipped.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理器计算 <var class="var">expression</var> 的值。它以编译器已知的最宽整数类型执行所有计算；在 GCC 支持的大多数机器上，这是 64 位。这与编译器用于计算常量表达式值的规则不同，并且在某些情况下可能会给出不同的结果。如果该值非零，则“<samp class="samp">#if</samp>”成功并包含 <var class="var">controlled
+text</var>；否则将被跳过。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Defined.html">Defined</a>, Previous: <a href="Ifdef.html">Ifdef</a>, Up: <a href="Conditional-Syntax.html">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Defined.html">defined 运算符</a>, 上一页： <a href="Ifdef.html">#ifdef 指令</a>, 上一级： <a href="Conditional-Syntax.html">条件编译语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

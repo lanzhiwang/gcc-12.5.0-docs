@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Newlines in Arguments (The C Preprocessor)</title>
+<title>Newlines in Arguments (The C Preprocessor)
+实参中的换行（C 预处理器）</title>
 
 <meta name="description" content="Newlines in Arguments (The C Preprocessor)">
 <meta name="keywords" content="Newlines in Arguments (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Previous: <a href="Argument-Prescan.html" accesskey="p" rel="prev">Argument Prescan</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Argument-Prescan.html" rel="prev">参数预扫描</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Newlines-in-Arguments-1"><span>3.10.7 Newlines in Arguments<a class="copiable-link" href="#Newlines-in-Arguments-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">3.10.7 实参中的换行</h4>
 <a class="index-entry-id" id="index-newlines-in-macro-arguments"></a>
 
 <p>The invocation of a function-like macro can extend over many logical
@@ -65,8 +68,10 @@ comes out on one line.  Thus line numbers emitted by the compiler or
 debugger refer to the line the invocation started on, which might be
 different to the line containing the argument causing the problem.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏调用可以跨越多个逻辑行。不过，在当前实现中，整个展开结果放在一行上。因此，编译器或调试器报告的行号指向调用开始的行，可能与引发问题的实参所在行不同。</p>
 <p>Here is an example illustrating this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下面是一个例子来说明这一点：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define ignore_second_arg(a,b,c) a; c
 
@@ -79,8 +84,10 @@ ignore_second_arg (foo (),
 an error message citing line three&mdash;the line of ignore_second_arg&mdash;
 even though the problematic code comes from line five.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">由标记 <code class="code">syntax error</code> 触发的语法错误会导致错误消息引用第三行（ignore_second_arg 行），即使有问题的代码来自第五行。</p>
 <p>We consider this a bug, and intend to fix it in the near future.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">我们认为这是一个错误，并打算在不久的将来修复它。</p>
 </div>
 
 

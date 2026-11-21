@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Macros (The C Preprocessor)</title>
+<title>Macros (The C Preprocessor)
+宏（C 预处理器）</title>
 
 <meta name="description" content="Macros (The C Preprocessor)">
 <meta name="keywords" content="Macros (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Conditionals.html" accesskey="n" rel="next">Conditionals</a>, Previous: <a href="Header-Files.html" accesskey="p" rel="prev">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Conditionals.html" rel="next">条件编译</a>, 上一页： <a href="Header-Files.html" rel="prev">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Macros-1"><span>3 Macros<a class="copiable-link" href="#Macros-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">3 宏</h2>
 
 <p>A <em class="dfn">macro</em> is a fragment of code which has been given a name.
 Whenever the name is used, it is replaced by the contents of the macro.
@@ -64,6 +67,7 @@ There are two kinds of macros.  They differ mostly in what they look
 like when they are used.  <em class="dfn">Object-like</em> macros resemble data objects
 when used, <em class="dfn">function-like</em> macros resemble function calls.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏是一段已被赋予名称的代码片段。每当使用该名称时，它都会被宏的内容替换。有两种宏。它们的主要区别在于使用时的外观。对象类宏在使用时类似于数据对象，函数类宏类似于函数调用。</p>
 <p>You may define any valid identifier as a macro, even if it is a C
 keyword.  The preprocessor does not know anything about keywords.  This
 can be useful if you wish to hide a keyword such as <code class="code">const</code> from an
@@ -72,18 +76,29 @@ operator <code class="code">defined</code> (see <a class="pxref" href="Defined.h
 macro, and C++&rsquo;s named operators (see <a class="pxref" href="C_002b_002b-Named-Operators.html">C++ Named Operators</a>) cannot be
 macros when you are compiling C++.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以将任何有效的标识符定义为宏，即使它是 C 关键字。预处理器对关键字一无所知。如果您希望对无法理解 <code class="code">const</code> 的旧编译器隐藏关键字（例如 <code class="code">const</code>），这会很有用。但是，预处理器运算符 <code class="code">defined</code>（请参阅 <a class="pxref" href="Defined.html">defined 运算符</a>）永远不能定义为宏，并且在编译 C++ 时，C++ 的命名运算符（请参阅 <a class="pxref" href="C_002b_002b-Named-Operators.html">C++ 命名运算符</a>）不能是宏。</p>
 
 <ul class="mini-toc">
-<li><a href="Object_002dlike-Macros.html" accesskey="1">Object-like Macros</a></li>
-<li><a href="Function_002dlike-Macros.html" accesskey="2">Function-like Macros</a></li>
-<li><a href="Macro-Arguments.html" accesskey="3">Macro Arguments</a></li>
-<li><a href="Stringizing.html" accesskey="4">Stringizing</a></li>
-<li><a href="Concatenation.html" accesskey="5">Concatenation</a></li>
-<li><a href="Variadic-Macros.html" accesskey="6">Variadic Macros</a></li>
-<li><a href="Predefined-Macros.html" accesskey="7">Predefined Macros</a></li>
-<li><a href="Undefining-and-Redefining-Macros.html" accesskey="8">Undefining and Redefining Macros</a></li>
-<li><a href="Directives-Within-Macro-Arguments.html" accesskey="9">Directives Within Macro Arguments</a></li>
-<li><a href="Macro-Pitfalls.html">Macro Pitfalls</a></li>
+<li><a href="Object_002dlike-Macros.html" accesskey="1">Object-like Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对象类宏</p></li>
+<li><a href="Function_002dlike-Macros.html" accesskey="2">Function-like Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏</p></li>
+<li><a href="Macro-Arguments.html" accesskey="3">Macro Arguments</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏参数</p></li>
+<li><a href="Stringizing.html" accesskey="4">Stringizing</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">字符串化</p></li>
+<li><a href="Concatenation.html" accesskey="5">Concatenation</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">拼接</p></li>
+<li><a href="Variadic-Macros.html" accesskey="6">Variadic Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可变参数宏</p></li>
+<li><a href="Predefined-Macros.html" accesskey="7">Predefined Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预定义宏</p></li>
+<li><a href="Undefining-and-Redefining-Macros.html" accesskey="8">Undefining and Redefining Macros</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">取消宏定义与重新定义宏</p></li>
+<li><a href="Directives-Within-Macro-Arguments.html" accesskey="9">Directives Within Macro Arguments</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏实参中的指令</p></li>
+<li><a href="Macro-Pitfalls.html">Macro Pitfalls</a>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏的常见陷阱</p></li>
 </ul>
 </div>
 

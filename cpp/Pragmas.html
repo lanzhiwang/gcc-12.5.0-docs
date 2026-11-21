@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Pragmas (The C Preprocessor)</title>
+<title>Pragmas (The C Preprocessor)
+pragma 指令（C 预处理器）</title>
 
 <meta name="description" content="Pragmas (The C Preprocessor)">
 <meta name="keywords" content="Pragmas (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Other-Directives.html" accesskey="n" rel="next">Other Directives</a>, Previous: <a href="Line-Control.html" accesskey="p" rel="prev">Line Control</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Other-Directives.html" rel="next">其他指令</a>, 上一页： <a href="Line-Control.html" rel="prev">行号控制</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Pragmas-1"><span>7 Pragmas<a class="copiable-link" href="#Pragmas-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="translation">7 pragma 指令</h2>
 
 <a class="index-entry-id" id="index-pragma-directive"></a>
 
@@ -69,6 +72,7 @@ conveyed in the language itself.  The forms of this directive
 pragmas.  Most GNU-defined, supported pragmas have been given a
 <code class="code">GCC</code> prefix.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#pragma</samp>”指令是 C 标准指定的方法，用于向编译器提供超出语言本身传达的信息的附加信息。 C 标准指定的该伪指令（通常称为编译指示）的形式以 <code class="code">STDC</code> 为前缀。 C 编译器可以自由地将其喜欢的任何含义附加到其他编译指示上。大多数 GNU 定义的受支持的编译指示都被赋予了 <code class="code">GCC</code> 前缀。</p>
 <a class="index-entry-id" id="index-_005fPragma"></a>
 <p>C99 introduced the <code class="code">_Pragma<!-- /@w --></code> operator.  This feature addresses a
 major problem with &lsquo;<samp class="samp">#pragma</samp>&rsquo;: being a directive, it cannot be
@@ -76,6 +80,7 @@ produced as the result of macro expansion.  <code class="code">_Pragma<!-- /@w -
 operator, much like <code class="code">sizeof</code> or <code class="code">defined</code>, and can be embedded
 in a macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C99引入了<code class="code">_Pragma<!-- /@w --></code>算子。此功能解决了“<samp class="samp">#pragma</samp>”的一个主要问题：作为指令，它不能作为宏展开的结果生成。 <code class="code">_Pragma<!-- /@w --></code> 是一个运算符，与 <code class="code">sizeof</code> 或 <code class="code">defined</code> 非常相似，并且可以嵌入到宏中。</p>
 <p>Its syntax is <code class="code">_Pragma&nbsp;(<var class="var">string-literal</var>)<!-- /@w --></code>, where
 <var class="var">string-literal</var> can be either a normal or wide-character string
 literal.  It is destringized, by replacing all &lsquo;<samp class="samp">\\</samp>&rsquo; with a single
@@ -83,6 +88,7 @@ literal.  It is destringized, by replacing all &lsquo;<samp class="samp">\\</sam
 processed as if it had appeared as the right hand side of a
 &lsquo;<samp class="samp">#pragma</samp>&rsquo; directive.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">其语法为 <code class="code">_Pragma&nbsp;(<var class="var">string-literal</var>)<!-- /@w --></code>，其中 <var class="var">string-literal</var> 可以是普通字符串或宽字符字符串字面量。通过将所有“<samp class="samp">\\</samp>”替换为单个“<samp class="samp">\</samp>”并将所有“<samp class="samp">\&quot;</samp>”替换为“<samp class="samp">&quot;</samp>”来对其进行去字符串化。然后对结果进行处理，就好像它显示为“<samp class="samp">#pragma</samp>”指令的右侧一样。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">_Pragma (&quot;GCC dependency \&quot;parse.y\&quot;&quot;)
 </pre></div>
@@ -90,6 +96,7 @@ processed as if it had appeared as the right hand side of a
 <p>has the same effect as <code class="code">#pragma GCC dependency &quot;parse.y&quot;</code>.  The
 same effect could be achieved using macros, for example
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与<code class="code">#pragma GCC dependency &quot;parse.y&quot;</code>效果相同。使用宏可以达到相同的效果，例如</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define DO_PRAGMA(x) _Pragma (#x)
 DO_PRAGMA (GCC dependency &quot;parse.y&quot;)
@@ -101,12 +108,15 @@ directive like &lsquo;<samp class="samp">#if</samp>&rsquo;.  To be safe, you are
 out of directives other than &lsquo;<samp class="samp">#define</samp>&rsquo;, and putting it on a line of
 its own.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该标准并不清楚 <code class="code">_Pragma</code> 运算符可以出现在哪里。预处理器不接受“<samp class="samp">#if</samp>”等预处理条件指令中的它。为了安全起见，您最好将其排除在“<samp class="samp">#define</samp>”以外的指令之外，并将其放在自己的一行中。</p>
 <p>This manual documents the pragmas which are meaningful to the
 preprocessor itself.  Other pragmas are meaningful to the C or C++
 compilers.  They are documented in the GCC manual.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">本手册记录了对预处理器本身有意义的编译指示。其他编译指示对 C 或 C++ 编译器有意义。它们记录在 GCC 手册中。</p>
 <p>GCC plugins may provide their own pragmas.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">GCC 插件可能会提供自己的编译指示。</p>
 <dl class="ftable">
 <dt><a id="index-_0023pragma-GCC-dependency"></a><span><code class="code">#pragma GCC dependency</code><a class="copiable-link" href="#index-_0023pragma-GCC-dependency"> &para;</a></span></dt>
 <dd><p><code class="code">#pragma GCC dependency</code> allows you to check the relative dates of
@@ -117,6 +127,7 @@ other file is searched for using the normal include search path.
 Optional trailing text can be used to give more information in the
 warning message.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">#pragma GCC dependency</code> 允许您检查当前文件和另一个文件的相对日期。如果其他文件比当前文件更新，则会发出警告。如果当前文件是从其他文件派生的并且应该重新生成，则这非常有用。使用正常的包含搜索路径搜索另一个文件。可选的尾随文本可用于在警告消息中提供更多信息。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#pragma GCC dependency &quot;parse.y&quot;
 #pragma GCC dependency &quot;/usr/include/time.h&quot; rerun fixincludes
@@ -131,6 +142,7 @@ enforce this, you can <em class="dfn">poison</em> the identifier with this pragm
 poison.  If any of those identifiers appears anywhere in the source
 after the directive, it is a hard error.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有时希望彻底禁止某个标识符继续出现在程序中。可以使用 <code class="code">#pragma GCC poison</code>，后面跟要禁用的标识符列表。在该指令之后，源代码中直接出现这些标识符会产生错误。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#pragma GCC poison printf sprintf fprintf
 sprintf(some_string, &quot;hello&quot;);
@@ -138,13 +150,16 @@ sprintf(some_string, &quot;hello&quot;);
 
 <p>will produce an error.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">会产生错误。</p>
 <p>If a poisoned identifier appears as part of the expansion of a macro
 which was defined before the identifier was poisoned, it will <em class="emph">not</em>
 cause an error.  This lets you poison an identifier without worrying
 about system headers defining macros that use it.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果中毒标识符作为在标识符中毒之前定义的宏展开的一部分出现，则不会导致错误。这使您可以毒害标识符，而不必担心定义使用它的宏的系统头文件。</p>
 <p>For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define strrchr rindex
 #pragma GCC poison rindex
@@ -153,12 +168,14 @@ strrchr(some_string, 'h');
 
 <p>will not produce an error.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不会产生错误。</p>
 </dd>
 <dt><a id="index-_0023pragma-GCC-system_005fheader-1"></a><span><code class="code">#pragma GCC system_header</code><a class="copiable-link" href="#index-_0023pragma-GCC-system_005fheader-1"> &para;</a></span></dt>
 <dd><p>This pragma takes no arguments.  It causes the rest of the code in the
 current file to be treated as if it came from a system header.
 See <a class="xref" href="System-Headers.html">System Headers</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该编译指示不需要任何参数。它导致当前文件中的其余代码被视为来自系统头文件。请参阅 <a class="xref" href="System-Headers.html">系统头文件</a>。</p>
 </dd>
 <dt><a id="index-_0023pragma-GCC-warning"></a><span><code class="code">#pragma GCC warning</code><a class="copiable-link" href="#index-_0023pragma-GCC-warning"> &para;</a></span></dt>
 <dt><a id="index-_0023pragma-GCC-error"></a><span><code class="code">#pragma GCC error</code><a class="copiable-link" href="#index-_0023pragma-GCC-error"> &para;</a></span></dt>
@@ -169,6 +186,7 @@ contained in the pragma must be a single string literal.  Similarly,
 the &lsquo;<samp class="samp">#warning</samp>&rsquo; and &lsquo;<samp class="samp">#error</samp>&rsquo; directives, these pragmas can be
 embedded in preprocessor macros using &lsquo;<samp class="samp">_Pragma</samp>&rsquo;.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">#pragma GCC warning &quot;message&quot;</code> 导致预处理器发出带有文本“<samp class="samp">message</samp>”的警告诊断。编译指示中包含的消息必须是单个字符串字面量。同样，<code class="code">#pragma GCC error &quot;message&quot;</code> 发出错误消息。与“<samp class="samp">#warning</samp>”和“<samp class="samp">#error</samp>”指令不同，这些编译指示可以使用“<samp class="samp">_Pragma</samp>”嵌入到预处理器宏中。</p>
 </dd>
 <dt><a id="index-_0023pragma-once"></a><span><code class="code">#pragma once</code><a class="copiable-link" href="#index-_0023pragma-once"> &para;</a></span></dt>
 <dd><p>If <code class="code">#pragma once</code> is seen when scanning a header file, that
@@ -176,6 +194,7 @@ file will never be read again, no matter what.  It is a less-portable
 alternative to using &lsquo;<samp class="samp">#ifndef</samp>&rsquo; to guard the contents of header files
 against multiple inclusions.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果在扫描头文件时看到 <code class="code">#pragma once</code>，则无论如何都不会再次读取该文件。它是使用“<samp class="samp">#ifndef</samp>”来保护头文件内容免遭多次包含的一种不太可移植的替代方案。</p>
 </dd>
 </dl>
 
@@ -184,6 +203,7 @@ against multiple inclusions.
 <div class="nav-panel">
 <p>
 Next: <a href="Other-Directives.html">Other Directives</a>, Previous: <a href="Line-Control.html">Line Control</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Other-Directives.html">其他指令</a>, 上一页： <a href="Line-Control.html">行号控制</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

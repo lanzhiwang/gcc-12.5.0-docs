@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Wrapper Headers (The C Preprocessor)</title>
+<title>Wrapper Headers (The C Preprocessor)
+包装器头文件（C 预处理器）</title>
 
 <meta name="description" content="Wrapper Headers (The C Preprocessor)">
 <meta name="keywords" content="Wrapper Headers (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="System-Headers.html" accesskey="n" rel="next">System Headers</a>, Previous: <a href="Computed-Includes.html" accesskey="p" rel="prev">Computed Includes</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="System-Headers.html" rel="next">系统头文件</a>, 上一页： <a href="Computed-Includes.html" rel="prev">通过宏计算包含文件名</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Wrapper-Headers-1"><span>2.7 Wrapper Headers<a class="copiable-link" href="#Wrapper-Headers-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.7 包装器头文件</h3>
 <a class="index-entry-id" id="index-wrapper-headers"></a>
 <a class="index-entry-id" id="index-overriding-a-header-file"></a>
 <a class="index-entry-id" id="index-_0023include_005fnext"></a>
@@ -70,17 +73,22 @@ before the original header.  That works fine as long as you&rsquo;re willing
 to replace the old header entirely.  But what if you want to refer to
 the old header from the new one?
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有时需要调整系统提供的头文件内容，同时避免直接编辑该文件。例如，GCC 的 <code>fixincludes</code> 操作就会进行这类处理。一种方法是新建同名头文件，并把它所在的目录放到原头文件目录之前的搜索路径中。如果打算完全替换旧头文件，这样就足够了；但如果还想从新头文件引用旧头文件，该怎么办呢？</p>
 <p>You cannot simply include the old header with &lsquo;<samp class="samp">#include</samp>&rsquo;.  That
 will start from the beginning, and find your new header again.  If your
 header is not protected from multiple inclusion (see <a class="pxref" href="Once_002dOnly-Headers.html">Once-Only Headers</a>), it will recurse infinitely and cause a fatal error.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不能简单地用 <code>#include</code> 包含旧头文件，因为搜索会从头开始，再次找到新头文件。如果没有防止重复包含的保护（参见 <a href="Once_002dOnly-Headers.html">只包含一次的头文件</a>），就会无限递归并导致致命错误。</p>
 <p>You could include the old header with an absolute pathname:
-</p><div class="example smallexample">
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以包含带有绝对路径名的旧头文件：</p>
+<div class="example smallexample">
 <pre class="example-preformatted">#include &quot;/usr/include/old-header.h&quot;
 </pre></div>
 <p>This works, but is not clean; should the system headers ever move, you
 would have to edit the new headers to match.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这种方法可行，但不够妥当：一旦系统头文件的位置发生变化，就必须修改新头文件中的路径。</p>
 <p>There is no way to solve this problem within the C standard, but you can
 use the GNU extension &lsquo;<samp class="samp">#include_next</samp>&rsquo;.  It means, &ldquo;Include the
 <em class="emph">next</em> file with this name&rdquo;.  This directive works like
@@ -88,29 +96,34 @@ use the GNU extension &lsquo;<samp class="samp">#include_next</samp>&rsquo;.  It
 searching the list of header file directories <em class="emph">after</em> the directory
 in which the current file was found.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准中没有办法解决这个问题，但您可以使用 GNU 扩展“<samp class="samp">#include_next</samp>”。它的意思是“包含具有该名称的下一个文件”。该指令的工作方式类似于“<samp class="samp">#include</samp>”，除了搜索指定文件：它在找到当前文件的目录之后开始搜索头文件目录列表。</p>
 <p>Suppose you specify <samp class="option">-I /usr/local/include</samp>, and the list of
 directories to search also includes <samp class="file">/usr/include</samp>; and suppose
 both directories contain <samp class="file">signal.h</samp>.  Ordinary <code class="code">#include&nbsp;&lt;signal.h&gt;<!-- /@w --></code> finds the file under <samp class="file">/usr/local/include</samp>.  If that
 file contains <code class="code">#include_next&nbsp;&lt;signal.h&gt;<!-- /@w --></code>, it starts searching
 after that directory, and finds the file in <samp class="file">/usr/include</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">假设您指定<samp class="option">-I /usr/local/include</samp>，并且要搜索的目录列表还包括<samp class="file">/usr/include</samp>；假设两个目录都包含 <samp class="file">signal.h</samp>。普通<code class="code">#include&nbsp;&lt;signal.h&gt;<!-- /@w --></code>查找<samp class="file">/usr/local/include</samp>下的文件。如果该文件包含 <code class="code">#include_next&nbsp;&lt;signal.h&gt;<!-- /@w --></code>，它将开始在该目录后搜索，并在 <samp class="file">/usr/include</samp> 中找到该文件。</p>
 <p>&lsquo;<samp class="samp">#include_next</samp>&rsquo; does not distinguish between <code class="code">&lt;<var class="var">file</var>&gt;</code>
 and <code class="code">&quot;<var class="var">file</var>&quot;</code> inclusion, nor does it check that the file you
 specify has the same name as the current file.  It simply looks for the
 file named, starting with the directory in the search path after the one
 where the current file was found.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include_next</samp>”不区分 <code class="code">&lt;<var class="var">file</var>&gt;</code> 和 <code class="code">&quot;<var class="var">file</var>"</code> 包含，也不检查您指定的文件是否与当前文件同名。它只是查找指定的文件，从搜索路径中找到当前文件的目录之后的目录开始。</p>
 <p>The use of &lsquo;<samp class="samp">#include_next</samp>&rsquo; can lead to great confusion.  We
 recommend it be used only when there is no other alternative.  In
 particular, it should not be used in the headers belonging to a specific
 program; it should be used only to make global corrections along the
 lines of <code class="command">fixincludes</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用“<samp class="samp">#include_next</samp>”可能会导致极大的混乱。我们建议仅在没有其他选择时才使用它。特别是，它不应该用在属于特定程序的头文件中；它只能用于按照 <code class="command">fixincludes</code> 进行全局校正。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="System-Headers.html">System Headers</a>, Previous: <a href="Computed-Includes.html">Computed Includes</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="System-Headers.html">系统头文件</a>, 上一页： <a href="Computed-Includes.html">通过宏计算包含文件名</a>, 上一级： <a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

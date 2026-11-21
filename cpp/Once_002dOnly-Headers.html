@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Once-Only Headers (The C Preprocessor)</title>
+<title>Once-Only Headers (The C Preprocessor)
+只包含一次的头文件（C 预处理器）</title>
 
 <meta name="description" content="Once-Only Headers (The C Preprocessor)">
 <meta name="keywords" content="Once-Only Headers (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="n" rel="next">Alternatives to Wrapper #ifndef</a>, Previous: <a href="Search-Path.html" accesskey="p" rel="prev">Search Path</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Alternatives-to-Wrapper-_0023ifndef.html" rel="next">包围式 #ifndef 的替代方案</a>, 上一页： <a href="Search-Path.html" rel="prev">搜索路径</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Once_002dOnly-Headers-1"><span>2.4 Once-Only Headers<a class="copiable-link" href="#Once_002dOnly-Headers-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.4 只包含一次的头文件</h3>
 <a class="index-entry-id" id="index-repeated-inclusion"></a>
 <a class="index-entry-id" id="index-including-just-once"></a>
 <a class="index-entry-id" id="index-wrapper-_0023ifndef"></a>
@@ -67,9 +70,11 @@ its contents twice.  This is very likely to cause an error, e.g. when the
 compiler sees the same structure definition twice.  Even if it does not,
 it will certainly waste time.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果一个头文件碰巧被包含两次，编译器将处理其内容两次。这很可能会导致错误，例如当编译器两次看到相同的结构定义时。即使没有，也肯定会浪费时间。</p>
 <p>The standard way to prevent this is to enclose the entire real contents
 of the file in a conditional, like this:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">防止这种情况的标准方法是将文件的全部实际内容包含在条件中，如下所示：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">/* File foo.  */
 #ifndef FILE_FOO_SEEN
@@ -78,7 +83,9 @@ of the file in a conditional, like this:
 <var class="var">the entire file</var>
 
 #endif /* !FILE_FOO_SEEN */
-</pre></div></div>
+</pre>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>文件 foo.</p>
+</div></div>
 
 <p>This construct is commonly known as a <em class="dfn">wrapper #ifndef</em>.
 When the header is included again, the conditional will be false,
@@ -86,14 +93,17 @@ because <code class="code">FILE_FOO_SEEN</code> is defined.  The preprocessor wi
 over the entire contents of the file, and the compiler will not see it
 twice.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此构造通常称为包装器 #ifndef。当再次包含头文件时，条件将为 false，因为定义了 <code class="code">FILE_FOO_SEEN</code>。预处理器将跳过文件的全部内容，编译器不会看到它两次。</p>
 <p>CPP optimizes even further.  It remembers when a header file has a
 wrapper &lsquo;<samp class="samp">#ifndef</samp>&rsquo;.  If a subsequent &lsquo;<samp class="samp">#include</samp>&rsquo; specifies that
 header, and the macro in the &lsquo;<samp class="samp">#ifndef</samp>&rsquo; is still defined, it does
 not bother to rescan the file at all.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">CPP 进一步优化。它会记住头文件何时具有包装器“<samp class="samp">#ifndef</samp>”。如果后续的“<samp class="samp">#include</samp>”指定了该头文件，并且“<samp class="samp">#ifndef</samp>”中的宏仍然被定义，则根本不需要重新扫描文件。</p>
 <p>You can put comments outside the wrapper.  They will not interfere with
 this optimization.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以将注释放在包装器之外。他们不会干扰这种优化。</p>
 <a class="index-entry-id" id="index-controlling-macro"></a>
 <a class="index-entry-id" id="index-guard-macro"></a>
 <p>The macro <code class="code">FILE_FOO_SEEN</code> is called the <em class="dfn">controlling macro</em> or
@@ -103,11 +113,13 @@ begin with &lsquo;<samp class="samp">_</samp>&rsquo;.  In a system header file, 
 file, the macro name should contain the name of the file and some
 additional text, to avoid conflicts with other header files.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏 <code class="code">FILE_FOO_SEEN</code> 称为控制宏或保护宏。在用户头文件中，宏名称不应以“<samp class="samp">_</samp>”开头。在系统头文件中，应该以“<samp class="samp">__</samp>”开头，以避免与用户程序发生冲突。在任何类型的头文件中，宏名称都应包含文件名和一些附加文本，以避免与其他头文件发生冲突。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Alternatives-to-Wrapper-_0023ifndef.html">Alternatives to Wrapper #ifndef</a>, Previous: <a href="Search-Path.html">Search Path</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Alternatives-to-Wrapper-_0023ifndef.html">包围式 #ifndef 的替代方案</a>, 上一页： <a href="Search-Path.html">搜索路径</a>, 上一级： <a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

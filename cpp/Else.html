@@ -55,15 +55,18 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Elif.html" accesskey="n" rel="next">Elif</a>, Previous: <a href="Defined.html" accesskey="p" rel="prev">Defined</a>, Up: <a href="Conditional-Syntax.html" accesskey="u" rel="up">Conditional Syntax</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Elif.html" accesskey="n" rel="next">Elif 指令</a>，上一页：<a href="Defined.html" accesskey="p" rel="prev">defined 运算符</a>，上级：<a href="Conditional-Syntax.html" accesskey="u" rel="up">条件语法</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Else-1"><span>4.2.4 Else<a class="copiable-link" href="#Else-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Else-zh"><span>4.2.4 Else 指令<a class="copiable-link" href="#Else-zh"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-_0023else"></a>
 <p>The &lsquo;<samp class="samp">#else</samp>&rsquo; directive can be added to a conditional to provide
 alternative text to be used if the condition fails.  This is what it
 looks like:
 </p>
+<p>&lsquo;<samp class="samp">#else</samp>&rsquo; 指令可以添加到条件指令中，在条件失败时提供要使用的替代文本。形式如下：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#if <var class="var">expression</var>
 <var class="var">text-if-true</var>
@@ -76,8 +79,10 @@ looks like:
 the <var class="var">text-if-false</var> is skipped.  If <var class="var">expression</var> is zero, the
 opposite happens.
 </p>
+<p>如果 <var class="var">expression</var> 非零，则包含 <var class="var">text-if-true</var>，跳过 <var class="var">text-if-false</var>；如果 <var class="var">expression</var> 为零，则相反。</p>
 <p>You can use &lsquo;<samp class="samp">#else</samp>&rsquo; with &lsquo;<samp class="samp">#ifdef</samp>&rsquo; and &lsquo;<samp class="samp">#ifndef</samp>&rsquo;, too.
 </p>
+<p>&lsquo;<samp class="samp">#else</samp>&rsquo; 也可以与 &lsquo;<samp class="samp">#ifdef</samp>&rsquo; 和 &lsquo;<samp class="samp">#ifndef</samp>&rsquo; 一起使用。</p>
 </div>
 
 

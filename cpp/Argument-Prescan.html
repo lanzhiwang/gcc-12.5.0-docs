@@ -56,9 +56,11 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Next: <a href="Newlines-in-Arguments.html" accesskey="n" rel="next">Newlines in Arguments</a>, Previous: <a href="Self_002dReferential-Macros.html" accesskey="p" rel="prev">Self-Referential Macros</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Newlines-in-Arguments.html" accesskey="n" rel="next">参数中的换行符</a>，上一页：<a href="Self_002dReferential-Macros.html" accesskey="p" rel="prev">自引用宏</a>，上级：<a href="Macro-Pitfalls.html" accesskey="u" rel="up">宏陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Argument-Prescan-1"><span>3.10.6 Argument Prescan<a class="copiable-link" href="#Argument-Prescan-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Argument-Prescan-zh"><span>3.10.6 参数预扫描<a class="copiable-link" href="#Argument-Prescan-zh"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-expansion-of-arguments"></a>
 <a class="index-entry-id" id="index-macro-argument-expansion"></a>
 <a class="index-entry-id" id="index-prescan-of-macro-arguments"></a>
@@ -70,6 +72,7 @@ the substituted arguments, is scanned again for macros to be expanded.
 The result is that the arguments are scanned <em class="emph">twice</em> to expand
 macro calls in them.
 </p>
+<p>宏参数在替换到宏体之前会被完全展开，除非它们被字符串化，或与其他标记粘接。替换之后，包括已替换参数在内的整个宏体会再次扫描，以展开其中的宏。因此，参数中的宏调用会被扫描并展开<em class="emph">两次</em>。</p>
 <p>Most of the time, this has no effect.  If the argument contained any
 macro calls, they are expanded during the first scan.  The result
 therefore contains no macro calls, so the second scan does not change
@@ -77,6 +80,7 @@ it.  If the argument were substituted as given, with no prescan, the
 single remaining scan would find the same macro calls and produce the
 same results.
 </p>
+<p>大多数情况下，这不会产生影响。如果参数包含宏调用，它们会在第一次扫描中展开，因此结果不再包含宏调用，第二次扫描也就不会改变结果。如果不进行预扫描而直接替换参数，剩余的一次扫描仍会找到相同的宏调用，并产生相同结果。</p>
 <p>You might expect the double scan to change the results when a
 self-referential macro is used in an argument of another macro
 (see <a class="pxref" href="Self_002dReferential-Macros.html">Self-Referential Macros</a>): the self-referential macro would be
@@ -85,12 +89,15 @@ However, this is not what happens.  The self-references that do not
 expand in the first scan are marked so that they will not expand in the
 second scan either.
 </p>
+<p>当一个宏的参数中使用了自引用宏时，你可能会认为两次扫描会改变结果（参见<a class="pxref" href="Self_002dReferential-Macros.html">自引用宏</a>）：自引用宏会在第一次扫描中展开一次，然后在第二次扫描中再次展开。但实际并非如此。第一次扫描中没有展开的自引用会被标记，因此第二次扫描也不会展开它们。</p>
 <p>You might wonder, &ldquo;Why mention the prescan, if it makes no difference?
 And why not skip it and make the preprocessor faster?&rdquo;  The answer is
 that the prescan does make a difference in three special cases:
 </p>
+<p>你可能会问：“既然预扫描没有影响，为什么还要提到它？为什么不跳过预扫描来提高预处理器的速度？”答案是，在三种特殊情况下，预扫描确实会产生影响：</p>
 <ul class="itemize mark-bullet">
 <li>Nested calls to a macro.
+<br>宏的嵌套调用。
 
 <p>We say that <em class="dfn">nested</em> calls to a macro occur when a macro&rsquo;s argument
 contains a call to that very macro.  For example, if <code class="code">f</code> is a macro
@@ -102,7 +109,9 @@ would be substituted as an argument, and the inner use of <code class="code">f</
 appear during the main scan as an indirect self-reference and would not
 be expanded.
 </p>
+<p>当宏的参数包含对该宏本身的调用时，就称为宏的<em class="dfn">嵌套</em>调用。例如，如果 <code class="code">f</code> 是一个需要一个参数的宏，那么 <code class="code">f (f (1))</code> 就是一对嵌套的 <code class="code">f</code> 调用。预期的展开方式是先展开 <code class="code">f (1)</code>，再将结果替换到 <code class="code">f</code> 的定义中；预扫描会促成这一结果。如果没有预扫描，<code class="code">f (1)</code> 本身会作为参数被替换，内部的 <code class="code">f</code> 会在主扫描中表现为间接自引用，因此不会展开。</p>
 </li><li>Macros that call other macros that stringize or concatenate.
+<br>调用其他字符串化或粘接宏的宏。
 
 <p>If an argument is stringized or concatenated, the prescan does not
 occur.  If you <em class="emph">want</em> to expand a macro, then stringize or
@@ -110,6 +119,7 @@ concatenate its expansion, you can do that by causing one macro to call
 another macro that does the stringizing or concatenation.  For
 instance, if you have
 </p>
+<p>如果参数要被字符串化或粘接，就不会进行预扫描。如果你<em class="emph">希望</em>先展开一个宏，再将其展开结果字符串化或粘接，可以让一个宏调用另一个负责字符串化或粘接的宏。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define AFTERX(x) X_ ## x
 #define XAFTERX(x) AFTERX(x)
@@ -121,11 +131,14 @@ instance, if you have
 <code class="code">XAFTERX(BUFSIZE)</code> expands to <code class="code">X_1024</code>.  (Not to
 <code class="code">X_TABLESIZE</code>.  Prescan always does a complete expansion.)
 </p>
+<p>此时，<code class="code">AFTERX(BUFSIZE)</code> 展开为 <code class="code">X_BUFSIZE</code>，而 <code class="code">XAFTERX(BUFSIZE)</code> 展开为 <code class="code">X_1024</code>（而不是 <code class="code">X_TABLESIZE</code>，因为预扫描总是执行完整展开）。</p>
 </li><li>Macros used in arguments, whose expansions contain unshielded commas.
+<br>用作参数且展开结果包含未受保护逗号的宏。
 
 <p>This can cause a macro expanded on the second scan to be called with the
 wrong number of arguments.  Here is an example:
 </p>
+<p>这可能导致在第二次扫描中展开的宏收到错误数量的参数。下面是一个例子：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define foo  a,b
 #define bar(x) lose(x)
@@ -139,6 +152,7 @@ requires a single argument.  In this case, the problem is easily solved
 by the same parentheses that ought to be used to prevent misnesting of
 arithmetic operations:
 </p>
+<p>我们希望 <code class="code">bar(foo)</code> 变成 <code class="code">(1 + (foo))</code>，再变成 <code class="code">(1 + (a,b))</code>。但实际上 <code class="code">bar(foo)</code> 会展开为 <code class="code">lose(a,b)</code>，由于 <code class="code">lose</code> 需要单个参数，因此会产生错误。在这种情况下，可以使用本来就应当用于防止算术运算错误嵌套的括号来轻松解决问题：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define foo (a,b)
 </pre><pre class="exdent">or
@@ -148,13 +162,16 @@ arithmetic operations:
 <p>The extra pair of parentheses prevents the comma in <code class="code">foo</code>&rsquo;s
 definition from being interpreted as an argument separator.
 </p>
+<p>额外的一对括号可以防止 <code class="code">foo</code> 定义中的逗号被解释为参数分隔符。</p>
 </li></ul>
+
 
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Newlines-in-Arguments.html">Newlines in Arguments</a>, Previous: <a href="Self_002dReferential-Macros.html">Self-Referential Macros</a>, Up: <a href="Macro-Pitfalls.html">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Newlines-in-Arguments.html">参数中的换行符</a>，上一页：<a href="Self_002dReferential-Macros.html">自引用宏</a>，上级：<a href="Macro-Pitfalls.html">宏陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

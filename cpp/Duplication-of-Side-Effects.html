@@ -55,14 +55,17 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Self_002dReferential-Macros.html" accesskey="n" rel="next">Self-Referential Macros</a>, Previous: <a href="Swallowing-the-Semicolon.html" accesskey="p" rel="prev">Swallowing the Semicolon</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Self_002dReferential-Macros.html" accesskey="n" rel="next">自引用宏</a>，上一页：<a href="Swallowing-the-Semicolon.html" accesskey="p" rel="prev">吞掉分号</a>，上级：<a href="Macro-Pitfalls.html" accesskey="u" rel="up">宏陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Duplication-of-Side-Effects-1"><span>3.10.4 Duplication of Side Effects<a class="copiable-link" href="#Duplication-of-Side-Effects-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Duplication-of-Side-Effects-zh"><span>3.10.4 副作用重复<a class="copiable-link" href="#Duplication-of-Side-Effects-zh"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-side-effects-_0028in-macro-arguments_0029"></a>
 <a class="index-entry-id" id="index-unsafe-macros"></a>
 <p>Many C programs define a macro <code class="code">min</code>, for &ldquo;minimum&rdquo;, like this:
 </p>
+<p>许多 C 程序会像下面这样定义表示“最小值”的 <code class="code">min</code> 宏：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define min(X, Y)  ((X) &lt; (Y) ? (X) : (Y))
 </pre></div>
@@ -70,12 +73,14 @@ Next: <a href="Self_002dReferential-Macros.html" accesskey="n" rel="next">Self-R
 <p>When you use this macro with an argument containing a side effect,
 as shown here,
 </p>
+<p>当使用包含副作用的参数调用这个宏时，例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">next = min (x + y, foo (z));
 </pre></div>
 
 <p>it expands as follows:
 </p>
+<p>它会展开为：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">next = ((x + y) &lt; (foo (z)) ? (x + y) : (foo (z)));
 </pre></div>
@@ -83,6 +88,7 @@ as shown here,
 <p>where <code class="code">x + y</code> has been substituted for <code class="code">X</code> and <code class="code">foo (z)</code>
 for <code class="code">Y</code>.
 </p>
+<p>其中，形参 <code class="code">X</code> 被实参 <code class="code">x + y</code> 替换，形参 <code class="code">Y</code> 被实参 <code class="code">foo (z)</code> 替换。</p>
 <p>The function <code class="code">foo</code> is used only once in the statement as it appears
 in the program, but the expression <code class="code">foo (z)</code> has been substituted
 twice into the macro expansion.  As a result, <code class="code">foo</code> might be called
@@ -90,11 +96,13 @@ two times when the statement is executed.  If it has side effects or if
 it takes a long time to compute, the results might not be what you
 intended.  We say that <code class="code">min</code> is an <em class="dfn">unsafe</em> macro.
 </p>
+<p>在程序中的语句里，函数 <code class="code">foo</code> 只出现一次，但表达式 <code class="code">foo (z)</code> 被替换到了宏展开结果中两次。因此，执行该语句时可能会调用 <code class="code">foo</code> 两次。如果它有副作用或计算耗时，结果可能不是预期的。我们称 <code class="code">min</code> 为<em class="dfn">不安全</em>宏。</p>
 <p>The best solution to this problem is to define <code class="code">min</code> in a way that
 computes the value of <code class="code">foo (z)</code> only once.  The C language offers
 no standard way to do this, but it can be done with GNU extensions as
 follows:
 </p>
+<p>解决此问题的最佳方法是以只计算一次 <code class="code">foo (z)</code> 值的方式定义 <code class="code">min</code>。C 语言没有标准方法实现这一点，但可以使用 GNU 扩展：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define min(X, Y)                \
 ({ typeof (X) x_ = (X);          \
@@ -109,11 +117,13 @@ one.  The local variables have underscores after their names to reduce
 the risk of conflict with an identifier of wider scope (it is impossible
 to avoid this entirely).  Now each argument is evaluated exactly once.
 </p>
+<p>&lsquo;<samp class="samp">({ &hellip; })</samp>&rsquo; 表示法生成一个充当表达式的复合语句，其值就是最后一条语句的值。这样可以定义局部变量，并将每个参数赋给一个局部变量。局部变量名后加下划线，以降低与外层作用域标识符冲突的风险（但无法完全避免）。现在每个参数都会恰好求值一次。</p>
 <p>If you do not wish to use GNU C extensions, the only solution is to be
 careful when <em class="emph">using</em> the macro <code class="code">min</code>.  For example, you can
 calculate the value of <code class="code">foo (z)</code>, save it in a variable, and use
 that variable in <code class="code">min</code>:
 </p>
+<p>如果不希望使用 GNU C 扩展，唯一的办法是在<em class="emph">使用</em> <code class="code">min</code> 宏时保持谨慎。例如，可以先计算 <code class="code">foo (z)</code> 的值，将其保存到变量中，再在 <code class="code">min</code> 中使用该变量：</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">#define min(X, Y)  ((X) &lt; (Y) ? (X) : (Y))
 &hellip;
@@ -125,11 +135,13 @@ that variable in <code class="code">min</code>:
 
 <p>(where we assume that <code class="code">foo</code> returns type <code class="code">int</code>).
 </p>
+<p>（这里假设 <code class="code">foo</code> 返回 <code class="code">int</code> 类型。）</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Self_002dReferential-Macros.html">Self-Referential Macros</a>, Previous: <a href="Swallowing-the-Semicolon.html">Swallowing the Semicolon</a>, Up: <a href="Macro-Pitfalls.html">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Self_002dReferential-Macros.html">自引用宏</a>，上一页：<a href="Swallowing-the-Semicolon.html">吞掉分号</a>，上级：<a href="Macro-Pitfalls.html">宏陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

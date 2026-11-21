@@ -55,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Macro-Pitfalls.html" accesskey="n" rel="next">Macro Pitfalls</a>, Previous: <a href="Undefining-and-Redefining-Macros.html" accesskey="p" rel="prev">Undefining and Redefining Macros</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Macro-Pitfalls.html" accesskey="n" rel="next">宏陷阱</a>，上一页：<a href="Undefining-and-Redefining-Macros.html" accesskey="p" rel="prev">取消定义和重新定义宏</a>，上级：<a href="Macros.html" accesskey="u" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Directives-Within-Macro-Arguments-1"><span>3.9 Directives Within Macro Arguments<a class="copiable-link" href="#Directives-Within-Macro-Arguments-1"> &para;</a></span></h3>
+<h3 class="section" id="Directives-Within-Macro-Arguments-zh"><span>3.9 宏参数中的指令<a class="copiable-link" href="#Directives-Within-Macro-Arguments-zh"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-macro-arguments-and-directives"></a>
 
 <p>Occasionally it is convenient to use preprocessor directives within
@@ -67,11 +69,13 @@ processes arbitrary directives within macro arguments in
 exactly the same way as it would have processed the directive were the
 function-like macro invocation not present.
 </p>
+<p>有时在宏参数中使用预处理指令会很方便。C 和 C++ 标准规定，这些情况下的行为未定义。GNU CPP 会处理宏参数中的任意指令，其方式与不存在函数类宏调用时处理该指令的方式完全相同。</p>
 <p>If, within a macro invocation, that macro is redefined, then the new
 definition takes effect in time for argument pre-expansion, but the
 original definition is still used for argument replacement.  Here is a
 pathological example:
 </p>
+<p>如果在宏调用过程中重新定义了该宏，那么新定义会及时生效，用于参数预展开，但参数替换仍使用原始定义。下面是一个特殊示例：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define f(x) x x
 f (1
@@ -82,12 +86,14 @@ f)
 
 <p>which expands to
 </p>
+<p>它会展开为：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">1 2 1 2
 </pre></div>
 
 <p>with the semantics described above.
 </p>
+<p>这符合上面描述的语义。</p>
 </div>
 
 

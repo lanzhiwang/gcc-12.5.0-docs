@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Variadic Macros (The C Preprocessor)</title>
+<title>Variadic Macros (The C Preprocessor)
+可变参数宏（C 预处理器）</title>
 
 <meta name="description" content="Variadic Macros (The C Preprocessor)">
 <meta name="keywords" content="Variadic Macros (The C Preprocessor)">
@@ -55,9 +56,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Predefined-Macros.html" accesskey="n" rel="next">Predefined Macros</a>, Previous: <a href="Concatenation.html" accesskey="p" rel="prev">Concatenation</a>, Up: <a href="Macros.html" accesskey="u" rel="up">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Predefined-Macros.html" rel="next">预定义宏</a>, 上一页： <a href="Concatenation.html" rel="prev">拼接</a>, 上一级： <a href="Macros.html" rel="up">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Variadic-Macros-1"><span>3.6 Variadic Macros<a class="copiable-link" href="#Variadic-Macros-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.6 可变参数宏</h3>
 <a class="index-entry-id" id="index-variable-number-of-arguments"></a>
 <a class="index-entry-id" id="index-macros-with-variable-arguments"></a>
 <a class="index-entry-id" id="index-variadic-macros"></a>
@@ -66,6 +69,7 @@ Next: <a href="Predefined-Macros.html" accesskey="n" rel="next">Predefined Macro
 a function can.  The syntax for defining the macro is similar to that of
 a function.  Here is an example:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以将宏声明为接受可变数量的参数，就像函数一样。定义宏的语法与函数的语法类似。这是一个例子：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(...) fprintf (stderr, __VA_ARGS__)
 </pre></div>
@@ -77,6 +81,7 @@ argument</em>.  This sequence of tokens replaces the identifier
 <code class="code">__VA_ARGS__<!-- /@w --></code> in the macro body wherever it appears.  Thus, we
 have this expansion:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这种宏称为可变参数宏。调用宏时，实参列表中最后一个具名实参之后的所有标记（此宏没有具名实参），包括其中的逗号，都成为可变实参。这一标记序列会替换宏体中出现的每一个 <code>__VA_ARGS__</code>。因此会得到如下展开：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf (&quot;%s:%d: &quot;, input_file, lineno)
      &rarr;  fprintf (stderr, &quot;%s:%d: &quot;, input_file, lineno)
@@ -88,12 +93,14 @@ the &lsquo;<samp class="samp">#</samp>&rsquo; and &lsquo;<samp class="samp">##</
 or to paste its leading or trailing token with another token.  (But see
 below for an important special case for &lsquo;<samp class="samp">##</samp>&rsquo;.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">与普通实参一样，可变实参在代入宏展开结果之前会先进行完整的宏展开。可以使用 <code>#</code> 和 <code>##</code> 运算符将可变实参字符串化，或将其首个或末尾标记与另一个标记拼接。（不过，<code>##</code> 有一个重要的特殊情况，见下文。）</p>
 <p>If your macro is complicated, you may want a more descriptive name for
 the variable argument than <code class="code">__VA_ARGS__<!-- /@w --></code>.  CPP permits
 this, as an extension.  You may write an argument name immediately
 before the &lsquo;<samp class="samp">...</samp>&rsquo;; that name is used for the variable argument.
 The <code class="code">eprintf</code> macro above could be written
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏比较复杂，可能希望为可变形参使用比 <code>__VA_ARGS__</code> 更能说明用途的名称。CPP 通过一项扩展允许这样做：在 <code>...</code> 紧前面写一个形参名，用这个名称表示可变实参。采用此扩展时，上面的 <code>eprintf</code> 宏可以写成</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(args...) fprintf (stderr, args)
 </pre></div>
@@ -101,9 +108,11 @@ The <code class="code">eprintf</code> macro above could be written
 <p>using this extension.  You cannot use <code class="code">__VA_ARGS__<!-- /@w --></code> and this
 extension in the same macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用这个扩展。您不能在同一宏中使用 <code class="code">__VA_ARGS__<!-- /@w --></code> 和此扩展。</p>
 <p>You can have named arguments as well as variable arguments in a variadic
 macro.  We could define <code class="code">eprintf</code> like this, instead:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以在可变参数宏中使用命名参数和变量参数。我们可以这样定义 <code class="code">eprintf</code>：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(format, ...) fprintf (stderr, format, __VA_ARGS__)
 </pre></div>
@@ -115,10 +124,12 @@ named argument from the variable arguments.  (Note that this
 restriction has been lifted in C++20, and never existed in GNU C; see
 below.)
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这一表述看起来更具描述性，但从历史上看，它不太灵活：您必须在格式字符串之后提供至少一个参数。在标准 C 中，不能省略分隔命名参数和变量参数的逗号。 （请注意，此限制已在 C++20 中取消，并且在 GNU C 中从未存在；请参见下文。）</p>
 <p>Furthermore, if you left the variable argument empty, you would have
 gotten a syntax error, because there would have been an extra comma
 after the format string.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此外，如果将变量参数留空，则会出现语法错误，因为格式字符串后面会有一个额外的逗号。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf(&quot;success!\n&quot;, );
      &rarr; fprintf(stderr, &quot;success!\n&quot;, );
@@ -127,9 +138,11 @@ after the format string.
 <p>This has been fixed in C++20, and GNU CPP also has a pair of
 extensions which deal with this problem.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这已在 C++20 中得到修复，并且 GNU CPP 也有一对处理此问题的扩展。</p>
 <p>First, in GNU CPP, and in C++ beginning in C++20, you are allowed to
 leave the variable argument out entirely:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">首先，在 GNU CPP 和从 C++20 开始的 C++ 中，您可以完全省略变量参数：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf (&quot;success!\n&quot;)
      &rarr; fprintf(stderr, &quot;success!\n&quot;, );
@@ -141,6 +154,7 @@ the variable argument has any tokens, then a <code class="code">__VA_OPT__<!-- /
 invocation expands to its argument; but if the variable argument does
 not have any tokens, the <code class="code">__VA_OPT__<!-- /@w --></code> expands to nothing:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">其次，C++20 引入了 <code>__VA_OPT__</code> 函数式宏。它只能出现在可变参数宏的定义中。如果可变实参含有标记，<code>__VA_OPT__</code> 调用就展开为它的实参；如果可变实参不含任何标记，则展开为空：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(format, ...) \
   fprintf (stderr, format __VA_OPT__(,) __VA_ARGS__)
@@ -148,12 +162,14 @@ not have any tokens, the <code class="code">__VA_OPT__<!-- /@w --></code> expand
 
 <p><code class="code">__VA_OPT__<!-- /@w --></code> is also available in GNU C and GNU C++.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">__VA_OPT__<!-- /@w --></code> 也可用于 GNU C 和 GNU C++。</p>
 <p>Historically, GNU CPP has also had another extension to handle the
 trailing comma: the &lsquo;<samp class="samp">##</samp>&rsquo; token paste operator has a special
 meaning when placed between a comma and a variable argument.  Despite
 the introduction of <code class="code">__VA_OPT__<!-- /@w --></code>, this extension remains
 supported in GNU CPP, for backward compatibility.  If you write
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">从历史上看，GNU CPP 还有另一个扩展来处理尾随逗号：“<samp class="samp">##</samp>”标记粘贴运算符在放置在逗号和变量参数之间时具有特殊含义。尽管引入了 <code class="code">__VA_OPT__<!-- /@w --></code>，但为了向后兼容，GNU CPP 仍然支持此扩展。如果你写</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(format, ...) fprintf (stderr, format, ##__VA_ARGS__)
 </pre></div>
@@ -163,6 +179,7 @@ used, then the comma before the &lsquo;<samp class="samp">##</samp>&rsquo; will 
 <em class="emph">not</em> happen if you pass an empty argument, nor does it happen if
 the token preceding &lsquo;<samp class="samp">##</samp>&rsquo; is anything other than a comma.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用 <code class="code">eprintf</code> 宏时省略变量参数，则‘<samp class="samp">##</samp>’之前的逗号将被删除。如果您传递空参数，则不会发生这种情况，如果“<samp class="samp">##</samp>”前面的标记不是逗号，也不会发生这种情况。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf (&quot;success!\n&quot;)
      &rarr; fprintf(stderr, &quot;success!\n&quot;);
@@ -175,6 +192,7 @@ a missing argument.
 CPP retains the comma when conforming to a specific C
 standard.  Otherwise the comma is dropped as an extension to the standard.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上面的解释在宏的唯一形参就是可变形参时存在歧义：没有任何实参时，试图区分这是空实参还是省略的实参并无意义。遵循某个具体 C 标准时，CPP 会保留逗号；否则，会作为标准之外的扩展删除逗号。</p>
 <p>The C standard 
 mandates that the only place the identifier <code class="code">__VA_ARGS__<!-- /@w --></code>
 can appear is in the replacement list of a variadic macro.  It may not
@@ -183,20 +201,24 @@ of macro.  It may also be forbidden in open text; the standard is
 ambiguous.  We recommend you avoid using it except for its defined
 purpose.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准规定，标识符 <code>__VA_ARGS__</code> 只能出现在可变参数宏的替换列表中。不能将其用作宏名、宏形参名，也不能用于其他种类的宏。标准对于是否也禁止它出现在普通源文本中表述不够明确。建议只在规定的用途下使用它。</p>
 <p>Likewise, C++ forbids <code class="code">__VA_OPT__<!-- /@w --></code> anywhere outside the
 replacement list of a variadic macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">同样，C++ 禁止在可变参数宏的替换列表之外的任何地方使用 <code class="code">__VA_OPT__<!-- /@w --></code>。</p>
 <p>Variadic macros became a standard part of the C language with C99.  
 GNU CPP previously supported them
 with a named variable argument
 (&lsquo;<samp class="samp">args...</samp>&rsquo;, not &lsquo;<samp class="samp">...</samp>&rsquo; and <code class="code">__VA_ARGS__<!-- /@w --></code>), which
 is still supported for backward compatibility.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可变参数宏从 C99 起成为 C 语言标准的一部分。在此之前，GNU CPP 已通过具名可变形参支持这一功能（使用 <code>args...</code>，而非 <code>...</code> 和 <code>__VA_ARGS__</code>）；为保持向后兼容，这种写法仍然受到支持。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Predefined-Macros.html">Predefined Macros</a>, Previous: <a href="Concatenation.html">Concatenation</a>, Up: <a href="Macros.html">Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Predefined-Macros.html">预定义宏</a>, 上一页： <a href="Concatenation.html">拼接</a>, 上一级： <a href="Macros.html">宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

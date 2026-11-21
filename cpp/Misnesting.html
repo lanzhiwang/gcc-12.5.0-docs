@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Misnesting (The C Preprocessor)</title>
+<title>Misnesting (The C Preprocessor)
+嵌套错配（C 预处理器）</title>
 
 <meta name="description" content="Misnesting (The C Preprocessor)">
 <meta name="keywords" content="Misnesting (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Operator-Precedence-Problems.html" accesskey="n" rel="next">Operator Precedence Problems</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Operator-Precedence-Problems.html" rel="next">运算符优先级问题</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Misnesting-1"><span>3.10.1 Misnesting<a class="copiable-link" href="#Misnesting-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">3.10.1 嵌套错配</h4>
 
 <p>When a macro is called with arguments, the arguments are substituted
 into the macro body and the result is checked, together with the rest of
@@ -64,6 +67,7 @@ the input file, for more macro calls.  It is possible to piece together
 a macro call coming partially from the macro body and partially from the
 arguments.  For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用参数调用宏时，参数将被替换到宏体中，并与输入文件的其余部分一起检查结果，以进行更多宏调用。可以将部分来自宏体和部分来自参数的宏调用拼凑在一起。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define twice(x) (2*(x))
 #define call_with_1(x) x(1)
@@ -77,6 +81,7 @@ an unbalanced open parenthesis in a macro body, it is possible to create
 a macro call that begins inside the macro body but ends outside of it.
 For example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏定义不必具有平衡的括号。通过在宏体中写入不平衡的左括号，可以创建在宏体内部开始但在宏体外部结束的宏调用。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define strange(file) fprintf (file, &quot;%s %d&quot;,
 &hellip;
@@ -88,6 +93,7 @@ strange(stderr) p, 35)
 unbalanced open parentheses in a macro body is just confusing, and
 should be avoided.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">拼凑宏调用的能力可能很有用，但在宏体中使用不平衡的左括号只会造成混乱，应该避免。</p>
 </div>
 
 

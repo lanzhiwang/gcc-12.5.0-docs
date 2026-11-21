@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Standard Predefined Macros (The C Preprocessor)</title>
+<title>Standard Predefined Macros (The C Preprocessor)
+标准预定义宏（C 预处理器）</title>
 
 <meta name="description" content="Standard Predefined Macros (The C Preprocessor)">
 <meta name="keywords" content="Standard Predefined Macros (The C Preprocessor)">
@@ -54,9 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Common-Predefined-Macros.html" accesskey="n" rel="next">Common Predefined Macros</a>, Up: <a href="Predefined-Macros.html" accesskey="u" rel="up">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Common-Predefined-Macros.html" rel="next">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html" rel="up">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Standard-Predefined-Macros-1"><span>3.7.1 Standard Predefined Macros<a class="copiable-link" href="#Standard-Predefined-Macros-1"> &para;</a></span></h4>
+<h4 lang="zh-CN" data-cpp-translation="1" class="translation">3.7.1 标准预定义宏</h4>
 <a class="index-entry-id" id="index-standard-predefined-macros_002e"></a>
 
 <p>The standard predefined macros are specified by the relevant
@@ -64,6 +67,7 @@ language standards, so they are available with all compilers that
 implement those standards.  Older compilers may not provide all of
 them.  Their names all start with double underscores.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">标准预定义宏由相关语言标准指定，因此它们可用于实现这些标准的所有编译器。较旧的编译器可能无法提供所有这些。他们的名字都以双下划线开头。</p>
 <dl class="table">
 <dt><code class="code">__FILE__</code></dt>
 <dd><p>This macro expands to the name of the current input file, in the form of
@@ -73,13 +77,16 @@ input file name argument.  For example,
 <code class="code">&quot;/usr/local/include/myheader.h&quot;</code> is a possible expansion of this
 macro.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏展开为当前输入文件的名称，采用 C 字符串常量的形式。这是预处理器打开文件的路径，而不是“<samp class="samp">#include</samp>”中指定的短名称或作为输入文件名参数。例如，<code class="code">&quot;/usr/local/include/myheader.h&quot;</code> 是该宏的可能展开。</p>
 </dd>
 <dt><code class="code">__LINE__</code></dt>
 <dd><p>This macro expands to the current input line number, in the form of a
 decimal integer constant.  While we call it a predefined macro, it&rsquo;s
 a pretty strange macro, since its &ldquo;definition&rdquo; changes with each
 new line of source code.
-</p></dd>
+</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏以十进制整数常量的形式展开为当前输入行号。虽然我们称其为预定义宏，但它是一个非常奇怪的宏，因为它的“定义”随着每行新的源代码而变化。</p>
+</dd>
 </dl>
 
 <p><code class="code">__FILE__</code> and <code class="code">__LINE__</code> are useful in generating an error
@@ -87,6 +94,7 @@ message to report an inconsistency detected by the program; the message
 can state the source line at which the inconsistency was detected.  For
 example,
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">__FILE__</code> 和 <code class="code">__LINE__</code> 可用于生成错误消息以报告程序检测到的不一致；该消息可以说明检测到不一致的源代码行。例如，</p>
 <div class="example smallexample">
 <pre class="example-preformatted">fprintf (stderr, &quot;Internal error: &quot;
                  &quot;negative string length &quot;
@@ -102,9 +110,11 @@ the &lsquo;<samp class="samp">#include</samp>&rsquo; directive, the expansions o
 &lsquo;<samp class="samp">#include</samp>&rsquo; (but <code class="code">__LINE__</code> is then incremented by one as
 processing moves to the line after the &lsquo;<samp class="samp">#include</samp>&rsquo;).
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">进入“<samp class="samp">#include</samp>”所指定的文件时，<code class="code">__FILE__</code> 和 <code class="code">__LINE__</code> 改为反映该文件的位置。到其末尾返回原文件后，两者恢复到原文件的位置，并从包含指令的下一行继续计数。</p>
 <p>A &lsquo;<samp class="samp">#line</samp>&rsquo; directive changes <code class="code">__LINE__</code>, and may change
 <code class="code">__FILE__</code> as well.  See <a class="xref" href="Line-Control.html">Line Control</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#line</samp>”指令会更改 <code class="code">__LINE__</code>，也可能会更改 <code class="code">__FILE__</code>。请参见 <a class="xref" href="Line-Control.html">行号控制</a>。</p>
 <p>C99 introduced <code class="code">__func__</code>, and GCC has provided <code class="code">__FUNCTION__</code>
 for a long time.  Both of these are strings containing the name of the
 current function (there are slight semantic differences; see the GCC
@@ -112,6 +122,7 @@ manual).  Neither of them is a macro; the preprocessor does not know the
 name of the current function.  They tend to be useful in conjunction
 with <code class="code">__FILE__</code> and <code class="code">__LINE__</code>, though.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C99推出了<code class="code">__func__</code>，GCC很早就提供了<code class="code">__FUNCTION__</code>。这两个都是包含当前函数名称的字符串（有轻微的语义差异；请参阅 GCC 手册）。它们都不是宏；预处理器不知道当前函数的名称。不过，它们往往与 <code class="code">__FILE__</code> 和 <code class="code">__LINE__</code> 结合使用。</p>
 <dl class="table">
 <dt><code class="code">__DATE__</code></dt>
 <dd><p>This macro expands to a string constant that describes the date on which
@@ -119,20 +130,24 @@ the preprocessor is being run.  The string constant contains eleven
 characters and looks like <code class="code">&quot;Feb&nbsp;12&nbsp;1996&quot;<!-- /@w --></code>.  If the day of the
 month is less than 10, it is padded with a space on the left.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏展开为一个字符串常量，描述预处理器运行的日期。该字符串常量包含十一个字符，看起来像 <code class="code">&quot;Feb&nbsp;12&nbsp;1996&quot;<!-- /@w --></code>。如果该月的第几天小于 10，则在左侧填充一个空格。</p>
 <p>If GCC cannot determine the current date, it will emit a warning message
 (once per compilation) and <code class="code">__DATE__</code> will expand to
 <code class="code">&quot;???&nbsp;??&nbsp;????&quot;<!-- /@w --></code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果 GCC 无法确定当前日期，它将发出警告消息（每次编译一次），并且 <code class="code">__DATE__</code> 将展开为 <code class="code">&quot;???&nbsp;??&nbsp;????&quot;<!-- /@w --></code>。</p>
 </dd>
 <dt><code class="code">__TIME__</code></dt>
 <dd><p>This macro expands to a string constant that describes the time at
 which the preprocessor is being run.  The string constant contains
 eight characters and looks like <code class="code">&quot;23:59:01&quot;</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏展开为一个字符串常量，描述预处理器运行的时间。该字符串常量包含八个字符，看起来像 <code class="code">&quot;23:59:01&quot;</code>。</p>
 <p>If GCC cannot determine the current time, it will emit a warning message
 (once per compilation) and <code class="code">__TIME__</code> will expand to
 <code class="code">&quot;??:??:??&quot;</code>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果 GCC 无法确定当前时间，它将发出警告消息（每次编译一次），并且 <code class="code">__TIME__</code> 将展开为 <code class="code">&quot;??:??:??&quot;</code>。</p>
 </dd>
 <dt><code class="code">__STDC__</code></dt>
 <dd><p>In normal operation, this macro expands to the constant 1, to signify
@@ -141,8 +156,10 @@ a compiler other than GCC, this is not necessarily true; however, the
 preprocessor always conforms to the standard unless the
 <samp class="option">-traditional-cpp</samp> option is used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在正常操作中，该宏展开为常量 1，表示该编译器符合 ISO 标准 C。如果 GNU CPP 与 GCC 以外的编译器一起使用，则不一定如此；但是，除非使用 <samp class="option">-traditional-cpp</samp> 选项，否则预处理器始终符合标准。</p>
 <p>This macro is not defined if the <samp class="option">-traditional-cpp</samp> option is used.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果使用 <samp class="option">-traditional-cpp</samp> 选项，则不定义该宏。</p>
 <p>On some hosts, the system compiler uses a different convention, where
 <code class="code">__STDC__</code> is normally 0, but is 1 if the user specifies strict
 conformance to the C Standard.  CPP follows the host convention when
@@ -151,6 +168,7 @@ processing system header files, but when processing user files
 for instance, some versions of Solaris provide X Windows headers that
 expect <code class="code">__STDC__</code> to be either undefined or 1.  See <a class="xref" href="Invocation.html">Invocation</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在某些主机上，系统编译器使用不同的约定，其中 <code class="code">__STDC__</code> 通常为 0，但如果用户指定严格遵守 C 标准，则为 1。 CPP 在处理系统头文件时遵循主机约定，但在处理用户文件时 <code class="code">__STDC__</code> 始终为 1。据报告这会导致问题；例如，某些版本的 Solaris 提供的 X Windows 头文件期望 <code class="code">__STDC__</code> 为未定义或 1。请参见 <a class="xref" href="Invocation.html">调用</a>。</p>
 </dd>
 <dt><code class="code">__STDC_VERSION__</code></dt>
 <dd><p>This macro expands to the C Standard&rsquo;s version number, a long integer
@@ -160,6 +178,7 @@ which version of the C Standard the compiler conforms to.  Like
 <code class="code">__STDC__</code>, this is not necessarily accurate for the entire
 implementation, unless GNU CPP is being used with GCC.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏展开为 C 标准的版本号，即 <code class="code"><var class="var">yyyy</var><var class="var">mm</var>L</code> 形式的长整型常量，其中 <var class="var">yyyy</var> 和 <var class="var">mm</var> 是标准版本的年份和月份。这表示编译器符合哪个版本的 C 标准。与 <code class="code">__STDC__</code> 一样，这对于整个实现来说不一定准确，除非 GNU CPP 与 GCC 一起使用。</p>
 <p>The value <code class="code">199409L</code> signifies the 1989 C standard as amended in
 1994, which is the current default; the value <code class="code">199901L</code> signifies
 the 1999 revision of the C standard; the value <code class="code">201112L</code>
@@ -169,15 +188,18 @@ otherwise identical to the 2011 version apart from correction of
 defects).  An unspecified value larger than <code class="code">201710L</code> is used for
 the experimental <samp class="option">-std=c2x</samp> and <samp class="option">-std=gnu2x</samp> modes.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">值<code class="code">199409L</code>表示1994年修订的1989 C标准，这是当前的默认值；值<code class="code">199901L</code>表示C标准的1999年修订版；值<code class="code">201112L</code>表示C标准2011年修订版；值 <code class="code">201710L</code> 表示 C 标准的 2017 年修订版（除了缺陷修正之外，其他方面与 2011 年版本相同）。大于 <code class="code">201710L</code> 的未指定值用于实验 <samp class="option">-std=c2x</samp> 和 <samp class="option">-std=gnu2x</samp> 模式。</p>
 <p>This macro is not defined if the <samp class="option">-traditional-cpp</samp> option is
 used, nor when compiling C++ or Objective-C.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果使用 <samp class="option">-traditional-cpp</samp> 选项，或者编译 C++ 或 Objective-C 时，则不会定义该宏。</p>
 </dd>
 <dt><code class="code">__STDC_HOSTED__</code></dt>
 <dd><p>This macro is defined, with value 1, if the compiler&rsquo;s target is a
 <em class="dfn">hosted environment</em>.  A hosted environment has the complete
 facilities of the standard C library available.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果编译器的目标是托管环境，则定义此宏，其值为 1。托管环境具有可用的标准 C 库的完整设施。</p>
 </dd>
 <dt><code class="code">__cplusplus</code></dt>
 <dd><p>This macro is defined when the C++ compiler is in use.  You can use
@@ -194,17 +216,20 @@ or an unspecified value strictly larger than <code class="code">202002L</code> f
 experimental languages enabled by <samp class="option">-std=c++23</samp> and
 <samp class="option">-std=gnu++23</samp>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">该宏是在使用C++编译器时定义的。您可以使用 <code class="code">__cplusplus</code> 来测试头文件是由 C 编译器还是 C++ 编译器编译的。该宏与 <code class="code">__STDC_VERSION__</code> 类似，它展开为版本号。根据所选语言标准，宏的值为 <code class="code">199711L</code>（1998 C++ 标准）、<code class="code">201103L</code>（2011 C++ 标准）、<code class="code">201402L</code>（2014 C++ 标准）、<code class="code">201703L</code>（2017 C++ 标准）、<code class="code">202002L</code>（2020 C++ 标准）标准，或者对于 <samp class="option">-std=c++23</samp> 和 <samp class="option">-std=gnu++23</samp> 启用的实验语言严格大于 <code class="code">202002L</code> 的未指定值。</p>
 </dd>
 <dt><code class="code">__OBJC__</code></dt>
 <dd><p>This macro is defined, with value 1, when the Objective-C compiler is in
 use.  You can use <code class="code">__OBJC__</code> to test whether a header is compiled
 by a C compiler or an Objective-C compiler.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用 Objective-C 编译器时，定义该宏，其值为 1。您可以使用 <code class="code">__OBJC__</code> 来测试头文件是由 C 编译器还是 Objective-C 编译器编译的。</p>
 </dd>
 <dt><code class="code">__ASSEMBLER__</code></dt>
 <dd><p>This macro is defined with value 1 when preprocessing assembly
 language.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当预处理汇编语言时，该宏被定义为值1。</p>
 </dd>
 </dl>
 
@@ -213,6 +238,7 @@ language.
 <div class="nav-panel">
 <p>
 Next: <a href="Common-Predefined-Macros.html">Common Predefined Macros</a>, Up: <a href="Predefined-Macros.html">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Common-Predefined-Macros.html">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

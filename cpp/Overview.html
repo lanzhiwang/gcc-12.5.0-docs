@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>Overview (The C Preprocessor)</title>
+<title>Overview (The C Preprocessor)
+概述（C 预处理器）</title>
 
 <meta name="description" content="Overview (The C Preprocessor)">
 <meta name="keywords" content="Overview (The C Preprocessor)">
@@ -54,15 +55,18 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Header-Files.html" accesskey="n" rel="next">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="Header-Files.html" rel="next">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Overview-1"><span>1 Overview<a class="copiable-link" href="#Overview-1"> &para;</a></span></h2>
+<h2 lang="zh-CN" data-cpp-translation="1" class="chapter translation"><span>1 概述</span></h2>
 <p>The C preprocessor, often known as <em class="dfn">cpp</em>, is a <em class="dfn">macro processor</em>
 that is used automatically by the C compiler to transform your program
 before compilation.  It is called a macro processor because it allows
 you to define <em class="dfn">macros</em>, which are brief abbreviations for longer
 constructs.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 预处理器通常称为 <em class="dfn">cpp</em>，是一种<em class="dfn">宏处理器</em>，C 编译器会在编译前自动使用它来转换程序。之所以称它为宏处理器，是因为它允许定义<em class="dfn">宏</em>，用简短的写法表示较长的程序结构。</p>
 <p>The C preprocessor is intended to be used only with C, C++, and
 Objective-C source code.  In the past, it has been abused as a general
 text processor.  It will choke on input which does not obey C&rsquo;s lexical
@@ -72,6 +76,7 @@ preserving characteristics of the input which are not significant to
 C-family languages.  If a Makefile is preprocessed, all the hard tabs
 will be removed, and the Makefile will not work.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 预处理器的设计用途仅限于处理 C、C++ 和 Objective-C 源代码。过去，人们曾把它不恰当地用作通用文本处理器。对于不符合 C 词法规则的输入，它可能无法处理。例如，撇号会被解释为字符常量的起始符，从而导致错误。此外，对于 C 族语言不关心的输入特征，也不能指望预处理器予以保留。如果对 Makefile 进行预处理，其中所有实际的制表符都会被移除，导致 Makefile 无法正常工作。</p>
 <p>Having said that, you can often get away with using cpp on things which
 are not C.  Other Algol-ish programming languages are often safe
 (Ada, etc.) So is assembly, with caution.  <samp class="option">-traditional-cpp</samp>
@@ -79,12 +84,14 @@ mode preserves more white space, and is otherwise more permissive.  Many
 of the problems can be avoided by writing C or C++ style comments
 instead of native language comments, and keeping macros simple.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">尽管如此，用 cpp 处理一些非 C 内容，往往也能正常工作。其他具有 Algol 风格的编程语言，例如 Ada，通常可以安全地处理；谨慎使用时，汇编语言也可以。<samp class="option">-traditional-cpp</samp> 模式会保留更多空白，在其他方面也更加宽松。使用 C 或 C++ 风格的注释代替所处理语言自身的注释，并保持宏简单，可以避免许多问题。</p>
 <p>Wherever possible, you should use a preprocessor geared to the language
 you are writing in.  Modern versions of the GNU assembler have macro
 facilities.  Most high level programming languages have their own
 conditional compilation and inclusion mechanism.  If all else fails,
 try a true general text processor, such as GNU M4.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">只要条件允许，就应使用专为所用语言设计的预处理器。现代版本的 GNU 汇编器提供宏功能，大多数高级编程语言也有各自的条件编译和包含机制。如果这些办法都不适用，可以尝试真正的通用文本处理器，例如 GNU M4。</p>
 <p>C preprocessors vary in some details.  This manual discusses the GNU C
 preprocessor, which provides a small superset of the features of ISO
 Standard C.  In its default mode, the GNU C preprocessor does not do a
@@ -96,27 +103,35 @@ you should use the <samp class="option">-std=c90</samp>, <samp class="option">-s
 on which version of the standard you want.  To get all the mandatory
 diagnostics, you must also use <samp class="option">-pedantic</samp>.  See <a class="xref" href="Invocation.html">Invocation</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不同的 C 预处理器在某些细节上存在差异。本手册讨论的是 GNU C 预处理器；它在 ISO C 标准规定的功能之上提供了少量扩展。在默认模式下，GNU C 预处理器不会执行标准要求的少数操作。这些功能即使有人使用，也极为少见，而且可能出乎意料地改变未考虑它们的程序的含义。要使用严格遵循 ISO C 标准的模式，应根据需要的标准版本选择 <samp class="option">-std=c90</samp>、<samp class="option">-std=c99</samp>、<samp class="option">-std=c11</samp> 或 <samp class="option">-std=c17</samp>。要获得标准要求的所有诊断，还必须使用 <samp class="option">-pedantic</samp>。参见<a class="xref" href="Invocation.html">调用</a>。</p>
 <p>This manual describes the behavior of the ISO preprocessor.  To
 minimize gratuitous differences, where the ISO preprocessor&rsquo;s
 behavior does not conflict with traditional semantics, the
 traditional preprocessor should behave the same way.  The various
 differences that do exist are detailed in the section <a class="ref" href="Traditional-Mode.html">Traditional Mode</a>.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">本手册介绍 ISO 模式下预处理器的行为。为尽量减少不必要的差异，在 ISO 预处理器的行为不与传统语义冲突的地方，传统预处理器应当采用相同的行为。实际存在的各种差异在<a class="ref" href="Traditional-Mode.html">传统模式</a>一节中有详细说明。</p>
 <p>For clarity, unless noted otherwise, references to &lsquo;<samp class="samp">CPP</samp>&rsquo; in this
 manual refer to GNU CPP.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">为表述清楚，除非另有说明，本手册中提到的“<samp class="samp">CPP</samp>”均指 GNU CPP。</p>
 
 <ul class="mini-toc">
-<li><a href="Character-sets.html" accesskey="1">Character sets</a></li>
-<li><a href="Initial-processing.html" accesskey="2">Initial processing</a></li>
-<li><a href="Tokenization.html" accesskey="3">Tokenization</a></li>
-<li><a href="The-preprocessing-language.html" accesskey="4">The preprocessing language</a></li>
+<li><a href="Character-sets.html" accesskey="1">Character sets</a><br data-cpp-translation="1">
+<span lang="zh-CN" data-cpp-translation="1"><a href="Character-sets.html">字符集</a></span></li>
+<li><a href="Initial-processing.html" accesskey="2">Initial processing</a><br data-cpp-translation="1">
+<span lang="zh-CN" data-cpp-translation="1"><a href="Initial-processing.html">初始处理</a></span></li>
+<li><a href="Tokenization.html" accesskey="3">Tokenization</a><br data-cpp-translation="1">
+<span lang="zh-CN" data-cpp-translation="1"><a href="Tokenization.html">标记化</a></span></li>
+<li><a href="The-preprocessing-language.html" accesskey="4">The preprocessing language</a><br data-cpp-translation="1">
+<span lang="zh-CN" data-cpp-translation="1"><a href="The-preprocessing-language.html">预处理语言</a></span></li>
 </ul>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页：<a href="Header-Files.html" rel="next">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="目录" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="索引" rel="index">索引</a>]</p>
 </div>
 
 

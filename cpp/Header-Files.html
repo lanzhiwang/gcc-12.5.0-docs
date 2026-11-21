@@ -55,9 +55,11 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Next: <a href="Macros.html" accesskey="n" rel="next">Macros</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Macros.html" accesskey="n" rel="next">宏</a>，上一页：<a href="Overview.html" accesskey="p" rel="prev">概览</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h2 class="chapter" id="Header-Files-1"><span>2 Header Files<a class="copiable-link" href="#Header-Files-1"> &para;</a></span></h2>
+<h2 class="chapter" id="Header-Files-zh"><span>2 头文件<a class="copiable-link" href="#Header-Files-zh"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-header-file"></a>
 <p>A header file is a file containing C declarations and macro definitions
@@ -65,20 +67,24 @@ Next: <a href="Macros.html" accesskey="n" rel="next">Macros</a>, Previous: <a hr
 the use of a header file in your program by <em class="dfn">including</em> it, with the
 C preprocessing directive &lsquo;<samp class="samp">#include</samp>&rsquo;.
 </p>
+<p>头文件是包含 C 声明和宏定义（参见<a class="pxref" href="Macros.html">宏</a>）的文件，用于在多个源文件之间共享。通过 C 预处理指令 &lsquo;<samp class="samp">#include</samp>&rsquo; 对其进行<em class="dfn">包含</em>，即可在程序中使用头文件。</p>
 <p>Header files serve two purposes.
 </p>
+<p>头文件有两个用途。</p>
 <ul class="itemize mark-bullet">
 <li><a class="index-entry-id" id="index-system-header-files"></a>
 System header files declare the interfaces to parts of the operating
 system.  You include them in your program to supply the definitions and
 declarations you need to invoke system calls and libraries.
 
+<br>系统头文件声明操作系统各部分的接口。将它们包含到程序中，可以提供调用系统调用和库所需的定义与声明。
 </li><li>Your own header files contain declarations for interfaces between the
 source files of your program.  Each time you have a group of related
 declarations and macro definitions all or most of which are needed in
 several different source files, it is a good idea to create a header
 file for them.
-</li></ul>
+
+<br>自定义头文件包含程序源文件之间接口的声明。如果有一组相关声明和宏定义，其中大部分需要在多个不同源文件中使用，最好为它们创建一个头文件。</li></ul>
 
 <p>Including a header file produces the same results as copying the header
 file into each source file that needs it.  Such copying would be
@@ -90,26 +96,29 @@ file eliminates the labor of finding and changing all the copies as well
 as the risk that a failure to find one copy will result in
 inconsistencies within a program.
 </p>
+<p>包含头文件的结果与将头文件复制到每个需要它的源文件中相同，但复制会耗时且容易出错。使用头文件后，相关声明只出现一个地方；需要修改时只需修改一处，下次重新编译时包含该头文件的程序会自动使用新版本。头文件既省去了查找和修改所有副本的工作，也避免因遗漏某个副本而导致程序内部不一致。</p>
 <p>In C, the usual convention is to give header files names that end with
 <samp class="file">.h</samp>.  It is most portable to use only letters, digits, dashes, and
 underscores in header file names, and at most one dot.
 </p>
+<p>在 C 中，通常约定头文件名以 <samp class="file">.h</samp> 结尾。为了获得最佳可移植性，头文件名最好只使用字母、数字、短横线和下划线，并且最多包含一个点。</p>
 
 <ul class="mini-toc">
-<li><a href="Include-Syntax.html" accesskey="1">Include Syntax</a></li>
-<li><a href="Include-Operation.html" accesskey="2">Include Operation</a></li>
-<li><a href="Search-Path.html" accesskey="3">Search Path</a></li>
-<li><a href="Once_002dOnly-Headers.html" accesskey="4">Once-Only Headers</a></li>
-<li><a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="5">Alternatives to Wrapper #ifndef</a></li>
-<li><a href="Computed-Includes.html" accesskey="6">Computed Includes</a></li>
-<li><a href="Wrapper-Headers.html" accesskey="7">Wrapper Headers</a></li>
-<li><a href="System-Headers.html" accesskey="8">System Headers</a></li>
+<li><a href="Include-Syntax.html" accesskey="1">Include Syntax</a><br><a href="Include-Syntax.html" accesskey="1">包含语法</a></li>
+<li><a href="Include-Operation.html" accesskey="2">Include Operation</a><br><a href="Include-Operation.html" accesskey="2">包含操作</a></li>
+<li><a href="Search-Path.html" accesskey="3">Search Path</a><br><a href="Search-Path.html" accesskey="3">搜索路径</a></li>
+<li><a href="Once_002dOnly-Headers.html" accesskey="4">Once-Only Headers</a><br><a href="Once_002dOnly-Headers.html" accesskey="4">只包含一次的头文件</a></li>
+<li><a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="5">Alternatives to Wrapper #ifndef</a><br><a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="5">包装器 #ifndef 的替代方案</a></li>
+<li><a href="Computed-Includes.html" accesskey="6">Computed Includes</a><br><a href="Computed-Includes.html" accesskey="6">计算包含</a></li>
+<li><a href="Wrapper-Headers.html" accesskey="7">Wrapper Headers</a><br><a href="Wrapper-Headers.html" accesskey="7">包装器头文件</a></li>
+<li><a href="System-Headers.html" accesskey="8">System Headers</a><br><a href="System-Headers.html" accesskey="8">系统头文件</a></li>
 </ul>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Macros.html">Macros</a>, Previous: <a href="Overview.html">Overview</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p>下一页：<a href="Macros.html">宏</a>，上一页：<a href="Overview.html">概览</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

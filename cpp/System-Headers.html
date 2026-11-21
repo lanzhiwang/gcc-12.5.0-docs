@@ -23,7 +23,8 @@ A GNU Manual
 You have freedom to copy and modify this GNU Manual, like GNU
      software.  Copies published by the Free Software Foundation raise
      funds for GNU development. -->
-<title>System Headers (The C Preprocessor)</title>
+<title>System Headers (The C Preprocessor)
+系统头文件（C 预处理器）</title>
 
 <meta name="description" content="System Headers (The C Preprocessor)">
 <meta name="keywords" content="System Headers (The C Preprocessor)">
@@ -54,9 +55,11 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Previous: <a href="Wrapper-Headers.html" accesskey="p" rel="prev">Wrapper Headers</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Wrapper-Headers.html" rel="prev">包装器头文件</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="System-Headers-1"><span>2.8 System Headers<a class="copiable-link" href="#System-Headers-1"> &para;</a></span></h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">2.8 系统头文件</h3>
 <a class="index-entry-id" id="index-system-header-files-1"></a>
 
 <p>The header files declaring interfaces to the operating system and
@@ -69,25 +72,32 @@ wherever they are expanded.  This immunity is granted on an ad-hoc
 basis, when we find that a warning generates lots of false positives
 because of code in macros defined in system headers.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">声明操作系统和运行时库接口的头文件通常不能用严格符合 C 语言编写。因此，GCC 对系统头文件中的代码给予特殊处理。当 GCC 处理系统头文件时，除“<samp class="samp">#warning</samp>”生成的警告（请参阅 <a class="pxref" href="Diagnostics.html">诊断</a>）之外的所有警告都会被抑制。系统头文件中定义的宏无论在何处展开都不会受到一些警告的影响。当我们发现警告由于系统头中定义的宏中的代码而产生大量误报时，会临时授予这种豁免权。</p>
 <p>Normally, only the headers found in specific directories are considered
 system headers.  These directories are determined when GCC is compiled.
 There are, however, two ways to make normal headers into system headers:
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">通常，只有在特定目录中找到的头文件才被视为系统头文件。这些目录是在编译 GCC 时确定的。然而，有两种方法可以将普通头文件变成系统头文件：</p>
 <ul class="itemize mark-bullet">
 <li>Header files found in directories added to the search path with the 
 <samp class="option">-isystem</samp> and <samp class="option">-idirafter</samp> command-line options are 
 treated as system headers for the purposes of diagnostics.
 
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation">使用 <samp class="option">-isystem</samp> 和 <samp class="option">-idirafter</samp> 命令行选项添加到搜索路径的目录中找到的头文件被视为用于诊断目的的系统头。</p>
 </li><li><a class="index-entry-id" id="index-_0023pragma-GCC-system_005fheader"></a>
 There is also a directive, <code class="code">#pragma&nbsp;GCC&nbsp;system_header<!-- /@w --></code>, which
 tells GCC to consider the rest of the current include file a system
 header, no matter where it was found.  Code that comes before the
 &lsquo;<samp class="samp">#pragma</samp>&rsquo; in the file is not affected.  <code class="code">#pragma&nbsp;GCC&nbsp;system_header<!-- /@w --></code> has no effect in the primary source file.
+
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><a class="index-entry-id"></a> 还有一个指令 <code class="code">#pragma&nbsp;GCC&nbsp;system_header<!-- /@w --></code>，它告诉 GCC 将当前包含文件的其余部分视为系统头，无论它在哪里找到。文件中“<samp class="samp">#pragma</samp>”之前的代码不受影响。 <code class="code">#pragma&nbsp;GCC&nbsp;system_header<!-- /@w --></code> 对主源文件没有影响。</p>
 </li></ul>
 
 <p>On some targets, such as RS/6000 AIX, GCC implicitly surrounds all
 system headers with an &lsquo;<samp class="samp">extern &quot;C&quot;</samp>&rsquo; block when compiling as C++.
 </p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">在某些目标上，例如 RS/6000 AIX，当编译为 C++ 时，GCC 会用“<samp class="samp">extern &quot;C&quot;</samp>”块隐式包围所有系统头。</p>
 </div>
 
 
