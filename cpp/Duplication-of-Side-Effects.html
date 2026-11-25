@@ -73,7 +73,7 @@ Next: <a href="Self_002dReferential-Macros.html" accesskey="n" rel="next">Self-R
 <p>When you use this macro with an argument containing a side effect,
 as shown here,
 </p>
-<p>当使用包含副作用的参数调用这个宏时，例如：</p>
+<p>当使用包含副作用的实参调用这个宏时，例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">next = min (x + y, foo (z));
 </pre></div>
@@ -117,7 +117,7 @@ one.  The local variables have underscores after their names to reduce
 the risk of conflict with an identifier of wider scope (it is impossible
 to avoid this entirely).  Now each argument is evaluated exactly once.
 </p>
-<p>&lsquo;<samp class="samp">({ &hellip; })</samp>&rsquo; 表示法生成一个充当表达式的复合语句，其值就是最后一条语句的值。这样可以定义局部变量，并将每个参数赋给一个局部变量。局部变量名后加下划线，以降低与外层作用域标识符冲突的风险（但无法完全避免）。现在每个参数都会恰好求值一次。</p>
+<p>&lsquo;<samp class="samp">({ &hellip; })</samp>&rsquo; 表示法生成一个充当表达式的复合语句，其值就是最后一条语句的值。这样可以定义局部变量，并将每个实参赋给一个局部变量。局部变量名后加下划线，以降低与外层作用域标识符冲突的风险（但无法完全避免）。现在每个实参都会恰好求值一次。</p>
 <p>If you do not wish to use GNU C extensions, the only solution is to be
 careful when <em class="emph">using</em> the macro <code class="code">min</code>.  For example, you can
 calculate the value of <code class="code">foo (z)</code>, save it in a variable, and use

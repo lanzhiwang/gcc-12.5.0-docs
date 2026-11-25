@@ -93,17 +93,17 @@ because <code class="code">FILE_FOO_SEEN</code> is defined.  The preprocessor wi
 over the entire contents of the file, and the compiler will not see it
 twice.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">此构造通常称为包装器 #ifndef。当再次包含头文件时，条件将为 false，因为定义了 <code class="code">FILE_FOO_SEEN</code>。预处理器将跳过文件的全部内容，编译器不会看到它两次。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此构造通常称为包围式 #ifndef。当再次包含头文件时，条件将为假，因为定义了 <code class="code">FILE_FOO_SEEN</code>。预处理器将跳过文件的全部内容，编译器不会看到它两次。</p>
 <p>CPP optimizes even further.  It remembers when a header file has a
 wrapper &lsquo;<samp class="samp">#ifndef</samp>&rsquo;.  If a subsequent &lsquo;<samp class="samp">#include</samp>&rsquo; specifies that
 header, and the macro in the &lsquo;<samp class="samp">#ifndef</samp>&rsquo; is still defined, it does
 not bother to rescan the file at all.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">CPP 进一步优化。它会记住头文件何时具有包装器“<samp class="samp">#ifndef</samp>”。如果后续的“<samp class="samp">#include</samp>”指定了该头文件，并且“<samp class="samp">#ifndef</samp>”中的宏仍然被定义，则根本不需要重新扫描文件。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">CPP 还会进一步优化：它会记住哪些头文件使用了包围式 <code class="code">#ifndef</code>。如果后续的 <code class="code">#include</code> 指定了这样的头文件，而且 <code class="code">#ifndef</code> 中的宏仍处于已定义状态，CPP 就完全不再重新扫描该文件。</p>
 <p>You can put comments outside the wrapper.  They will not interfere with
 this optimization.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以将注释放在包装器之外。他们不会干扰这种优化。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以在包围式条件指令之外放置注释，这不会干扰上述优化。</p>
 <a class="index-entry-id" id="index-controlling-macro"></a>
 <a class="index-entry-id" id="index-guard-macro"></a>
 <p>The macro <code class="code">FILE_FOO_SEEN</code> is called the <em class="dfn">controlling macro</em> or

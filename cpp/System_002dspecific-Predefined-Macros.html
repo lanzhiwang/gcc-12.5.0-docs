@@ -55,7 +55,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="C_002b_002b-Named-Operators.html" accesskey="n" rel="next">C++ Named Operators</a>, Previous: <a href="Common-Predefined-Macros.html" accesskey="p" rel="prev">Common Predefined Macros</a>, Up: <a href="Predefined-Macros.html" accesskey="u" rel="up">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="C_002b_002b-Named-Operators.html" rel="next">C++ Named Operators</a>, 上一页： <a href="Common-Predefined-Macros.html" rel="prev">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html" rel="up">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="C_002b_002b-Named-Operators.html" rel="next">C++ 命名运算符</a>, 上一页： <a href="Common-Predefined-Macros.html" rel="prev">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html" rel="up">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="System_002dspecific-Predefined-Macros-1"><span>3.7.3 System-specific Predefined Macros<a class="copiable-link" href="#System_002dspecific-Predefined-Macros-1"> &para;</a></span></h4>
@@ -85,14 +85,14 @@ and the end.  If <code class="code">unix</code> is defined, <code class="code">_
 too.  There will never be more than two underscores; the parallel of
 <code class="code">_mips</code> is <code class="code">__mips__</code>.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准要求所有系统特定的宏都是保留命名空间的一部分。所有以两个下划线或一个下划线和一个大写字母开头的名称都保留供编译器和库随意使用。然而，历史上系统特定的宏的名称没有特殊的前缀。例如，在 Unix 系统上定义 <code class="code">unix</code> 是很常见的。对于所有此类宏，GCC 提供了一个并行宏，并在开头和结尾添加了两个下划线。如果定义了 <code class="code">unix</code>，则 <code class="code">__unix__</code> 也将被定义。下划线永远不会超过两个； <code class="code">_mips</code> 的并行是 <code class="code">__mips__</code>。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准要求所有系统专用宏都属于保留命名空间。以两个下划线，或以下划线加大写字母开头的名称，都保留供编译器和库使用。不过，历史上的系统专用宏并没有特殊前缀，例如 Unix 系统上通常会定义 <code class="code">unix</code>。对所有这类宏，GCC 都提供一个在名称首尾各加两个下划线的对应宏。如果定义了 <code class="code">unix</code>，也会定义 <code class="code">__unix__</code>。名称任一端的下划线都不会超过两个；例如，<code class="code">_mips</code> 的对应宏为 <code class="code">__mips__</code>。</p>
 <p>When the <samp class="option">-ansi</samp> option, or any <samp class="option">-std</samp> option that
 requests strict conformance, is given to the compiler, all the
 system-specific predefined macros outside the reserved namespace are
 suppressed.  The parallel macros, inside the reserved namespace, remain
 defined.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">当向编译器提供 <samp class="option">-ansi</samp> 选项或任何请求严格一致性的 <samp class="option">-std</samp> 选项时，保留命名空间之外的所有系统特定的预定义宏都会被抑制。保留命名空间内的并行宏保持定义状态。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当向编译器提供 <samp class="option">-ansi</samp> 选项或任何请求严格一致性的 <samp class="option">-std</samp> 选项时，保留命名空间之外的所有系统特定的预定义宏都会被抑制。保留命名空间内的对应宏保持定义状态。</p>
 <p>We are slowly phasing out all predefined macros which are outside the
 reserved namespace.  You should never use them in new programs, and we
 encourage you to correct older code to use the parallel macros whenever
@@ -101,13 +101,13 @@ are in the reserved namespace, either.  It is better in the long run to
 check specifically for features you need, using a tool such as
 <code class="command">autoconf</code>.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">我们正在慢慢淘汰保留命名空间之外的所有预定义宏。您永远不应该在新程序中使用它们，并且我们鼓励您在发现并行宏时更正旧代码以使用它。我们也不建议您使用保留命名空间中的系统特定宏。从长远来看，最好使用 <code class="command">autoconf</code> 等工具专门检查您需要的功能。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">我们正在逐步淘汰保留命名空间之外的所有预定义宏。不要在新程序中使用它们；对于旧代码中使用这些宏的地方，也建议随时改用相应的保留名称宏。即使是保留命名空间内的系统专用宏，我们也不推荐使用。从长远看，最好用 autoconf 等工具，直接检查所需的功能。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="C_002b_002b-Named-Operators.html">C++ Named Operators</a>, Previous: <a href="Common-Predefined-Macros.html">Common Predefined Macros</a>, Up: <a href="Predefined-Macros.html">Predefined Macros</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="C_002b_002b-Named-Operators.html">C++ Named Operators</a>, 上一页： <a href="Common-Predefined-Macros.html">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="C_002b_002b-Named-Operators.html">C++ 命名运算符</a>, 上一页： <a href="Common-Predefined-Macros.html">通用预定义宏</a>, 上一级： <a href="Predefined-Macros.html">预定义宏</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

@@ -55,11 +55,11 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Wrapper-Headers.html" accesskey="n" rel="next">Wrapper Headers</a>, Previous: <a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="p" rel="prev">Alternatives to Wrapper #ifndef</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p>下一页：<a href="Wrapper-Headers.html" accesskey="n" rel="next">包装器头文件</a>，上一页：<a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="p" rel="prev">包装器 #ifndef 的替代方案</a>，上级：<a href="Header-Files.html" accesskey="u" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p>下一页：<a href="Wrapper-Headers.html" accesskey="n" rel="next">包装头文件</a>，上一页：<a href="Alternatives-to-Wrapper-_0023ifndef.html" accesskey="p" rel="prev">包围式 #ifndef 的替代方案</a>，上级：<a href="Header-Files.html" accesskey="u" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Computed-Includes-1"><span>2.6 Computed Includes<a class="copiable-link" href="#Computed-Includes-1"> &para;</a></span></h3>
-<h3 class="section" id="Computed-Includes-zh"><span>2.6 计算包含<a class="copiable-link" href="#Computed-Includes-zh"> &para;</a></span></h3>
+<h3 class="section" id="Computed-Includes-zh"><span>2.6 通过宏计算包含文件名<a class="copiable-link" href="#Computed-Includes-zh"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-computed-includes"></a>
 <a class="index-entry-id" id="index-macros-in-include"></a>
 
@@ -84,7 +84,7 @@ ability to use a macro for the header name.  This is called a
 <em class="dfn">computed include</em>.  Instead of writing a header name as the direct
 argument of &lsquo;<samp class="samp">#include</samp>&rsquo;, you simply put a macro name there instead:
 </p>
-<p>这样很快就会变得繁琐。预处理器提供了使用宏作为头文件名的能力，这称为<em class="dfn">计算包含</em>。不必将头文件名直接写作 &lsquo;<samp class="samp">#include</samp>&rsquo; 的参数，只需在那里放置一个宏名即可：</p>
+<p>这样很快就会变得繁琐。预处理器提供了使用宏作为头文件名的能力，这称为<em class="dfn">通过宏计算包含文件名</em>。不必将头文件名直接写作 &lsquo;<samp class="samp">#include</samp>&rsquo; 的参数，只需在那里放置一个宏名即可：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define SYSTEM_H &quot;system_1.h&quot;
 &hellip;
@@ -110,7 +110,7 @@ above.  If the first non-whitespace character after &lsquo;<samp class="samp">#i
 not &lsquo;<samp class="samp">&quot;</samp>&rsquo; or &lsquo;<samp class="samp">&lt;</samp>&rsquo;, then the entire line is macro-expanded
 like running text would be.
 </p>
-<p>计算包含的语法实际上比上面的形式更通用。如果 &lsquo;<samp class="samp">#include</samp>&rsquo; 后面的第一个非空白字符不是 &lsquo;<samp class="samp">&quot;</samp>&rsquo; 或 &lsquo;<samp class="samp">&lt;</samp>&rsquo;，则整行会像普通文本一样进行宏展开。</p>
+<p>通过宏计算包含文件名的语法实际上比上面的形式更通用。如果 &lsquo;<samp class="samp">#include</samp>&rsquo; 后面的第一个非空白字符不是 &lsquo;<samp class="samp">&quot;</samp>&rsquo; 或 &lsquo;<samp class="samp">&lt;</samp>&rsquo;，则整行会像普通文本一样进行宏展开。</p>
 <p>If the line expands to a single string constant, the contents of that
 string constant are the file to be included.  CPP does not re-examine the
 string for embedded quotes, but neither does it process backslash
@@ -147,13 +147,13 @@ computed includes differently, we recommend you use only a single
 object-like macro which expands to a string constant.  This will also
 minimize confusion for people reading your program.
 </p>
-<p>根据 C 标准，这些规则属于实现定义行为。为了降低不同编译器以不同方式解释计算包含的风险，建议只使用一个展开为字符串常量的对象类宏。这样也能减少阅读程序时的困惑。</p>
+<p>根据 C 标准，这些规则属于实现定义行为。为了降低不同编译器以不同方式解释通过宏计算包含文件名的风险，建议只使用一个展开为字符串常量的对象类宏。这样也能减少阅读程序时的困惑。</p>
 </div>
 <hr>
 <div class="nav-panel">
 <p>
 Next: <a href="Wrapper-Headers.html">Wrapper Headers</a>, Previous: <a href="Alternatives-to-Wrapper-_0023ifndef.html">Alternatives to Wrapper #ifndef</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p>下一页：<a href="Wrapper-Headers.html">包装器头文件</a>，上一页：<a href="Alternatives-to-Wrapper-_0023ifndef.html">包装器 #ifndef 的替代方案</a>，上级：<a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p>下一页：<a href="Wrapper-Headers.html">包装头文件</a>，上一页：<a href="Alternatives-to-Wrapper-_0023ifndef.html">包围式 #ifndef 的替代方案</a>，上级：<a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

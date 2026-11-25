@@ -108,11 +108,11 @@ The <code class="code">eprintf</code> macro above could be written
 <p>using this extension.  You cannot use <code class="code">__VA_ARGS__<!-- /@w --></code> and this
 extension in the same macro.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">使用这个扩展。您不能在同一宏中使用 <code class="code">__VA_ARGS__<!-- /@w --></code> 和此扩展。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">不能在同一个宏中同时使用 <code class="code">__VA_ARGS__</code> 和这种扩展。</p>
 <p>You can have named arguments as well as variable arguments in a variadic
 macro.  We could define <code class="code">eprintf</code> like this, instead:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以在可变参数宏中使用命名参数和变量参数。我们可以这样定义 <code class="code">eprintf</code>：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可变参数宏既可以包含具名形参，也可以包含可变形参。例如，还可以这样定义 <code class="code">eprintf</code>：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(format, ...) fprintf (stderr, format, __VA_ARGS__)
 </pre></div>
@@ -124,12 +124,12 @@ named argument from the variable arguments.  (Note that this
 restriction has been lifted in C++20, and never existed in GNU C; see
 below.)
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">这一表述看起来更具描述性，但从历史上看，它不太灵活：您必须在格式字符串之后提供至少一个参数。在标准 C 中，不能省略分隔命名参数和变量参数的逗号。 （请注意，此限制已在 C++20 中取消，并且在 GNU C 中从未存在；请参见下文。）</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这一表述看起来更具描述性，但从历史上看，它不太灵活：您必须在格式字符串之后提供至少一个参数。在标准 C 中，不能省略分隔具名实参和可变实参的逗号。 （请注意，此限制已在 C++20 中取消，并且在 GNU C 中从未存在；请参见下文。）</p>
 <p>Furthermore, if you left the variable argument empty, you would have
 gotten a syntax error, because there would have been an extra comma
 after the format string.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">此外，如果将变量参数留空，则会出现语法错误，因为格式字符串后面会有一个额外的逗号。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此外，如果将可变实参留空，则会出现语法错误，因为格式字符串后面会有一个额外的逗号。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf(&quot;success!\n&quot;, );
      &rarr; fprintf(stderr, &quot;success!\n&quot;, );
@@ -142,7 +142,7 @@ extensions which deal with this problem.
 <p>First, in GNU CPP, and in C++ beginning in C++20, you are allowed to
 leave the variable argument out entirely:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">首先，在 GNU CPP 和从 C++20 开始的 C++ 中，您可以完全省略变量参数：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">首先，在 GNU CPP 和从 C++20 开始的 C++ 中，您可以完全省略可变实参：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf (&quot;success!\n&quot;)
      &rarr; fprintf(stderr, &quot;success!\n&quot;, );
@@ -169,7 +169,7 @@ meaning when placed between a comma and a variable argument.  Despite
 the introduction of <code class="code">__VA_OPT__<!-- /@w --></code>, this extension remains
 supported in GNU CPP, for backward compatibility.  If you write
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">从历史上看，GNU CPP 还有另一个扩展来处理尾随逗号：“<samp class="samp">##</samp>”标记粘贴运算符在放置在逗号和变量参数之间时具有特殊含义。尽管引入了 <code class="code">__VA_OPT__<!-- /@w --></code>，但为了向后兼容，GNU CPP 仍然支持此扩展。如果你写</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">从历史上看，GNU CPP 还有另一个扩展来处理尾随逗号：“<samp class="samp">##</samp>”标记拼接运算符在放置在逗号和可变实参之间时具有特殊含义。尽管引入了 <code class="code">__VA_OPT__<!-- /@w --></code>，但为了向后兼容，GNU CPP 仍然支持此扩展。如果你写</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define eprintf(format, ...) fprintf (stderr, format, ##__VA_ARGS__)
 </pre></div>
@@ -179,7 +179,7 @@ used, then the comma before the &lsquo;<samp class="samp">##</samp>&rsquo; will 
 <em class="emph">not</em> happen if you pass an empty argument, nor does it happen if
 the token preceding &lsquo;<samp class="samp">##</samp>&rsquo; is anything other than a comma.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用 <code class="code">eprintf</code> 宏时省略变量参数，则‘<samp class="samp">##</samp>’之前的逗号将被删除。如果您传递空参数，则不会发生这种情况，如果“<samp class="samp">##</samp>”前面的标记不是逗号，也不会发生这种情况。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用 <code class="code">eprintf</code> 宏时省略可变实参，则‘<samp class="samp">##</samp>’之前的逗号将被删除。如果您传递空实参，则不会发生这种情况，如果“<samp class="samp">##</samp>”前面的标记不是逗号，也不会发生这种情况。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">eprintf (&quot;success!\n&quot;)
      &rarr; fprintf(stderr, &quot;success!\n&quot;);

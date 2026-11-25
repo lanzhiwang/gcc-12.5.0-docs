@@ -56,7 +56,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Argument-Prescan.html" accesskey="n" rel="next">Argument Prescan</a>, Previous: <a href="Duplication-of-Side-Effects.html" accesskey="p" rel="prev">Duplication of Side Effects</a>, Up: <a href="Macro-Pitfalls.html" accesskey="u" rel="up">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Argument-Prescan.html" rel="next">参数预扫描</a>, 上一页： <a href="Duplication-of-Side-Effects.html" rel="prev">副作用的重复</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Argument-Prescan.html" rel="next">实参预扫描</a>, 上一页： <a href="Duplication-of-Side-Effects.html" rel="prev">副作用的重复</a>, 上一级： <a href="Macro-Pitfalls.html" rel="up">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h4 class="subsection" id="Self_002dReferential-Macros-1"><span>3.10.5 Self-Referential Macros<a class="copiable-link" href="#Self_002dReferential-Macros-1"> &para;</a></span></h4>
@@ -88,7 +88,7 @@ into <code class="code">(4 + foo)</code>; then this will be rescanned and will e
 useful effect of causing the program to add 4 to the value of <code class="code">foo</code>
 wherever <code class="code">foo</code> is referred to.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">自引用规则在一个步骤后缩短了这一过程，即 <code class="code">(4 + foo)</code>。因此，该宏定义可能具有使程序在引用 <code class="code">foo</code> 的地方将 <code class="code">foo</code> 的值加 4 的作用。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">自引用规则使这一过程在展开一步、得到 <code class="code">(4 + foo)</code> 后就停止。因此，这个宏定义可能有一种有用的效果：程序中每次引用 <code class="code">foo</code> 时，得到的都是变量 <code class="code">foo</code> 的值加 4。</p>
 <p>In most cases, it is a bad idea to take advantage of this feature.  A
 person reading the program who sees that <code class="code">foo</code> is a variable will
 not expect that it is a macro as well.  The reader will come across the
@@ -110,7 +110,7 @@ can tell that it&rsquo;s a macro with &lsquo;<samp class="samp">#ifdef</samp>&rs
 want to define numeric constants with an <code class="code">enum</code>, but have
 &lsquo;<samp class="samp">#ifdef</samp>&rsquo; be true for each constant.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">然后宏 <code class="code">EPERM</code> 展开为 <code class="code">EPERM</code>。实际上，每当在运行文本中使用它时，预处理器都会将其保留。你可以看出这是一个带有“<samp class="samp">#ifdef</samp>”的宏。如果您想使用 <code class="code">enum</code> 定义数字常量，但让每个常量的“<samp class="samp">#ifdef</samp>”为真，则可以这样做。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此时宏 <code class="code">EPERM</code> 会展开为 <code class="code">EPERM</code>。也就是说，它出现在普通文本中时，预处理器实际上会将它保持原样。可以通过 <code class="code">#ifdef</code> 检测到它是一个宏。如果希望用 <code class="code">enum</code> 定义数值常量，同时又让对各个常量的 <code class="code">#ifdef</code> 检测成立，就可以采用这种方法。</p>
 <p>If a macro <code class="code">x</code> expands to use a macro <code class="code">y</code>, and the expansion of
 <code class="code">y</code> refers to the macro <code class="code">x</code>, that is an <em class="dfn">indirect
 self-reference</em> of <code class="code">x</code>.  <code class="code">x</code> is not expanded in this case
@@ -142,7 +142,7 @@ macro, but not when it indirectly appears in its own definition.
 <div class="nav-panel">
 <p>
 Next: <a href="Argument-Prescan.html">Argument Prescan</a>, Previous: <a href="Duplication-of-Side-Effects.html">Duplication of Side Effects</a>, Up: <a href="Macro-Pitfalls.html">Macro Pitfalls</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Argument-Prescan.html">参数预扫描</a>, 上一页： <a href="Duplication-of-Side-Effects.html">副作用的重复</a>, 上一级： <a href="Macro-Pitfalls.html">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">下一页： <a href="Argument-Prescan.html">实参预扫描</a>, 上一页： <a href="Duplication-of-Side-Effects.html">副作用的重复</a>, 上一级： <a href="Macro-Pitfalls.html">宏的常见陷阱</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

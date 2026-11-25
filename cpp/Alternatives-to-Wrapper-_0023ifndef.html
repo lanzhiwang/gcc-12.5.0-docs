@@ -54,18 +54,18 @@ span:hover a.copiable-link {visibility: visible}
 <div class="nav-panel">
 <p>
 Next: <a href="Computed-Includes.html" accesskey="n" rel="next">Computed Includes</a>, Previous: <a href="Once_002dOnly-Headers.html" accesskey="p" rel="prev">Once-Only Headers</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p>下一页：<a href="Computed-Includes.html" accesskey="n" rel="next">计算包含</a>，上一页：<a href="Once_002dOnly-Headers.html" accesskey="p" rel="prev">只包含一次的头文件</a>，上级：<a href="Header-Files.html" accesskey="u" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p>下一页：<a href="Computed-Includes.html" accesskey="n" rel="next">通过宏计算包含文件名</a>，上一页：<a href="Once_002dOnly-Headers.html" accesskey="p" rel="prev">只包含一次的头文件</a>，上级：<a href="Header-Files.html" accesskey="u" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="Alternatives-to-Wrapper-_0023ifndef-1"><span>2.5 Alternatives to Wrapper #ifndef<a class="copiable-link" href="#Alternatives-to-Wrapper-_0023ifndef-1"> &para;</a></span></h3>
-<h3 class="section" id="Alternatives-to-Wrapper-_0023ifndef-zh"><span>2.5 包装器 #ifndef 的替代方案<a class="copiable-link" href="#Alternatives-to-Wrapper-_0023ifndef-zh"> &para;</a></span></h3>
+<h3 class="section" id="Alternatives-to-Wrapper-_0023ifndef-zh"><span>2.5 包围式 #ifndef 的替代方案<a class="copiable-link" href="#Alternatives-to-Wrapper-_0023ifndef-zh"> &para;</a></span></h3>
 
 <p>CPP supports two more ways of indicating that a header file should be
 read only once.  Neither one is as portable as a wrapper &lsquo;<samp class="samp">#ifndef</samp>&rsquo;
 and we recommend you do not use them in new programs, with the caveat
 that &lsquo;<samp class="samp">#import</samp>&rsquo; is standard practice in Objective-C.
 </p>
-<p>CPP 还支持另外两种表示头文件只应读取一次的方法。这两种方法都不如包装器 &lsquo;<samp class="samp">#ifndef</samp>&rsquo; 具有可移植性，因此我们建议不要在新程序中使用它们；但要注意，&lsquo;<samp class="samp">#import</samp>&rsquo; 是 Objective-C 中的标准实践。</p>
+<p>CPP 还支持另外两种表示头文件只应读取一次的方法。这两种方法都不如包围式 &lsquo;<samp class="samp">#ifndef</samp>&rsquo; 具有可移植性，因此我们建议不要在新程序中使用它们；但要注意，&lsquo;<samp class="samp">#import</samp>&rsquo; 是 Objective-C 中的标准实践。</p>
 <a class="index-entry-id" id="index-_0023import"></a>
 <p>CPP supports a variant of &lsquo;<samp class="samp">#include</samp>&rsquo; called &lsquo;<samp class="samp">#import</samp>&rsquo; which
 includes a file, but does so at most once.  If you use &lsquo;<samp class="samp">#import</samp>&rsquo;
@@ -81,7 +81,7 @@ better for the header file&rsquo;s implementor to write the file so that users
 don&rsquo;t need to know this.  Using a wrapper &lsquo;<samp class="samp">#ifndef</samp>&rsquo; accomplishes
 this goal.
 </p>
-<p>&lsquo;<samp class="samp">#import</samp>&rsquo; 的设计并不理想，因为它要求头文件的使用者知道该文件只能包含一次。更好的做法是由头文件的实现者编写相应代码，使使用者无需了解这一点。使用包装器 &lsquo;<samp class="samp">#ifndef</samp>&rsquo; 就能达到这一目标。</p>
+<p>&lsquo;<samp class="samp">#import</samp>&rsquo; 的设计并不理想，因为它要求头文件的使用者知道该文件只能包含一次。更好的做法是由头文件的实现者编写相应代码，使使用者无需了解这一点。使用包围式 &lsquo;<samp class="samp">#ifndef</samp>&rsquo; 就能达到这一目标。</p>
 <p>In the present implementation, a single use of &lsquo;<samp class="samp">#import</samp>&rsquo; will
 prevent the file from ever being read again, by either &lsquo;<samp class="samp">#import</samp>&rsquo; or
 &lsquo;<samp class="samp">#include</samp>&rsquo;.  You should not rely on this; do not use both
@@ -100,7 +100,7 @@ in a portable program.
 <div class="nav-panel">
 <p>
 Next: <a href="Computed-Includes.html">Computed Includes</a>, Previous: <a href="Once_002dOnly-Headers.html">Once-Only Headers</a>, Up: <a href="Header-Files.html">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p>下一页：<a href="Computed-Includes.html">计算包含</a>，上一页：<a href="Once_002dOnly-Headers.html">只包含一次的头文件</a>，上级：<a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p>下一页：<a href="Computed-Includes.html">通过宏计算包含文件名</a>，上一页：<a href="Once_002dOnly-Headers.html">只包含一次的头文件</a>，上级：<a href="Header-Files.html">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 
 

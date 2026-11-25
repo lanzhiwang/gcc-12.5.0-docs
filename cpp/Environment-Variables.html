@@ -156,7 +156,7 @@ defined as the number of seconds (excluding leap seconds) since
 <code class="code">date +%s</code> on GNU/Linux and other systems that support the
 <code class="code">%s</code> extension in the <code class="code">date</code> command.
 </p>
-<p><code class="env">SOURCE_DATE_EPOCH</code> 的值必须是 UNIX 时间戳，即从 1970 年 1 月 1 日 00:00:00 起经过的秒数（不包括闰秒），以 ASCII 表示；它应与 GNU/Linux 及其他支持 <code class="code">date</code> 命令 <code class="code">%s</code> 扩展的系统中 <code class="code">date +%s</code> 的输出相同。</p>
+<p><code class="code">SOURCE_DATE_EPOCH</code> 的值必须是以 ASCII 表示的 UNIX 时间戳，即自 1970 年 1 月 1 日 00:00:00 起经过的秒数（不包括闰秒）；其格式与 GNU/Linux 及其他支持 <code class="code">date</code> 命令 <code class="code">%s</code> 扩展的系统中 <code class="code">date +%s</code> 的输出相同。</p>
 <p>The value should be a known timestamp such as the last modification
 time of the source or package and it should be set by the build
 process.

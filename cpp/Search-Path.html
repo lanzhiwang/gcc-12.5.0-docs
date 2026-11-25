@@ -91,7 +91,7 @@ form of the directive) and ahead of the standard system directories.
 You can specify multiple <samp class="option">-I</samp> options on the command line, 
 in which case the directories are searched in left-to-right order.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">您可以使用许多命令行选项将其他目录添加到搜索路径。最常用的选项是 <samp class="option">-I<var class="var">dir</var></samp>，它会导致在当前目录之后（对于指令的引用形式）和标准系统目录之前搜索 <var class="var">dir</var>。您可以在命令行上指定多个 <samp class="option">-I</samp> 选项，在这种情况下，按从左到右的顺序搜索目录。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以使用多种命令行选项向搜索路径添加目录。最常用的是 <code class="code">-Idir</code>：它使 <code class="code">dir</code> 在当前文件所在目录之后（仅对双引号形式的包含指令），在标准系统目录之前被搜索。命令行可以指定多个 <code class="code">-I</code> 选项，此时按从左到右的顺序搜索这些目录。</p>
 <p>If you need separate control over the search paths for the quote and 
 angle-bracket forms of the &lsquo;<samp class="samp">#include</samp>&rsquo; directive, you can use the
 <samp class="option">-iquote</samp> and/or <samp class="option">-isystem</samp> options instead of <samp class="option">-I</samp>.
@@ -111,7 +111,7 @@ option.  This is useful when you are compiling an operating system
 kernel or some other program that does not use the standard C library
 facilities, or the standard C library itself.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，您还可以使用 <samp class="option">-nostdinc</samp> 选项阻止预处理器搜索任何默认系统头目录。当您编译操作系统内核或其他不使用标准 C 库工具或标准 C 库本身的程序时，这非常有用。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">还可以使用 <code class="code">-nostdinc</code> 选项，禁止预处理器搜索任何默认系统头文件目录。在编译操作系统内核、其他不使用标准 C 库功能的程序，或标准 C 库本身时，这很有用。</p>
 </div>
 <hr>
 <div class="nav-panel">

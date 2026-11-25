@@ -55,7 +55,7 @@ ul.mark-bullet {list-style-type: disc}
 <div class="nav-panel">
 <p>
 Previous: <a href="Wrapper-Headers.html" accesskey="p" rel="prev">Wrapper Headers</a>, Up: <a href="Header-Files.html" accesskey="u" rel="up">Header Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index-of-Directives.html" title="Index" rel="index">Index</a>]</p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Wrapper-Headers.html" rel="prev">包装器头文件</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">上一页： <a href="Wrapper-Headers.html" rel="prev">包装头文件</a>, 上一级： <a href="Header-Files.html" rel="up">头文件</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">目录</a>][<a href="Index-of-Directives.html" title="Index" rel="index">索引</a>]</p>
 </div>
 <hr>
 <h3 class="section" id="System-Headers-1"><span>2.8 System Headers<a class="copiable-link" href="#System-Headers-1"> &para;</a></span></h3>
@@ -72,7 +72,7 @@ wherever they are expanded.  This immunity is granted on an ad-hoc
 basis, when we find that a warning generates lots of false positives
 because of code in macros defined in system headers.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">声明操作系统和运行时库接口的头文件通常不能用严格符合 C 语言编写。因此，GCC 对系统头文件中的代码给予特殊处理。当 GCC 处理系统头文件时，除“<samp class="samp">#warning</samp>”生成的警告（请参阅 <a class="pxref" href="Diagnostics.html">诊断</a>）之外的所有警告都会被抑制。系统头文件中定义的宏无论在何处展开都不会受到一些警告的影响。当我们发现警告由于系统头中定义的宏中的代码而产生大量误报时，会临时授予这种豁免权。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">声明操作系统和运行时库接口的头文件，往往无法用严格符合标准的 C 代码编写。因此，GCC 会对系统头文件中的代码作特殊处理：在处理系统头文件时，除 <code class="code">#warning</code> 生成的警告（参见<a href="Diagnostics.html">诊断</a>）外，所有警告都会被抑制。此外，系统头文件中定义的宏无论在哪里展开，都可免于少数几类警告。当开发者发现某类警告会因这类宏中的代码而大量误报时，就会针对具体情况赋予相应豁免。</p>
 <p>Normally, only the headers found in specific directories are considered
 system headers.  These directories are determined when GCC is compiled.
 There are, however, two ways to make normal headers into system headers:

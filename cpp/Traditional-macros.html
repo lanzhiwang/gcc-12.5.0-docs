@@ -69,7 +69,7 @@ all leading and trailing horizontal whitespace from a macro&rsquo;s
 replacement text before storing it, but preserves the form of internal
 whitespace.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">传统宏和 ISO 宏之间的主要区别在于前者展开为文本而不是标记序列。 CPP 在存储之前从宏的替换文本中删除所有前导和尾随水平空格，但保留内部空格的形式。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统宏和 ISO 宏之间的主要区别在于前者展开为文本而不是标记序列。 CPP 在存储之前从宏的替换文本中删除所有前导和尾随水平空白，但保留内部空格的形式。</p>
 <p>One consequence is that it is legitimate for the replacement text to
 contain an unmatched quote (see <a class="pxref" href="Traditional-lexical-analysis.html">Traditional lexical analysis</a>).  An
 unclosed string or character constant continues into the text
@@ -92,7 +92,7 @@ similar to these operators can be obtained in a different way.  Macro
 names that are embedded in quotes, either from the main file or after
 macro replacement, do not expand.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">ISO 字符串化运算符“<samp class="samp">#</samp>”和标记粘贴运算符“<samp class="samp">##</samp>”没有特殊含义。如稍后所解释的，可以通过不同的方式获得与这些运算符类似的效果。嵌入在引号中的宏名称（无论是来自主文件还是宏替换后）都不会展开。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">ISO 字符串化运算符“<samp class="samp">#</samp>”和标记拼接运算符“<samp class="samp">##</samp>”没有特殊含义。如稍后所解释的，可以通过不同的方式获得与这些运算符类似的效果。嵌入在引号中的宏名称（无论是来自主文件还是宏替换后）都不会展开。</p>
 <p>CPP replaces an unquoted object-like macro name with its replacement
 text, and then rescans it for further macros to replace.  Unlike
 standard macro expansion, traditional macro expansion has no provision
@@ -119,13 +119,13 @@ unclosed; a following comma or parenthesis that comes before the
 closing quote is treated like any other character.  There is no
 facility for handling variadic macros.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏与 ISO 对应宏在形式上相似，但在行为上却截然不同。它们的参数包含在括号内，以逗号分隔，并且可以跨越物理线。嵌套括号内的逗号不被视为参数分隔符。同样，参数中的引用也不能不闭合；结束引号之前的逗号或括号将像任何其他字符一样对待。没有处理可变参数宏的工具。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏与 ISO 模式中的函数类宏形式相似，行为却很不同。实参用圆括号括起、以逗号分隔，并可跨越物理行。嵌套圆括号中的逗号不会被视为实参分隔符。同样，实参中的引号必须闭合；在结束引号之前出现的逗号或括号，都被视为普通字符。不支持可变参数宏。</p>
 <p>This implementation removes all comments from macro arguments, unless
 the <samp class="option">-C</samp> option is given.  The form of all other horizontal
 whitespace in arguments is preserved, including leading and trailing
 whitespace.  In particular
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">此实现会删除宏参数中的所有注释，除非给出了 <samp class="option">-C</samp> 选项。参数中所有其他水平空格的形式都会保留，包括前导和尾随空格。特别是</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此实现会删除宏实参中的所有注释，除非给出了 <samp class="option">-C</samp> 选项。实参中所有其他水平空白的形式都会保留，包括前导和尾随空格。特别是</p>
 <div class="example smallexample">
 <pre class="example-preformatted">f( )
 </pre></div>
@@ -135,31 +135,31 @@ argument consisting of a single space.  If you want to invoke a
 function-like macro that takes no arguments, you must not leave any
 whitespace between the parentheses.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">被视为使用由单个空格组成的单个参数调用宏“<samp class="samp">f</samp>”。如果要调用不带参数的函数类宏，则括号之间不得留有任何空格。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">被视为使用由单个空格组成的单个实参调用宏“<samp class="samp">f</samp>”。如果要调用不带实参的函数类宏，则括号之间不得留有任何空白。</p>
 <p>If a macro argument crosses a new line, the new line is replaced with
 a space when forming the argument.  If the previous line contained an
 unterminated quote, the following line inherits the quoted state.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏参数跨越新行，则在形成参数时，新行将替换为空格。如果上一行包含未终止的引号，则下一行将继承引号状态。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏实参跨越换行符，在形成实参时，换行符会被替换为一个空格。如果前一行含有尚未闭合的引号，后一行会继续处于引号内的状态。</p>
 <p>Traditional preprocessors replace parameters in the replacement text
 with their arguments regardless of whether the parameters are within
 quotes or not.  This provides a way to stringize arguments.  For
 example
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">传统预处理器会用实参替换宏替换文本中的形参，无论形参是否位于引号内部。这提供了一种对参数进行字符串化的方法。例如：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统预处理器会用实参替换宏替换文本中的形参，无论形参是否位于引号内部。这提供了一种对实参进行字符串化的方法。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define str(x) &quot;x&quot;
 str(/* <span class="r">A comment</span> */some text )
      &rarr; &quot;some text &quot;
 </pre>
-<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>一条评论</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>一条注释</p>
 </div>
 
 <p>Note that the comment is removed, but that the trailing space is
 preserved.  Here is an example of using a comment to effect token
 pasting.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，注释已被删除，但尾随空格被保留。下面是使用注释来实现标记粘贴的示例。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">请注意，注释已被删除，但尾随空格被保留。下面是使用注释来实现标记拼接的示例。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define suffix(x) foo_/**/x
 suffix(bar)

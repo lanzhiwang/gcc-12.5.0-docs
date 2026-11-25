@@ -73,7 +73,7 @@ expressions.  The <code class="code">__has_builtin</code> operator by itself, wi
 for it can be tested in portable code.  Thus, the recommended use of
 the operator is as follows:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code class="code">__has_builtin (<var class="var">operand</var>)</code> 可以用在常量整数上下文以及预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中，以测试由其 <var class="var">operand</var> 命名的符号是否被 GCC 在当前语言和一致性模式下识别为内置函数。如果参数引用这样的函数，则其计算结果为具有非零值的常量整数，否则为零。该运算符也可以用在预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中。 <code class="code">__has_builtin</code> 运算符本身（没有任何 <var class="var">operand</var> 或括号）充当预定义宏，以便可以在可移植代码中测试对其的支持。因此，建议使用该运算符如下：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">特殊运算符 <code class="code">__has_builtin (<var class="var">operand</var>)</code> 可以用在整型常量上下文以及预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中，以测试由其 <var class="var">operand</var> 命名的符号是否被 GCC 在当前语言和标准符合性模式下识别为内置函数。如果参数引用这样的函数，则其计算结果为具有非零值的常量整数，否则为零。该运算符也可以用在预处理器“<samp class="samp">#if</samp>”和“<samp class="samp">#elif</samp>”表达式中。 <code class="code">__has_builtin</code> 运算符本身（没有任何 <var class="var">operand</var> 或括号）充当预定义宏，以便可以在可移植代码中测试对其的支持。因此，建议使用该运算符如下：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if defined __has_builtin
 #  if __has_builtin (__builtin_object_size)

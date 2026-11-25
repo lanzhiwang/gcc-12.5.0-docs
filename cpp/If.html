@@ -78,7 +78,7 @@ expression, rather than the mere existence of one macro.  Its syntax is
 <p><var class="var">expression</var> is a C expression of integer type, subject to stringent
 restrictions.  It may contain
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">expression</var>是整数类型的C表达式，受到严格的限制。它可能包含</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">expression</code> 是一个整数类型的 C 表达式，受到严格限制。它可以包含以下内容：</p>
 <ul class="itemize mark-bullet">
 <li>Integer constants.
 
@@ -95,7 +95,7 @@ operations (<code class="code">&amp;&amp;</code> and <code class="code">||</code
 short-circuiting rules of standard C.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">用于加法、减法、乘法、除法、按位运算、移位、比较和逻辑运算的算术运算符（<code class="code">&amp;&amp;</code> 和 <code class="code">||</code>）。后两者遵循标准 C 的通常短路规则。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">用于加、减、乘、除、按位运算、移位、比较和逻辑运算的运算符。其中两个逻辑运算符（<code class="code">&amp;&amp;</code> 和 <code class="code">||</code>）遵循标准 C 通常的短路求值规则。</p>
 </li><li>Macros.  All macros in the expression are expanded before actual
 computation of the expression&rsquo;s value begins.
 
@@ -136,8 +136,7 @@ expression, and may give different results in some cases.  If the value
 comes out to be nonzero, the &lsquo;<samp class="samp">#if</samp>&rsquo; succeeds and the <var class="var">controlled
 text</var> is included; otherwise it is skipped.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理器计算 <var class="var">expression</var> 的值。它以编译器已知的最宽整数类型执行所有计算；在 GCC 支持的大多数机器上，这是 64 位。这与编译器用于计算常量表达式值的规则不同，并且在某些情况下可能会给出不同的结果。如果该值非零，则“<samp class="samp">#if</samp>”成功并包含 <var class="var">controlled
-text</var>；否则将被跳过。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">预处理器计算 <var class="var">expression</var> 的值。它以编译器已知的最宽整数类型执行所有计算；在 GCC 支持的大多数机器上，这是 64 位。这与编译器用于计算常量表达式值的规则不同，并且在某些情况下可能会给出不同的结果。如果该值非零，则“<samp class="samp">#if</samp>”成功并包含 <var class="var">受控制的文本</var>；否则将被跳过。</p>
 </div>
 <hr>
 <div class="nav-panel">

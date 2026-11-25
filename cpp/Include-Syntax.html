@@ -71,7 +71,7 @@ directive &lsquo;<samp class="samp">#include</samp>&rsquo;.  It has two variants
 named <var class="var">file</var> in a standard list of system directories.  You can prepend
 directories to this list with the <samp class="option">-I</samp> option (see <a class="pxref" href="Invocation.html">Invocation</a>).
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">此变体用于系统头文件。它在标准系统目录列表中搜索名为 <var class="var">file</var> 的文件。您可以使用 <samp class="option">-I</samp> 选项将目录添加到此列表中（请参阅 <a class="pxref" href="Invocation.html">调用</a>）。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">此变体用于系统头文件。它在标准系统目录列表中搜索名为 <var class="var">file</var> 的文件。您可以使用 <samp class="option">-I</samp> 选项将目录添加到此列表的开头（请参阅 <a class="pxref" href="Invocation.html">调用</a>）。</p>
 </dd>
 <dt><code class="code">#include &quot;<var class="var">file</var>&quot;</code></dt>
 <dd><p>This variant is used for header files of your own program.  It
@@ -88,7 +88,7 @@ to the list of quote directories with the <samp class="option">-iquote</samp> op
 angle brackets, behaves like a string constant in that comments are not
 recognized, and macro names are not expanded.  Thus, <code class="code">#include&nbsp;&lt;x/*y&gt;<!-- /@w --></code> specifies inclusion of a system header file named <samp class="file">x/*y</samp>.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include</samp>”的参数，无论是用引号还是尖括号分隔，其行为都类似于字符串常量，因为无法识别注释，并且不会扩展宏名称。因此，<code class="code">#include&nbsp;&lt;x/*y&gt;<!-- /@w --></code> 指定包含名为 <samp class="file">x/*y</samp> 的系统头文件。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">“<samp class="samp">#include</samp>”的参数，无论是用引号还是尖括号分隔，其行为都类似于字符串常量，因为其中不会识别注释，也不会展开宏名。因此，<code class="code">#include&nbsp;&lt;x/*y&gt;<!-- /@w --></code> 指定包含名为 <samp class="file">x/*y</samp> 的系统头文件。</p>
 <p>However, if backslashes occur within <var class="var">file</var>, they are considered
 ordinary text characters, not escape characters.  None of the character
 escape sequences appropriate to string constants in C are processed.

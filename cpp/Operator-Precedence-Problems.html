@@ -69,7 +69,7 @@ it.  In addition, another pair of parentheses usually surround the
 entire macro definition.  Here is why it is best to write macros that
 way.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">您可能已经注意到，在上面显示的大多数宏定义示例中，每次出现的宏参数名称都带有括号。此外，另一对括号通常包围整个宏定义。这就是为什么最好以这种方式编写宏。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">您可能已经注意到，在上面显示的大多数宏定义示例中，每次出现的宏形参名称都带有括号。此外，另一对括号通常包围整个宏定义。这就是为什么最好以这种方式编写宏。</p>
 <p>Suppose you define a macro as follows,
 </p>
 <p lang="zh-CN" data-cpp-translation="1" class="translation">假设您定义了一个宏，如下所示：</p>
@@ -117,8 +117,7 @@ ceil_div(1, 2)</code>.  That has the appearance of a C expression that would
 compute the size of the type of <code class="code">ceil_div (1, 2)</code>, but in fact it
 means something very different.  Here is what it expands to:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">意外的分组可能会导致另一种结果。考虑 <code class="code">sizeof
-ceil_div(1, 2)</code>。它看起来像一个 C 表达式，可以计算 <code class="code">ceil_div (1, 2)</code> 类型的大小，但实际上它的含义非常不同。以下是它的展开内容：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">还可能以另一种方式出现不符合预期的分组。考虑 <code class="code">sizeof ceil_div(1, 2)</code>：它看起来像是计算表达式 <code class="code">ceil_div (1, 2)</code> 所属类型大小的 C 表达式，实际含义却大不相同。它会展开为：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">sizeof ((1) + (2) - 1) / (2)
 </pre></div>
@@ -127,7 +126,7 @@ ceil_div(1, 2)</code>。它看起来像一个 C 表达式，可以计算 <code c
 precedence rules have put the division outside the <code class="code">sizeof</code> when it
 was intended to be inside.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">这将采用整数的大小并将其除以二。优先级规则已将该除法放在 <code class="code">sizeof</code> 之外，而该除法本应位于 <code class="code">sizeof</code> 内部。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这会先取整数类型所占的字节数，再将其除以二。根据优先级规则，除法被放到了 <code class="code">sizeof</code> 的作用范围之外，而本意是将它放在其中。</p>
 <p>Parentheses around the entire macro definition prevent such problems.
 Here, then, is the recommended way to define <code class="code">ceil_div</code>:
 </p>

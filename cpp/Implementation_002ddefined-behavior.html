@@ -67,7 +67,7 @@ describes as <em class="dfn">implementation-defined</em>.  This term means that 
 implementation is free to do what it likes, but must document its choice
 and stick to it.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">这就是 CPP 在 C 标准描述为 <em class="dfn"> 实现定义的 </em> 的所有情况下的行为方式。该术语意味着实现可以自由地做它喜欢做的事情，但必须记录其选择并坚持下去。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">本节说明 CPP 在 C 标准列为“实现定义”的各种情形下的行为。“实现定义”意味着实现可以自行选择行为，但必须记录其选择，并遵循所记录的行为。</p>
 <ul class="itemize mark-bullet">
 <li>The mapping of physical source file multi-byte characters to the
 execution character set.
@@ -135,7 +135,7 @@ characters in the constant than would fit in the target <code class="code">int</
 compiler issues a warning, and the excess leading characters are
 ignored.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">编译器一次计算一个字符的多字符字符常量，将先前的值左移每个目标字符的位数，然后对截断为目标字符宽度的新字符的位模式进行或运算。最终的位模式的给定类型为 <code class="code">int</code>，因此无论单个字符是否有符号，都是有符号的。如果常量中的字符多于目标 <code class="code">int</code> 中可以容纳的字符，编译器会发出警告，并忽略多余的前导字符。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">编译器逐个处理多字符字符常量中的字符：先将已有值左移，移位位数等于目标机器上每个字符的位数，再将新字符截断到目标字符宽度后的位模式按位或入。最终位模式的类型为 <code class="code">int</code>，因此无论单个字符是否带符号，结果都是有符号的。如果常量中的字符数超过目标 <code class="code">int</code> 能容纳的数量，编译器就会发出警告，并忽略开头多出的字符。</p>
 <p>For example, <code class="code">'ab'</code> for a target with an 8-bit <code class="code">char</code> would be
 interpreted as &lsquo;<samp class="samp">(int)&nbsp;((unsigned&nbsp;char)&nbsp;'a'&nbsp;*&nbsp;256&nbsp;+&nbsp;(unsigned&nbsp;char)&nbsp;'b')</samp>&rsquo;<!-- /@w -->, and <code class="code">'\234a'</code> as &lsquo;<samp class="samp">(int)&nbsp;((unsigned&nbsp;char)&nbsp;'\234'&nbsp;*&nbsp;256&nbsp;+&nbsp;(unsigned&nbsp;char)&nbsp;'a')</samp>&rsquo;<!-- /@w -->.
 </p>
@@ -146,7 +146,7 @@ interpreted as &lsquo;<samp class="samp">(int)&nbsp;((unsigned&nbsp;char)&nbsp;'
 <p lang="zh-CN" data-cpp-translation="1" class="translation">源文件包含。</p><p>For a discussion on how the preprocessor locates header files,
 <a class="ref" href="Include-Operation.html">Include Operation</a>.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">有关预处理器如何定位头文件的讨论，<a class="ref" href="Include-Operation.html">包含操作</a>。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有关预处理器如何定位头文件的讨论，请参阅<a class="ref" href="Include-Operation.html">包含操作</a>。</p>
 </li><li>Interpretation of the filename resulting from a macro-expanded
 &lsquo;<samp class="samp">#include</samp>&rsquo; directive.
 
@@ -158,7 +158,7 @@ interpreted as &lsquo;<samp class="samp">(int)&nbsp;((unsigned&nbsp;char)&nbsp;'
 results in a standard pragma.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">对“<samp class="samp">#pragma</samp>”指令的处理在宏展开后会产生标准编译指示。</p><p>No macro expansion occurs on any &lsquo;<samp class="samp">#pragma</samp>&rsquo; directive line, so the
+<p lang="zh-CN" data-cpp-translation="1" class="translation">对经过宏展开后成为标准 pragma 的 <code class="code">#pragma</code> 指令的处理。</p><p>No macro expansion occurs on any &lsquo;<samp class="samp">#pragma</samp>&rsquo; directive line, so the
 question does not arise.
 </p>
 <p lang="zh-CN" data-cpp-translation="1" class="translation">任何“<samp class="samp">#pragma</samp>”指令行上都不会发生宏展开，因此不会出现该问题。</p>

@@ -74,7 +74,7 @@ macro is function-like.  It is an error if anything appears on the line
 after the macro name.  &lsquo;<samp class="samp">#undef</samp>&rsquo; has no effect if the name is not a
 macro.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏不再有用，则可能会使用“<samp class="samp">#undef</samp>”指令取消定义它。 ‘<samp class="samp">#undef</samp>’采用单个参数，即要取消定义的宏的名称。即使宏是类似函数的，您也可以使用裸宏名称。如果宏名称后面的行中出现任何内容，则表示错误。如果名称不是宏，则“<samp class="samp">#undef</samp>”无效。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果某个宏不再需要，可以用 <code class="code">#undef</code> 指令取消其定义。<code class="code">#undef</code> 只接受一个参数，即要取消定义的宏名。即使是函数类宏，也只写宏名本身。宏名之后的同一行若还有其他内容，就会报错。如果该名称不是宏，<code class="code">#undef</code> 就不起作用。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define FOO 4
 x = FOO;        &rarr; x = 4;
@@ -101,7 +101,7 @@ Two macro definitions are effectively the same if:
 <p lang="zh-CN" data-cpp-translation="1" class="translation">替换列表中的所有标记相同。</p>
 </li><li>If there are any parameters, they are the same.
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果有任何参数，它们都是相同的。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果带有形参，形参也必须相同。</p>
 </li><li>Whitespace appears in the same places in both.  It need not be
 exactly the same amount of whitespace, though.  Remember that comments
 count as whitespace.

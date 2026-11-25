@@ -93,7 +93,7 @@ effectively be used as token paste operators.  However, comments
 behave like separators for text handled by the preprocessor itself,
 since it doesn&rsquo;t re-lex its input.  For example, in
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">传统上，注释被完全删除并且不被空格替换。由于传统编译器对预处理器的输出进行自己的标记化，这意味着注释可以有效地用作标记粘贴运算符。然而，注释的行为就像预处理器本身处理的文本分隔符，因为它不会重新解释其输入。例如，在</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">传统上，注释被完全删除并且不被空格替换。由于传统编译器对预处理器的输出进行自己的标记化，这意味着注释可以有效地用作标记拼接运算符。然而，注释的行为就像预处理器本身处理的文本分隔符，因为它不会重新对输入进行词法分析。例如，在</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#if foo/**/bar
 </pre></div>
@@ -132,7 +132,7 @@ require matching quotes.  For example:
    is ill-formed.</span>  */
 #include &lt;stdio.h
 </pre>
-<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>这不是评论。 / 这是一条评论。以下 #include 指令格式不正确。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><strong>示例注释译文：</strong>这不是注释。 / 这是一条注释。以下 #include 指令格式不正确。</p>
 </div>
 
 <p>Just as for the ISO preprocessor, what would be a closing quote can be

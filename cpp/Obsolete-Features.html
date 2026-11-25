@@ -107,7 +107,7 @@ redefinition.)  Thus, <code class="code">(x + y)</code> is different from <code 
 equivalent to <code class="code">(&nbsp;x&nbsp;+&nbsp;y&nbsp;)<!-- /@w --></code>.  Parentheses do not nest inside an
 answer.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation"><var class="var">predicate</var> 必须是单个标识符。 <var class="var">answer</var>可以是任何标记序列；除了前导和尾随空白之外，所有字符都很重要，并且内部空白序列的差异将被忽略。 （这与管理宏重定义的规则类似。）因此，<code class="code">(x + y)</code> 与 <code class="code">(x+y)</code> 不同，但等同于 <code class="code">(&nbsp;x&nbsp;+&nbsp;y&nbsp;)<!-- /@w --></code>。括号不嵌套在答案内。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation"><code class="code">predicate</code> 必须是单个标识符。<code class="code">answer</code> 可以是任意标记序列；除首尾空白外，所有字符都参与区分，但内部空白序列的具体写法差异会被忽略。（这与宏重定义的规则相似。）因此，<code class="code">(x + y)</code> 与 <code class="code">(x+y)</code> 不同，却与 <code class="code">( x + y )</code> 等价。答案内部不支持圆括号嵌套。</p>
 <a class="index-entry-id" id="index-testing-predicates"></a>
 <p>To test an assertion, you write it in an &lsquo;<samp class="samp">#if</samp>&rsquo;.  For example, this
 conditional succeeds if either <code class="code">vax</code> or <code class="code">ns16000</code> has been
@@ -131,7 +131,7 @@ omitting the answer in the conditional:
 argument is the assertion to make, without the leading &lsquo;<samp class="samp">#</samp>&rsquo; that
 identifies assertions in conditionals.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">使用“<samp class="samp">#assert</samp>”指令进行断言。它唯一的参数是要做出的断言，没有领先的“<samp class="samp">#</samp>”来标识条件中的断言。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">断言通过 <code class="code">#assert</code> 指令建立。它只接受一个参数，即要建立的断言，但不带在条件表达式中用于标识断言的前导 <code class="code">#</code>。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#assert <var class="var">predicate</var> (<var class="var">answer</var>)
 </pre></div>

@@ -78,7 +78,7 @@ number and a name, such as <code class="code">1.5</code> and <code class="code">
 Also, multi-character operators such as <code class="code">+=</code> can be formed by
 token pasting.
 </p>
-<p>在展开宏时，将两个标记合并为一个标记通常很有用，这称为<em class="dfn">标记粘接</em>或<em class="dfn">标记拼接</em>。&lsquo;<samp class="samp">##</samp>&rsquo; 预处理运算符执行标记粘接。展开宏时，每个 &lsquo;<samp class="samp">##</samp>&rsquo; 运算符两侧的标记会合并成一个标记，并用它替换宏展开中的 &lsquo;<samp class="samp">##</samp>&rsquo; 及两个原始标记。通常两个标记都是标识符，或者一个是标识符、另一个是预处理数字，粘接后会形成更长的标识符。这并不是唯一的有效情况：也可以将两个数字，或一个数字和一个名称（例如 <code class="code">1.5</code> 与 <code class="code">e3</code>）拼接成数字；还可以通过标记粘接形成 <code class="code">+=</code> 等多字符运算符。</p>
+<p>在展开宏时，将两个标记合并为一个标记通常很有用，这称为<em class="dfn">标记拼接</em>（token pasting 或 token concatenation）。&lsquo;<samp class="samp">##</samp>&rsquo; 预处理运算符执行标记拼接。展开宏时，每个 &lsquo;<samp class="samp">##</samp>&rsquo; 运算符两侧的标记会合并成一个标记，并用它替换宏展开中的 &lsquo;<samp class="samp">##</samp>&rsquo; 及两个原始标记。通常两个标记都是标识符，或者一个是标识符、另一个是预处理数字，拼接后会形成更长的标识符。这并不是唯一的有效情况：也可以将两个数字，或一个数字和一个名称（例如 <code class="code">1.5</code> 与 <code class="code">e3</code>）拼接成数字；还可以通过标记拼接形成 <code class="code">+=</code> 等多字符运算符。</p>
 <p>However, two tokens that don&rsquo;t together form a valid token cannot be
 pasted together.  For example, you cannot concatenate <code class="code">x</code> with
 <code class="code">+</code> in either order.  If you try, the preprocessor issues a warning
@@ -87,7 +87,7 @@ tokens is undefined.  It is common to find unnecessary uses of &lsquo;<samp clas
 in complex macros.  If you get this warning, it is likely that you can
 simply remove the &lsquo;<samp class="samp">##</samp>&rsquo;.
 </p>
-<p>但是，两个标记如果不能共同形成有效标记，就不能粘接在一起。例如，不能将 <code class="code">x</code> 与 <code class="code">+</code> 按任一顺序拼接。如果尝试这样做，预处理器会发出警告并输出这两个标记。标记之间是否插入空白是未定义的。在复杂宏中经常会出现不必要的 &lsquo;<samp class="samp">##</samp>&rsquo;。如果收到此警告，通常可以直接删除 &lsquo;<samp class="samp">##</samp>&rsquo;。</p>
+<p>但是，两个标记如果不能共同形成有效标记，就不能拼接在一起。例如，不能将 <code class="code">x</code> 与 <code class="code">+</code> 按任一顺序拼接。如果尝试这样做，预处理器会发出警告并输出这两个标记。标记之间是否插入空白是未定义的。在复杂宏中经常会出现不必要的 &lsquo;<samp class="samp">##</samp>&rsquo;。如果收到此警告，通常可以直接删除 &lsquo;<samp class="samp">##</samp>&rsquo;。</p>
 <p>Both the tokens combined by &lsquo;<samp class="samp">##</samp>&rsquo; could come from the macro body,
 but you could just as well write them as one token in the first place.
 Token pasting is most useful when one or both of the tokens comes from a
@@ -97,7 +97,7 @@ executes.  As with stringizing, the actual argument is not
 macro-expanded first.  If the argument is empty, that &lsquo;<samp class="samp">##</samp>&rsquo; has no
 effect.
 </p>
-<p>由 &lsquo;<samp class="samp">##</samp>&rsquo; 合并的两个标记都可以来自宏体，但也可以一开始就把它们写成一个标记。标记粘接在一个或两个标记来自宏参数时最有用。如果 &lsquo;<samp class="samp">##</samp>&rsquo; 旁边的任一标记是参数名，那么在执行 &lsquo;<samp class="samp">##</samp>&rsquo; 之前，它会被实际参数替换。与字符串化一样，实际参数不会先进行宏展开。如果参数为空，该 &lsquo;<samp class="samp">##</samp>&rsquo; 不产生任何效果。</p>
+<p>由 <code class="code">##</code> 合并的两个标记都可以来自宏体，但这样还不如一开始就把它们写成一个标记。标记拼接在一个或两个标记来自宏实参时最有用。如果 <code class="code">##</code> 旁边的任一标记是形参名，那么在执行 <code class="code">##</code> 之前，它会被相应的实参替换。与字符串化一样，实参不会先进行宏展开。如果实参为空，该 <code class="code">##</code> 不产生任何效果。</p>
 <p>Keep in mind that the C preprocessor converts comments to whitespace
 before macros are even considered.  Therefore, you cannot create a
 comment by concatenating &lsquo;<samp class="samp">/</samp>&rsquo; and &lsquo;<samp class="samp">*</samp>&rsquo;.  You can put as much

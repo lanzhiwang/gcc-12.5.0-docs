@@ -80,7 +80,7 @@ produced as the result of macro expansion.  <code class="code">_Pragma<!-- /@w -
 operator, much like <code class="code">sizeof</code> or <code class="code">defined</code>, and can be embedded
 in a macro.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">C99引入了<code class="code">_Pragma<!-- /@w --></code>算子。此功能解决了“<samp class="samp">#pragma</samp>”的一个主要问题：作为指令，它不能作为宏展开的结果生成。 <code class="code">_Pragma<!-- /@w --></code> 是一个运算符，与 <code class="code">sizeof</code> 或 <code class="code">defined</code> 非常相似，并且可以嵌入到宏中。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C99 引入了 <code class="code">_Pragma</code> 运算符。它解决了 <code class="code">#pragma</code> 的一个主要问题：<code class="code">#pragma</code> 是指令，不能由宏展开生成。<code class="code">_Pragma</code> 是一个类似于 <code class="code">sizeof</code> 或 <code class="code">defined</code> 的运算符，可以嵌入宏中。</p>
 <p>Its syntax is <code class="code">_Pragma&nbsp;(<var class="var">string-literal</var>)<!-- /@w --></code>, where
 <var class="var">string-literal</var> can be either a normal or wide-character string
 literal.  It is destringized, by replacing all &lsquo;<samp class="samp">\\</samp>&rsquo; with a single
@@ -108,7 +108,7 @@ directive like &lsquo;<samp class="samp">#if</samp>&rsquo;.  To be safe, you are
 out of directives other than &lsquo;<samp class="samp">#define</samp>&rsquo;, and putting it on a line of
 its own.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">该标准并不清楚 <code class="code">_Pragma</code> 运算符可以出现在哪里。预处理器不接受“<samp class="samp">#if</samp>”等预处理条件指令中的它。为了安全起见，您最好将其排除在“<samp class="samp">#define</samp>”以外的指令之外，并将其放在自己的一行中。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">标准没有明确规定 <code class="code">_Pragma</code> 运算符可以出现的位置。预处理器不接受它出现在 <code class="code">#if</code> 等预处理条件指令中。为稳妥起见，最好不要将它放在 <code class="code">#define</code> 以外的指令中，并让它单独占一行。</p>
 <p>This manual documents the pragmas which are meaningful to the
 preprocessor itself.  Other pragmas are meaningful to the C or C++
 compilers.  They are documented in the GCC manual.
@@ -156,7 +156,7 @@ which was defined before the identifier was poisoned, it will <em class="emph">n
 cause an error.  This lets you poison an identifier without worrying
 about system headers defining macros that use it.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果中毒标识符作为在标识符中毒之前定义的宏展开的一部分出现，则不会导致错误。这使您可以毒害标识符，而不必担心定义使用它的宏的系统头文件。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果被禁用的标识符出现在某个宏的展开结果中，而该宏在标识符被禁用之前就已定义，则不会报错。这样就可以禁用某个标识符，而不必担心系统头文件中已定义的宏使用了它。</p>
 <p>For example,
 </p>
 <p lang="zh-CN" data-cpp-translation="1" class="translation">例如，</p>

@@ -87,7 +87,7 @@ CPP does not insert any
 whitespace where there was none in the original source, except where
 necessary to prevent an accidental token paste.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">ISO 标准把标记间空白是否原样保留、或缩为一个空格等问题留给实现决定。GNU CPP 会把标记间的空白序列缩为一个空格，但会在非指令行的第一个标记前保留足够空格，使其与原文件中的列位置一致。除防止标记意外粘连所必需的情况外，CPP 不会在原本没有空白的位置插入空白。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">ISO 标准把标记间空白是否原样保留、或缩为一个空格等问题留给实现决定。GNU CPP 会把标记间的空白序列缩为一个空格，但会在非指令行的第一个标记前保留足够空格，使其与原文件中的列位置一致。这样可以使输出更易读。除防止标记意外粘连所必需的情况外，CPP 不会在原本没有空白的位置插入空白。</p>
 <a class="index-entry-id" id="index-linemarkers"></a>
 <p>Source file name and line number information is conveyed by lines
 of the form
@@ -151,7 +151,7 @@ expansion happens to generate tokens which might be mistaken for a
 duplicated directive, a space will be inserted between the &lsquo;<samp class="samp">#</samp>&rsquo; and
 the directive name.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">某些指令可能会在预处理器的输出中重复。它们是“<samp class="samp">#ident</samp>”（始终）、“<samp class="samp">#pragma</samp>”（仅当预处理器本身不处理编译指示时）以及“<samp class="samp">#define</samp>”和“<samp class="samp">#undef</samp>”（具有某些调试选项）。如果发生这种情况，指令的“<samp class="samp">#</samp>”将始终位于第一列，并且“<samp class="samp">#</samp>”和指令名称之间不会有空格。如果宏展开恰好生成可能被误认为重复指令的标记，则将在“<samp class="samp">#</samp>”和指令名称之间插入一个空格。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">某些指令可能会原样复制到预处理器的输出中，包括 <code class="code">#ident</code>（始终如此）、<code class="code">#pragma</code>（仅当预处理器自身不处理该 pragma 时），以及 <code class="code">#define</code> 和 <code class="code">#undef</code>（启用某些调试选项时）。此时，指令中的 <code class="code">#</code> 总是位于第一列，并且 <code class="code">#</code> 与指令名之间没有空格。如果宏展开恰好生成了可能被误认为这种复制指令的标记，预处理器就会在 <code class="code">#</code> 与指令名之间插入一个空格。</p>
 </div>
 <hr>
 <div class="nav-panel">

@@ -94,7 +94,7 @@ there comes a C statement of the form
 <code class="code">BUFFER_SIZE</code>.  The C compiler will see the same tokens as it would
 if you had written
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">那么C预处理器将识别并展开宏<code class="code">BUFFER_SIZE</code>。 C 编译器将看到与您编写的相同的标记</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">随后，C 预处理器会识别并展开宏 <code class="code">BUFFER_SIZE</code>。C 编译器看到的标记与直接写成以下内容时相同：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">foo = (char *) malloc (1024);
 </pre></div>
@@ -177,7 +177,7 @@ at some point in the source file.  <code class="code">TABLESIZE</code>, defined 
 will always expand using the definition of <code class="code">BUFSIZE</code> that is
 currently in effect:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果您在源文件中的某个位置更改 <code class="code">BUFSIZE</code> 的定义，这会产生影响。 <code class="code">TABLESIZE</code> 的定义如图所示，将始终使用当前有效的 <code class="code">BUFSIZE</code> 的定义进行展开：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果在源文件的某处更改了 <code class="code">BUFSIZE</code> 的定义，这一区别就会体现出来。按上述方式定义的 <code class="code">TABLESIZE</code>，始终使用当前生效的 <code class="code">BUFSIZE</code> 定义来展开：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define BUFSIZE 1020
 #define TABLESIZE BUFSIZE

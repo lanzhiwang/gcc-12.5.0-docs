@@ -115,7 +115,7 @@ literals which have not been closed by the end of an included file are
 invalid.  For error recovery, they are considered to end at the end of
 the file.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">被包含文件不限于声明和宏定义，这些只是典型用途。C 程序的任何片段都可以从另一个文件包含进来：语句可以在头文件中开始、在包含它的文件中结束，也可以反过来。但是，被包含文件必须由完整标记组成。到该文件末尾仍未结束的注释和字符串字面量是无效的；为恢复错误，预处理器将其视为在文件末尾结束。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">被包含文件不限于声明和宏定义，这些只是典型用途。C 程序的任何片段都可以从另一个文件包含进来：语句可以在头文件中开始、在包含它的文件中结束，也可以反过来。但是，被包含文件必须由完整标记组成。到该文件末尾仍未结束的注释和字符串字面量是无效的；为从错误中恢复，预处理器将其视为在文件末尾结束。</p>
 <p>To avoid confusion, it is best if header files contain only complete
 syntactic units&mdash;function declarations or definitions, type
 declarations, etc.

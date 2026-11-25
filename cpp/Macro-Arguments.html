@@ -60,7 +60,7 @@ Next: <a href="Stringizing.html" accesskey="n" rel="next">Stringizing</a>, Previ
 </div>
 <hr>
 <h3 class="section" id="Macro-Arguments-1"><span>3.3 Macro Arguments<a class="copiable-link" href="#Macro-Arguments-1"> &para;</a></span></h3>
-<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.3 宏参数</h3>
+<h3 lang="zh-CN" data-cpp-translation="1" class="translation">3.3 宏实参</h3>
 <a class="index-entry-id" id="index-arguments"></a>
 <a class="index-entry-id" id="index-macros-with-arguments"></a>
 <a class="index-entry-id" id="index-arguments-in-macro-definitions"></a>
@@ -71,7 +71,7 @@ between the pair of parentheses in the macro definition that make the
 macro function-like.  The parameters must be valid C identifiers,
 separated by commas and optionally whitespace.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏可以接受参数，就像真正的函数一样。要定义使用参数的宏，请在宏定义中的一对括号之间插入参数，使宏类似于函数。参数必须是有效的 C 标识符，以逗号和可选的空格分隔。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">函数类宏可以像真正的函数一样接受实参。定义这种宏时，要在宏定义中紧随宏名的圆括号内写出形参。形参必须是有效的 C 标识符，用逗号分隔，也可以在其间加入空白。</p>
 <p>To invoke a macro that takes arguments, you write the name of the macro
 followed by a list of <em class="dfn">actual arguments</em> in parentheses, separated
 by commas.  The invocation of the macro need not be restricted to a
@@ -82,7 +82,7 @@ use of a parameter in its body is replaced by the tokens of the
 corresponding argument.  (You need not use all of the parameters in the
 macro body.)
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">要调用带有参数的宏，请编写宏的名称，后跟括号中的实际参数列表，并用逗号分隔。宏的调用不必限于单个逻辑行——它可以根据需要跨源文件中的任意多行。您给出的参数数量必须与宏定义中的参数数量相匹配。当宏展开时，其主体中参数的每次使用都会被相应参数的标记所替换。 （您不需要使用宏体中的所有参数。）</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">调用接受实参的宏时，应写出宏名，后接用圆括号括起、以逗号分隔的实参列表。宏调用不必局限于一个逻辑行，可以在源文件中跨越任意多行。提供的实参数量必须与宏定义中的形参数量一致。宏展开时，宏体中每一处形参都会被相应实参的标记替换。（不必在宏体中使用所有形参。）</p>
 <p>As an example, here is a macro that computes the minimum of two numeric
 values, as it is defined in many C programs, and some uses.
 </p>
@@ -97,7 +97,7 @@ values, as it is defined in many C programs, and some uses.
 <p>(In this small example you can already see several of the dangers of
 macro arguments.  See <a class="xref" href="Macro-Pitfalls.html">Macro Pitfalls</a>, for detailed explanations.)
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">（在这个小例子中，您已经可以看到宏参数的一些危险。有关详细说明，请参阅 <a class="xref" href="Macro-Pitfalls.html">宏的常见陷阱</a>。）</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">（在这个小例子中，您已经可以看到宏实参的一些危险。有关详细说明，请参阅 <a class="xref" href="Macro-Pitfalls.html">宏的常见陷阱</a>。）</p>
 <p>Leading and trailing whitespace in each argument is dropped, and all
 whitespace between the tokens of an argument is reduced to a single
 space.  Parentheses within each argument must balance; a comma within
@@ -115,8 +115,7 @@ prevent a comma from separating arguments.  Thus,
 you can write it as <code class="code">array[(x = y, x + 1)]</code>, which is equivalent C
 code.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">将两个参数传递给 <code class="code">macro</code>：<code class="code">array[x = y</code> 和 <code class="code">x +
-1]</code>。如果要提供 <code class="code">array[x = y, x + 1]</code> 作为参数，可以将其写为 <code class="code">array[(x = y, x + 1)]</code>，这相当于 C 代码。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">这会向 <code class="code">macro</code> 传递两个实参：<code class="code">array[x = y</code> 和 <code class="code">x + 1]</code>。如果希望将 <code class="code">array[x = y, x + 1]</code> 作为一个实参传递，可以写成 <code class="code">array[(x = y, x + 1)]</code>，这两种写法在 C 中是等价的。</p>
 <p>All arguments to a macro are completely macro-expanded before they are
 substituted into the macro body.  After substitution, the complete text
 is scanned again for macros to expand, including the arguments.  This rule
@@ -124,7 +123,7 @@ may seem strange, but it is carefully designed so you need not worry
 about whether any function call is actually a macro invocation.  You can
 run into trouble if you try to be too clever, though.  See <a class="xref" href="Argument-Prescan.html">Argument Prescan</a>, for detailed discussion.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">宏的所有参数在代入宏体之前都经过完全宏展开。替换后，再次扫描完整文本以查找要展开的宏，包括参数。这个规则可能看起来很奇怪，但它是经过精心设计的，因此您不必担心任何函数调用实际上是否是宏调用。不过，如果你太聪明，你可能会遇到麻烦。有关详细讨论，请参阅 <a class="xref" href="Argument-Prescan.html">参数预扫描</a>。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏的所有实参在代入宏体之前都经过完全宏展开。替换后，再次扫描完整文本以查找要展开的宏，包括实参。这个规则可能看起来很奇怪，但它是经过精心设计的，因此您不必担心任何函数调用实际上是否是宏调用。不过，如果试图耍小聪明，你可能会遇到麻烦。有关详细讨论，请参阅 <a class="xref" href="Argument-Prescan.html">实参预扫描</a>。</p>
 <p>For example, <code class="code">min (min (a, b), c)</code> is first expanded to
 </p>
 <p lang="zh-CN" data-cpp-translation="1" class="translation">例如，<code class="code">min (min (a, b), c)</code> 首先展开为</p>
@@ -134,7 +133,7 @@ run into trouble if you try to be too clever, though.  See <a class="xref" href=
 
 <p>and then to
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">然后到</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">再展开为</p>
 <div class="example smallexample">
 <div class="group"><pre class="example-preformatted">((((a) &lt; (b) ? (a) : (b))) &lt; (c)
  ? (((a) &lt; (b) ? (a) : (b)))
@@ -151,7 +150,7 @@ You cannot leave out arguments entirely; if a macro takes two arguments,
 there must be exactly one comma at the top level of its argument list.
 Here are some silly examples using <code class="code">min</code>:
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">可以把宏实参留空；预处理器不会因此报错，不过许多宏随后会展开为无效代码。不能直接省略参数位置：若宏接收两个实参，参数列表最外层就必须恰好有一个逗号。下面给出一些不合理的 <code class="code">min</code> 用法：</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">可以把宏实参留空；预处理器不会因此报错，不过许多宏随后会展开为无效代码。不能直接省略实参位置：若宏接收两个实参，实参列表最外层就必须恰好有一个逗号。下面给出一些不合理的 <code class="code">min</code> 用法：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">min(, b)        &rarr; ((   ) &lt; (b) ? (   ) : (b))
 min(a, )        &rarr; ((a  ) &lt; ( ) ? (a  ) : ( ))
@@ -169,11 +168,11 @@ documentation were incorrect on this point, insisting that a
 function-like macro that takes a single argument be passed a space if an
 empty argument was required.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">空格不是一种预处理标记，因此如果宏 <code class="code">foo</code> 采用一个参数，则 <code class="code">foo&nbsp;()<!-- /@w --></code> 和 <code class="code">foo&nbsp;(&nbsp;)<!-- /@w --></code> 都为其提供一个空参数。以前的 GNU 预处理器实现和文档在这一点上是不正确的，坚持认为如果需要空参数，则需要向带有单个参数的函数类宏传递一个空格。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">空白不是预处理标记，因此，如果宏 <code class="code">foo</code> 接受一个实参，那么 <code class="code">foo ()</code> 和 <code class="code">foo ( )</code> 都会向它传递一个空实参。早期 GNU 预处理器的实现和文档在这一点上是错误的：它们坚持要求，在调用只有一个形参的函数类宏时，若要传入空实参，就必须传入一个空格。</p>
 <p>Macro parameters appearing inside string literals are not replaced by
 their corresponding actual arguments.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">出现在字符串字面量内的宏参数不会被其相应的实际参数替换。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">出现在字符串字面量内部的宏形参，不会被对应的实参替换。</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define foo(x) x, &quot;x&quot;
 foo(bar)        &rarr; bar, &quot;x&quot;

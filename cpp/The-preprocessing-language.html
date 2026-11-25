@@ -125,7 +125,7 @@ expansion.  Also, the directive name is not macro expanded.  Thus, if
 <code class="code">foo</code> is defined as a macro expanding to <code class="code">define</code>, that does
 not make &lsquo;<samp class="samp">#foo</samp>&rsquo; a valid preprocessing directive.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">指令开头的“<samp class="samp">#</samp>”不能来自宏展开。此外，指令名称不是宏展开的。因此，如果 <code class="code">foo</code> 被定义为展开为 <code class="code">define</code> 的宏，则不会使“<samp class="samp">#foo</samp>”成为有效的预处理指令。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">指令开头的“<samp class="samp">#</samp>”不能来自宏展开。此外，指令名称也不会进行宏展开。因此，如果 <code class="code">foo</code> 被定义为展开为 <code class="code">define</code> 的宏，则不会使“<samp class="samp">#foo</samp>”成为有效的预处理指令。</p>
 <p>The set of valid directive names is fixed.  Programs cannot define new
 preprocessing directives.
 </p>
@@ -135,14 +135,14 @@ directive line and must be separated from the directive name by
 whitespace.  For example, &lsquo;<samp class="samp">#define</samp>&rsquo; must be followed by a macro
 name and the intended expansion of the macro.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">有些指令需要参数；它们构成指令行的其余部分，并且必须用空格与指令名称分隔。例如，“<samp class="samp">#define</samp>”后面必须跟有宏名称和宏的预期展开。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">有些指令需要参数；它们构成指令行的其余部分，并且必须用空白与指令名称分隔。例如，“<samp class="samp">#define</samp>”后面必须跟有宏名称和宏的预期展开。</p>
 <p>A preprocessing directive cannot cover more than one line.  The line
 may, however, be continued with backslash-newline, or by a block comment
 which extends past the end of the line.  In either case, when the
 directive is processed, the continuations have already been merged with
 the first line to make one long line.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">一条预处理指令不能覆盖多于一行。然而，该行可以用反斜杠换行符或延伸到该行末尾的块注释来继续。在任何一种情况下，当处理指令时，延续已经与第一行合并以形成一个长行。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">一条预处理指令不能跨越多个逻辑行。不过，可以通过反斜杠换行，或通过跨越物理行末的块注释，将该行延续下去。在这两种情况下，处理指令之前，续接的内容都已与第一行合并为一个长行。</p>
 </div>
 <hr>
 <div class="nav-panel">

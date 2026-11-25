@@ -67,7 +67,7 @@ the input file, for more macro calls.  It is possible to piece together
 a macro call coming partially from the macro body and partially from the
 arguments.  For example,
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">当使用参数调用宏时，参数将被替换到宏体中，并与输入文件的其余部分一起检查结果，以进行更多宏调用。可以将部分来自宏体和部分来自参数的宏调用拼凑在一起。例如，</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">调用宏时，实参会被代入宏体，预处理器随后会将展开结果与输入文件的其余部分一起扫描，以查找更多宏调用。因此，可以将一部分来自宏体、另一部分来自实参的内容拼成一次宏调用。例如：</p>
 <div class="example smallexample">
 <pre class="example-preformatted">#define twice(x) (2*(x))
 #define call_with_1(x) x(1)

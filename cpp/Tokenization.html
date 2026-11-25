@@ -222,7 +222,7 @@ normally considered a letter.)  All bytes with the high bit set
 part of an extended character in the input encoding are also &ldquo;other&rdquo;
 in the present implementation.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">任何其他单字节都归入“其他”一类，并原样传递到预处理器的输出中。C 编译器几乎肯定会拒绝包含“其他”标记的源代码。在 ASCII 中，归入“其他”的字符只有“<samp class="samp">@</samp>”、“<samp class="samp">$</samp>”、“<samp class="samp">&#96;</samp>”，以及除 NUL（所有位均为零）以外的控制字符。（注意，“<samp class="samp">$</samp>”通常被视为字母。）在当前实现中，所有最高位置 1、且未能按输入编码成功解释为某个扩展字符组成部分的字节（原文给出的数值范围为 0x7F–0xFF），也归入“其他”一类。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">任何其他单字节都归入“其他”一类，并原样传递到预处理器的输出中。C 编译器几乎肯定会拒绝包含“其他”标记的源代码。在 ASCII 中，归入“其他”的字符只有“<samp class="samp">@</samp>”、“<samp class="samp">$</samp>”、“<samp class="samp">&#96;</samp>”，以及除 NUL（所有位均为零）以外的控制字符。（注意，“<samp class="samp">$</samp>”通常被视为字母。）在当前实现中，所有最高位置 1、且未能按输入编码成功解释为某个扩展字符组成部分的字节（数值范围为 0x7F–0xFF），也归入“其他”一类。</p>
 <p>NUL is a special case because of the high probability that its
 appearance is accidental, and because it may be invisible to the user
 (many terminals do not display NUL at all).  Within comments, NULs are
@@ -240,7 +240,7 @@ have the same meaning.
 NULs are preserved.  In the latter two cases the preprocessor emits a
 warning message.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">（其中“<samp class="samp">^@</samp>”表示 ASCII NUL。）在字符串常量或字符常量中，NUL 会被保留。在后两种情况下，预处理器会发出警告。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">（其中“^@”表示 ASCII NUL。）在字符串常量或字符常量中，NUL 会被保留。在普通源文本中遇到 NUL，以及在字符串或字符常量中遇到 NUL 时，预处理器都会发出警告。</p>
 </div>
 <div class="footnotes-segment">
 <hr>

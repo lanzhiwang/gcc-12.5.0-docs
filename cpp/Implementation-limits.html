@@ -97,7 +97,7 @@ available memory.
 </li><li>Levels of parenthesized expressions within a full expression.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">完整表达式中带括号的表达式的级别。</p><p>The C standard requires this to be at least 63.  In preprocessor
+<p lang="zh-CN" data-cpp-translation="1" class="translation">完整表达式内部的括号嵌套层数。</p><p>The C standard requires this to be at least 63.  In preprocessor
 conditional expressions, it is limited only by available memory.
 </p>
 <p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准要求该值至少为 63。在预处理器条件表达式中，它仅受可用内存的限制。</p>
@@ -118,10 +118,10 @@ by available memory.
 </li><li>Number of parameters in a macro definition and arguments in a macro call.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">宏定义中的参数数量和宏调用中的参数数量。</p><p>We allow <code class="code">USHRT_MAX</code>, which is no smaller than 65,535.  The minimum
+<p lang="zh-CN" data-cpp-translation="1" class="translation">宏定义中的形参数量和宏调用中的实参数量。</p><p>We allow <code class="code">USHRT_MAX</code>, which is no smaller than 65,535.  The minimum
 required by the standard is 127.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">我们允许<code class="code">USHRT_MAX</code>，它不小于65,535。标准要求的最小值为 127。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">允许的数量为 <code class="code">USHRT_MAX</code>，该值不小于 65,535。标准要求至少支持 127 个。</p>
 </li><li>Number of characters on a logical source line.
 
 
@@ -129,7 +129,7 @@ required by the standard is 127.
 no limits on this, but you may get incorrect column numbers reported in
 diagnostics for lines longer than 65,535 characters.
 </p>
-<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准要求至少允许 4096。 CPP 对此没有限制，但对于长度超过 65,535 个字符的行，您可能会在诊断中报告错误的列号。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">C 标准要求至少允许 4096 个字符。CPP 不设置此限制，但对于超过 65,535 个字符的行，诊断信息中报告的列号可能不正确。</p>
 </li><li>Maximum size of a source file.
 
 

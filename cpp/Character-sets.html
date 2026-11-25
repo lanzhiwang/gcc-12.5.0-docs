@@ -97,7 +97,7 @@ the character in the source character set that they represent, then
 converted to the execution character set, just like unescaped
 characters.
 </p>
-<p>预处理完成后，字符串常量和字符常量会再次转换为<em class="dfn">执行</em>字符集。该字符集由用户控制，默认值为与源字符集一致的 UTF-8。宽字符串常量和宽字符常量有自己的字符集，标准没有专门说明这一字符集；它同样由用户控制。默认值是 UTF-16 或 UTF-32，具体取决于哪一种适合目标机器字节序中的目标 <code class="code">wchar_t</code> 类型。八进制和十六进制转义序列不会转换；无论当前选择的执行字符集是什么，<code class="t">'\x12'</code> 的值都是 0x12。其他转义序列会先替换为它们在源字符集中表示的字符，然后像未转义字符一样转换到执行字符集。</p>
+<p>预处理完成后，字符串常量和字符常量会再次转换为<em class="dfn">执行</em>字符集。该字符集由用户控制，默认值为与源字符集一致的 UTF-8。宽字符串常量和宽字符常量有自己的字符集，标准没有专门说明这一字符集；它同样由用户控制。默认采用与目标 <code class="code">wchar_t</code> 类型宽度相匹配的 UTF-16 或 UTF-32，并使用目标机器的字节序。<a href="#FOOT1"><sup>1</sup></a>八进制和十六进制转义序列不会转换；无论当前选择的执行字符集是什么，<code class="t">'\x12'</code> 的值都是 0x12。其他转义序列会先替换为它们在源字符集中表示的字符，然后像未转义字符一样转换到执行字符集。</p>
 <p>In identifiers, characters outside the ASCII range can be specified
 with the &lsquo;<samp class="samp">\u</samp>&rsquo; and &lsquo;<samp class="samp">\U</samp>&rsquo; escapes or used directly in the input
 encoding.  If strict ISO C90 conformance is specified with an option

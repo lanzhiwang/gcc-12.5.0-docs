@@ -73,7 +73,7 @@ between the beginning of the line and the &lsquo;<samp class="samp">#</samp>&rsq
 follow the &lsquo;<samp class="samp">#</samp>&rsquo;.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">仅当预处理指令的前导“<samp class="samp">#</samp>”出现在第一列时，才会识别预处理指令。行首和“<samp class="samp">#</samp>”之间不能有空格，但“<samp class="samp">#</samp>”后面可以有空格。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">仅当预处理指令的前导“<samp class="samp">#</samp>”出现在第一列时，才会识别预处理指令。行首和“<samp class="samp">#</samp>”之间不能有空白，但“<samp class="samp">#</samp>”后面可以有空白。</p>
 </li><li>A true traditional C preprocessor does not recognize &lsquo;<samp class="samp">#error</samp>&rsquo; or
 &lsquo;<samp class="samp">#pragma</samp>&rsquo;, and may not recognize &lsquo;<samp class="samp">#elif</samp>&rsquo;.  CPP supports all
 the directives in traditional mode that it supports in ISO mode,
@@ -81,7 +81,7 @@ including extensions, with the exception that the effects of
 &lsquo;<samp class="samp">#pragma GCC poison</samp>&rsquo; are undefined.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">真正的传统 C 预处理器无法识别“<samp class="samp">#error</samp>”或“<samp class="samp">#pragma</samp>”，并且可能无法识别“<samp class="samp">#elif</samp>”。 CPP 支持在 ISO 模式下支持的所有传统模式指令，包括扩展，但“<samp class="samp">#pragma GCC poison</samp>”的效果未定义。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">真正的传统 C 预处理器不识别 <code class="code">#error</code> 或 <code class="code">#pragma</code>，也可能不识别 <code class="code">#elif</code>。CPP 在传统模式下支持它在 ISO 模式下支持的所有指令，包括扩展；唯一的例外是 <code class="code">#pragma GCC poison</code> 的效果未定义。</p>
 </li><li>__STDC__ is not defined.
 
 
@@ -94,7 +94,7 @@ including extensions, with the exception that the effects of
 the behavior is undefined.
 
 
-<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏参数中出现看起来像指令的行，则行为未定义。</p>
+<p lang="zh-CN" data-cpp-translation="1" class="translation">如果宏实参中出现看起来像指令的行，则行为未定义。</p>
 </li></ul>
 
 </div>
