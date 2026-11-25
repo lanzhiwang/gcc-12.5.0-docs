@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.44.
+
+Copyright © 1993-2026 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>System-wide Tunables (The GNU C Library)</title>
+
+<meta name="description" content="System-wide Tunables (The GNU C Library)">
+<meta name="keywords" content="System-wide Tunables (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tunables.html" rel="up" title="Tunables">
+<link href="Tunable-names.html" rel="next" title="Tunable names">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="System_002dwide-Tunables">
+<div class="nav-panel">
+<p>
+Next: <a href="Tunable-names.html" accesskey="n" rel="next">Tunable names</a>, Up: <a href="Tunables.html" accesskey="u" rel="up">Tunables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="System_002dwide-Tunables-1"><span>39.1 System-wide Tunables<a class="copiable-link" href="#System_002dwide-Tunables-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-System_002dwide-Tunables"></a>
+<a class="index-entry-id" id="index-_002fetc_002ftunables_002econf"></a>
+
+<p>In addition to setting the <code class="code">GLIBC_TUNABLES</code> environment variable,
+tunables may be provided globally via the file
+<samp class="file">/etc/tunables.conf</samp>, which gets stored in glibc&rsquo;s dynamic
+library cache <samp class="file">/etc/ld.so.cache</samp> and read by every program at
+startup.
+</p>
+<p><strong class="strong">Portability Note:</strong> Specific tunable settings and the
+<samp class="file">/etc/tunables.conf</samp> file format and path are not part of the
+stable library interfaces and may change between releases.
+</p>
+<p>The file <samp class="file">/etc/tunables.conf</samp> contains one tunable per line:
+</p>
+<div class="example">
+<pre class="example-preformatted">glibc.malloc.trim_threshold=128
+glibc.malloc.check=3
+</pre></div>
+
+<p><samp class="file">ldconfig</samp> (with whatever options you normally use) will read the
+tunables in <samp class="file">/etc/tunables.conf</samp> and save them as an extension
+in <samp class="file">/etc/ld.so.cache</samp>.  Tunables in the cache are applied to
+every program at startup, programs which are already running are not
+affected.
+</p>
+<p><samp class="file">/etc/tunables.conf</samp> supports the same &ldquo;include <var class="var">file</var>&rdquo;
+syntax as <samp class="file">ld.so.conf</samp>.
+</p>
+<p>Tunables in <samp class="file">/etc/tunables.conf</samp> serve as defaults.  They
+override the built-in defaults in each program, but may be overridden
+by the <code class="code">GLIBC_TUNABLES</code> environment variable.  Each tunable may
+have one or more prefixes which modifies the behavior of the tunable.
+</p>
+<dl class="table">
+<dt><code class="code">overridable</code></dt>
+<dt><code class="code">+</code></dt>
+<dt><code class="code">nonoverridable</code></dt>
+<dt><code class="code">-</code></dt>
+<dd><p>Prefixing the tunable name with <code class="code">nonoverridable</code> or <code class="code">-</code>
+blocks changes from the environment variable, giving the global
+setting precedence.  Prefixing with <code class="code">overridable</code> or <code class="code">+</code>
+(the default) reverts this behavior, which is only useful with the
+filters (below).
+</p>
+</dd>
+<dt><code class="code">onlysecure</code></dt>
+<dt><code class="code">@</code></dt>
+<dd><p>Tunables prefixed with <code class="code">onlysecure</code> or <code class="code">@</code> will apply only
+to processes that are AT_SECURE (i.e. setuid or setgid binaries, or
+elevated capabilities).
+</p>
+</dd>
+<dt><code class="code">nonsecure</code></dt>
+<dt><code class="code">$</code></dt>
+<dd><p>Tunables prefixed with <code class="code">nonsecure</code> or <code class="code">$</code> will apply only to
+processes that aren&rsquo;t AT_SECURE.
+</p>
+</dd>
+<dt><code class="code">anysecure</code></dt>
+<dt><code class="code">*</code></dt>
+<dd><p>Tunables prefixed with <code class="code">anysecure</code> or <code class="code">*</code> will apply to all
+processes.
+</p>
+</dd>
+</dl>
+
+<p>When none of the <code class="code">onlysecure</code>, <code class="code">nonsecure</code> or <code class="code">anysecure</code>
+prefixes is given, a tunable behaves as if <code class="code">nonsecure</code> had been
+specified: it applies only to processes that are not AT_SECURE.  Use
+<code class="code">anysecure</code> or <code class="code">onlysecure</code> to affect AT_SECURE (setuid,
+setgid, or capability-elevated) processes.
+</p>
+<p>The <code class="code">GLIBC_TUNABLES</code> environment variable is ignored entirely for
+AT_SECURE processes, so the system-wide file is the only way to set a
+tunable for such a process.  A tunable applied this way is not subject to
+any per-tunable security screening, so <code class="code">onlysecure</code> and
+<code class="code">anysecure</code> must be used deliberately: they can enable
+security-sensitive tunables (for example <code class="code">glibc.malloc.check</code>) in
+every setuid or setgid program.  The config file is therefore trusted to
+the same degree as <samp class="file">/etc/ld.so.cache</samp> and must only be writable by
+the system administrator.
+</p>
+<p>Filters make the system-wide tunables only affect certain programs.
+This allows having a non-overridable default for most of the system
+but a different, overridable, value for certain programs that might
+not work at all with the default setting.  The syntax for filters is
+to have each filter on its own line, followed by tunables that are
+applied when the filter matches, with this format:
+</p>
+<div class="example">
+<pre class="example-preformatted">[ <var class="var">filtername</var> : <var class="var">pattern</var> ]
+</pre></div>
+
+<p>Existing filters are:
+</p>
+<dl class="table">
+<dt><code class="code">proc</code></dt>
+<dd><p>Matches the process name.  The pattern is either a fully qualified
+path, or the basename of such a path.  The process name is read from
+<samp class="file">/proc/self/exe</samp> (if available) or <samp class="file">argv[0]</samp> (unless
+AT_SECURE is in effect).  Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">-glibc.cpu.x86_shstk=1
+[proc:/usr/bin/program_that_crashes_with_shstk]
++glibc.cpu.x86_shstk=0
+</pre></div>
+
+</dd>
+</dl>
+
+<p>Note that the effects of a filter only last until the next filter, or
+a line with <code class="code">[]</code> on it (&ldquo;no filter&rdquo;), or the end of the file
+(if the filter appears in an included file, at the end of the included
+file).
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Tunable-names.html">Tunable names</a>, Up: <a href="Tunables.html">Tunables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
